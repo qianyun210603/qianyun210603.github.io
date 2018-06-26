@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Palace of Book and Sword 书剑阁</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Palace of Book and Sword 书剑阁">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="Palace of Book and Sword 书剑阁">
+<meta property="og:locale" content="en, chn">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Palace of Book and Sword 书剑阁">
+  
+    <link rel="alternate" href="/atom.xml" title="Palace of Book and Sword 书剑阁" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Palace of Book and Sword 书剑阁</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Personal room to record life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Move-linux-to-new-disk" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/26/Move-linux-to-new-disk/" class="article-date">
+  <time datetime="2018-06-26T13:02:10.000Z" itemprop="datePublished">2018-06-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/26/Move-linux-to-new-disk/">Move linux to new disk</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Task"><a href="#Task" class="headerlink" title="Task"></a>Task</h4><p>My desktop previously have one SSD and one HDD where SDD contains dual system Windows 10 and Linux Mint 18.3. HDD serves as data disk for Windows 10. Originally linux partition was assigned only ~300GB space and now it is not enough for usage. Therefore another 1TB SSD was purchased and I hope to move the Linux system completely to the new SSD. The space of old linux will be freed for windows.</p>
+<h4 id="Step"><a href="#Step" class="headerlink" title="Step"></a>Step</h4><ol>
+<li>Hardware installation</li>
+<li>Boot system with a live CD</li>
+<li><p>Use fdisk to partition the new disk, first a 2GB swap area and remaining space is filesystem for moved system. </p>
+<ol>
+<li>Use <code>fdisk -l</code> to check the current disk status, find out where the linux filesystem and swap area locates and the new disk. Remember the partition points of them. For example, let’s assume they are <code>/dev/sda2</code>, <code>/dev/sda3</code>, and <code>/dev/sdd</code> respectively.</li>
+<li><p>Use <code>fdisk /dev/sdd</code> to partition the new disk</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Command (m <span class="keyword">for</span> <span class="built_in">help</span>): n <span class="comment"># create partition of 2GB for swap area</span></span><br><span class="line">Partition number (1-128, default 1): </span><br><span class="line">First sector (1-10000000, default 2048): </span><br><span class="line">Last sector, +sectors or +size&#123;K,M,G,T,P&#125; (34-2047, default 10000000): +2G</span><br><span class="line"></span><br><span class="line">Created a new partition 1 of <span class="built_in">type</span> <span class="string">'Linux filesystem'</span> and of size 2 GiB.</span><br><span class="line"></span><br><span class="line">Command (m <span class="keyword">for</span> <span class="built_in">help</span>): n <span class="comment"># create partition with remaining space for main filesystem</span></span><br><span class="line">Partition number (2-128, default 2): </span><br><span class="line">First sector (600001-10000000): </span><br><span class="line">Last sector, +sectors or +size&#123;K,M,G,T,P&#125; (600002-10000000, default 10000000): </span><br><span class="line"></span><br><span class="line">Created a new partition 3 of <span class="built_in">type</span> <span class="string">'Linux filesystem'</span> and of size 600 GiB.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>fdisk -l</code> again to check partitions of new disk. Say filesystime partition is <code>/dev/sdd1</code> and swap area is <code>/dev/sdd2</code></p>
+</li>
+<li>Format the partitions <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 /dev/sdd1</span><br><span class="line">mkfs.ext4 /dev/sdd2</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<ol start="3">
+<li><p>Copy partitions of old linux to new disk with <code>dd</code> command.</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=/dev/sda2 of=/dev/sdd1</span><br><span class="line">dd <span class="keyword">if</span>=/dev/sda3 of=/dev/sdd2</span><br></pre></td></tr></table></figure>
+<p> For filesystem, it can take hours depending on size. If <code>/boot</code> was separately mounted when previous linux mint was installed, that partition should also be created and copied.</p>
+</li>
+<li><p>Update disk information</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">e2fsck -f /dev/sdd1</span><br><span class="line">resize2fs /dev/sdd1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Modify uuid with <code>gparted</code>. Once new uuid generated, update in the <code>/etc/fstab</code> of the copied linux system:</p>
+<ul>
+<li>check new uuid with <code>blkid /dev/sdd1</code></li>
+<li>mount new disk and update the uuid in <code>/&lt;mount dir&gt;/etc/fstab</code> to new uuid</li>
+<li>reboot and enter Windows 10. Go to Disk Management, delete the old linux partitions.</li>
+<li>Reboot again with liveCD. Use boot repair to fix grub</li>
+<li>Install and open boot repair</li>
+</ul>
+</li>
+<li><p>Repair the boot information with boot-repair</p>
+<ol>
+<li><p>Install and open boot-repair</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:yannubuntu/boot-repair</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y boot-repair</span><br><span class="line">boot-repair</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Go to advanced mode, </p>
+<ul>
+<li>“GRUB location” tab, check “Separate /boot/efi partition” checkbox, and select previous the disk previous linux was on.</li>
+<li>“GRUB options” tab, check “Purge GRUB before reinstalling it”</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>Reboot</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/26/Move-linux-to-new-disk/" data-id="cjivpasqm0007mla10i1t6pr3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/26/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/" class="article-date">
+  <time datetime="2018-06-26T13:02:10.000Z" itemprop="datePublished">2018-06-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/26/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/">cuda 9.1 installation on linux mint with cuDNN and NICC</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/26/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/" data-id="cjivpasqt000cmla16bltfuwx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Build-Tensorflow-from-source-on-Linux-Mint" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/26/Build-Tensorflow-from-source-on-Linux-Mint/" class="article-date">
+  <time datetime="2018-06-26T13:02:09.000Z" itemprop="datePublished">2018-06-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/26/Build-Tensorflow-from-source-on-Linux-Mint/">Build Tensorflow from source on Linux Mint</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>Install Bazel (a )</p>
+<ol>
+<li><p>Install JDK 8<br> Install JDK 8 by using:</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install openjdk-8-jdk</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Add Bazel distribution URI as a package source (one time setup)</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8"</span> | tee /etc/apt/sources.list.d/bazel.list</span><br><span class="line">curl https://bazel.build/bazel-release.pub.gpg | sudo apt-key add -</span><br></pre></td></tr></table></figure>
+<p> If you want to install the testing version of Bazel, replace stable with testing.</p>
+</li>
+<li>Install and update Bazel <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install bazel</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>Install CUDA and cuDNN (Details ignored, refer to )</p>
+</li>
+<li><p>Clone the TensorFlow repository</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --recurse-submodules https://github.com/tensorflow/tensorflow</span><br></pre></td></tr></table></figure>
+<p> <code>--recurse-submodules</code> is used to clone the dependency library <font color="#ff0000">protobuf</font>.</p>
+</li>
+<li>Install other dependency <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install python3-numpy swig python3-dev libgrpc-dev</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="5">
+<li>Configuration <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">You have bazel 0.10.1 installed.</span><br><span class="line">Please specify the location of python. [Default is /usr/bin/python]: /usr/<span class="built_in">local</span>/anaconda3/bin/python</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Found possible Python library paths:</span><br><span class="line">  /usr/<span class="built_in">local</span>/anaconda3/lib/python3.6/site-packages</span><br><span class="line">Please input the desired Python library path to use.  Default is [/usr/<span class="built_in">local</span>/anaconda3/lib/python3.6/site-packages]</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with jemalloc as malloc support? [Y/n]: y</span><br><span class="line">jemalloc as malloc support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with Google Cloud Platform support? [Y/n]: y</span><br><span class="line">Google Cloud Platform support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with Hadoop File System support? [Y/n]: n</span><br><span class="line">No Hadoop File System support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with Amazon S3 File System support? [Y/n]: n</span><br><span class="line">No Amazon S3 File System support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with Apache Kafka Platform support? [y/N]: n</span><br><span class="line">No Apache Kafka Platform support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with XLA JIT support? [y/N]: y</span><br><span class="line">XLA JIT support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with GDR support? [y/N]: n</span><br><span class="line">No GDR support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with VERBS support? [y/N]: n</span><br><span class="line">No VERBS support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with OpenCL SYCL support? [y/N]: n</span><br><span class="line">No OpenCL SYCL support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with CUDA support? [y/N]: y</span><br><span class="line">CUDA support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Please specify the CUDA SDK version you want to use, e.g. 7.0. [Leave empty to default to CUDA 9.0]: 9.1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Please specify the location <span class="built_in">where</span> CUDA 9.1 toolkit is installed. Refer to README.md <span class="keyword">for</span> more details. [Default is /usr/<span class="built_in">local</span>/cuda]: </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Please specify the cuDNN version you want to use. [Leave empty to default to cuDNN 7.0]: 7.0.5</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Please specify the location <span class="built_in">where</span> cuDNN 7 library is installed. Refer to README.md <span class="keyword">for</span> more details. [Default is /usr/<span class="built_in">local</span>/cuda]: /usr</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with TensorRT support? [y/N]: n</span><br><span class="line">No TensorRT support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Please specify a list of comma-separated Cuda compute capabilities you want to build with.</span><br><span class="line">You can find the compute capability of your device at: https://developer.nvidia.com/cuda-gpus.</span><br><span class="line">Please note that each additional compute capability significantly increases your build time and binary size. [Default is: 3.5,5.2]6.1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Do you want to use clang as CUDA compiler? [y/N]: n</span><br><span class="line">nvcc will be used as CUDA compiler.</span><br><span class="line"></span><br><span class="line">Please specify <span class="built_in">which</span> gcc should be used by nvcc as the host compiler. [Default is /usr/bin/gcc]: </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with MPI support? [y/N]: y</span><br><span class="line">MPI support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Please specify the MPI toolkit folder. [Default is ]: /usr</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Please specify optimization flags to use during compilation when bazel option <span class="string">"--config=opt"</span> is specified [Default is -march=native]: </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Would you like to interactively configure ./WORKSPACE <span class="keyword">for</span> Android builds? [y/N]: n</span><br><span class="line">Not configuring the WORKSPACE <span class="keyword">for</span> Android builds.</span><br><span class="line"></span><br><span class="line">Preconfigured Bazel build configs. You can use any of the below by adding <span class="string">"--config=&lt;&gt;"</span> to your build <span class="built_in">command</span>. See tools/bazel.rc <span class="keyword">for</span> more details.</span><br><span class="line">	--config=mkl         	<span class="comment"># Build with MKL support.</span></span><br><span class="line">	--config=monolithic  	<span class="comment"># Config for mostly static monolithic build.</span></span><br><span class="line">Configuration finished</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="6">
+<li><p>Build</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bazel build -c opt --config=cuda //tensorflow/cc:tutorials_example_trainer</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Test run</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bazel-bin/tensorflow/cc/tutorials_example_trainer --use_gpu</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="8">
+<li><p>Build pip package    </p>
+<ul>
+<li><p>Create an env under Anaconda specified for tensorflow (assuming that Anaconda is installed)</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/anaconda3/bin/conda create -n tensorflow pip python=3.6.4 anaconda</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Activate the env</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /usr/<span class="built_in">local</span>/anaconda3/bin/activate tensorflow</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Build under the env</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># To resolve the error caused by location of mpi header files in system is not consistent with tensorflow</span></span><br><span class="line">rm -rf third_party/mpi/mpi*.h</span><br><span class="line">ln -s /usr/include/mpich/mpi.h third_party/mpi/mpi.h</span><br><span class="line">ln -s /usr/include/mpich/mpicxx.h third_party/mpi/mpicxx.h</span><br><span class="line">ln -s /usr/include/mpich/mpio.h third_party/mpi/mpio.h</span><br><span class="line"></span><br><span class="line"><span class="comment"># build</span></span><br><span class="line">bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package</span><br><span class="line"></span><br><span class="line"><span class="comment"># generate wheel in /tmp/tensorflow_pkg</span></span><br><span class="line">bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>Install under Anaconda env   </p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install /tmp/tensorflow_pkg/tensorflow-1.6.0rc1-cp36-cp36m-linux_x86_64.whl</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="10">
+<li><p>Test installation</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># enter tensorflow env</span></span><br><span class="line"><span class="built_in">source</span> /usr/<span class="built_in">local</span>/anaconda3/bin/activate tensorflow</span><br><span class="line"></span><br><span class="line"><span class="comment"># enter python</span></span><br><span class="line">python</span><br></pre></td></tr></table></figure>
+<p>In python interactive</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Python <span class="number">3.6</span><span class="number">.4</span> |Anaconda, Inc.| (default, Jan <span class="number">16</span> <span class="number">2018</span>, <span class="number">18</span>:<span class="number">10</span>:<span class="number">19</span>) </span><br><span class="line">[GCC <span class="number">7.2</span><span class="number">.0</span>] on linux</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> <span class="keyword">or</span> <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>tf.__version__</span><br><span class="line"><span class="string">'1.6.0-rc1'</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h5 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h5><ol>
+<li>Bazel installation guide: <a href="https://docs.bazel.build/versions/master/install-ubuntu.html" target="_blank" rel="noopener">https://docs.bazel.build/versions/master/install-ubuntu.html</a></li>
+<li>Tensorflow: <a href="https://tensorflow.google.cn/install/install_sources" target="_blank" rel="noopener">https://tensorflow.google.cn/install/install_sources</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/26/Build-Tensorflow-from-source-on-Linux-Mint/" data-id="cjivpasqi0002mla1na5gb2cu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Linux-Mint-Cleanup" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/26/Linux-Mint-Cleanup/" class="article-date">
+  <time datetime="2018-06-26T13:02:09.000Z" itemprop="datePublished">2018-06-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/26/Linux-Mint-Cleanup/">Linux Mint Cleanup</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Clean up old kernel<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">uname -r <span class="comment">#check current using kernel</span></span><br><span class="line">dpkg --get-selections |grep linux <span class="comment"># list installed kernels</span></span><br><span class="line">apt purge xxx <span class="comment"># remove</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/26/Linux-Mint-Cleanup/" data-id="cjivpasqn0008mla15aa3du8l" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Rename-Visual-Studio-Project-name-checklist" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/26/Rename-Visual-Studio-Project-name-checklist/" class="article-date">
+  <time datetime="2018-06-26T13:02:08.000Z" itemprop="datePublished">2018-06-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/26/Rename-Visual-Studio-Project-name-checklist/">Rename Visual Studio Project name checklist</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>Rename project name in visual studio.</li>
+<li>Rename all header and source file, also resolve #include.</li>
+<li>Rename .sln, .vcpoj and .vcxpoj file.</li>
+<li>Open the aforementioned three file, replace all old name with new name.</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/26/Rename-Visual-Studio-Project-name-checklist/" data-id="cjivpasqp0009mla1do0gk4gb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/26/hello-world/" class="article-date">
+  <time datetime="2018-06-26T12:52:48.253Z" itemprop="datePublished">2018-06-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/26/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/26/hello-world/" data-id="cjivpasqv000emla1635hi6s7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/26/MFC/">MFC</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/26/About-GongFu-Wall/">About GongFu Wall</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/26/Tesseract/">Tesseract</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/26/Git-ticks/">Git ticks</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/26/Build-Hexo-blog/">Build Hexo blog</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 BookSword<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

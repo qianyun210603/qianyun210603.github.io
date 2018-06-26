@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Move linux to new disk | Palace of Book and Sword 书剑阁</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="TaskMy desktop previously have one SSD and one HDD where SDD contains dual system Windows 10 and Linux Mint 18.3. HDD serves as data disk for Windows 10. Originally linux partition was assigned only ~">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Move linux to new disk">
+<meta property="og:url" content="http://yoursite.com/2018/06/26/Move-linux-to-new-disk/index.html">
+<meta property="og:site_name" content="Palace of Book and Sword 书剑阁">
+<meta property="og:description" content="TaskMy desktop previously have one SSD and one HDD where SDD contains dual system Windows 10 and Linux Mint 18.3. HDD serves as data disk for Windows 10. Originally linux partition was assigned only ~">
+<meta property="og:locale" content="en, chn">
+<meta property="og:updated_time" content="2018-06-26T13:02:10.961Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Move linux to new disk">
+<meta name="twitter:description" content="TaskMy desktop previously have one SSD and one HDD where SDD contains dual system Windows 10 and Linux Mint 18.3. HDD serves as data disk for Windows 10. Originally linux partition was assigned only ~">
+  
+    <link rel="alternate" href="/atom.xml" title="Palace of Book and Sword 书剑阁" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Palace of Book and Sword 书剑阁</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Personal room to record life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Move-linux-to-new-disk" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/26/Move-linux-to-new-disk/" class="article-date">
+  <time datetime="2018-06-26T13:02:10.000Z" itemprop="datePublished">2018-06-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Move linux to new disk
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Task"><a href="#Task" class="headerlink" title="Task"></a>Task</h4><p>My desktop previously have one SSD and one HDD where SDD contains dual system Windows 10 and Linux Mint 18.3. HDD serves as data disk for Windows 10. Originally linux partition was assigned only ~300GB space and now it is not enough for usage. Therefore another 1TB SSD was purchased and I hope to move the Linux system completely to the new SSD. The space of old linux will be freed for windows.</p>
+<h4 id="Step"><a href="#Step" class="headerlink" title="Step"></a>Step</h4><ol>
+<li>Hardware installation</li>
+<li>Boot system with a live CD</li>
+<li><p>Use fdisk to partition the new disk, first a 2GB swap area and remaining space is filesystem for moved system. </p>
+<ol>
+<li>Use <code>fdisk -l</code> to check the current disk status, find out where the linux filesystem and swap area locates and the new disk. Remember the partition points of them. For example, let’s assume they are <code>/dev/sda2</code>, <code>/dev/sda3</code>, and <code>/dev/sdd</code> respectively.</li>
+<li><p>Use <code>fdisk /dev/sdd</code> to partition the new disk</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Command (m <span class="keyword">for</span> <span class="built_in">help</span>): n <span class="comment"># create partition of 2GB for swap area</span></span><br><span class="line">Partition number (1-128, default 1): </span><br><span class="line">First sector (1-10000000, default 2048): </span><br><span class="line">Last sector, +sectors or +size&#123;K,M,G,T,P&#125; (34-2047, default 10000000): +2G</span><br><span class="line"></span><br><span class="line">Created a new partition 1 of <span class="built_in">type</span> <span class="string">'Linux filesystem'</span> and of size 2 GiB.</span><br><span class="line"></span><br><span class="line">Command (m <span class="keyword">for</span> <span class="built_in">help</span>): n <span class="comment"># create partition with remaining space for main filesystem</span></span><br><span class="line">Partition number (2-128, default 2): </span><br><span class="line">First sector (600001-10000000): </span><br><span class="line">Last sector, +sectors or +size&#123;K,M,G,T,P&#125; (600002-10000000, default 10000000): </span><br><span class="line"></span><br><span class="line">Created a new partition 3 of <span class="built_in">type</span> <span class="string">'Linux filesystem'</span> and of size 600 GiB.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>fdisk -l</code> again to check partitions of new disk. Say filesystime partition is <code>/dev/sdd1</code> and swap area is <code>/dev/sdd2</code></p>
+</li>
+<li>Format the partitions <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 /dev/sdd1</span><br><span class="line">mkfs.ext4 /dev/sdd2</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<ol start="3">
+<li><p>Copy partitions of old linux to new disk with <code>dd</code> command.</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=/dev/sda2 of=/dev/sdd1</span><br><span class="line">dd <span class="keyword">if</span>=/dev/sda3 of=/dev/sdd2</span><br></pre></td></tr></table></figure>
+<p> For filesystem, it can take hours depending on size. If <code>/boot</code> was separately mounted when previous linux mint was installed, that partition should also be created and copied.</p>
+</li>
+<li><p>Update disk information</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">e2fsck -f /dev/sdd1</span><br><span class="line">resize2fs /dev/sdd1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Modify uuid with <code>gparted</code>. Once new uuid generated, update in the <code>/etc/fstab</code> of the copied linux system:</p>
+<ul>
+<li>check new uuid with <code>blkid /dev/sdd1</code></li>
+<li>mount new disk and update the uuid in <code>/&lt;mount dir&gt;/etc/fstab</code> to new uuid</li>
+<li>reboot and enter Windows 10. Go to Disk Management, delete the old linux partitions.</li>
+<li>Reboot again with liveCD. Use boot repair to fix grub</li>
+<li>Install and open boot repair</li>
+</ul>
+</li>
+<li><p>Repair the boot information with boot-repair</p>
+<ol>
+<li><p>Install and open boot-repair</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:yannubuntu/boot-repair</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y boot-repair</span><br><span class="line">boot-repair</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Go to advanced mode, </p>
+<ul>
+<li>“GRUB location” tab, check “Separate /boot/efi partition” checkbox, and select previous the disk previous linux was on.</li>
+<li>“GRUB options” tab, check “Purge GRUB before reinstalling it”</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>Reboot</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/26/Move-linux-to-new-disk/" data-id="cjivpasqm0007mla10i1t6pr3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/06/26/cuda-9.1-installation-on-linux-mint-with-cuDNN-and-NICC/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/06/26/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">cuda 9.1 installation on linux mint with cuDNN and NICC</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/26/MFC/">MFC</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/26/About-GongFu-Wall/">About GongFu Wall</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/26/Tesseract/">Tesseract</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/26/Git-ticks/">Git ticks</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/26/Build-Hexo-blog/">Build Hexo blog</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 BookSword<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
