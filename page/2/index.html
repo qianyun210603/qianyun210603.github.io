@@ -5,17 +5,17 @@
   
 
   
-  <title>Palace of Book and Sword 书剑阁</title>
+  <title>书剑阁</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="Palace of Book and Sword 书剑阁">
+<meta property="og:title" content="书剑阁">
 <meta property="og:url" content="http://yoursite.com/page/2/index.html">
-<meta property="og:site_name" content="Palace of Book and Sword 书剑阁">
+<meta property="og:site_name" content="书剑阁">
 <meta property="og:locale" content="en, chn">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Palace of Book and Sword 书剑阁">
+<meta name="twitter:title" content="书剑阁">
   
-    <link rel="alternate" href="/atom.xml" title="Palace of Book and Sword 书剑阁" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="书剑阁" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -34,11 +34,11 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Palace of Book and Sword 书剑阁</a>
+        <a href="/" id="logo">书剑阁</a>
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Personal room to record life</a>
+          <a href="/" id="subtitle">技术和生活の记录本</a>
         </h2>
       
     </div>
@@ -142,7 +142,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/26/Move-linux-to-new-disk/" data-id="cjivpasqm0007mla10i1t6pr3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/26/Move-linux-to-new-disk/" data-id="cjj18mku500068va1e0v09u37" class="article-share-link">Share</a>
       
       
     </footer>
@@ -174,11 +174,61 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h4 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># execute following command as root user</span></span><br><span class="line">sudo -i</span><br><span class="line">dpkg -i cuda-repo-ubuntu1604_9.1.85-1_amd64.deb </span><br><span class="line">apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub</span><br><span class="line">apt update</span><br><span class="line">apt install cuda</span><br><span class="line">chmod a+x /usr/<span class="built_in">local</span>/cuda-9.1/bin/cuda-install-samples-9.1.sh</span><br><span class="line"><span class="comment"># install cuda sample dependencies</span></span><br><span class="line">apt install libgl-dev libglu-dev libx11-dev libegl1-mesa-dev libgles2-mesa-dev libmpich-dev</span><br><span class="line"><span class="comment"># back to normal user</span></span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"><span class="comment"># install cuda examples</span></span><br><span class="line">cuda-install-samples-9.1.sh ./ </span><br><span class="line"><span class="comment"># force input macro value as linux mint is not officially supported</span></span><br><span class="line">GLPATH=<span class="string">"/usr/lib/x86_64-linux-gnu"</span> GLLINK=<span class="string">"-L/usr/lib/x86_64-linux-gnu"</span> DFLT_PATH=<span class="string">"/usr/lib"</span> EGLLIB=<span class="string">"/usr/lib/x86_64-linux-gnu"</span> GLESLIB=<span class="string">"/usr/lib/x86_64-linux-gnu"</span> make -j6</span><br></pre></td></tr></table></figure>
+<h4 id="cuDNN"><a href="#cuDNN" class="headerlink" title="cuDNN"></a>cuDNN</h4><p>First download</p>
+<ul>
+<li>cuDNN v7.0.5 Runtime Library for Ubuntu16.04 (Deb)</li>
+<li>cuDNN v7.0.5 Developer Library for Ubuntu16.04 (Deb)</li>
+<li>cuDNN v7.0.5 Code Samples and User Guide for Ubuntu16.04 (Deb)    </li>
+</ul>
+<p>from <a href="https://developer.nvidia.com/rdp/cudnn-download" target="_blank" rel="noopener">https://developer.nvidia.com/rdp/cudnn-download</a></p>
+<p>Then, install</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i libcudnn7_7.0.5.15-1+cuda9.1_amd64.deb</span><br><span class="line">dpkg -i libcudnn7-dev_7.0.5.15-1+cuda9.1_amd64.deb</span><br><span class="line">dpkg -i libcudnn7-doc_7.0.5.15-1+cuda9.1_amd64.deb</span><br></pre></td></tr></table></figure>
+<p>Finally, verify</p>
+<p>Copy /usr/src/cudnn_samples_v7/ to any place that can write<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> cudnn_samples_v7/mnistCUDNN/</span><br><span class="line">make</span><br></pre></td></tr></table></figure></p>
+<h4 id="NICC"><a href="#NICC" class="headerlink" title="NICC"></a>NICC</h4><p>First download from <a href="https://developer.nvidia.com/nccl/nccl-download" target="_blank" rel="noopener">https://developer.nvidia.com/nccl/nccl-download</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i nccl-repo-ubuntu1604-2.1.15-ga-cuda9.1_1-1_amd64.deb</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/26/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/" data-id="cjivpasqt000cmla16bltfuwx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/26/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/" data-id="cjj18mkuf000h8va1cfxu1emn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Linux-Mint-Cleanup" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/26/Linux-Mint-Cleanup/" class="article-date">
+  <time datetime="2018-06-26T13:02:09.000Z" itemprop="datePublished">2018-06-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/26/Linux-Mint-Cleanup/">Linux Mint Cleanup</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Clean up old kernel<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">uname -r <span class="comment">#check current using kernel</span></span><br><span class="line">dpkg --get-selections |grep linux <span class="comment"># list installed kernels</span></span><br><span class="line">apt purge xxx <span class="comment"># remove</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/26/Linux-Mint-Cleanup/" data-id="cjj18mku600078va1yjwb5ldu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -278,44 +328,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/26/Build-Tensorflow-from-source-on-Linux-Mint/" data-id="cjivpasqi0002mla1na5gb2cu" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Linux-Mint-Cleanup" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/26/Linux-Mint-Cleanup/" class="article-date">
-  <time datetime="2018-06-26T13:02:09.000Z" itemprop="datePublished">2018-06-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/26/Linux-Mint-Cleanup/">Linux Mint Cleanup</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Clean up old kernel<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">uname -r <span class="comment">#check current using kernel</span></span><br><span class="line">dpkg --get-selections |grep linux <span class="comment"># list installed kernels</span></span><br><span class="line">apt purge xxx <span class="comment"># remove</span></span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/26/Linux-Mint-Cleanup/" data-id="cjivpasqn0008mla15aa3du8l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/26/Build-Tensorflow-from-source-on-Linux-Mint/" data-id="cjj18mku200048va1mn41nk9l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -357,7 +370,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/26/Rename-Visual-Studio-Project-name-checklist/" data-id="cjivpasqp0009mla1do0gk4gb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/26/Rename-Visual-Studio-Project-name-checklist/" data-id="cjj18mkub000c8va1zxx881bk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -402,7 +415,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/26/hello-world/" data-id="cjivpasqv000emla1635hi6s7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/26/hello-world/" data-id="cjj18mkug000i8va1xpsoqwhw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -427,9 +440,23 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GFW-gooreplacer-ss/">GFW, gooreplacer, ss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/GFW-gooreplacer-ss/" style="font-size: 10px;">GFW, gooreplacer, ss</a> <a href="/tags/其他/" style="font-size: 10px;">其他</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
@@ -448,19 +475,19 @@
       <ul>
         
           <li>
+            <a href="/2018/06/30/New-personal-tax/">个税改革分析，减税还是加税？</a>
+          </li>
+        
+          <li>
             <a href="/2018/06/26/MFC/">MFC</a>
           </li>
         
           <li>
-            <a href="/2018/06/26/About-GongFu-Wall/">About GongFu Wall</a>
+            <a href="/2018/06/26/About-GongFu-Wall/">关于减轻功夫墙（GFW）造成的不便的一些探讨</a>
           </li>
         
           <li>
             <a href="/2018/06/26/Tesseract/">Tesseract</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/26/Git-ticks/">Git ticks</a>
           </li>
         
           <li>
