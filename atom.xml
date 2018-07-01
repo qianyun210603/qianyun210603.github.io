@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>书剑阁</title>
+  
+  <subtitle>技术和生活の记录本</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-07-01T02:06:16.879Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>BookSword</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>个税改革分析，减税还是加税？</title>
+    <link href="http://yoursite.com/2018/06/30/New-personal-tax/"/>
+    <id>http://yoursite.com/2018/06/30/New-personal-tax/</id>
+    <published>2018-06-30T02:32:49.000Z</published>
+    <updated>2018-07-01T02:06:16.879Z</updated>
+    
+    <content type="html"><![CDATA[<p>   万众期待的个税改革草案昨天被发布出来征求公众意见，目前似乎讨论都只集中在起征点和级距上。然而，相比于另一个重大变化，也许起征点提高那么一点点的利得对于相当一部分人来说会被完全抵消。这个重大变化就是——年终奖要和工资合并计税了，从此以后年终奖的税是大大提高了的。。</p><p>为了仔细分析这一点的影响，先来看下目前的年终奖扣税规定：</p><p></p><p>以下内容引用自《国家税务总局关于调整个人取得全年一次性奖金等计算征收个人所得税方法问题的通知》（国税发〔2005〕9号）：</p><p></p><blockquote><br><dl><dt>二、纳税人取得全年一次性奖金，单独作为一个月工资、薪金所得计算纳税，并按以下计税办法，由扣缴义务人发放时代扣代缴：</dt><dd><dl><dt>(一) 先将雇员当月内取得的全年一次性奖金，除以12个月，按其商数确定适用税率和速算扣除数。</dt><dd>如果在发放年终一次性奖金的当月，雇员当月工资薪金所得低于税法规定的费用扣除额，应将全年一次性奖金减除“雇员当月工资薪金所得与费用扣除额的差额”后的余额，按上述办法确定全年一次性奖金的适用税率和速算扣除数。</dd><br><dt>(二) 将雇员个人当月内取得的全年一次性奖金，按本条第(一)项确定的适用税率和速算扣除数计算征税，计算公式如下：</dt><dd><ul><li>如果雇员当月工资薪金所得高于(或等于)税法规定的费用扣除额的，适用公式为：<br>应纳税额＝雇员当月取得全年一次性奖金×适用税率一速算扣除数</li><li>如果雇员当月工资薪金所得低于税法规定的费用扣除额的，适用公式为：<br>    应纳税额＝(雇员当月取得全年一次性奖金一雇员当月工资薪金所得与费用扣除额的差额)×适用税率一速算扣除数</li></ul></dd></dl></dd></dl><br></blockquote><p>因此目前年终奖税率和基本工资是基本没有关系的。而草案税制实施后，由于所有收入要“综合计税”并按年扣缴，所以年终奖的最低税率将变成基本工资的边际税率。</p><blockquote><br>    “（一）居民个人的综合所得，以每一纳税年度的收入额减除费用六万元以及专项扣除、专项附加扣除和依法确定的其他扣除后的余额，为应纳税所得额。专项扣除包括居民个人按照国家规定的范围和标准缴纳的基本养老保险、基本医疗保险、失业保险等社会保险费和住房公积金等；专项附加扣除包括子女教育、继续教育、大病医疗、住房贷款利息和住房租金等支出。<br></blockquote><p>因此，尽管草案税制起征点略有提高，并且级距稍有扩大，但其实对大多数中产的减税作用并没有想象得那么大，部分人甚至会被加税。</p><p>笔者试算了从年总收入1万到300万区间内草案税制的影响，结果如下图所示：<br><img src="/2018/06/30/New-personal-tax/taxchange.png" alt="2018个税草案影响"><br>图中左上为草案税制与现行税制需缴纳税款的差额；右上和左下分别为现行税制和草案税制下平均税负，即个税/总收入；右下为平均税负的变化。</p><p>试算基于如下假设：</p><ul><li>按帝都规定正常缴纳五险一金，帝都平均工资取最新公布8467元/月。正常情况下这个数字即将用于2018年7月到2019年6月社保基数计算。</li><li>只在一个单位取得工资奖金收入，没有其他需要“综合计税”的收入。</li><li>旧税率：<br>月标准扣除额3500元</li></ul><table><thead><tr><th>全月应纳税所得额（含税级距）</th><th>税率</th><th>速算扣除数 </th></tr></thead><tbody><tr><td>不超过1,500元</td><td>3%</td><td>0</td><td></td></tr><tr><td>超过1,500元至4,500元的部分</td><td>10%</td><td>105</td></tr><tr><td>超过4,500元至9,000元的部分</td><td>20%</td><td>555</td></tr><tr><td>超过9,000元至35,000元的部分</td><td>25%</td><td>1,005</td></tr><tr><td>超过35,000元至55,000元的部分</td><td>30%</td><td>2,755</td></tr><tr><td>超过55,000元至80,000元的部分</td><td>35%</td><td>5,505</td></tr><tr><td>超过80,000元的部分</td><td>45%</td><td>13,505 </td></tr></tbody></table><ul><li>草案税率：<br>年标准扣除额60000元</li></ul><table><thead><tr><th>全年应纳税所得额（含税级距）</th><th>税率</th><th>速算扣除数</th></tr></thead><tbody><tr><td>不超过36,000元</td><td>3%</td><td>0</td></tr><tr><td>超过36,000元至144,000元的部分</td><td>10%</td><td>2,520</td></tr><tr><td>超过144,000元至300,000元的部分</td><td>20%</td><td>16,920</td></tr><tr><td>超过300,000元至420,000元的部分</td><td>25%</td><td>31,920</td></tr><tr><td>超过420,000元至660,000元的部分</td><td>30%</td><td>52,920</td></tr><tr><td>超过660,000元至960,000元的部分</td><td>35%</td><td>85,920</td></tr><tr><td>超过960,000元的部分</td><td>45%</td><td>181,920</td></tr></tbody></table><p>可以看出，如果按照草案执行，收入在90-200万元，奖金占总收入比例在20%-60%（也就是年终奖为3-18个月月薪）的相对高收入中产是最不幸的，不但没有获得减税，反而被加了税，最高可能要多缴纳总收入4-5%的税。考虑到收入在250万以上的人群年终奖占比都会比较高，所以大部分真正高收入的人群，比如年薪几千万的某保险公司老总这种反而能获得一小点减税（至少不会被加税，虽然他们也不会在意这么几万元钱）。当然，一直宣传的给低收入群体减税也算是实现了吧。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;   万众期待的个税改革草案昨天被发布出来征求公众意见，目前似乎讨论都只集中在起征点和级距上。然而，相比于另一个重大变化，也许起征点提高那么一点点的利得对于相当一部分人来说会被完全抵消。这个重大变化就是——年终奖要和工资合并计税了，从此以后年终奖的税是大大提高了的。。&lt;/p
+      
+    
+    </summary>
+    
+      <category term="其他" scheme="http://yoursite.com/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>MFC</title>
+    <link href="http://yoursite.com/2018/06/26/MFC/"/>
+    <id>http://yoursite.com/2018/06/26/MFC/</id>
+    <published>2018-06-26T13:02:16.000Z</published>
+    <updated>2018-06-26T13:02:16.470Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Function-call-flow"><a href="#Function-call-flow" class="headerlink" title="Function call flow"></a>Function call flow</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CDialog::PreInitDialog()</span><br><span class="line">CDialog::HandleInitDialog(WPARAM, LPARAM)</span><br><span class="line">CDemoDlg::OnInitDialog()</span><br><span class="line">CDialog::CheckAutoCenter()</span><br><span class="line">CDialog::OnCmdMsg(nID, nCode, pExtra, pHandlerInfo);</span><br><span class="line">CDialog::PreTranslateMessage(pMsg)</span><br></pre></td></tr></table></figure><h3 id="Solve-“Opened-in-another-editor”-in-Resource-View"><a href="#Solve-“Opened-in-another-editor”-in-Resource-View" class="headerlink" title="Solve “Opened in another editor” in Resource View"></a>Solve “Opened in another editor” in Resource View</h3><p>Close “Resource.h” and all “.rc” file. Then shrink and re-expand the “rc” folder in Resource View.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Function-call-flow&quot;&gt;&lt;a href=&quot;#Function-call-flow&quot; class=&quot;headerlink&quot; title=&quot;Function call flow&quot;&gt;&lt;/a&gt;Function call flow&lt;/h3&gt;&lt;figure c
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于减轻功夫墙（GFW）造成的不便的一些探讨</title>
+    <link href="http://yoursite.com/2018/06/26/About-GongFu-Wall/"/>
+    <id>http://yoursite.com/2018/06/26/About-GongFu-Wall/</id>
+    <published>2018-06-26T13:02:15.000Z</published>
+    <updated>2018-06-29T23:53:27.946Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="使用gooreplacer重定向对Google的访问"><a href="#使用gooreplacer重定向对Google的访问" class="headerlink" title="使用gooreplacer重定向对Google的访问"></a>使用gooreplacer重定向对Google的访问</h3><p>　　众所周知，天朝无法访问任何Google的服务。但不幸很多外国网站，如码农必备的Stackoverflow等都会调用Google的API，这就导致了这些网站访问速度巨慢，功能不全等问题。在网上发现了有人开发的关于可以重定向Google API到国内镜像的插件，可以用于Firefox和Google Chrome上。特记录于此：<br>插件地址：<a href="https://github.com/jiacai2050/gooreplacer" target="_blank" rel="noopener">https://github.com/jiacai2050/gooreplacer</a><br>如果只需要重定向Google的访问，可以复制如下Rules，保存为.gson格式后导入。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&#123;        </span><br><span class="line">    &quot;createBy&quot;: &quot;http://liujiacai.net/gooreplacer/&quot;,</span><br><span class="line">    &quot;createAt&quot;: &quot;Tue Jan 10 2017 17:45:39 GMT+0000&quot;,</span><br><span class="line">    &quot;rules&quot;: &#123;</span><br><span class="line">        &quot;ajax.googleapis.com&quot;: &#123;</span><br><span class="line">            &quot;dstURL&quot;: &quot;ajax.proxy.ustclug.org&quot;,</span><br><span class="line">            &quot;kind&quot;: &quot;wildcard&quot;,</span><br><span class="line">            &quot;enable&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;storage.googleapis.com&quot;: &#123;</span><br><span class="line">            &quot;dstURL&quot;: &quot;storage-googleapis.proxy.ustclug.org&quot;,</span><br><span class="line">            &quot;kind&quot;: &quot;wildcard&quot;,</span><br><span class="line">            &quot;enable&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;gerrit.googlesource.com&quot;: &#123;</span><br><span class="line">            &quot;dstURL&quot;: &quot;gerrit-googlesource.proxy.ustclug.org&quot;,</span><br><span class="line">            &quot;kind&quot;: &quot;wildcard&quot;,</span><br><span class="line">            &quot;enable&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;themes.googleusercontent.com&quot;: &#123;</span><br><span class="line">            &quot;dstURL&quot;: &quot;google-themes.proxy.ustclug.org&quot;,</span><br><span class="line">            &quot;kind&quot;: &quot;wildcard&quot;,</span><br><span class="line">            &quot;enable&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;platform.twitter.com/widgets.js&quot;: &#123;</span><br><span class="line">            &quot;dstURL&quot;: &quot;cdn.rawgit.com/jiacai2050/gooreplacer/gh-pages/proxy/widgets.js&quot;,</span><br><span class="line">            &quot;kind&quot;: &quot;wildcard&quot;,</span><br><span class="line">            &quot;enable&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;apis.google.com/js/api.js&quot;: &#123;</span><br><span class="line">            &quot;dstURL&quot;: &quot;cdn.rawgit.com/jiacai2050/gooreplacer/gh-pages/proxy/api.js&quot;,</span><br><span class="line">            &quot;kind&quot;: &quot;wildcard&quot;,</span><br><span class="line">            &quot;enable&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;apis.google.com/js/plusone.js&quot;: &#123;</span><br><span class="line">            &quot;dstURL&quot;: &quot;cdn.rawgit.com/jiacai2050/gooreplacer/gh-pages/proxy/plusone.js&quot;,</span><br><span class="line">            &quot;kind&quot;: &quot;wildcard&quot;,</span><br><span class="line">            &quot;enable&quot;: true</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>目前该插件存在一点问题，就是配置是基于Cookies保存的，如果浏览器设置了隐私模式或清除了Cookies，配置会丢失。</p><h3 id="Use-PAC-list-for-ss"><a href="#Use-PAC-list-for-ss" class="headerlink" title="Use PAC list for ss"></a>Use PAC list for ss</h3><ol><li><p>Install GenPAC (reference <a href="https://github.com/JinnLynn/GenPAC" target="_blank" rel="noopener">https://github.com/JinnLynn/GenPAC</a>)</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install genpac</span><br></pre></td></tr></table></figure></li><li><p>Download url list</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genpac --pac-proxy <span class="string">"SOCKS5 127.0.0.1:1080"</span> --gfwlist-proxy=<span class="string">"SOCKS5 127.0.0.1:1080"</span> --output=<span class="string">"mypac.pac"</span></span><br></pre></td></tr></table></figure></li><li><p>Setup global proxy in system</p></li></ol><p><img src="https://note.youdao.com/yws/public/resource/d7098784592b6d9090942f083ef9167b/xmlnote/WEBRESOURCEe496e589eb4c6a1a2889fb66a36ea602/530" alt="image"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;使用gooreplacer重定向对Google的访问&quot;&gt;&lt;a href=&quot;#使用gooreplacer重定向对Google的访问&quot; class=&quot;headerlink&quot; title=&quot;使用gooreplacer重定向对Google的访问&quot;&gt;&lt;/a&gt;使用goorep
+      
+    
+    </summary>
+    
+    
+      <category term="GFW, gooreplacer, ss" scheme="http://yoursite.com/tags/GFW-gooreplacer-ss/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Tesseract</title>
+    <link href="http://yoursite.com/2018/06/26/Tesseract/"/>
+    <id>http://yoursite.com/2018/06/26/Tesseract/</id>
+    <published>2018-06-26T13:02:15.000Z</published>
+    <updated>2018-06-26T13:02:15.882Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><h4 id="1-Required-package"><a href="#1-Required-package" class="headerlink" title="1. Required package"></a>1. Required package</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt install autoconf-archive automake g++ libtool make pkg-config <span class="comment"># for main recognization</span></span><br><span class="line">apt install asciidoc <span class="comment"># for document</span></span><br><span class="line">apt-get install libicu-dev libpango1.0-dev libcairo2-dev <span class="comment"># for training tool</span></span><br></pre></td></tr></table></figure><h5 id="1-1-Build-libleptonica-dev-from-source"><a href="#1-1-Build-libleptonica-dev-from-source" class="headerlink" title="1.1 Build libleptonica-dev from source"></a>1.1 Build libleptonica-dev from source</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo -i <span class="comment"># build as root</span></span><br><span class="line">wget http://www.leptonica.org/<span class="built_in">source</span>/leptonica-1.76.0.tar.gz <span class="comment"># check http://www.leptonica.org/download.html for latest version</span></span><br><span class="line">tar -xzf leptonica-1.76.0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> leptonica-1.76.0/</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure><h4 id="2-Clone-tesseract-from-github"><a href="#2-Clone-tesseract-from-github" class="headerlink" title="2. Clone tesseract from github"></a>2. Clone tesseract from github</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/tesseract-ocr/tesseract.git tesseract</span><br></pre></td></tr></table></figure><h4 id="3-Build-as-non-root-user"><a href="#3-Build-as-non-root-user" class="headerlink" title="3. Build as non-root user"></a>3. Build as non-root user</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./autogen.sh</span><br><span class="line">./configure --prefix=<span class="variable">$HOME</span>/tesseract/bin/</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure><h4 id="4-Build-training-tool"><a href="#4-Build-training-tool" class="headerlink" title="4. Build training tool"></a>4. Build training tool</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make training</span><br><span class="line">make training-install</span><br></pre></td></tr></table></figure><h4 id="5-Get-trained-data"><a href="#5-Get-trained-data" class="headerlink" title="5. Get trained data"></a>5. Get trained data</h4><p>Download required language from <a href="https://github.com/tesseract-ocr/tesseract/wiki/Data-Files" target="_blank" rel="noopener">https://github.com/tesseract-ocr/tesseract/wiki/Data-Files</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Install&quot;&gt;&lt;a href=&quot;#Install&quot; class=&quot;headerlink&quot; title=&quot;Install&quot;&gt;&lt;/a&gt;Install&lt;/h2&gt;&lt;h4 id=&quot;1-Required-package&quot;&gt;&lt;a href=&quot;#1-Required-pack
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Git ticks</title>
+    <link href="http://yoursite.com/2018/06/26/Git-ticks/"/>
+    <id>http://yoursite.com/2018/06/26/Git-ticks/</id>
+    <published>2018-06-26T13:02:14.000Z</published>
+    <updated>2018-06-26T13:02:14.114Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Caching-GitHub-password-in-Git"><a href="#Caching-GitHub-password-in-Git" class="headerlink" title="Caching GitHub password in Git"></a>Caching GitHub password in Git</h4><p>In Terminal, enter the following:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper cache</span><br><span class="line"><span class="comment"># Set git to use the credential memory cache</span></span><br></pre></td></tr></table></figure></p><p>To change the default password cache timeout, enter the following:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper <span class="string">'cache --timeout=3600'</span></span><br><span class="line"><span class="comment"># Set the cache to timeout after 1 hour (setting is in seconds)</span></span><br></pre></td></tr></table></figure></p><p>Or alternatively, store forever:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure></p><h4 id="revert-local-change-to-previous-commit"><a href="#revert-local-change-to-previous-commit" class="headerlink" title="revert local change to previous commit"></a>revert local change to previous commit</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- readme.txt <span class="comment"># revert readme.txt to previous commit</span></span><br></pre></td></tr></table></figure><p>or<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all</span><br><span class="line">git reset --hard origin/master</span><br><span class="line">git pull // can be ignored</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;Caching-GitHub-password-in-Git&quot;&gt;&lt;a href=&quot;#Caching-GitHub-password-in-Git&quot; class=&quot;headerlink&quot; title=&quot;Caching GitHub password in Git&quot;&gt;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Build Hexo blog</title>
+    <link href="http://yoursite.com/2018/06/26/Build-Hexo-blog/"/>
+    <id>http://yoursite.com/2018/06/26/Build-Hexo-blog/</id>
+    <published>2018-06-26T13:02:14.000Z</published>
+    <updated>2018-06-26T13:02:14.668Z</updated>
+    
+    <content type="html"><![CDATA[<p>Local</p><h3 id="Install-Hexo"><a href="#Install-Hexo" class="headerlink" title="Install Hexo"></a>Install Hexo</h3><h5 id="Install-node-js"><a href="#Install-node-js" class="headerlink" title="Install node.js"></a>Install node.js</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -</span><br><span class="line">apt install nodejs -y</span><br></pre></td></tr></table></figure><h5 id="Install-Hexo-1"><a href="#Install-Hexo-1" class="headerlink" title="Install Hexo"></a>Install Hexo</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure><p><code>cd</code> to the folder where we want to store the blog, execute<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init myblog</span><br></pre></td></tr></table></figure></p><p>This will create folder <code>myblog</code> and generate necessary files in it.<br>When initialization is done, install two plugins <code>hexo-deployer-git</code> and <code>hexo-serverfor</code> automatic git deployment and local server for preview, respectively.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> myblog</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">npm install hexo-server</span><br></pre></td></tr></table></figure></p><p>Generate RSA key pair<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -b 2048 -t rsa</span><br></pre></td></tr></table></figure></p><p>Server</p><p>Install nginx according the instruction on <a href="http://nginx.org/en/linux_packages.html#stable" target="_blank" rel="noopener">official site</a>.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">adduser git</span><br><span class="line">su git</span><br><span class="line">cd ~</span><br><span class="line">mkdir .ssh</span><br><span class="line">vim .ssh/authorized_keys</span><br></pre></td></tr></table></figure><p>Copy the public key generated before in to <code>.ssh/authorized_keys</code>.</p><p>build bare git repository and add hook to automaticlly copy any pushed file to the root folder of the blog site:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git init --bare blog.git</span><br><span class="line">vi blog.git/hooks/post-receive</span><br><span class="line">chmod +x blog.git/hooks/post-receive</span><br></pre></td></tr></table></figure></p><p>The content of <code>post-receive</code> is<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">git --work-tree=/var/www/html --git-dir=$HOME/blog.git checkout -f</span><br></pre></td></tr></table></figure></p><p>Back to local:<br>Setup <code>_config.xml</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">   type: git</span><br><span class="line">   repo: git@&lt;server&gt;:&lt;path to bare repository&gt;</span><br><span class="line">   branch: master</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Local&lt;/p&gt;
+&lt;h3 id=&quot;Install-Hexo&quot;&gt;&lt;a href=&quot;#Install-Hexo&quot; class=&quot;headerlink&quot; title=&quot;Install Hexo&quot;&gt;&lt;/a&gt;Install Hexo&lt;/h3&gt;&lt;h5 id=&quot;Install-node
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Install HP print driver on Linux mint</title>
+    <link href="http://yoursite.com/2018/06/26/Install-HP-print-driver-on-Linux-mint/"/>
+    <id>http://yoursite.com/2018/06/26/Install-HP-print-driver-on-Linux-mint/</id>
+    <published>2018-06-26T13:02:13.000Z</published>
+    <updated>2018-06-26T13:02:13.543Z</updated>
+    
+    <content type="html"><![CDATA[<p>HPIP download address: <a href="https://developers.hp.com/hp-linux-imaging-and-printing/gethplip" target="_blank" rel="noopener">https://developers.hp.com/hp-linux-imaging-and-printing/gethplip</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;HPIP download address: &lt;a href=&quot;https://developers.hp.com/hp-linux-imaging-and-printing/gethplip&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>pandas tricks</title>
+    <link href="http://yoursite.com/2018/06/26/pandas-tricks/"/>
+    <id>http://yoursite.com/2018/06/26/pandas-tricks/</id>
+    <published>2018-06-26T13:02:12.000Z</published>
+    <updated>2018-06-26T13:02:12.964Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>Pandas display setup<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pd.set_option(<span class="string">'max_rows'</span>, <span class="number">500</span>)</span><br><span class="line"><span class="comment">#param choices</span></span><br><span class="line"><span class="comment"># display.height</span></span><br><span class="line"><span class="comment"># width</span></span><br><span class="line"><span class="comment"># max_rows</span></span><br><span class="line"><span class="comment"># max_columns</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;Pandas display setup&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>apt key expired</title>
+    <link href="http://yoursite.com/2018/06/26/apt-key-expired/"/>
+    <id>http://yoursite.com/2018/06/26/apt-key-expired/</id>
+    <published>2018-06-26T13:02:12.000Z</published>
+    <updated>2018-06-26T13:02:12.388Z</updated>
+    
+    <content type="html"><![CDATA[<p>To find any expired repository keys and their IDs, use apt-key as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-key list | grep expired</span><br></pre></td></tr></table></figure></p><p>You will get a result similar to the following:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pub   4096R/BE1DB1F1 2011-03-29 [expired: 2014-03-28]</span><br></pre></td></tr></table></figure></p><p>The key ID is the bit after the / i.e. BE1DB1F1 in this case.</p><p>To update the key, run<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-key adv --recv-keys --keyserver keys.gnupg.net BE1DB1F1</span><br></pre></td></tr></table></figure></p><h5 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h5><p><a href="https://serverfault.com/questions/7145/what-should-i-do-when-i-got-the-keyexpired-error-message-after-an-apt-get-update/718435#718435" target="_blank" rel="noopener">https://serverfault.com/questions/7145/what-should-i-do-when-i-got-the-keyexpired-error-message-after-an-apt-get-update/718435#718435</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;To find any expired repository keys and their IDs, use apt-key as follows:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>build etherminer</title>
+    <link href="http://yoursite.com/2018/06/26/build-etherminer/"/>
+    <id>http://yoursite.com/2018/06/26/build-etherminer/</id>
+    <published>2018-06-26T13:02:11.000Z</published>
+    <updated>2018-06-26T13:02:11.616Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br><span class="line">make</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>cuda 9.1 installation on linux mint with cuDNN and NICC</title>
+    <link href="http://yoursite.com/2018/06/26/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/"/>
+    <id>http://yoursite.com/2018/06/26/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/</id>
+    <published>2018-06-26T13:02:10.000Z</published>
+    <updated>2018-06-26T13:13:16.944Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># execute following command as root user</span></span><br><span class="line">sudo -i</span><br><span class="line">dpkg -i cuda-repo-ubuntu1604_9.1.85-1_amd64.deb </span><br><span class="line">apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub</span><br><span class="line">apt update</span><br><span class="line">apt install cuda</span><br><span class="line">chmod a+x /usr/<span class="built_in">local</span>/cuda-9.1/bin/cuda-install-samples-9.1.sh</span><br><span class="line"><span class="comment"># install cuda sample dependencies</span></span><br><span class="line">apt install libgl-dev libglu-dev libx11-dev libegl1-mesa-dev libgles2-mesa-dev libmpich-dev</span><br><span class="line"><span class="comment"># back to normal user</span></span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"><span class="comment"># install cuda examples</span></span><br><span class="line">cuda-install-samples-9.1.sh ./ </span><br><span class="line"><span class="comment"># force input macro value as linux mint is not officially supported</span></span><br><span class="line">GLPATH=<span class="string">"/usr/lib/x86_64-linux-gnu"</span> GLLINK=<span class="string">"-L/usr/lib/x86_64-linux-gnu"</span> DFLT_PATH=<span class="string">"/usr/lib"</span> EGLLIB=<span class="string">"/usr/lib/x86_64-linux-gnu"</span> GLESLIB=<span class="string">"/usr/lib/x86_64-linux-gnu"</span> make -j6</span><br></pre></td></tr></table></figure><h4 id="cuDNN"><a href="#cuDNN" class="headerlink" title="cuDNN"></a>cuDNN</h4><p>First download</p><ul><li>cuDNN v7.0.5 Runtime Library for Ubuntu16.04 (Deb)</li><li>cuDNN v7.0.5 Developer Library for Ubuntu16.04 (Deb)</li><li>cuDNN v7.0.5 Code Samples and User Guide for Ubuntu16.04 (Deb)    </li></ul><p>from <a href="https://developer.nvidia.com/rdp/cudnn-download" target="_blank" rel="noopener">https://developer.nvidia.com/rdp/cudnn-download</a></p><p>Then, install</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i libcudnn7_7.0.5.15-1+cuda9.1_amd64.deb</span><br><span class="line">dpkg -i libcudnn7-dev_7.0.5.15-1+cuda9.1_amd64.deb</span><br><span class="line">dpkg -i libcudnn7-doc_7.0.5.15-1+cuda9.1_amd64.deb</span><br></pre></td></tr></table></figure><p>Finally, verify</p><p>Copy /usr/src/cudnn_samples_v7/ to any place that can write<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> cudnn_samples_v7/mnistCUDNN/</span><br><span class="line">make</span><br></pre></td></tr></table></figure></p><h4 id="NICC"><a href="#NICC" class="headerlink" title="NICC"></a>NICC</h4><p>First download from <a href="https://developer.nvidia.com/nccl/nccl-download" target="_blank" rel="noopener">https://developer.nvidia.com/nccl/nccl-download</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i nccl-repo-ubuntu1604-2.1.15-ga-cuda9.1_1-1_amd64.deb</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;CUDA&quot;&gt;&lt;a href=&quot;#CUDA&quot; class=&quot;headerlink&quot; title=&quot;CUDA&quot;&gt;&lt;/a&gt;CUDA&lt;/h4&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Move linux to new disk</title>
+    <link href="http://yoursite.com/2018/06/26/Move-linux-to-new-disk/"/>
+    <id>http://yoursite.com/2018/06/26/Move-linux-to-new-disk/</id>
+    <published>2018-06-26T13:02:10.000Z</published>
+    <updated>2018-06-26T13:02:10.961Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Task"><a href="#Task" class="headerlink" title="Task"></a>Task</h4><p>My desktop previously have one SSD and one HDD where SDD contains dual system Windows 10 and Linux Mint 18.3. HDD serves as data disk for Windows 10. Originally linux partition was assigned only ~300GB space and now it is not enough for usage. Therefore another 1TB SSD was purchased and I hope to move the Linux system completely to the new SSD. The space of old linux will be freed for windows.</p><h4 id="Step"><a href="#Step" class="headerlink" title="Step"></a>Step</h4><ol><li>Hardware installation</li><li>Boot system with a live CD</li><li><p>Use fdisk to partition the new disk, first a 2GB swap area and remaining space is filesystem for moved system. </p><ol><li>Use <code>fdisk -l</code> to check the current disk status, find out where the linux filesystem and swap area locates and the new disk. Remember the partition points of them. For example, let’s assume they are <code>/dev/sda2</code>, <code>/dev/sda3</code>, and <code>/dev/sdd</code> respectively.</li><li><p>Use <code>fdisk /dev/sdd</code> to partition the new disk</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Command (m <span class="keyword">for</span> <span class="built_in">help</span>): n <span class="comment"># create partition of 2GB for swap area</span></span><br><span class="line">Partition number (1-128, default 1): </span><br><span class="line">First sector (1-10000000, default 2048): </span><br><span class="line">Last sector, +sectors or +size&#123;K,M,G,T,P&#125; (34-2047, default 10000000): +2G</span><br><span class="line"></span><br><span class="line">Created a new partition 1 of <span class="built_in">type</span> <span class="string">'Linux filesystem'</span> and of size 2 GiB.</span><br><span class="line"></span><br><span class="line">Command (m <span class="keyword">for</span> <span class="built_in">help</span>): n <span class="comment"># create partition with remaining space for main filesystem</span></span><br><span class="line">Partition number (2-128, default 2): </span><br><span class="line">First sector (600001-10000000): </span><br><span class="line">Last sector, +sectors or +size&#123;K,M,G,T,P&#125; (600002-10000000, default 10000000): </span><br><span class="line"></span><br><span class="line">Created a new partition 3 of <span class="built_in">type</span> <span class="string">'Linux filesystem'</span> and of size 600 GiB.</span><br></pre></td></tr></table></figure></li><li><p><code>fdisk -l</code> again to check partitions of new disk. Say filesystime partition is <code>/dev/sdd1</code> and swap area is <code>/dev/sdd2</code></p></li><li>Format the partitions <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 /dev/sdd1</span><br><span class="line">mkfs.ext4 /dev/sdd2</span><br></pre></td></tr></table></figure></li></ol></li></ol><ol start="3"><li><p>Copy partitions of old linux to new disk with <code>dd</code> command.</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=/dev/sda2 of=/dev/sdd1</span><br><span class="line">dd <span class="keyword">if</span>=/dev/sda3 of=/dev/sdd2</span><br></pre></td></tr></table></figure><p> For filesystem, it can take hours depending on size. If <code>/boot</code> was separately mounted when previous linux mint was installed, that partition should also be created and copied.</p></li><li><p>Update disk information</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">e2fsck -f /dev/sdd1</span><br><span class="line">resize2fs /dev/sdd1</span><br></pre></td></tr></table></figure></li><li><p>Modify uuid with <code>gparted</code>. Once new uuid generated, update in the <code>/etc/fstab</code> of the copied linux system:</p><ul><li>check new uuid with <code>blkid /dev/sdd1</code></li><li>mount new disk and update the uuid in <code>/&lt;mount dir&gt;/etc/fstab</code> to new uuid</li><li>reboot and enter Windows 10. Go to Disk Management, delete the old linux partitions.</li><li>Reboot again with liveCD. Use boot repair to fix grub</li><li>Install and open boot repair</li></ul></li><li><p>Repair the boot information with boot-repair</p><ol><li><p>Install and open boot-repair</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:yannubuntu/boot-repair</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y boot-repair</span><br><span class="line">boot-repair</span><br></pre></td></tr></table></figure></li><li><p>Go to advanced mode, </p><ul><li>“GRUB location” tab, check “Separate /boot/efi partition” checkbox, and select previous the disk previous linux was on.</li><li>“GRUB options” tab, check “Purge GRUB before reinstalling it”</li></ul></li></ol></li><li><p>Reboot</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;Task&quot;&gt;&lt;a href=&quot;#Task&quot; class=&quot;headerlink&quot; title=&quot;Task&quot;&gt;&lt;/a&gt;Task&lt;/h4&gt;&lt;p&gt;My desktop previously have one SSD and one HDD where SDD conta
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux Mint Cleanup</title>
+    <link href="http://yoursite.com/2018/06/26/Linux-Mint-Cleanup/"/>
+    <id>http://yoursite.com/2018/06/26/Linux-Mint-Cleanup/</id>
+    <published>2018-06-26T13:02:09.000Z</published>
+    <updated>2018-06-26T13:02:09.763Z</updated>
+    
+    <content type="html"><![CDATA[<p>Clean up old kernel<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">uname -r <span class="comment">#check current using kernel</span></span><br><span class="line">dpkg --get-selections |grep linux <span class="comment"># list installed kernels</span></span><br><span class="line">apt purge xxx <span class="comment"># remove</span></span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Clean up old kernel&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Build Tensorflow from source on Linux Mint</title>
+    <link href="http://yoursite.com/2018/06/26/Build-Tensorflow-from-source-on-Linux-Mint/"/>
+    <id>http://yoursite.com/2018/06/26/Build-Tensorflow-from-source-on-Linux-Mint/</id>
+    <published>2018-06-26T13:02:09.000Z</published>
+    <updated>2018-06-26T13:02:09.185Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>Install Bazel (a )</p><ol><li><p>Install JDK 8<br> Install JDK 8 by using:</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install openjdk-8-jdk</span><br></pre></td></tr></table></figure></li><li><p>Add Bazel distribution URI as a package source (one time setup)</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8"</span> | tee /etc/apt/sources.list.d/bazel.list</span><br><span class="line">curl https://bazel.build/bazel-release.pub.gpg | sudo apt-key add -</span><br></pre></td></tr></table></figure><p> If you want to install the testing version of Bazel, replace stable with testing.</p></li><li>Install and update Bazel <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install bazel</span><br></pre></td></tr></table></figure></li></ol></li><li><p>Install CUDA and cuDNN (Details ignored, refer to )</p></li><li><p>Clone the TensorFlow repository</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --recurse-submodules https://github.com/tensorflow/tensorflow</span><br></pre></td></tr></table></figure><p> <code>--recurse-submodules</code> is used to clone the dependency library <font color="#ff0000">protobuf</font>.</p></li><li>Install other dependency <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install python3-numpy swig python3-dev libgrpc-dev</span><br></pre></td></tr></table></figure></li></ol><ol start="5"><li>Configuration <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">You have bazel 0.10.1 installed.</span><br><span class="line">Please specify the location of python. [Default is /usr/bin/python]: /usr/<span class="built_in">local</span>/anaconda3/bin/python</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Found possible Python library paths:</span><br><span class="line">  /usr/<span class="built_in">local</span>/anaconda3/lib/python3.6/site-packages</span><br><span class="line">Please input the desired Python library path to use.  Default is [/usr/<span class="built_in">local</span>/anaconda3/lib/python3.6/site-packages]</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with jemalloc as malloc support? [Y/n]: y</span><br><span class="line">jemalloc as malloc support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with Google Cloud Platform support? [Y/n]: y</span><br><span class="line">Google Cloud Platform support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with Hadoop File System support? [Y/n]: n</span><br><span class="line">No Hadoop File System support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with Amazon S3 File System support? [Y/n]: n</span><br><span class="line">No Amazon S3 File System support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with Apache Kafka Platform support? [y/N]: n</span><br><span class="line">No Apache Kafka Platform support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with XLA JIT support? [y/N]: y</span><br><span class="line">XLA JIT support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with GDR support? [y/N]: n</span><br><span class="line">No GDR support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with VERBS support? [y/N]: n</span><br><span class="line">No VERBS support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with OpenCL SYCL support? [y/N]: n</span><br><span class="line">No OpenCL SYCL support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with CUDA support? [y/N]: y</span><br><span class="line">CUDA support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Please specify the CUDA SDK version you want to use, e.g. 7.0. [Leave empty to default to CUDA 9.0]: 9.1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Please specify the location <span class="built_in">where</span> CUDA 9.1 toolkit is installed. Refer to README.md <span class="keyword">for</span> more details. [Default is /usr/<span class="built_in">local</span>/cuda]: </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Please specify the cuDNN version you want to use. [Leave empty to default to cuDNN 7.0]: 7.0.5</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Please specify the location <span class="built_in">where</span> cuDNN 7 library is installed. Refer to README.md <span class="keyword">for</span> more details. [Default is /usr/<span class="built_in">local</span>/cuda]: /usr</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with TensorRT support? [y/N]: n</span><br><span class="line">No TensorRT support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Please specify a list of comma-separated Cuda compute capabilities you want to build with.</span><br><span class="line">You can find the compute capability of your device at: https://developer.nvidia.com/cuda-gpus.</span><br><span class="line">Please note that each additional compute capability significantly increases your build time and binary size. [Default is: 3.5,5.2]6.1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Do you want to use clang as CUDA compiler? [y/N]: n</span><br><span class="line">nvcc will be used as CUDA compiler.</span><br><span class="line"></span><br><span class="line">Please specify <span class="built_in">which</span> gcc should be used by nvcc as the host compiler. [Default is /usr/bin/gcc]: </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with MPI support? [y/N]: y</span><br><span class="line">MPI support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Please specify the MPI toolkit folder. [Default is ]: /usr</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Please specify optimization flags to use during compilation when bazel option <span class="string">"--config=opt"</span> is specified [Default is -march=native]: </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Would you like to interactively configure ./WORKSPACE <span class="keyword">for</span> Android builds? [y/N]: n</span><br><span class="line">Not configuring the WORKSPACE <span class="keyword">for</span> Android builds.</span><br><span class="line"></span><br><span class="line">Preconfigured Bazel build configs. You can use any of the below by adding <span class="string">"--config=&lt;&gt;"</span> to your build <span class="built_in">command</span>. See tools/bazel.rc <span class="keyword">for</span> more details.</span><br><span class="line">--config=mkl         <span class="comment"># Build with MKL support.</span></span><br><span class="line">--config=monolithic  <span class="comment"># Config for mostly static monolithic build.</span></span><br><span class="line">Configuration finished</span><br></pre></td></tr></table></figure></li></ol><ol start="6"><li><p>Build</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bazel build -c opt --config=cuda //tensorflow/cc:tutorials_example_trainer</span><br></pre></td></tr></table></figure></li><li><p>Test run</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bazel-bin/tensorflow/cc/tutorials_example_trainer --use_gpu</span><br></pre></td></tr></table></figure></li></ol><ol start="8"><li><p>Build pip package    </p><ul><li><p>Create an env under Anaconda specified for tensorflow (assuming that Anaconda is installed)</p>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/anaconda3/bin/conda create -n tensorflow pip python=3.6.4 anaconda</span><br></pre></td></tr></table></figure></li><li><p>Activate the env</p>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /usr/<span class="built_in">local</span>/anaconda3/bin/activate tensorflow</span><br></pre></td></tr></table></figure></li><li><p>Build under the env</p>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># To resolve the error caused by location of mpi header files in system is not consistent with tensorflow</span></span><br><span class="line">rm -rf third_party/mpi/mpi*.h</span><br><span class="line">ln -s /usr/include/mpich/mpi.h third_party/mpi/mpi.h</span><br><span class="line">ln -s /usr/include/mpich/mpicxx.h third_party/mpi/mpicxx.h</span><br><span class="line">ln -s /usr/include/mpich/mpio.h third_party/mpi/mpio.h</span><br><span class="line"></span><br><span class="line"><span class="comment"># build</span></span><br><span class="line">bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package</span><br><span class="line"></span><br><span class="line"><span class="comment"># generate wheel in /tmp/tensorflow_pkg</span></span><br><span class="line">bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg</span><br></pre></td></tr></table></figure></li></ul></li><li><p>Install under Anaconda env   </p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install /tmp/tensorflow_pkg/tensorflow-1.6.0rc1-cp36-cp36m-linux_x86_64.whl</span><br></pre></td></tr></table></figure></li></ol><ol start="10"><li><p>Test installation</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># enter tensorflow env</span></span><br><span class="line"><span class="built_in">source</span> /usr/<span class="built_in">local</span>/anaconda3/bin/activate tensorflow</span><br><span class="line"></span><br><span class="line"><span class="comment"># enter python</span></span><br><span class="line">python</span><br></pre></td></tr></table></figure><p>In python interactive</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Python <span class="number">3.6</span><span class="number">.4</span> |Anaconda, Inc.| (default, Jan <span class="number">16</span> <span class="number">2018</span>, <span class="number">18</span>:<span class="number">10</span>:<span class="number">19</span>) </span><br><span class="line">[GCC <span class="number">7.2</span><span class="number">.0</span>] on linux</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> <span class="keyword">or</span> <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>tf.__version__</span><br><span class="line"><span class="string">'1.6.0-rc1'</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></li></ol><h5 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h5><ol><li>Bazel installation guide: <a href="https://docs.bazel.build/versions/master/install-ubuntu.html" target="_blank" rel="noopener">https://docs.bazel.build/versions/master/install-ubuntu.html</a></li><li>Tensorflow: <a href="https://tensorflow.google.cn/install/install_sources" target="_blank" rel="noopener">https://tensorflow.google.cn/install/install_sources</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Install Bazel (a )&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Install JDK 8&lt;br&gt; Install JDK 8 by using:&lt;/p&gt;
+ &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td 
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Rename Visual Studio Project name checklist</title>
+    <link href="http://yoursite.com/2018/06/26/Rename-Visual-Studio-Project-name-checklist/"/>
+    <id>http://yoursite.com/2018/06/26/Rename-Visual-Studio-Project-name-checklist/</id>
+    <published>2018-06-26T13:02:08.000Z</published>
+    <updated>2018-06-26T13:02:08.578Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>Rename project name in visual studio.</li><li>Rename all header and source file, also resolve #include.</li><li>Rename .sln, .vcpoj and .vcxpoj file.</li><li>Open the aforementioned three file, replace all old name with new name.</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;Rename project name in visual studio.&lt;/li&gt;
+&lt;li&gt;Rename all header and source file, also resolve #include.&lt;/li&gt;
+&lt;li&gt;Rename .sln, .vcp
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2018/06/26/hello-world/"/>
+    <id>http://yoursite.com/2018/06/26/hello-world/</id>
+    <published>2018-06-26T12:52:48.253Z</published>
+    <updated>2018-06-24T09:05:54.981Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
