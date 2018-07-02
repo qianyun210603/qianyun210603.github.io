@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-07-02T11:52:24.009Z</updated>
+  <updated>2018-07-02T12:04:01.087Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux Mint安装Cuda 9.1以及cuDNN、NICC</title>
+    <link href="http://yoursite.com/2018/07/02/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/"/>
+    <id>http://yoursite.com/2018/07/02/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/</id>
+    <published>2018-07-02T13:02:10.000Z</published>
+    <updated>2018-07-02T12:04:01.087Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># execute following command as root user</span></span><br><span class="line">sudo -i</span><br><span class="line">dpkg -i cuda-repo-ubuntu1604_9.1.85-1_amd64.deb </span><br><span class="line">apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub</span><br><span class="line">apt update</span><br><span class="line">apt install cuda</span><br><span class="line">chmod a+x /usr/<span class="built_in">local</span>/cuda-9.1/bin/cuda-install-samples-9.1.sh</span><br><span class="line"><span class="comment"># install cuda sample dependencies</span></span><br><span class="line">apt install libgl-dev libglu-dev libx11-dev libegl1-mesa-dev libgles2-mesa-dev libmpich-dev</span><br><span class="line"><span class="comment"># back to normal user</span></span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"><span class="comment"># install cuda examples</span></span><br><span class="line">cuda-install-samples-9.1.sh ./ </span><br><span class="line"><span class="comment"># force input macro value as linux mint is not officially supported</span></span><br><span class="line">GLPATH=<span class="string">"/usr/lib/x86_64-linux-gnu"</span> GLLINK=<span class="string">"-L/usr/lib/x86_64-linux-gnu"</span> DFLT_PATH=<span class="string">"/usr/lib"</span> EGLLIB=<span class="string">"/usr/lib/x86_64-linux-gnu"</span> GLESLIB=<span class="string">"/usr/lib/x86_64-linux-gnu"</span> make -j6</span><br></pre></td></tr></table></figure><h4 id="cuDNN"><a href="#cuDNN" class="headerlink" title="cuDNN"></a>cuDNN</h4><p>首先从<a href="https://developer.nvidia.com/rdp/cudnn-download" target="_blank" rel="noopener">https://developer.nvidia.com/rdp/cudnn-download</a></p><ul><li>cuDNN v7.0.5 Runtime Library for Ubuntu16.04 (Deb)</li><li>cuDNN v7.0.5 Developer Library for Ubuntu16.04 (Deb)</li><li>cuDNN v7.0.5 Code Samples and User Guide for Ubuntu16.04 (Deb)    </li></ul><p>接下来，安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i libcudnn7_7.0.5.15-1+cuda9.1_amd64.deb</span><br><span class="line">dpkg -i libcudnn7-dev_7.0.5.15-1+cuda9.1_amd64.deb</span><br><span class="line">dpkg -i libcudnn7-doc_7.0.5.15-1+cuda9.1_amd64.deb</span><br></pre></td></tr></table></figure></p><p>最后，运行官方测试用例以验证安装：</p><p>复制<code>/usr/src/cudnn_samples_v7/</code>到有写权限的目录下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> cudnn_samples_v7/mnistCUDNN/</span><br><span class="line">make</span><br></pre></td></tr></table></figure></p><h4 id="NICC"><a href="#NICC" class="headerlink" title="NICC"></a>NICC</h4><p>从<a href="https://developer.nvidia.com/nccl/nccl-download下载并" target="_blank" rel="noopener">https://developer.nvidia.com/nccl/nccl-download下载并</a> <code>dpkg</code> 安装。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i nccl-repo-ubuntu1604-2.1.15-ga-cuda9.1_1-1_amd64.deb</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;CUDA&quot;&gt;&lt;a href=&quot;#CUDA&quot; class=&quot;headerlink&quot; title=&quot;CUDA&quot;&gt;&lt;/a&gt;CUDA&lt;/h4&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    
+      <category term="Cuda" scheme="http://yoursite.com/categories/Linux/Cuda/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>重命名Visual Studio项目</title>
@@ -40,6 +65,29 @@
       <category term="Programming" scheme="http://yoursite.com/categories/Programming/"/>
     
       <category term="Visual Studio" scheme="http://yoursite.com/categories/Programming/Visual-Studio/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>apt提示key expired问题</title>
+    <link href="http://yoursite.com/2018/07/02/apt-key-expired/"/>
+    <id>http://yoursite.com/2018/07/02/apt-key-expired/</id>
+    <published>2018-07-02T04:02:12.000Z</published>
+    <updated>2018-07-02T12:04:33.280Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先找出过期的key:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ apt-key list | grep expired</span><br><span class="line">pub   4096R/BE1DB1F1 2011-03-29 [expired: 2014-03-28]</span><br></pre></td></tr></table></figure></p><p>其中<font color="#0000ff">BE1DB1F1</font>就是key ID。</p><p>找到ID后即可用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-key adv --recv-keys --keyserver keys.gnupg.net BE1DB1F1</span><br></pre></td></tr></table></figure></p><p>更新key。</p><h5 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h5><p><a href="https://serverfault.com/questions/7145/what-should-i-do-when-i-got-the-keyexpired-error-message-after-an-apt-get-update/718435#718435" target="_blank" rel="noopener">https://serverfault.com/questions/7145/what-should-i-do-when-i-got-the-keyexpired-error-message-after-an-apt-get-update/718435#718435</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;首先找出过期的key:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/spa
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
     
     
   </entry>
@@ -242,29 +290,6 @@
   </entry>
   
   <entry>
-    <title>apt提示key expired问题</title>
-    <link href="http://yoursite.com/2018/06/26/apt-key-expired/"/>
-    <id>http://yoursite.com/2018/06/26/apt-key-expired/</id>
-    <published>2018-06-26T13:02:12.000Z</published>
-    <updated>2018-07-01T02:30:28.073Z</updated>
-    
-    <content type="html"><![CDATA[<p>首先找出过期的key:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ apt-key list | grep expired</span><br><span class="line">pub   4096R/BE1DB1F1 2011-03-29 [expired: 2014-03-28]</span><br></pre></td></tr></table></figure></p><p>其中<font color="#0000ff">BE1DB1F1</font>就是key ID。</p><p>找到ID后即可用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-key adv --recv-keys --keyserver keys.gnupg.net BE1DB1F1</span><br></pre></td></tr></table></figure></p><p>更新key。</p><h5 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h5><p><a href="https://serverfault.com/questions/7145/what-should-i-do-when-i-got-the-keyexpired-error-message-after-an-apt-get-update/718435#718435" target="_blank" rel="noopener">https://serverfault.com/questions/7145/what-should-i-do-when-i-got-the-keyexpired-error-message-after-an-apt-get-update/718435#718435</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;首先找出过期的key:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/spa
-      
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>build etherminer</title>
     <link href="http://yoursite.com/2018/06/26/build-etherminer/"/>
     <id>http://yoursite.com/2018/06/26/build-etherminer/</id>
@@ -286,26 +311,22 @@
   </entry>
   
   <entry>
-    <title>Linux Mint安装Cuda 9.1以及cuDNN、NICC</title>
-    <link href="http://yoursite.com/2018/06/26/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/"/>
-    <id>http://yoursite.com/2018/06/26/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/</id>
-    <published>2018-06-26T13:02:10.000Z</published>
-    <updated>2018-07-02T12:00:17.388Z</updated>
+    <title>Linux Mint Cleanup</title>
+    <link href="http://yoursite.com/2018/06/26/Linux-Mint-Cleanup/"/>
+    <id>http://yoursite.com/2018/06/26/Linux-Mint-Cleanup/</id>
+    <published>2018-06-26T13:02:09.000Z</published>
+    <updated>2018-06-26T13:02:09.763Z</updated>
     
-    <content type="html"><![CDATA[<h4 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># execute following command as root user</span></span><br><span class="line">sudo -i</span><br><span class="line">dpkg -i cuda-repo-ubuntu1604_9.1.85-1_amd64.deb </span><br><span class="line">apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub</span><br><span class="line">apt update</span><br><span class="line">apt install cuda</span><br><span class="line">chmod a+x /usr/<span class="built_in">local</span>/cuda-9.1/bin/cuda-install-samples-9.1.sh</span><br><span class="line"><span class="comment"># install cuda sample dependencies</span></span><br><span class="line">apt install libgl-dev libglu-dev libx11-dev libegl1-mesa-dev libgles2-mesa-dev libmpich-dev</span><br><span class="line"><span class="comment"># back to normal user</span></span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"><span class="comment"># install cuda examples</span></span><br><span class="line">cuda-install-samples-9.1.sh ./ </span><br><span class="line"><span class="comment"># force input macro value as linux mint is not officially supported</span></span><br><span class="line">GLPATH=<span class="string">"/usr/lib/x86_64-linux-gnu"</span> GLLINK=<span class="string">"-L/usr/lib/x86_64-linux-gnu"</span> DFLT_PATH=<span class="string">"/usr/lib"</span> EGLLIB=<span class="string">"/usr/lib/x86_64-linux-gnu"</span> GLESLIB=<span class="string">"/usr/lib/x86_64-linux-gnu"</span> make -j6</span><br></pre></td></tr></table></figure><h4 id="cuDNN"><a href="#cuDNN" class="headerlink" title="cuDNN"></a>cuDNN</h4><p>首先从<a href="https://developer.nvidia.com/rdp/cudnn-download" target="_blank" rel="noopener">https://developer.nvidia.com/rdp/cudnn-download</a></p><ul><li>cuDNN v7.0.5 Runtime Library for Ubuntu16.04 (Deb)</li><li>cuDNN v7.0.5 Developer Library for Ubuntu16.04 (Deb)</li><li>cuDNN v7.0.5 Code Samples and User Guide for Ubuntu16.04 (Deb)    </li></ul><p>接下来，安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i libcudnn7_7.0.5.15-1+cuda9.1_amd64.deb</span><br><span class="line">dpkg -i libcudnn7-dev_7.0.5.15-1+cuda9.1_amd64.deb</span><br><span class="line">dpkg -i libcudnn7-doc_7.0.5.15-1+cuda9.1_amd64.deb</span><br></pre></td></tr></table></figure></p><p>最后，运行官方测试用例以验证安装：</p><p>复制<code>/usr/src/cudnn_samples_v7/</code>到有写权限的目录下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> cudnn_samples_v7/mnistCUDNN/</span><br><span class="line">make</span><br></pre></td></tr></table></figure></p><h4 id="NICC"><a href="#NICC" class="headerlink" title="NICC"></a>NICC</h4><p>从<a href="https://developer.nvidia.com/nccl/nccl-download下载并" target="_blank" rel="noopener">https://developer.nvidia.com/nccl/nccl-download下载并</a> <code>dpkg</code> 安装。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i nccl-repo-ubuntu1604-2.1.15-ga-cuda9.1_1-1_amd64.deb</span><br></pre></td></tr></table></figure></p>]]></content>
+    <content type="html"><![CDATA[<p>Clean up old kernel<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">uname -r <span class="comment">#check current using kernel</span></span><br><span class="line">dpkg --get-selections |grep linux <span class="comment"># list installed kernels</span></span><br><span class="line">apt purge xxx <span class="comment"># remove</span></span><br></pre></td></tr></table></figure></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h4 id=&quot;CUDA&quot;&gt;&lt;a href=&quot;#CUDA&quot; class=&quot;headerlink&quot; title=&quot;CUDA&quot;&gt;&lt;/a&gt;CUDA&lt;/h4&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre
+        &lt;p&gt;Clean up old kernel&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line
       
     
     </summary>
-    
-      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
-    
-      <category term="Cuda" scheme="http://yoursite.com/categories/Linux/Cuda/"/>
     
     
   </entry>
@@ -328,27 +349,6 @@
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;Install JDK 8&lt;br&gt; Install JDK 8 by using:&lt;/p&gt;
  &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td 
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Linux Mint Cleanup</title>
-    <link href="http://yoursite.com/2018/06/26/Linux-Mint-Cleanup/"/>
-    <id>http://yoursite.com/2018/06/26/Linux-Mint-Cleanup/</id>
-    <published>2018-06-26T13:02:09.000Z</published>
-    <updated>2018-06-26T13:02:09.763Z</updated>
-    
-    <content type="html"><![CDATA[<p>Clean up old kernel<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">uname -r <span class="comment">#check current using kernel</span></span><br><span class="line">dpkg --get-selections |grep linux <span class="comment"># list installed kernels</span></span><br><span class="line">apt purge xxx <span class="comment"># remove</span></span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Clean up old kernel&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line
       
     
     </summary>
