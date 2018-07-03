@@ -1,6 +1,6 @@
 ---
 title: apt提示key expired问题
-date: 2018-06-26 21:02:12
+date: 2018-07-02 12:02:12
 categories: Linux
 ---
 首先找出过期的key:

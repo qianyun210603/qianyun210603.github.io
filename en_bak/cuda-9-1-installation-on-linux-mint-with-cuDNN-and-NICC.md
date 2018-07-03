@@ -1,9 +1,7 @@
 ---
-title: Linux Mint安装Cuda 9.1以及cuDNN、NICC
-date: 2018-07-02 21:02:10
-categories:
-- Linux
-- Cuda
+title: cuda 9.1 installation on linux mint with cuDNN and NICC
+date: 2018-06-26 21:02:10
+tags:
 ---
 #### CUDA
 
@@ -26,29 +24,31 @@ GLPATH="/usr/lib/x86_64-linux-gnu" GLLINK="-L/usr/lib/x86_64-linux-gnu" DFLT_PAT
 ```
 
 #### cuDNN
-首先从https://developer.nvidia.com/rdp/cudnn-download
+First download
 * cuDNN v7.0.5 Runtime Library for Ubuntu16.04 (Deb)
 * cuDNN v7.0.5 Developer Library for Ubuntu16.04 (Deb)
 * cuDNN v7.0.5 Code Samples and User Guide for Ubuntu16.04 (Deb)    
 
+from https://developer.nvidia.com/rdp/cudnn-download
 
-接下来，安装
+Then, install
+
 ```bash
 dpkg -i libcudnn7_7.0.5.15-1+cuda9.1_amd64.deb
 dpkg -i libcudnn7-dev_7.0.5.15-1+cuda9.1_amd64.deb
 dpkg -i libcudnn7-doc_7.0.5.15-1+cuda9.1_amd64.deb
 ```
 
-最后，运行官方测试用例以验证安装：
+Finally, verify
 
-复制`/usr/src/cudnn_samples_v7/`到有写权限的目录下
+Copy /usr/src/cudnn_samples_v7/ to any place that can write
 ```bash
 cd cudnn_samples_v7/mnistCUDNN/
 make
 ```
 
 #### NICC
-从https://developer.nvidia.com/nccl/nccl-download下载并 `dpkg` 安装。
+First download from https://developer.nvidia.com/nccl/nccl-download
 ```bash
 dpkg -i nccl-repo-ubuntu1604-2.1.15-ga-cuda9.1_1-1_amd64.deb
 ```
