@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="书剑阁">
 <meta property="og:description" content="本地部分 安装node.js 12curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -apt install nodejs -y  安装Hexo 1npm install -g hexo-cli  初始化博客：  使用  1hexo init myblog  创建myblog目录并在其中生成博客需要的基本文件。  初始化结束后">
 <meta property="og:locale" content="en, chn">
-<meta property="og:updated_time" content="2018-07-03T12:31:41.120Z">
+<meta property="og:updated_time" content="2018-07-03T12:50:52.894Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo静态博客系列之一——在VPS上搭建">
 <meta name="twitter:description" content="本地部分 安装node.js 12curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -apt install nodejs -y  安装Hexo 1npm install -g hexo-cli  初始化博客：  使用  1hexo init myblog  创建myblog目录并在其中生成博客需要的基本文件。  初始化结束后">
@@ -211,7 +211,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/30/New-personal-tax/">个税改革分析，减税还是加税？</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2018/06/26/About-GongFu-Wall/">关于减轻功夫墙（GFW）造成的不便的一些探讨</a></li>  <li class="file"><a href="/2018/06/26/Build-Tensorflow-from-source-on-Linux-Mint/">Build Tensorflow from source on Linux Mint</a></li>  <li class="file"><a href="/2018/06/26/Git-ticks/">Git ticks</a></li>  <li class="file"><a href="/2018/06/26/Install-HP-print-driver-on-Linux-mint/">Install HP print driver on Linux mint</a></li>  <li class="file"><a href="/2018/06/26/Linux-Mint-Cleanup/">Linux Mint Cleanup</a></li>  <li class="file"><a href="/2018/06/26/MFC/">MFC</a></li>  <li class="file"><a href="/2018/06/26/Tesseract/">Tesseract</a></li>  <li class="file"><a href="/2018/06/26/build-etherminer/">build etherminer</a></li>  <li class="file"><a href="/2018/06/26/hello-world/">Hello World</a></li>  <li class="file"><a href="/2018/06/26/pandas-tricks/">pandas tricks</a></li>  </ul> 
+                     <li class="file"><a href="/2018/06/26/About-GongFu-Wall/">关于减轻功夫墙（GFW）造成的不便的一些探讨</a></li>  <li class="file"><a href="/2018/06/26/Build-Tensorflow-from-source-on-Linux-Mint/">Build Tensorflow from source on Linux Mint</a></li>  <li class="file"><a href="/2018/06/26/Git-ticks/">Git ticks</a></li>  <li class="file"><a href="/2018/06/26/MFC/">MFC</a></li>  <li class="file"><a href="/2018/06/26/Linux-Mint-Cleanup/">Linux Mint Cleanup</a></li>  <li class="file"><a href="/2018/06/26/Tesseract/">Tesseract</a></li>  <li class="file"><a href="/2018/06/26/build-etherminer/">build etherminer</a></li>  <li class="file"><a href="/2018/06/26/hello-world/">Hello World</a></li>  <li class="file"><a href="/2018/06/26/pandas-tricks/">pandas tricks</a></li>  <li class="file"><a href="/2018/06/26/Install-HP-print-driver-on-Linux-mint/">Install HP print driver on Linux mint</a></li>  </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -463,13 +463,8 @@
 <li><p>为git单独建立一个账户，在<code>$HOME</code>下建立<code>.ssh</code>目录并在其中建立<code>authorized_keys</code>文件，将之前生成的密钥对中的公钥粘贴到其中：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">adduser git</span><br><span class="line">su git</span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">mkdir .ssh</span><br><span class="line">vim .ssh/authorized_keys <span class="comment"># paste public key</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>并禁止git用户登录：编辑<code>/etc/passwd</code>文件，将</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git:x:1000:1000:,,,:/home/git:/bin/bash</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>改为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git:x:1000:1000:,,,:/home/git:/usr/sbin/nologin</span><br></pre></td></tr></table></figure></p>
-<ol start="5">
-<li>建立git裸仓库（bare repository）并设置一个钩子使得push进入裸仓库的文件自动复制到网站根目录下：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git init --bare blog.git</span><br><span class="line">vi blog.git/hooks/post-receive</span><br><span class="line">chmod +x blog.git/hooks/post-receive</span><br></pre></td></tr></table></figure>
+<li><p>建立git裸仓库（bare repository）并设置一个钩子使得push进入裸仓库的文件自动复制到网站根目录下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git init --bare blog.git</span><br><span class="line">vi blog.git/hooks/post-receive</span><br><span class="line">chmod +x blog.git/hooks/post-receive</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p><code>post-receive</code>文件的内容为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">git --work-tree=/var/www/html --git-dir=<span class="variable">$HOME</span>/blog.git checkout -f</span><br></pre></td></tr></table></figure></p>
