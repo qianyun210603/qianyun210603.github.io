@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2018/07/03/Build-Hexo-blog/</loc>
-    
-    <lastmod>2018-07-03T12:31:41.120Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2018/07/02/apt-key-expired/</loc>
     
     <lastmod>2018-07-02T12:04:33.280Z</lastmod>
