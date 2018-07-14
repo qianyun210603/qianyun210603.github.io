@@ -3,23 +3,25 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Linux Mint安装Cuda 9.1以及cuDNN、NICC | 书剑阁</title>
+    <title>Linux Mint 19安装Cuda 9.1以及cuDNN、NCCL | 书剑阁</title>
     
     
-        <meta name="keywords" content="Linux Mint安装Cuda 9.1以及cuDNN、NICC" />
+        <meta name="keywords" content="Linux Mint 19安装Cuda 9.1以及cuDNN、NCCL" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="CUDA123456789101112131415# execute following command as root usersudo -idpkg -i cuda-repo-ubuntu1604_9.1.85-1_amd64.deb apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos">
+    <meta name="description" content="CUDA系统升级到了Mint 19需要重新安装配置Cuda，同时升级到Cuda 9.2。Cuda 9.2需要Nvidia的驱动版本至少是396.37，但不幸的是apt仓库里的396版本驱动有问题，安装后无法被内核加载从而导致系统运行在软解状态。因此只好用bin文件安装。步骤如下：  去官网下载Cuda 9.2的bin安装文件，注意里面自带驱动所以不需要单独安装驱动。  按Ctrl+Alt+F2进入">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux Mint安装Cuda 9.1以及cuDNN、NICC">
-<meta property="og:url" content="http://yoursite.com/2018/07/02/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/index.html">
+<meta property="og:title" content="Linux Mint 19安装Cuda 9.1以及cuDNN、NCCL">
+<meta property="og:url" content="http://yoursite.com/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/index.html">
 <meta property="og:site_name" content="书剑阁">
-<meta property="og:description" content="CUDA123456789101112131415# execute following command as root usersudo -idpkg -i cuda-repo-ubuntu1604_9.1.85-1_amd64.deb apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos">
+<meta property="og:description" content="CUDA系统升级到了Mint 19需要重新安装配置Cuda，同时升级到Cuda 9.2。Cuda 9.2需要Nvidia的驱动版本至少是396.37，但不幸的是apt仓库里的396版本驱动有问题，安装后无法被内核加载从而导致系统运行在软解状态。因此只好用bin文件安装。步骤如下：  去官网下载Cuda 9.2的bin安装文件，注意里面自带驱动所以不需要单独安装驱动。  按Ctrl+Alt+F2进入">
 <meta property="og:locale" content="en, chn">
-<meta property="og:updated_time" content="2018-07-14T09:29:14.971Z">
+<meta property="og:image" content="http://yoursite.com/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/downloadconfig.png">
+<meta property="og:updated_time" content="2018-07-14T10:43:19.157Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux Mint安装Cuda 9.1以及cuDNN、NICC">
-<meta name="twitter:description" content="CUDA123456789101112131415# execute following command as root usersudo -idpkg -i cuda-repo-ubuntu1604_9.1.85-1_amd64.deb apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos">
+<meta name="twitter:title" content="Linux Mint 19安装Cuda 9.1以及cuDNN、NCCL">
+<meta name="twitter:description" content="CUDA系统升级到了Mint 19需要重新安装配置Cuda，同时升级到Cuda 9.2。Cuda 9.2需要Nvidia的驱动版本至少是396.37，但不幸的是apt仓库里的396版本驱动有问题，安装后无法被内核加载从而导致系统运行在软解状态。因此只好用bin文件安装。步骤如下：  去官网下载Cuda 9.2的bin安装文件，注意里面自带驱动所以不需要单独安装驱动。  按Ctrl+Alt+F2进入">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/downloadconfig.png">
     
 
     
@@ -180,7 +182,7 @@
                             &nbsp;
                             Cuda
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/10/Linux-multi-graphic-card-overclock/">Linux系统下多Nvidia显卡超频</a></li>  <li class="file"><a href="/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/">Linux Mint 19安装Cuda 9.1以及cuDNN、NCCL</a></li>  <li class="file active"><a href="/2018/07/02/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/">Linux Mint安装Cuda 9.1以及cuDNN、NICC</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/10/Linux-multi-graphic-card-overclock/">Linux系统下多Nvidia显卡超频</a></li>  <li class="file active"><a href="/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/">Linux Mint 19安装Cuda 9.1以及cuDNN、NCCL</a></li>  <li class="file"><a href="/2018/07/02/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/">Linux Mint安装Cuda 9.1以及cuDNN、NICC</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -406,7 +408,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-cuda-9-2-installation-on-Linux-mint-19" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -423,8 +425,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/07/02/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/">
-            <time datetime="2018-07-02T13:02:10.000Z" itemprop="datePublished">2018-07-02</time>
+        <a href="/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/">
+            <time datetime="2018-07-14T09:49:25.000Z" itemprop="datePublished">2018-07-14</time>
         </a>
     </div>
 
@@ -439,7 +441,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Linux Mint安装Cuda 9.1以及cuDNN、NICC
+            Linux Mint 19安装Cuda 9.1以及cuDNN、NCCL
         </h1>
     
 
@@ -452,17 +454,51 @@
             
         
         
-            <h4 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># execute following command as root user</span></span><br><span class="line">sudo -i</span><br><span class="line">dpkg -i cuda-repo-ubuntu1604_9.1.85-1_amd64.deb </span><br><span class="line">apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub</span><br><span class="line">apt update</span><br><span class="line">apt install cuda</span><br><span class="line">chmod a+x /usr/<span class="built_in">local</span>/cuda-9.1/bin/cuda-install-samples-9.1.sh</span><br><span class="line"><span class="comment"># install cuda sample dependencies</span></span><br><span class="line">apt install libgl-dev libglu-dev libx11-dev libegl1-mesa-dev libgles2-mesa-dev libmpich-dev</span><br><span class="line"><span class="comment"># back to normal user</span></span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"><span class="comment"># install cuda examples</span></span><br><span class="line">cuda-install-samples-9.1.sh ./ </span><br><span class="line"><span class="comment"># force input macro value as linux mint is not officially supported</span></span><br><span class="line">GLPATH=<span class="string">"/usr/lib/x86_64-linux-gnu"</span> GLLINK=<span class="string">"-L/usr/lib/x86_64-linux-gnu"</span> DFLT_PATH=<span class="string">"/usr/lib"</span> EGLLIB=<span class="string">"/usr/lib/x86_64-linux-gnu"</span> GLESLIB=<span class="string">"/usr/lib/x86_64-linux-gnu"</span> make -j6</span><br></pre></td></tr></table></figure>
-<h4 id="cuDNN"><a href="#cuDNN" class="headerlink" title="cuDNN"></a>cuDNN</h4><p>首先从<a href="https://developer.nvidia.com/rdp/cudnn-download" target="_blank" rel="noopener">https://developer.nvidia.com/rdp/cudnn-download</a></p>
+            <h3 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h3><p>系统升级到了Mint 19需要重新安装配置Cuda，同时升级到Cuda 9.2。Cuda 9.2需要Nvidia的驱动版本至少是396.37，但不幸的是apt仓库里的396版本驱动有问题，安装后无法被内核加载从而导致系统运行在软解状态。因此只好用bin文件安装。步骤如下：</p>
+<ol>
+<li><p>去官网下载Cuda 9.2的bin安装文件，注意里面自带驱动所以不需要单独安装驱动。<br><img src="/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/downloadconfig.png" alt=""></p>
+</li>
+<li><p>按<code>Ctrl+Alt+F2</code>进入命令行模式，登录并<code>sudo -i</code>切换到root用户。</p>
+</li>
+<li><p>将之前安装的Nvidia驱动卸载掉以避免冲突。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt purge nvidia-396 nvidia-modprobe nvidia-settings</span><br><span class="line">apt autoremove</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>停止X桌面服务。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/lightdm stop</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>给下载的run文件加执行权限，并运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x cuda_9.2.148_396.37_linux.run</span><br><span class="line">./cuda_9.2.148_396.37_linux.run</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>按提示操作。问yes/no的问题都选yes。</p>
+<ol start="6">
+<li><p>安装完成后重启。</p>
+</li>
+<li><p>将cuda加入系统路径中：<br>在<code>/etc/profile</code>文件中加入如下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/usr/local/cuda/bin:$PAT</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装cuda示例所需依赖。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libgl-dev libglu-dev libx11-dev libegl1-mesa-dev libgles2-mesa-dev libmpich-dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将cuda示例的所有者从root改为当前用户(默认情况示例会被自动安装在sudo用户的<code>$HOME</code>下)。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R booksword:booksword NVIDIA_CUDA-9.2_Samples/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译示例。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># force input macro value as linux mint is not officially supported</span></span><br><span class="line">GLPATH=<span class="string">"/usr/lib/x86_64-linux-gnu"</span> GLLINK=<span class="string">"-L/usr/lib/x86_64-linux-gnu"</span> DFLT_PATH=<span class="string">"/usr/lib"</span> EGLLIB=<span class="string">"/usr/lib/x86_64-linux-gnu"</span> GLESLIB=<span class="string">"/usr/lib/x86_64-linux-gnu"</span> make -j6</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="cuDNN"><a href="#cuDNN" class="headerlink" title="cuDNN"></a>cuDNN</h3><p>首先从<a href="https://developer.nvidia.com/rdp/cudnn-download" target="_blank" rel="noopener">官网</a>下载cudnn的deb文件:</p>
 <ul>
-<li>cuDNN v7.0.5 Runtime Library for Ubuntu16.04 (Deb)</li>
-<li>cuDNN v7.0.5 Developer Library for Ubuntu16.04 (Deb)</li>
-<li>cuDNN v7.0.5 Code Samples and User Guide for Ubuntu16.04 (Deb)    </li>
+<li>cuDNN v7.1.4 Runtime Library for Ubuntu16.04 (Deb)</li>
+<li>cuDNN v7.1.4 Developer Library for Ubuntu16.04 (Deb)</li>
+<li>cuDNN v7.1.4 Code Samples and User Guide for Ubuntu16.04 (Deb)</li>
 </ul>
-<p>接下来，安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i libcudnn7_7.0.5.15-1+cuda9.1_amd64.deb</span><br><span class="line">dpkg -i libcudnn7-dev_7.0.5.15-1+cuda9.1_amd64.deb</span><br><span class="line">dpkg -i libcudnn7-doc_7.0.5.15-1+cuda9.1_amd64.deb</span><br></pre></td></tr></table></figure></p>
-<p>最后，运行官方测试用例以验证安装：</p>
-<p>复制<code>/usr/src/cudnn_samples_v7/</code>到有写权限的目录下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> cudnn_samples_v7/mnistCUDNN/</span><br><span class="line">make</span><br></pre></td></tr></table></figure></p>
-<h4 id="NICC"><a href="#NICC" class="headerlink" title="NICC"></a>NICC</h4><p>从<a href="https://developer.nvidia.com/nccl/nccl-download下载并" target="_blank" rel="noopener">https://developer.nvidia.com/nccl/nccl-download下载并</a> <code>dpkg</code> 安装。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i nccl-repo-ubuntu1604-2.1.15-ga-cuda9.1_1-1_amd64.deb</span><br></pre></td></tr></table></figure></p>
+<p>然后安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i libcudnn7_7.1.4.18-1+cuda9.2_amd64.deb</span><br><span class="line">dpkg -i libcudnn7-dev_7.1.4.18-1+cuda9.2_amd64.deb</span><br><span class="line">dpkg -i libcudnn7-doc_7.1.4.18-1+cuda9.2_amd64.deb</span><br></pre></td></tr></table></figure></p>
+<p>安装完成后编译运行官方测试用例以验证安装：<br>将<code>/usr/src/cudnn_samples_v7/</code>复制到有写权限的目录下，并编译<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> cudnn_samples_v7/mnistCUDNN/</span><br><span class="line">make</span><br></pre></td></tr></table></figure></p>
+<h3 id="NCCL"><a href="#NCCL" class="headerlink" title="NCCL"></a>NCCL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i nccl-repo-ubuntu1604-2.2.13-ga-cuda9.2_1-1_amd64.deb</span><br></pre></td></tr></table></figure>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><blockquote>
+<p>官网文档</p>
+</blockquote>
 
             </div>
         
@@ -475,19 +511,10 @@
     
 <nav id="article-nav">
     
-        <a href="/2018/07/03/Build-Hexo-blog/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    Hexo静态博客系列之一——在VPS上搭建
-                
-            </div>
-        </a>
     
-    
-        <a href="/2018/07/02/Rename-Visual-Studio-Project-name-checklist/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">重命名Visual Studio项目</div>
+            <div class="article-nav-title">Linux Mint从18.3升级到19</div>
         </a>
     
 </nav>

@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/</loc>
+    
+    <lastmod>2018-07-14T10:43:19.157Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/07/02/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/</loc>
+    
+    <lastmod>2018-07-14T09:29:14.971Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/</loc>
     
     <lastmod>2018-07-12T11:25:13.352Z</lastmod>
@@ -47,13 +61,6 @@
     <loc>http://yoursite.com/2018/07/02/apt-key-expired/</loc>
     
     <lastmod>2018-07-02T12:04:33.280Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/07/02/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/</loc>
-    
-    <lastmod>2018-07-02T12:04:01.087Z</lastmod>
     
   </url>
   
