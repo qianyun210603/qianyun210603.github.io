@@ -104,8 +104,6 @@ pagination_dir: page
 theme: Wikitten 
 
 # Deployment
-## Docs: https://hexo.io/docs/deployment.html
+## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: git
-  repo: git@digitocean_ca:/home/git/blog.git
-  branch: master
+  type: ''
