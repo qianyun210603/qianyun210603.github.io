@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    
+    <title>Linux Mint 19安装Cuda 9.2以及cuDNN、NCCL | 书剑阁</title>
+    
+    
+        <meta name="keywords" content="Linux Mint 19安装Cuda 9.2以及cuDNN、NCCL">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="CUDA系统升级到了Mint 19需要重新安装配置Cuda，同时升级到Cuda 9.2。Cuda 9.2需要Nvidia的驱动版本至少是396.37，但不幸的是apt仓库里的396版本驱动有问题，安装后无法被内核加载从而导致系统运行在软解状态。因此只好用bin文件安装。步骤如下：  去官网下载Cuda 9.2的bin安装文件，注意里面自带驱动所以不需要单独安装驱动。  按Ctrl+Alt+F2进入">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux Mint 19安装Cuda 9.2以及cuDNN、NCCL">
+<meta property="og:url" content="http://yoursite.com/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/index.html">
+<meta property="og:site_name" content="书剑阁">
+<meta property="og:description" content="CUDA系统升级到了Mint 19需要重新安装配置Cuda，同时升级到Cuda 9.2。Cuda 9.2需要Nvidia的驱动版本至少是396.37，但不幸的是apt仓库里的396版本驱动有问题，安装后无法被内核加载从而导致系统运行在软解状态。因此只好用bin文件安装。步骤如下：  去官网下载Cuda 9.2的bin安装文件，注意里面自带驱动所以不需要单独安装驱动。  按Ctrl+Alt+F2进入">
+<meta property="og:locale" content="en, chn">
+<meta property="og:image" content="http://yoursite.com/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/downloadconfig.png">
+<meta property="og:updated_time" content="2018-07-14T10:44:44.723Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux Mint 19安装Cuda 9.2以及cuDNN、NCCL">
+<meta name="twitter:description" content="CUDA系统升级到了Mint 19需要重新安装配置Cuda，同时升级到Cuda 9.2。Cuda 9.2需要Nvidia的驱动版本至少是396.37，但不幸的是apt仓库里的396版本驱动有问题，安装后无法被内核加载从而导致系统运行在软解状态。因此只好用bin文件安装。步骤如下：  去官网下载Cuda 9.2的bin安装文件，注意里面自带驱动所以不需要单独安装驱动。  按Ctrl+Alt+F2进入">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/downloadconfig.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">书剑阁</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>categories</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Hexo
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/03/Build-Hexo-blog/">Hexo静态博客系列之一——在VPS上搭建</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Linux
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Cuda
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/02/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/">Linux Mint安装Cuda 9.1以及cuDNN、NICC</a></li>  <li class="file"><a href="/2018/07/10/Linux-multi-graphic-card-overclock/">Linux系统下多Nvidia显卡超频</a></li>  <li class="file active"><a href="/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/">Linux Mint 19安装Cuda 9.2以及cuDNN、NCCL</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            transmission
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/09/Transmission-UDP-Failed-to-set-receive-buffer/">Linux下Transmission的“UDP Failed to set receive buffer”错误</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/07/01/Move-linux-to-new-disk/">无损迁移Linux系统到新磁盘</a></li>  <li class="file"><a href="/2018/07/02/apt-key-expired/">apt提示key expired问题</a></li>  <li class="file"><a href="/2018/07/05/Linux-UFW-Firewall/">Linux上使用ufw进行端口管理</a></li>  <li class="file"><a href="/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/">Linux Mint从18.3升级到19</a></li>  <li class="file"><a href="/2018/07/29/Linux-fcitx-input-method-cannot-use/">Linux Mint某些程序无法使用fcitx的输入法</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Programming
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Visual Studio
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/02/Rename-Visual-Studio-Project-name-checklist/">重命名Visual Studio项目</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            nginx
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/08/Nginx-setup-second-server/">Nginx建立多个server</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            其他
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/30/New-personal-tax/">个税改革分析，减税还是加税？</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            视频压制
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/10/02/avs-merge-wmv/">AVS合并视频文件</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/06/26/Build-Tensorflow-from-source-on-Linux-Mint/">Build Tensorflow from source on Linux Mint</a></li>  <li class="file"><a href="/2018/06/26/Linux-Mint-Cleanup/">Linux Mint Cleanup</a></li>  <li class="file"><a href="/2018/06/26/build-etherminer/">build etherminer</a></li>  <li class="file"><a href="/2018/06/26/pandas-tricks/">pandas tricks</a></li>  <li class="file"><a href="/2018/06/26/Install-HP-print-driver-on-Linux-mint/">Install HP print driver on Linux mint</a></li>  <li class="file"><a href="/2018/06/26/Git-ticks/">Git ticks</a></li>  <li class="file"><a href="/2018/06/26/About-GongFu-Wall/">关于减轻功夫墙（GFW）造成的不便的一些探讨</a></li>  <li class="file"><a href="/2018/06/26/Tesseract/">Tesseract</a></li>  <li class="file"><a href="/2018/06/26/MFC/">MFC</a></li>  <li class="file"><a href="/2022/09/09/hello-world/">Hello World</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-cuda-9-2-installation-on-Linux-mint-19" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Linux/">Linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Linux/Cuda/">Cuda</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/">
+            <time datetime="2018-07-14T09:49:25.000Z" itemprop="datePublished">2018-07-14</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/cuda-9-2-installation-on-Linux-mint-19.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/cuda-9-2-installation-on-Linux-mint-19.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/cuda-9-2-installation-on-Linux-mint-19.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Linux Mint 19安装Cuda 9.2以及cuDNN、NCCL
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <h3 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h3><p>系统升级到了Mint 19需要重新安装配置Cuda，同时升级到Cuda 9.2。Cuda 9.2需要Nvidia的驱动版本至少是396.37，但不幸的是apt仓库里的396版本驱动有问题，安装后无法被内核加载从而导致系统运行在软解状态。因此只好用bin文件安装。步骤如下：</p>
+<ol>
+<li><p>去官网下载Cuda 9.2的bin安装文件，注意里面自带驱动所以不需要单独安装驱动。<br><img src="/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/downloadconfig.png" alt=""></p>
+</li>
+<li><p>按<code>Ctrl+Alt+F2</code>进入命令行模式，登录并<code>sudo -i</code>切换到root用户。</p>
+</li>
+<li><p>将之前安装的Nvidia驱动卸载掉以避免冲突。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt purge nvidia-396 nvidia-modprobe nvidia-settings</span><br><span class="line">apt autoremove</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>停止X桌面服务。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/lightdm stop</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>给下载的run文件加执行权限，并运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x cuda_9.2.148_396.37_linux.run</span><br><span class="line">./cuda_9.2.148_396.37_linux.run</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>按提示操作。问yes/no的问题都选yes。</p>
+<ol start="6">
+<li><p>安装完成后重启。</p>
+</li>
+<li><p>将cuda加入系统路径中：<br>在<code>/etc/profile</code>文件中加入如下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/usr/local/cuda/bin:$PAT</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装cuda示例所需依赖。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libgl-dev libglu-dev libx11-dev libegl1-mesa-dev libgles2-mesa-dev libmpich-dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将cuda示例的所有者从root改为当前用户(默认情况示例会被自动安装在sudo用户的<code>$HOME</code>下)。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R booksword:booksword NVIDIA_CUDA-9.2_Samples/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译示例。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># force input macro value as linux mint is not officially supported</span></span><br><span class="line">GLPATH=<span class="string">"/usr/lib/x86_64-linux-gnu"</span> GLLINK=<span class="string">"-L/usr/lib/x86_64-linux-gnu"</span> DFLT_PATH=<span class="string">"/usr/lib"</span> EGLLIB=<span class="string">"/usr/lib/x86_64-linux-gnu"</span> GLESLIB=<span class="string">"/usr/lib/x86_64-linux-gnu"</span> make -j6</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="cuDNN"><a href="#cuDNN" class="headerlink" title="cuDNN"></a>cuDNN</h3><p>首先从<a href="https://developer.nvidia.com/rdp/cudnn-download" target="_blank" rel="noopener">官网</a>下载cudnn的deb文件:</p>
+<ul>
+<li>cuDNN v7.1.4 Runtime Library for Ubuntu16.04 (Deb)</li>
+<li>cuDNN v7.1.4 Developer Library for Ubuntu16.04 (Deb)</li>
+<li>cuDNN v7.1.4 Code Samples and User Guide for Ubuntu16.04 (Deb)</li>
+</ul>
+<p>然后安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i libcudnn7_7.1.4.18-1+cuda9.2_amd64.deb</span><br><span class="line">dpkg -i libcudnn7-dev_7.1.4.18-1+cuda9.2_amd64.deb</span><br><span class="line">dpkg -i libcudnn7-doc_7.1.4.18-1+cuda9.2_amd64.deb</span><br></pre></td></tr></table></figure></p>
+<p>安装完成后编译运行官方测试用例以验证安装：<br>将<code>/usr/src/cudnn_samples_v7/</code>复制到有写权限的目录下，并编译<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> cudnn_samples_v7/mnistCUDNN/</span><br><span class="line">make</span><br></pre></td></tr></table></figure></p>
+<h3 id="NCCL"><a href="#NCCL" class="headerlink" title="NCCL"></a>NCCL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i nccl-repo-ubuntu1604-2.2.13-ga-cuda9.2_1-1_amd64.deb</span><br></pre></td></tr></table></figure>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><blockquote>
+<p>官网文档</p>
+</blockquote>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/2018/07/29/Linux-fcitx-input-method-cannot-use/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Linux Mint某些程序无法使用fcitx的输入法
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Linux Mint从18.3升级到19</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            BookSword &copy; 2022 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
