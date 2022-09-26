@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2022/09/26/2022-09-26-ubuntu-22-04%E5%AE%89%E8%A3%85mongodb-4-2/</loc>
+    
+    <lastmod>2022-09-26T01:53:36.587Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/tags/index.html</loc>
     
     <lastmod>2022-09-17T06:48:19.130Z</lastmod>
@@ -180,13 +187,6 @@
     <loc>http://yoursite.com/2018/06/26/Build-Tensorflow-from-source-on-Linux-Mint/</loc>
     
     <lastmod>2018-06-26T13:02:09.185Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2022/09/09/hello-world/</loc>
-    
-    <lastmod>2018-06-24T09:05:54.981Z</lastmod>
     
   </url>
   
