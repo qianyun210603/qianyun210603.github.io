@@ -392,7 +392,7 @@
             
         
         
-            <p>问题在于Ubuntu 22.04开始移除了libssl1.1的支持。所以需要先安装libssl1.1</p>
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>问题在于Ubuntu 22.04开始移除了libssl1.1的支持。所以需要先安装libssl1.1</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.0g-2ubuntu4_amd64.deb</span><br><span class="line">sudo dpkg -i libssl1.1_1.1.</span><br></pre></td></tr></table></figure>
 <p>然后将18.04 boinic的source加入source list<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse"</span> | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list</span><br></pre></td></tr></table></figure></p>
 <p>更新apt并安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install -y mongodb-org</span><br></pre></td></tr></table></figure></p>

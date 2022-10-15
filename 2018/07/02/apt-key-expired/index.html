@@ -392,7 +392,7 @@
             
         
         
-            <p>首先找出过期的key:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ apt-key list | grep expired</span><br><span class="line">pub   4096R/BE1DB1F1 2011-03-29 [expired: 2014-03-28]</span><br></pre></td></tr></table></figure></p>
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>首先找出过期的key:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ apt-key list | grep expired</span><br><span class="line">pub   4096R/BE1DB1F1 2011-03-29 [expired: 2014-03-28]</span><br></pre></td></tr></table></figure></p>
 <p>其中<font color="#0000ff">BE1DB1F1</font>就是key ID。</p>
 <p>找到ID后即可用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-key adv --recv-keys --keyserver keys.gnupg.net BE1DB1F1</span><br></pre></td></tr></table></figure></p>
 <p>更新key。</p>

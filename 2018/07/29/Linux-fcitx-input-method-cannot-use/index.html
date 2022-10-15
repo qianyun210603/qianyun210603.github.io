@@ -392,7 +392,7 @@
             
         
         
-            <h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>　　安装了GoldenDict结果发现无法在搜索框里输入中文和日文。</p>
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>　　安装了GoldenDict结果发现无法在搜索框里输入中文和日文。</p>
 <h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><p>　　安装Qt5版本的fcitx前端：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install fcitx-frontend-qt5</span><br></pre></td></tr></table></figure></p>
 <h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>　　Linux下这点比较麻烦，输入法的UI框架有时需要和应用程序的UI框架一致才能启动。一般输入法都会有gtk+ 2/3，Qt 4/5等不同的前端。如果对于某个桌面应用输入法无法使用，需要先确定该应用是基于哪个UI框架的，再检查输入法该UI框架的前端有没有安装。如果没有安装，一般安装后即可解决问题。</p>
 
