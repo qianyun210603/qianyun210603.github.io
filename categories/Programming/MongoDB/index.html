@@ -3,23 +3,19 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
-    <title>无损迁移Linux系统到新磁盘 | 书剑阁</title>
+    <title>Category: MongoDB | 书剑阁</title>
     
     
-        <meta name="keywords" content="无损迁移Linux系统到新磁盘">
+        <meta name="keywords" content="书剑阁">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="笔者的电脑原有一块SSD上装了Windows 10和Linux的双系统，其中Linux分配了大约300GB空间，但随着系统膨胀，发现空间逐步不够使用了，因此又买了一块1TB的SSD，打算将Linux整体迁移到1TB盘上，将原SSD上Linux部分都划给Windows 10。在此记录下迁移步骤，以供参考。（此步骤基于Linux Mint，其他发行版应该大同小异。） 迁移步骤 硬件安装； 刻录Linu">
-<meta property="og:type" content="article">
-<meta property="og:title" content="无损迁移Linux系统到新磁盘">
-<meta property="og:url" content="http://yoursite.com/2018/07/01/Move-linux-to-new-disk/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="书剑阁">
+<meta property="og:url" content="http://yoursite.com/categories/Programming/MongoDB/index.html">
 <meta property="og:site_name" content="书剑阁">
-<meta property="og:description" content="笔者的电脑原有一块SSD上装了Windows 10和Linux的双系统，其中Linux分配了大约300GB空间，但随着系统膨胀，发现空间逐步不够使用了，因此又买了一块1TB的SSD，打算将Linux整体迁移到1TB盘上，将原SSD上Linux部分都划给Windows 10。在此记录下迁移步骤，以供参考。（此步骤基于Linux Mint，其他发行版应该大同小异。） 迁移步骤 硬件安装； 刻录Linu">
 <meta property="og:locale" content="en, chn">
-<meta property="og:updated_time" content="2018-07-01T03:06:17.065Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="无损迁移Linux系统到新磁盘">
-<meta name="twitter:description" content="笔者的电脑原有一块SSD上装了Windows 10和Linux的双系统，其中Linux分配了大约300GB空间，但随着系统膨胀，发现空间逐步不够使用了，因此又买了一块1TB的SSD，打算将Linux整体迁移到1TB盘上，将原SSD上Linux部分都划给Windows 10。在此记录下迁移步骤，以供参考。（此步骤基于Linux Mint，其他发行版应该大同小异。） 迁移步骤 硬件安装； 刻录Linu">
+<meta name="twitter:title" content="书剑阁">
     
 
     
@@ -167,9 +163,9 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/03/Build-Hexo-blog/">Hexo静态博客系列之一——在VPS上搭建</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             Linux
                         </a>
@@ -191,7 +187,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/09/Transmission-UDP-Failed-to-set-receive-buffer/">Linux下Transmission的“UDP Failed to set receive buffer”错误</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2018/06/26/Linux-Mint-Cleanup/">Linux Mint Cleanup</a></li>  <li class="file active"><a href="/2018/07/01/Move-linux-to-new-disk/">无损迁移Linux系统到新磁盘</a></li>  <li class="file"><a href="/2018/07/02/apt-key-expired/">apt提示key expired问题</a></li>  <li class="file"><a href="/2018/07/05/Linux-UFW-Firewall/">Linux上使用ufw进行端口管理</a></li>  <li class="file"><a href="/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/">Linux Mint从18.3升级到19</a></li>  <li class="file"><a href="/2018/07/29/Linux-fcitx-input-method-cannot-use/">Linux Mint某些程序无法使用fcitx的输入法</a></li>  <li class="file"><a href="/2022/09/26/2022-09-26-ubuntu-22-04_install_mongodb-4-2/">Ubuntu 22.04安装MongoDB 4.2</a></li>  </ul> 
+                     <li class="file"><a href="/2018/06/26/Linux-Mint-Cleanup/">Linux Mint Cleanup</a></li>  <li class="file"><a href="/2018/07/01/Move-linux-to-new-disk/">无损迁移Linux系统到新磁盘</a></li>  <li class="file"><a href="/2018/07/02/apt-key-expired/">apt提示key expired问题</a></li>  <li class="file"><a href="/2018/07/05/Linux-UFW-Firewall/">Linux上使用ufw进行端口管理</a></li>  <li class="file"><a href="/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/">Linux Mint从18.3升级到19</a></li>  <li class="file"><a href="/2018/07/29/Linux-fcitx-input-method-cannot-use/">Linux Mint某些程序无法使用fcitx的输入法</a></li>  <li class="file"><a href="/2022/09/26/2022-09-26-ubuntu-22-04_install_mongodb-4-2/">Ubuntu 22.04安装MongoDB 4.2</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -336,153 +332,45 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-Move-linux-to-new-disk" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Linux/">Linux</a>
+            <section id="main">
+<div class="timeline timeline-wrap">
+    <div class="timeline-row timeline-row-major">
+        <span class="node"><i class="fa fa-folder"></i></span>
+        <h1 class="title">MongoDB</h1>
     </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/07/01/Move-linux-to-new-disk/">
-            <time datetime="2018-07-01T13:02:10.000Z" itemprop="datePublished">2018-07-01</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/Move-linux-to-new-disk.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/Move-linux-to-new-disk.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/Move-linux-to-new-disk.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
+    
+        <div class="timeline-row">
+            <span class="node"></span>
+            <div class="content">
                 
     
-        <h1 class="article-title" itemprop="name">
-            无损迁移Linux系统到新磁盘
+        <h1 itemprop="name">
+            <a class="timeline-article-title" href="/2022/10/15/修复mongodb设置导致mongod无法启动/">修复MongoDB设置导致mongod无法启动</a>
         </h1>
     
 
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-        
-        
-            <p>笔者的电脑原有一块SSD上装了Windows 10和Linux的双系统，其中Linux分配了大约300GB空间，但随着系统膨胀，发现空间逐步不够使用了，因此又买了一块1TB的SSD，打算将Linux整体迁移到1TB盘上，将原SSD上Linux部分都划给Windows 10。在此记录下迁移步骤，以供参考。<br>（此步骤基于Linux Mint，其他发行版应该大同小异。）</p>
-<h4 id="迁移步骤"><a href="#迁移步骤" class="headerlink" title="迁移步骤"></a>迁移步骤</h4><ol>
-<li>硬件安装；</li>
-<li>刻录Linux安装U盘并以之启动电脑；</li>
-<li><p>用<code>fdisk</code>命令分区，首先分2GBswap分区，其他作为迁移后的文件系统分区：</p>
-<ol>
-<li>用<code>fdisk -l</code>命令检查当前磁盘挂载和分区情况，找出并记录下原SSD上Linux的swap分区和文件系统分区，以及新SSD的挂载点，假设分别是<code>/dev/sda2</code>, <code>/dev/sda3</code>,和<code>/dev/sdd</code>；</li>
-<li><p>用<code>fdisk /dev/sdd</code>给新磁盘分为swap分区和文件系统分区：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Command (m <span class="keyword">for</span> <span class="built_in">help</span>): n <span class="comment"># create partition of 2GB for swap area</span></span><br><span class="line">Partition number (1-128, default 1): </span><br><span class="line">First sector (1-10000000, default 2048): </span><br><span class="line">Last sector, +sectors or +size&#123;K,M,G,T,P&#125; (34-2047, default 10000000): +2G</span><br><span class="line"></span><br><span class="line">Created a new partition 1 of <span class="built_in">type</span> <span class="string">'Linux filesystem'</span> and of size 2 GiB.</span><br><span class="line"></span><br><span class="line">Command (m <span class="keyword">for</span> <span class="built_in">help</span>): n <span class="comment"># create partition with remaining space for main filesystem</span></span><br><span class="line">Partition number (2-128, default 2): </span><br><span class="line">First sector (600001-10000000): </span><br><span class="line">Last sector, +sectors or +size&#123;K,M,G,T,P&#125; (600002-10000000, default 10000000): </span><br><span class="line"></span><br><span class="line">Created a new partition 3 of <span class="built_in">type</span> <span class="string">'Linux filesystem'</span> and of size 600 GiB.</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>再次<code>fdisk -l</code>查看新磁盘的分区，假设分别是<code>/dev/sdd1</code>和<code>/dev/sdd2</code>；</p>
-</li>
-<li>格式化新分区： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 /dev/sdd1</span><br><span class="line">mkfs.ext4 /dev/sdd2</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-</ol>
-<ol start="3">
-<li><p>用<code>dd</code>命令复制旧SSD上Linux各分区到对应的新SSD分区上：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=/dev/sda2 of=/dev/sdd1</span><br><span class="line">dd <span class="keyword">if</span>=/dev/sda3 of=/dev/sdd2</span><br></pre></td></tr></table></figure>
-<p> 取决于文件分区大小，复制可能需要数个小时。此外，如果之前<code>/boot</code>是单独挂载的，在步骤3也需要创建对应的分区并拷贝内容。</p>
-</li>
-<li><p>更新磁盘信息：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">e2fsck -f /dev/sdd1</span><br><span class="line">resize2fs /dev/sdd1</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用<code>gparted</code>更新磁盘的UUID。完成后对应更新<code>/etc/fstab</code>中关于Linux系统的分区UUID：</p>
-<ul>
-<li>使用<code>blkid /dev/sdd1</code>获得新磁盘上分区的UUID；</li>
-<li>挂载新磁盘上的分区并更新位于<code>/&lt;mount dir&gt;/etc/fstab</code>为新UUID；</li>
-<li>重启进入Windows 10，进入<code>管理工具-&gt;磁盘管理</code>，删除原SSD上的Linux分区；</li>
-</ul>
-</li>
-<li><p>用Linux安装盘再次启动系统，用boot-repair修复grub；</p>
-<ol>
-<li><p>安装并打开boot-repair</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:yannubuntu/boot-repair</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y boot-repair</span><br><span class="line">boot-repair</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>advanced mode选项卡中：</p>
-<ul>
-<li>“GRUB location”选项卡, 选中”Separate /boot/efi partition”，并选择Linux所在的分区。</li>
-<li>“GRUB options”选项卡，选中”Purge GRUB before reinstalling it”。</li>
-</ul>
-</li>
-</ol>
-</li>
-<li><p>重启，此时应该可以进入迁移后的Linux了。</p>
-</li>
-</ol>
-
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2022/10/15/修复mongodb设置导致mongod无法启动/">
+            <time datetime="2022-10-15T08:04:00.000Z" itemprop="datePublished">2022-10-15</time>
+        </a>
     </div>
-</article>
 
 
-    
-<nav id="article-nav">
-    
-        <a href="/2018/07/02/apt-key-expired/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    apt提示key expired问题
-                
+                    
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/MongoDB/">MongoDB</a>
+    </div>
+
+                    
+                </div>
             </div>
-        </a>
+        </div>
     
-    
-        <a href="/2018/06/30/New-personal-tax/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">个税改革分析，减税还是加税？</div>
-        </a>
-    
-</nav>
-
-
-
-
-
-    
-    
-
-
-
-
-<!-- baidu url auto push script -->
-<script type="text/javascript">
-    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
-</script>     
+</div>
 </section>
         </div>
         <footer id="footer">

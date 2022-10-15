@@ -74,7 +74,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -93,10 +93,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -127,7 +127,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
     </div>
 
                 </td>
@@ -144,7 +144,7 @@
         
     <div class="widget-wrap" id='categories'>
         <h3 class="widget-title">
-            <span>Categorias</span>
+            <span>categories</span>
             &nbsp;
             <a id='allExpand' href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -197,6 +197,15 @@
                             Programming
                         </a>
                          <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            MongoDB
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/10/15/修复mongodb设置导致mongod无法启动/">修复MongoDB设置导致mongod无法启动</a></li>  </ul> 
+                    </li> 
+                    
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
@@ -324,6 +333,105 @@
 </aside>
             
             <section id="main">
+        <article id="post-修复mongodb设置导致mongod无法启动" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/MongoDB/">MongoDB</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2022/10/15/修复mongodb设置导致mongod无法启动/">
+            <time datetime="2022-10-15T08:04:00.000Z" itemprop="datePublished">2022-10-15</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/修复mongodb设置导致mongod无法启动.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/修复mongodb设置导致mongod无法启动.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/修复mongodb设置导致mongod无法启动.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2022/10/15/修复mongodb设置导致mongod无法启动/">修复MongoDB设置导致mongod无法启动</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>为了解决使用Arctic<a href="https://github.com/man-group/arctic" target="_blank" rel="noopener">^fn1</a>MongoDB的日志里出现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[conn2] SASL SCRAM-SHA-1 authentication failed for myAdminUser on admin from client 192.168.3.100:9560 ; UserNotFound: Could not find user &quot;myAdminUser&quot; for db &quot;admin&quot;</span><br></pre></td></tr></table></figure></p>
+<p>错误的问题，参考了数个连接（包括StackOverflow）<a href="https://stackoverflow.com/questions/29006887/mongodb-cr-authentication-failed" target="_blank" rel="noopener">^fn2</a>，都提示要将<code>authSchema.currentVersion</code>从<code>5</code>改成<code>3</code>。照做以后就杯具了，<code>mongod</code>服务完全打不开了，提示错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This server is using MONGODB-CR, an authentication mechanism which has been removed from MongoDB 4.0. In order to upgrade the auth schema, first downgrade MongoDB binaries to version 3.6 and then run the authSchemaUpgrade command. See http://dochub.mongodb.org/core/3.0-upgrade-to-scram-sha-1</span><br></pre></td></tr></table></figure></p>
+<p>原因是我的MongoDB server是4.2版本，<code>authSchema.currentVersion=3</code>代表MONGODB-CR的认证方式，4.0以上的Mongo Server已经不再支持了。</p>
+<font color="red"><br><em>感觉MongoDB这种设计简直愚蠢反人类到家了，这种能导致启动崩溃的设置居然是写在数据库里而不是独立的配置文件里，直接导致万一设错了服务就完全起不来，服务器起不来又无法更正配置，直接死循环了。</em><br><br>*!!!所以，尽量不要更改数据库里的配置，一定需要改的话，改之前一定要备份。!!!<br></font>
+
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2022/10/15/修复mongodb设置导致mongod无法启动/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-2022-10-01-消除-frozen-importlib-bootstrap-228-runtimewarning-scipy-lib-messagestream-messagestream-size-changed-may-indicate-binary-incompatibility" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1178,100 +1286,8 @@
 
 
     
-        <article id="post-Linux-UFW-Firewall" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Linux/">Linux</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/07/05/Linux-UFW-Firewall/">
-            <time datetime="2018-07-05T13:37:49.000Z" itemprop="datePublished">2018-07-05</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/Linux-UFW-Firewall.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/Linux-UFW-Firewall.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/Linux-UFW-Firewall.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/07/05/Linux-UFW-Firewall/">Linux上使用ufw进行端口管理</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-            
-        
-        
-            <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install ufw</span><br></pre></td></tr></table></figure>
-<h3 id="启用"><a href="#启用" class="headerlink" title="启用"></a>启用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw enable</span><br></pre></td></tr></table></figure>
-<h3 id="增加规则允许访问端口"><a href="#增加规则允许访问端口" class="headerlink" title="增加规则允许访问端口"></a>增加规则允许访问端口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw allow 80</span><br></pre></td></tr></table></figure>
-<h3 id="删除规则允许访问端口"><a href="#删除规则允许访问端口" class="headerlink" title="删除规则允许访问端口"></a>删除规则允许访问端口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw delete allow 80</span><br></pre></td></tr></table></figure>
-
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Siguiente  &raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
         </nav>
     
 </section>
