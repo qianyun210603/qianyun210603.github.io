@@ -4,7 +4,7 @@ date: 2018-07-09 21:09:06
 tags:
 categories:
 - Linux
-- transmission
+- 应用软件
 ---
 在Ubuntu 18.04的VPS上运行`transmission-daemon`报如下错误：
 ```

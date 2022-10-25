@@ -2,13 +2,15 @@
 title: 关于减轻功夫墙（GFW）造成的不便的一些探讨
 date: 2018-06-26 21:02:15
 tags: GFW, gooreplacer, ss
+categories:
+  - 其他
 ---
 ### 使用gooreplacer重定向对Google的访问
 　　众所周知，天朝无法访问任何Google的服务。但不幸很多外国网站，如码农必备的Stackoverflow等都会调用Google的API，这就导致了这些网站访问速度巨慢，功能不全等问题。在网上发现了有人开发的关于可以重定向Google API到国内镜像的插件，可以用于Firefox和Google Chrome上。特记录于此：
 插件地址：https://github.com/jiacai2050/gooreplacer
 如果只需要重定向Google的访问，可以复制如下Rules，保存为.gson格式后导入。
 ```gson
-{        
+{
     "createBy": "http://liujiacai.net/gooreplacer/",
     "createAt": "Tue Jan 10 2017 17:45:39 GMT+0000",
     "rules": {

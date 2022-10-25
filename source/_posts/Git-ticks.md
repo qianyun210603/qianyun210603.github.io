@@ -2,6 +2,8 @@
 title: Git ticks
 date: 2018-06-26 21:02:14
 tags:
+categories:
+
 ---
 #### Caching GitHub password in Git
 

@@ -2,6 +2,8 @@
 title: Linux Mint Cleanup
 date: 2018-06-26 21:02:09
 tags:
+categories:
+- Linux
 ---
 Clean up old kernel
 ```bash
