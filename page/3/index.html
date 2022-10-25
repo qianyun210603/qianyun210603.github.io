@@ -401,11 +401,11 @@
                 
                 
                     
-                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4 id="Caching-GitHub-password-in-Git"><a href="#Caching-GitHub-password-in-Git" class="headerlink" title="Caching GitHub password in Git"></a>Caching GitHub password in Git</h4><p>In Terminal, enter the following:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper cache</span><br><span class="line"><span class="comment"># Set git to use the credential memory cache</span></span><br></pre></td></tr></table></figure></p>
-<p>To change the default password cache timeout, enter the following:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper <span class="string">'cache --timeout=3600'</span></span><br><span class="line"><span class="comment"># Set the cache to timeout after 1 hour (setting is in seconds)</span></span><br></pre></td></tr></table></figure></p>
-<p>Or alternatively, store forever:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure></p>
-<h4 id="revert-local-change-to-previous-commit"><a href="#revert-local-change-to-previous-commit" class="headerlink" title="revert local change to previous commit"></a>revert local change to previous commit</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- readme.txt <span class="comment"># revert readme.txt to previous commit</span></span><br></pre></td></tr></table></figure>
-<p>or<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all</span><br><span class="line">git reset --hard origin/master</span><br><span class="line">git pull // can be ignored</span><br></pre></td></tr></table></figure></p>
+                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4 id="Caching-GitHub-password-in-Git"><a class="header-anchor" href="#Caching-GitHub-password-in-Git">¶</a>Caching GitHub password in Git</h4>
+<p>In Terminal, enter the following:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper cache</span><br><span class="line"><span class="comment"># Set git to use the credential memory cache</span></span><br></pre></td></tr></table></figure>
+<p>To change the default password cache timeout, enter the following:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper <span class="string">'cache --timeout=3600'</span></span><br><span class="line"><span class="comment"># Set the cache to timeout after 1 hour (setting is in seconds)</span></span><br></pre></td></tr></table></figure>
 <p>
                 
             
@@ -586,10 +586,10 @@
                 
                     
                     <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><ol>
-<li><p>Pandas显示设置（最大行数等）</p>
+<li>
+<p>Pandas显示设置（最大行数等）</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pd.set_option(<span class="string">'max_rows'</span>, <span class="number">500</span>)</span><br><span class="line"><span class="comment">#param choices</span></span><br><span class="line"><span class="comment"># display.height</span></span><br><span class="line"><span class="comment"># width</span></span><br><span class="line"><span class="comment"># max_rows</span></span><br><span class="line"><span class="comment"># max_columns</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>将Timestamp和Timedelta相加时报AttributeError: ‘NoneType’ object has no attribute ‘total_seconds’<br>解决：重新安装pandas</p>
 <p>
                 
             
@@ -770,10 +770,10 @@
                 
                     
                     <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><ol>
-<li><p>Install Bazel (a )</p>
+<li>
+<p>Install Bazel (a )</p>
 <ol>
-<li><p>Install JDK 8<br> Install JDK 8 by using:</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install openjdk-8-jdk</span><br></pre></td></tr></table></figure>
+<li>
 <p>
                 
             
@@ -857,10 +857,14 @@
                     
                     
                 
+                    
+                    
+                
             
         
         
-            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Clean up old kernel<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">uname -r <span class="comment">#check current using kernel</span></span><br><span class="line">dpkg --get-selections |grep linux <span class="comment"># list installed kernels</span></span><br><span class="line">apt purge xxx <span class="comment"># remove</span></span><br></pre></td></tr></table></figure></p>
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Clean up old kernel</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">uname -r <span class="comment">#check current using kernel</span></span><br><span class="line">dpkg --get-selections |grep linux <span class="comment"># list installed kernels</span></span><br><span class="line">apt purge xxx <span class="comment"># remove</span></span><br></pre></td></tr></table></figure>
 
             </div>
         

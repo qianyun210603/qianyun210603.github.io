@@ -9,17 +9,17 @@
         <meta name="keywords" content="apt提示key expired问题">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="首先找出过期的key:12$ apt-key list | grep expiredpub   4096R/BE1DB1F1 2011-03-29 [expired: 2014-03-28] 其中BE1DB1F1就是key ID。 找到ID后即可用1sudo apt-key adv --recv-keys --keyserver keys.gnupg.net BE1DB1F1 更新key。 Ref">
+    <meta name="description" content="首先找出过期的key: 12$ apt-key list | grep expiredpub   4096R/BE1DB1F1 2011-03-29 [expired: 2014-03-28] 其中BE1DB1F1就是key ID。 找到ID后即可用 1sudo apt-key adv --recv-keys --keyserver keys.gnupg.net BE1DB1F1 更新key。 ¶">
 <meta property="og:type" content="article">
 <meta property="og:title" content="apt提示key expired问题">
 <meta property="og:url" content="http://yoursite.com/2018/07/02/apt-key-expired/index.html">
 <meta property="og:site_name" content="书剑阁">
-<meta property="og:description" content="首先找出过期的key:12$ apt-key list | grep expiredpub   4096R/BE1DB1F1 2011-03-29 [expired: 2014-03-28] 其中BE1DB1F1就是key ID。 找到ID后即可用1sudo apt-key adv --recv-keys --keyserver keys.gnupg.net BE1DB1F1 更新key。 Ref">
+<meta property="og:description" content="首先找出过期的key: 12$ apt-key list | grep expiredpub   4096R/BE1DB1F1 2011-03-29 [expired: 2014-03-28] 其中BE1DB1F1就是key ID。 找到ID后即可用 1sudo apt-key adv --recv-keys --keyserver keys.gnupg.net BE1DB1F1 更新key。 ¶">
 <meta property="og:locale" content="en, chn">
 <meta property="og:updated_time" content="2018-07-02T12:04:33.280Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="apt提示key expired问题">
-<meta name="twitter:description" content="首先找出过期的key:12$ apt-key list | grep expiredpub   4096R/BE1DB1F1 2011-03-29 [expired: 2014-03-28] 其中BE1DB1F1就是key ID。 找到ID后即可用1sudo apt-key adv --recv-keys --keyserver keys.gnupg.net BE1DB1F1 更新key。 Ref">
+<meta name="twitter:description" content="首先找出过期的key: 12$ apt-key list | grep expiredpub   4096R/BE1DB1F1 2011-03-29 [expired: 2014-03-28] 其中BE1DB1F1就是key ID。 找到ID后即可用 1sudo apt-key adv --recv-keys --keyserver keys.gnupg.net BE1DB1F1 更新key。 ¶">
     
 
     
@@ -392,11 +392,14 @@
             
         
         
-            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>首先找出过期的key:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ apt-key list | grep expired</span><br><span class="line">pub   4096R/BE1DB1F1 2011-03-29 [expired: 2014-03-28]</span><br></pre></td></tr></table></figure></p>
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>首先找出过期的key:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ apt-key list | grep expired</span><br><span class="line">pub   4096R/BE1DB1F1 2011-03-29 [expired: 2014-03-28]</span><br></pre></td></tr></table></figure>
 <p>其中<font color="#0000ff">BE1DB1F1</font>就是key ID。</p>
-<p>找到ID后即可用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-key adv --recv-keys --keyserver keys.gnupg.net BE1DB1F1</span><br></pre></td></tr></table></figure></p>
+<p>找到ID后即可用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-key adv --recv-keys --keyserver keys.gnupg.net BE1DB1F1</span><br></pre></td></tr></table></figure>
 <p>更新key。</p>
-<h5 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h5><p><a href="https://serverfault.com/questions/7145/what-should-i-do-when-i-got-the-keyexpired-error-message-after-an-apt-get-update/718435#718435" target="_blank" rel="noopener">https://serverfault.com/questions/7145/what-should-i-do-when-i-got-the-keyexpired-error-message-after-an-apt-get-update/718435#718435</a></p>
+<h5 id="Reference"><a class="header-anchor" href="#Reference">¶</a>Reference</h5>
+<p><a href="https://serverfault.com/questions/7145/what-should-i-do-when-i-got-the-keyexpired-error-message-after-an-apt-get-update/718435#718435" target="_blank" rel="noopener">https://serverfault.com/questions/7145/what-should-i-do-when-i-got-the-keyexpired-error-message-after-an-apt-get-update/718435#718435</a></p>
 
             </div>
         

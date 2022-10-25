@@ -9,18 +9,18 @@
         <meta name="keywords" content="Linux">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Install Bazel (a )  Install JDK 8 Install JDK 8 by using:  1apt install openjdk-8-jdk  Add Bazel distribution URI as a package source (one time setup)  12echo &quot;deb [arch=amd64] http://storage.googlea">
+    <meta name="description" content="Install Bazel (a )   Install JDK 8 Install JDK 8 by using:  1apt install openjdk-8-jdk   Add Bazel distribution URI as a package source (one time setup)  12echo &quot;deb [arch=amd64] http://storage.goog">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Build Tensorflow from source on Linux Mint">
 <meta property="og:url" content="http://yoursite.com/2018/06/26/Build-Tensorflow-from-source-on-Linux-Mint/index.html">
 <meta property="og:site_name" content="书剑阁">
-<meta property="og:description" content="Install Bazel (a )  Install JDK 8 Install JDK 8 by using:  1apt install openjdk-8-jdk  Add Bazel distribution URI as a package source (one time setup)  12echo &quot;deb [arch=amd64] http://storage.googlea">
+<meta property="og:description" content="Install Bazel (a )   Install JDK 8 Install JDK 8 by using:  1apt install openjdk-8-jdk   Add Bazel distribution URI as a package source (one time setup)  12echo &quot;deb [arch=amd64] http://storage.goog">
 <meta property="og:locale" content="en, chn">
 <meta property="og:updated_time" content="2022-10-01T08:54:04.638Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Build Tensorflow from source on Linux Mint">
-<meta name="twitter:description" content="Install Bazel (a )  Install JDK 8 Install JDK 8 by using:  1apt install openjdk-8-jdk  Add Bazel distribution URI as a package source (one time setup)  12echo &quot;deb [arch=amd64] http://storage.googlea">
+<meta name="twitter:description" content="Install Bazel (a )   Install JDK 8 Install JDK 8 by using:  1apt install openjdk-8-jdk   Add Bazel distribution URI as a package source (one time setup)  12echo &quot;deb [arch=amd64] http://storage.goog">
     
 
     
@@ -399,60 +399,79 @@
         
         
             <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><ol>
-<li><p>Install Bazel (a )</p>
+<li>
+<p>Install Bazel (a )</p>
 <ol>
-<li><p>Install JDK 8<br> Install JDK 8 by using:</p>
+<li>
+<p>Install JDK 8<br>
+Install JDK 8 by using:</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install openjdk-8-jdk</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Add Bazel distribution URI as a package source (one time setup)</p>
+<li>
+<p>Add Bazel distribution URI as a package source (one time setup)</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8"</span> | tee /etc/apt/sources.list.d/bazel.list</span><br><span class="line">curl https://bazel.build/bazel-release.pub.gpg | sudo apt-key add -</span><br></pre></td></tr></table></figure>
-<p> If you want to install the testing version of Bazel, replace stable with testing.</p>
+<p>If you want to install the testing version of Bazel, replace stable with testing.</p>
 </li>
-<li>Install and update Bazel <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install bazel</span><br></pre></td></tr></table></figure>
+<li>
+<p>Install and update Bazel</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install bazel</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 </li>
-<li><p>Install CUDA and cuDNN (Details ignored, refer to )</p>
+<li>
+<p>Install CUDA and cuDNN (Details ignored, refer to )</p>
 </li>
-<li><p>Clone the TensorFlow repository</p>
+<li>
+<p>Clone the TensorFlow repository</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --recurse-submodules https://github.com/tensorflow/tensorflow</span><br></pre></td></tr></table></figure>
-<p> <code>--recurse-submodules</code> is used to clone the dependency library <font color="#ff0000">protobuf</font>.</p>
+<p><code>--recurse-submodules</code> is used to clone the dependency library <font color="#ff0000">protobuf</font>.</p>
 </li>
-<li><p>Install other dependency</p>
+<li>
+<p>Install other dependency</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install python3-numpy swig python3-dev libgrpc-dev</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Configuration</p>
+<li>
+<p>Configuration</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">You have bazel 0.10.1 installed.</span><br><span class="line">Please specify the location of python. [Default is /usr/bin/python]: /usr/<span class="built_in">local</span>/anaconda3/bin/python</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Found possible Python library paths:</span><br><span class="line">  /usr/<span class="built_in">local</span>/anaconda3/lib/python3.6/site-packages</span><br><span class="line">Please input the desired Python library path to use.  Default is [/usr/<span class="built_in">local</span>/anaconda3/lib/python3.6/site-packages]</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with jemalloc as malloc support? [Y/n]: y</span><br><span class="line">jemalloc as malloc support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with Google Cloud Platform support? [Y/n]: y</span><br><span class="line">Google Cloud Platform support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with Hadoop File System support? [Y/n]: n</span><br><span class="line">No Hadoop File System support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with Amazon S3 File System support? [Y/n]: n</span><br><span class="line">No Amazon S3 File System support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with Apache Kafka Platform support? [y/N]: n</span><br><span class="line">No Apache Kafka Platform support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with XLA JIT support? [y/N]: y</span><br><span class="line">XLA JIT support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with GDR support? [y/N]: n</span><br><span class="line">No GDR support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with VERBS support? [y/N]: n</span><br><span class="line">No VERBS support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with OpenCL SYCL support? [y/N]: n</span><br><span class="line">No OpenCL SYCL support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with CUDA support? [y/N]: y</span><br><span class="line">CUDA support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Please specify the CUDA SDK version you want to use, e.g. 7.0. [Leave empty to default to CUDA 9.0]: 9.1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Please specify the location <span class="built_in">where</span> CUDA 9.1 toolkit is installed. Refer to README.md <span class="keyword">for</span> more details. [Default is /usr/<span class="built_in">local</span>/cuda]:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Please specify the cuDNN version you want to use. [Leave empty to default to cuDNN 7.0]: 7.0.5</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Please specify the location <span class="built_in">where</span> cuDNN 7 library is installed. Refer to README.md <span class="keyword">for</span> more details. [Default is /usr/<span class="built_in">local</span>/cuda]: /usr</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with TensorRT support? [y/N]: n</span><br><span class="line">No TensorRT support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Please specify a list of comma-separated Cuda compute capabilities you want to build with.</span><br><span class="line">You can find the compute capability of your device at: https://developer.nvidia.com/cuda-gpus.</span><br><span class="line">Please note that each additional compute capability significantly increases your build time and binary size. [Default is: 3.5,5.2]6.1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Do you want to use clang as CUDA compiler? [y/N]: n</span><br><span class="line">nvcc will be used as CUDA compiler.</span><br><span class="line"></span><br><span class="line">Please specify <span class="built_in">which</span> gcc should be used by nvcc as the host compiler. [Default is /usr/bin/gcc]:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Do you wish to build TensorFlow with MPI support? [y/N]: y</span><br><span class="line">MPI support will be enabled <span class="keyword">for</span> TensorFlow.</span><br><span class="line"></span><br><span class="line">Please specify the MPI toolkit folder. [Default is ]: /usr</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Please specify optimization flags to use during compilation when bazel option <span class="string">"--config=opt"</span> is specified [Default is -march=native]:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Would you like to interactively configure ./WORKSPACE <span class="keyword">for</span> Android builds? [y/N]: n</span><br><span class="line">Not configuring the WORKSPACE <span class="keyword">for</span> Android builds.</span><br><span class="line"></span><br><span class="line">Preconfigured Bazel build configs. You can use any of the below by adding <span class="string">"--config=&lt;&gt;"</span> to your build <span class="built_in">command</span>. See tools/bazel.rc <span class="keyword">for</span> more details.</span><br><span class="line">true--config=mkl         	<span class="comment"># Build with MKL support.</span></span><br><span class="line">true--config=monolithic  	<span class="comment"># Config for mostly static monolithic build.</span></span><br><span class="line">Configuration finished</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Build</p>
+<li>
+<p>Build</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bazel build -c opt --config=cuda //tensorflow/cc:tutorials_example_trainer</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Test run</p>
+<li>
+<p>Test run</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bazel-bin/tensorflow/cc/tutorials_example_trainer --use_gpu</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Build pip package</p>
+<li>
+<p>Build pip package</p>
 <ul>
-<li><p>Create an env under Anaconda specified for tensorflow (assuming that Anaconda is installed)</p>
+<li>
+<p>Create an env under Anaconda specified for tensorflow (assuming that Anaconda is installed)</p>
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/anaconda3/bin/conda create -n tensorflow pip python=3.6.4 anaconda</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Activate the env</p>
+<li>
+<p>Activate the env</p>
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /usr/<span class="built_in">local</span>/anaconda3/bin/activate tensorflow</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Build under the env</p>
+<li>
+<p>Build under the env</p>
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># To resolve the error caused by location of mpi header files in system is not consistent with tensorflow</span></span><br><span class="line">rm -rf third_party/mpi/mpi*.h</span><br><span class="line">ln -s /usr/include/mpich/mpi.h third_party/mpi/mpi.h</span><br><span class="line">ln -s /usr/include/mpich/mpicxx.h third_party/mpi/mpicxx.h</span><br><span class="line">ln -s /usr/include/mpich/mpio.h third_party/mpi/mpio.h</span><br><span class="line"></span><br><span class="line"><span class="comment"># build</span></span><br><span class="line">bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package</span><br><span class="line"></span><br><span class="line"><span class="comment"># generate wheel in /tmp/tensorflow_pkg</span></span><br><span class="line">bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li><p>Install under Anaconda env</p>
+<li>
+<p>Install under Anaconda env</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install /tmp/tensorflow_pkg/tensorflow-1.6.0rc1-cp36-cp36m-linux_x86_64.whl</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Test installation</p>
+<li>
+<p>Test installation</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># enter tensorflow env</span></span><br><span class="line"><span class="built_in">source</span> /usr/<span class="built_in">local</span>/anaconda3/bin/activate tensorflow</span><br><span class="line"></span><br><span class="line"><span class="comment"># enter python</span></span><br><span class="line">python</span><br></pre></td></tr></table></figure>
 <p>In python interactive</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Python <span class="number">3.6</span><span class="number">.4</span> |Anaconda, Inc.| (default, Jan <span class="number">16</span> <span class="number">2018</span>, <span class="number">18</span>:<span class="number">10</span>:<span class="number">19</span>)</span><br><span class="line">[GCC <span class="number">7.2</span><span class="number">.0</span>] on linux</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> <span class="keyword">or</span> <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>tf.__version__</span><br><span class="line"><span class="string">'1.6.0-rc1'</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h5 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h5><ol>
+<h5 id="Reference"><a class="header-anchor" href="#Reference">¶</a>Reference</h5>
+<ol>
 <li>Bazel installation guide: <a href="https://docs.bazel.build/versions/master/install-ubuntu.html" target="_blank" rel="noopener">https://docs.bazel.build/versions/master/install-ubuntu.html</a></li>
 <li>Tensorflow: <a href="https://tensorflow.google.cn/install/install_sources" target="_blank" rel="noopener">https://tensorflow.google.cn/install/install_sources</a></li>
 </ol>

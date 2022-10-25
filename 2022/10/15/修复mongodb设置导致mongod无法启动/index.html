@@ -9,17 +9,17 @@
         <meta name="keywords" content="修复MongoDB设置导致mongod无法启动">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="缘起为了解决使用Arctic^fn1 MongoDB的日志里出现 1SASL SCRAM-SHA-1 authentication failed for myAdminUser on admin from client 192.168.3.100:9560 ; UserNotFound: Could not find user &amp;quot;myAdminUser&amp;quot; for db &amp;quo">
+    <meta name="description" content="¶缘起 为了解决使用Arctic[1] MongoDB的日志里出现 1SASL SCRAM-SHA-1 authentication failed for myAdminUser on admin from client 192.168.3.100:9560 ; UserNotFound: Could not find user &amp;quot;myAdminUser&amp;quot; for db &amp;qu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="修复MongoDB设置导致mongod无法启动">
 <meta property="og:url" content="http://yoursite.com/2022/10/15/修复mongodb设置导致mongod无法启动/index.html">
 <meta property="og:site_name" content="书剑阁">
-<meta property="og:description" content="缘起为了解决使用Arctic^fn1 MongoDB的日志里出现 1SASL SCRAM-SHA-1 authentication failed for myAdminUser on admin from client 192.168.3.100:9560 ; UserNotFound: Could not find user &amp;quot;myAdminUser&amp;quot; for db &amp;quo">
+<meta property="og:description" content="¶缘起 为了解决使用Arctic[1] MongoDB的日志里出现 1SASL SCRAM-SHA-1 authentication failed for myAdminUser on admin from client 192.168.3.100:9560 ; UserNotFound: Could not find user &amp;quot;myAdminUser&amp;quot; for db &amp;qu">
 <meta property="og:locale" content="en, chn">
-<meta property="og:updated_time" content="2022-10-15T09:40:40.416Z">
+<meta property="og:updated_time" content="2022-10-15T10:38:45.536Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="修复MongoDB设置导致mongod无法启动">
-<meta name="twitter:description" content="缘起为了解决使用Arctic^fn1 MongoDB的日志里出现 1SASL SCRAM-SHA-1 authentication failed for myAdminUser on admin from client 192.168.3.100:9560 ; UserNotFound: Could not find user &amp;quot;myAdminUser&amp;quot; for db &amp;quo">
+<meta name="twitter:description" content="¶缘起 为了解决使用Arctic[1] MongoDB的日志里出现 1SASL SCRAM-SHA-1 authentication failed for myAdminUser on admin from client 192.168.3.100:9560 ; UserNotFound: Could not find user &amp;quot;myAdminUser&amp;quot; for db &amp;qu">
     
 
     
@@ -392,20 +392,39 @@
             
         
         
-            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>为了解决使用Arctic<a href="https://github.com/man-group/arctic" target="_blank" rel="noopener">^fn1</a> MongoDB的日志里出现</p>
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="缘起"><a class="header-anchor" href="#缘起">¶</a>缘起</h2>
+<p>为了解决使用Arctic<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> MongoDB的日志里出现</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SASL SCRAM-SHA-1 authentication failed for myAdminUser on admin from client 192.168.3.100:9560 ; UserNotFound: Could not find user &quot;myAdminUser&quot; for db &quot;admin&quot;</span><br></pre></td></tr></table></figure>
-<p>错误的问题，参考了数个连接（包括StackOverflow<a href="https://stackoverflow.com/questions/29006887/mongodb-cr-authentication-failed" target="_blank" rel="noopener">^fn2</a>），都提示要将<code>authSchema.currentVersion</code>从<code>5</code>改成<code>3</code>。照做以后就杯具了，<code>mongod</code>服务完全打不开了，提示错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This server is using MONGODB-CR, an authentication mechanism which has been removed from MongoDB 4.0. In order to upgrade the auth schema, first downgrade MongoDB binaries to version 3.6 and then run the authSchemaUpgrade command. See http://dochub.mongodb.org/core/3.0-upgrade-to-scram-sha-1</span><br></pre></td></tr></table></figure></p>
+<p>错误的问题，参考了数个连接（包括StackOverflow<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>），都提示要将<code>authSchema.currentVersion</code>从<code>5</code>改成<code>3</code>。照做以后就杯具了，<code>mongod</code>服务完全打不开了，提示错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This server is using MONGODB-CR, an authentication mechanism which has been removed from MongoDB 4.0. In order to upgrade the auth schema, first downgrade MongoDB binaries to version 3.6 and then run the authSchemaUpgrade command. See http://dochub.mongodb.org/core/3.0-upgrade-to-scram-sha-1</span><br></pre></td></tr></table></figure>
 <p>原因是我的MongoDB server是4.2版本，<code>authSchema.currentVersion=3</code>代表MONGODB-CR的认证方式，4.0以上的Mongo Server已经不再支持了。</p>
-<p><em>感觉MongoDB这种设计简直愚蠢反人类到家了，这种能导致启动崩溃的设置居然是写在数据库里而不是独立的配置文件里，直接导致万一设错了服务就完全起不来，服务器起不来又无法更正配置，直接死循环了。</em></p>
-<p><em>所以，尽量不要更改数据库里的配置，一定需要改的话，改之前一定要备份。</em></p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><h4 id="失败尝试一"><a href="#失败尝试一" class="headerlink" title="失败尝试一"></a>失败尝试一</h4><p>按照日志里的提示，将MongoDB服务的版本降低到3.6，同样无法启动，提示WeirdTiger格式不兼容。顿时感觉天昏地暗，前一个备份已经两周多了，完全不想重新恢复这两周的所有数据。</p>
-<h4 id="灵机一动的尝试二"><a href="#灵机一动的尝试二" class="headerlink" title="灵机一动的尝试二"></a>灵机一动的尝试二</h4><p>想到我按照的修改既然是存在数据库里的，那么必然改了某个数据库的磁盘文件。那么这个文件的修改日期一定是所有数据库数据文件中最新的。于是赶紧<code>cd</code>去数据库文件在磁盘里的目录，<code>ls -lnt</code>找到最后修改的文件是这个<code>collection-0-5610079802494816593.wt</code>。</p>
-<p>用vim打卡，<code>:%!xxd</code>切换到二进制模式，搜索<code>authSchema</code>，果然找到了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">00005070: 6400 0b00 0000 6175 7468 5363 6865 6d61  d.....authSchema</span><br><span class="line">00005080: 0010 6375 7272 656e 7456 6572 7369 6f6e  ..currentVersion</span><br><span class="line">00005090: 0003 0000 0000 0000 0000 0000 0000 0000  ................</span><br></pre></td></tr></table></figure></p>
+<font color="red">
+*感觉MongoDB这种设计简直愚蠢反人类到家了，这种能导致启动崩溃的设置居然是写在数据库里而不是独立的配置文件里，直接导致万一设错了服务就完全起不来，服务器起不来又无法更正配置，直接死循环了。*
+<p><em>所以，尽量不要更改数据库里的配置，一定需要改的话，改之前一定要备份。</em><br>
+</p></font><p></p>
+<h2 id="解决"><a class="header-anchor" href="#解决">¶</a>解决</h2>
+<h4 id="失败尝试一"><a class="header-anchor" href="#失败尝试一">¶</a>失败尝试一</h4>
+<p>按照日志里的提示，将MongoDB服务的版本降低到3.6，同样无法启动，提示WeirdTiger格式不兼容。顿时感觉天昏地暗，前一个备份已经两周多了，完全不想重新恢复这两周的所有数据。</p>
+<h4 id="灵机一动的尝试二"><a class="header-anchor" href="#灵机一动的尝试二">¶</a>灵机一动的尝试二</h4>
+<p>想到我按照的修改既然是存在数据库里的，那么必然改了某个数据库的磁盘文件。那么这个文件的修改日期一定是所有数据库数据文件中最新的。于是赶紧<code>cd</code>去数据库文件在磁盘里的目录，<code>ls -lnt</code>找到最后修改的文件是这个<code>collection-0-5610079802494816593.wt</code>。</p>
+<p>用vim打卡，<code>:%!xxd</code>切换到二进制模式，搜索<code>authSchema</code>，果然找到了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">00005070: 6400 0b00 0000 6175 7468 5363 6865 6d61  d.....authSchema</span><br><span class="line">00005080: 0010 6375 7272 656e 7456 6572 7369 6f6e  ..currentVersion</span><br><span class="line">00005090: 0003 0000 0000 0000 0000 0000 0000 0000  ................</span><br></pre></td></tr></table></figure>
 <p>赶紧把<code>currentVersion</code>后边的0003改成0005。再次重启<code>mongod</code>。发现日志还是报错</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wiredTiger Error: collection-*.wt does not appear to be a WiredTiger file</span><br></pre></td></tr></table></figure>
-<p>并提示可以加<code>--repair</code>参数尝试修复，于是执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod --noauth --dbpath /mongodb/data/ --repair</span><br></pre></td></tr></table></figure></p>
-<p>成功结束后再次启动mongod服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mongod</span><br></pre></td></tr></table></figure></p>
+<p>并提示可以加<code>--repair</code>参数尝试修复，于是执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod --noauth --dbpath /mongodb/data/ --repair</span><br></pre></td></tr></table></figure>
+<p>成功结束后再次启动mongod服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mongod</span><br></pre></td></tr></table></figure>
 <p>成功~~</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="https://github.com/man-group/arctic" target="_blank" rel="noopener">https://github.com/man-group/arctic</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a href="https://stackoverflow.com/questions/29006887/mongodb-cr-authentication-failed" target="_blank" rel="noopener">https://stackoverflow.com/questions/29006887/mongodb-cr-authentication-failed</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 
             </div>
         

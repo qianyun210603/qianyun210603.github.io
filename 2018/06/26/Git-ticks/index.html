@@ -9,17 +9,17 @@
         <meta name="keywords" content="Git ticks">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Caching GitHub password in GitIn Terminal, enter the following:12git config --global credential.helper cache# Set git to use the credential memory cache To change the default password cache timeout, e">
+    <meta name="description" content="¶Caching GitHub password in Git In Terminal, enter the following: 12git config --global credential.helper cache# Set git to use the credential memory cache To change the default password cache timeout">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git ticks">
 <meta property="og:url" content="http://yoursite.com/2018/06/26/Git-ticks/index.html">
 <meta property="og:site_name" content="书剑阁">
-<meta property="og:description" content="Caching GitHub password in GitIn Terminal, enter the following:12git config --global credential.helper cache# Set git to use the credential memory cache To change the default password cache timeout, e">
+<meta property="og:description" content="¶Caching GitHub password in Git In Terminal, enter the following: 12git config --global credential.helper cache# Set git to use the credential memory cache To change the default password cache timeout">
 <meta property="og:locale" content="en, chn">
 <meta property="og:updated_time" content="2022-10-15T09:03:24.131Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git ticks">
-<meta name="twitter:description" content="Caching GitHub password in GitIn Terminal, enter the following:12git config --global credential.helper cache# Set git to use the credential memory cache To change the default password cache timeout, e">
+<meta name="twitter:description" content="¶Caching GitHub password in Git In Terminal, enter the following: 12git config --global credential.helper cache# Set git to use the credential memory cache To change the default password cache timeout">
     
 
     
@@ -387,11 +387,17 @@
             
         
         
-            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4 id="Caching-GitHub-password-in-Git"><a href="#Caching-GitHub-password-in-Git" class="headerlink" title="Caching GitHub password in Git"></a>Caching GitHub password in Git</h4><p>In Terminal, enter the following:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper cache</span><br><span class="line"><span class="comment"># Set git to use the credential memory cache</span></span><br></pre></td></tr></table></figure></p>
-<p>To change the default password cache timeout, enter the following:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper <span class="string">'cache --timeout=3600'</span></span><br><span class="line"><span class="comment"># Set the cache to timeout after 1 hour (setting is in seconds)</span></span><br></pre></td></tr></table></figure></p>
-<p>Or alternatively, store forever:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure></p>
-<h4 id="revert-local-change-to-previous-commit"><a href="#revert-local-change-to-previous-commit" class="headerlink" title="revert local change to previous commit"></a>revert local change to previous commit</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- readme.txt <span class="comment"># revert readme.txt to previous commit</span></span><br></pre></td></tr></table></figure>
-<p>or<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all</span><br><span class="line">git reset --hard origin/master</span><br><span class="line">git pull // can be ignored</span><br></pre></td></tr></table></figure></p>
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4 id="Caching-GitHub-password-in-Git"><a class="header-anchor" href="#Caching-GitHub-password-in-Git">¶</a>Caching GitHub password in Git</h4>
+<p>In Terminal, enter the following:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper cache</span><br><span class="line"><span class="comment"># Set git to use the credential memory cache</span></span><br></pre></td></tr></table></figure>
+<p>To change the default password cache timeout, enter the following:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper <span class="string">'cache --timeout=3600'</span></span><br><span class="line"><span class="comment"># Set the cache to timeout after 1 hour (setting is in seconds)</span></span><br></pre></td></tr></table></figure>
+<p>Or alternatively, store forever:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure>
+<h4 id="revert-local-change-to-previous-commit"><a class="header-anchor" href="#revert-local-change-to-previous-commit">¶</a>revert local change to previous commit</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- readme.txt <span class="comment"># revert readme.txt to previous commit</span></span><br></pre></td></tr></table></figure>
+<p>or</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all</span><br><span class="line">git reset --hard origin/master</span><br><span class="line">git pull // can be ignored</span><br></pre></td></tr></table></figure>
 
             </div>
         

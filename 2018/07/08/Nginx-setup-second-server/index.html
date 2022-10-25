@@ -9,17 +9,17 @@
         <meta name="keywords" content="Nginx建立多个server">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="在/etc/nginx/conf.d/中添加conf文件，如myblog.conf，最简内容如下： 12345server &amp;#123;    listen       &amp;lt;port&amp;gt;;    root  /var/www/myblog/;                 # root path    index index.html index.htm index.php;   #">
+    <meta name="description" content="在/etc/nginx/conf.d/中添加conf文件，如myblog.conf，最简内容如下：  12345server &amp;#123;    listen       &amp;lt;port&amp;gt;;    root  /var/www/myblog/;                 # root path    index index.html index.htm index.php;   #">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx建立多个server">
 <meta property="og:url" content="http://yoursite.com/2018/07/08/Nginx-setup-second-server/index.html">
 <meta property="og:site_name" content="书剑阁">
-<meta property="og:description" content="在/etc/nginx/conf.d/中添加conf文件，如myblog.conf，最简内容如下： 12345server &amp;#123;    listen       &amp;lt;port&amp;gt;;    root  /var/www/myblog/;                 # root path    index index.html index.htm index.php;   #">
+<meta property="og:description" content="在/etc/nginx/conf.d/中添加conf文件，如myblog.conf，最简内容如下：  12345server &amp;#123;    listen       &amp;lt;port&amp;gt;;    root  /var/www/myblog/;                 # root path    index index.html index.htm index.php;   #">
 <meta property="og:locale" content="en, chn">
 <meta property="og:updated_time" content="2018-07-08T09:23:54.039Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx建立多个server">
-<meta name="twitter:description" content="在/etc/nginx/conf.d/中添加conf文件，如myblog.conf，最简内容如下： 12345server &amp;#123;    listen       &amp;lt;port&amp;gt;;    root  /var/www/myblog/;                 # root path    index index.html index.htm index.php;   #">
+<meta name="twitter:description" content="在/etc/nginx/conf.d/中添加conf文件，如myblog.conf，最简内容如下：  12345server &amp;#123;    listen       &amp;lt;port&amp;gt;;    root  /var/www/myblog/;                 # root path    index index.html index.htm index.php;   #">
     
 
     
@@ -393,22 +393,29 @@
         
         
             <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><ol>
-<li><p>在<code>/etc/nginx/conf.d/</code>中添加<code>conf</code>文件，如<code>myblog.conf</code>，最简内容如下：</p>
+<li>在<code>/etc/nginx/conf.d/</code>中添加<code>conf</code>文件，如<code>myblog.conf</code>，最简内容如下：</li>
+</ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       &lt;port&gt;;</span><br><span class="line">    root  /var/www/myblog/;                 # root path</span><br><span class="line">    index index.html index.htm index.php;   # default page</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>
+<p>检查<code>/etc/nginx/conf.d/download.conf</code>是否有<code>include /etc/nginx/conf.d/*.conf;</code>， 如果没有则添加。</p>
 </li>
-<li><p>检查<code>/etc/nginx/conf.d/download.conf</code>是否有<code>include /etc/nginx/conf.d/*.conf;</code>， 如果没有则添加。</p>
+<li>
+<p>运行<code>nginx -t</code>检查配置文件是否正确。</p>
 </li>
-<li>运行<code>nginx -t</code>检查配置文件是否正确。</li>
-<li><p>检查权限：</p>
+<li>
+<p>检查权限：</p>
 <ol>
-<li><p>查看运行nginx的用户:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep &quot;nginx: worker process&quot; | awk &apos;&#123;print $1&#125;&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>对配置中的<code>root</code>目录，如上例中的<code>/var/www/myblog/</code>及其所有父目录和需要http访问的子目录，设置权限为755，对所有文件设为644。<em>（注意这里很多网上资料的解决方案是将nginx运行用户改为root用户，这样也能解决权限导致的403问题，但出于安全考虑不建议这样做。）</em></p>
-</li>
+<li>查看运行nginx的用户:</li>
+</ol>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep &quot;nginx: worker process&quot; | awk &apos;&#123;print $1&#125;&apos;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>对配置中的<code>root</code>目录，如上例中的<code>/var/www/myblog/</code>及其所有父目录和需要http访问的子目录，设置权限为755，对所有文件设为644。<em>（注意这里很多网上资料的解决方案是将nginx运行用户改为root用户，这样也能解决权限导致的403问题，但出于安全考虑不建议这样做。）</em></li>
 </ol>
 </li>
-<li>访问http://&lt;ip address&gt;:&lt;port&gt; 检查配置的正确性。</li>
+<li>
+<p>访问http://&lt;ip address&gt;:&lt;port&gt; 检查配置的正确性。</p>
+</li>
 </ol>
 
             </div>

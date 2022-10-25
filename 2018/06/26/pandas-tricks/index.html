@@ -9,18 +9,18 @@
         <meta name="keywords" content="python, pandas">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Pandas显示设置（最大行数等） 123456pd.set_option(&apos;max_rows&apos;, 500)#param choices# display.height# width# max_rows# max_columns  将Timestamp和Timedelta相加时报AttributeError: ‘NoneType’ object has no attribute ‘total_s">
+    <meta name="description" content="Pandas显示设置（最大行数等） 123456pd.set_option(&apos;max_rows&apos;, 500)#param choices# display.height# width# max_rows# max_columns   将Timestamp和Timedelta相加时报AttributeError: ‘NoneType’ object has no attribute ‘total">
 <meta name="keywords" content="python, pandas">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pandas tricks">
 <meta property="og:url" content="http://yoursite.com/2018/06/26/pandas-tricks/index.html">
 <meta property="og:site_name" content="书剑阁">
-<meta property="og:description" content="Pandas显示设置（最大行数等） 123456pd.set_option(&apos;max_rows&apos;, 500)#param choices# display.height# width# max_rows# max_columns  将Timestamp和Timedelta相加时报AttributeError: ‘NoneType’ object has no attribute ‘total_s">
+<meta property="og:description" content="Pandas显示设置（最大行数等） 123456pd.set_option(&apos;max_rows&apos;, 500)#param choices# display.height# width# max_rows# max_columns   将Timestamp和Timedelta相加时报AttributeError: ‘NoneType’ object has no attribute ‘total">
 <meta property="og:locale" content="en, chn">
 <meta property="og:updated_time" content="2022-10-01T08:54:06.449Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pandas tricks">
-<meta name="twitter:description" content="Pandas显示设置（最大行数等） 123456pd.set_option(&apos;max_rows&apos;, 500)#param choices# display.height# width# max_rows# max_columns  将Timestamp和Timedelta相加时报AttributeError: ‘NoneType’ object has no attribute ‘total_s">
+<meta name="twitter:description" content="Pandas显示设置（最大行数等） 123456pd.set_option(&apos;max_rows&apos;, 500)#param choices# display.height# width# max_rows# max_columns   将Timestamp和Timedelta相加时报AttributeError: ‘NoneType’ object has no attribute ‘total">
     
 
     
@@ -399,13 +399,16 @@
         
         
             <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><ol>
-<li><p>Pandas显示设置（最大行数等）</p>
+<li>
+<p>Pandas显示设置（最大行数等）</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pd.set_option(<span class="string">'max_rows'</span>, <span class="number">500</span>)</span><br><span class="line"><span class="comment">#param choices</span></span><br><span class="line"><span class="comment"># display.height</span></span><br><span class="line"><span class="comment"># width</span></span><br><span class="line"><span class="comment"># max_rows</span></span><br><span class="line"><span class="comment"># max_columns</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>将Timestamp和Timedelta相加时报AttributeError: ‘NoneType’ object has no attribute ‘total_seconds’<br>解决：重新安装pandas</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --force-reinstall pandas</span><br></pre></td></tr></table></figure>
+<li>
+<p>将Timestamp和Timedelta相加时报AttributeError: ‘NoneType’ object has no attribute ‘total_seconds’<br>
+解决：重新安装pandas</p>
 </li>
 </ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --force-reinstall pandas</span><br></pre></td></tr></table></figure>
 
             </div>
         
