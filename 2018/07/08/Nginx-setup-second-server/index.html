@@ -1,46 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
+<html lang=en>
+<head>
     <meta charset="utf-8">
     
     <title>Nginx建立多个server | 书剑阁</title>
     
     
-        <meta name="keywords" content="Nginx建立多个server">
+        <meta name="keywords" content="Nginx建立多个server" />
     
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="在/etc/nginx/conf.d/中添加conf文件，如myblog.conf，最简内容如下：  12345server &amp;#123;    listen       &amp;lt;port&amp;gt;;    root  /var/www/myblog/;                 # root path    index index.html index.htm index.php;   #">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="在&#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;中添加conf文件，如myblog.conf，最简内容如下：  12345server &amp;#123;    listen       &lt;port&gt;;    root  &#x2F;var&#x2F;www&#x2F;myblog&#x2F;;                 # root path    index index.html index.htm index.php;   #">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx建立多个server">
 <meta property="og:url" content="http://yoursite.com/2018/07/08/Nginx-setup-second-server/index.html">
 <meta property="og:site_name" content="书剑阁">
-<meta property="og:description" content="在/etc/nginx/conf.d/中添加conf文件，如myblog.conf，最简内容如下：  12345server &amp;#123;    listen       &amp;lt;port&amp;gt;;    root  /var/www/myblog/;                 # root path    index index.html index.htm index.php;   #">
-<meta property="og:locale" content="en, chn">
-<meta property="og:updated_time" content="2018-07-08T09:23:54.039Z">
+<meta property="og:description" content="在&#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;中添加conf文件，如myblog.conf，最简内容如下：  12345server &amp;#123;    listen       &lt;port&gt;;    root  &#x2F;var&#x2F;www&#x2F;myblog&#x2F;;                 # root path    index index.html index.htm index.php;   #">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-07-08T08:53:39.000Z">
+<meta property="article:modified_time" content="2018-07-08T09:23:54.039Z">
+<meta property="article:author" content="BookSword">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nginx建立多个server">
-<meta name="twitter:description" content="在/etc/nginx/conf.d/中添加conf文件，如myblog.conf，最简内容如下：  12345server &amp;#123;    listen       &amp;lt;port&amp;gt;;    root  /var/www/myblog/;                 # root path    index index.html index.htm index.php;   #">
     
 
     
 
     
-        <link rel="icon" href="/favicon.ico">
+        <link rel="icon" href="/favicon.ico" />
     
 
-    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/libs/open-sans/styles.css">
-    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
     
     
-        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
     
     
-        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
     
     
     
@@ -50,8 +66,9 @@
     
         <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="书剑阁" type="application/atom+xml">
 </head>
-</html>
+
 <body>
     <div id="container">
         <header id="header">
@@ -78,7 +95,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -97,9 +114,9 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Articles',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Catégories',
+            CATEGORIES: 'Categories',
             TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
@@ -109,7 +126,9 @@
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
+
 <script src="/js/insight.js"></script>
+
 
 </div>
         </div>
@@ -131,7 +150,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
     </div>
 
                 </td>
@@ -148,7 +167,7 @@
         
     <div class="widget-wrap" id='categories'>
         <h3 class="widget-title">
-            <span>Catégories</span>
+            <span>categories</span>
             &nbsp;
             <a id='allExpand' href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -207,7 +226,7 @@
                             &nbsp;
                             MongoDB
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/10/15/修复mongodb设置导致mongod无法启动/">修复MongoDB设置导致mongod无法启动</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/10/15/%E4%BF%AE%E5%A4%8Dmongodb%E8%AE%BE%E7%BD%AE%E5%AF%BC%E8%87%B4mongod%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/">修复MongoDB设置导致mongod无法启动</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -216,7 +235,7 @@
                             &nbsp;
                             Python
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/pandas-tricks/">pandas tricks</a></li>  <li class="file"><a href="/2022/10/01/2022-10-01-消除-frozen-importlib-bootstrap-228-runtimewarning-scipy-lib-messagestream-messagestream-size-changed-may-indicate-binary-incompatibility/">消除&lt;frozen importlib._bootstrap&gt;:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility.</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/pandas-tricks/">pandas tricks</a></li>  <li class="file"><a href="/2022/10/01/2022-10-01-%E6%B6%88%E9%99%A4-frozen-importlib-bootstrap-228-runtimewarning-scipy-lib-messagestream-messagestream-size-changed-may-indicate-binary-incompatibility/">消除&lt;frozen importlib._bootstrap&gt;:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility.</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -365,13 +384,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/Nginx-setup-second-server.md'> Source </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/Nginx-setup-second-server.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/Nginx-setup-second-server.md'> Edit </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/Nginx-setup-second-server.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/Nginx-setup-second-server.md'> History </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/Nginx-setup-second-server.md'> History </a>
                             </div>
                         
                     </div>
@@ -395,27 +414,20 @@
             <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><ol>
 <li>在<code>/etc/nginx/conf.d/</code>中添加<code>conf</code>文件，如<code>myblog.conf</code>，最简内容如下：</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       &lt;port&gt;;</span><br><span class="line">    root  /var/www/myblog/;                 # root path</span><br><span class="line">    index index.html index.htm index.php;   # default page</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       &lt;port&gt;;</span><br><span class="line">    root  /var/www/myblog/;                 # root path</span><br><span class="line">    index index.html index.htm index.php;   # default page</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol start="2">
-<li>
-<p>检查<code>/etc/nginx/conf.d/download.conf</code>是否有<code>include /etc/nginx/conf.d/*.conf;</code>， 如果没有则添加。</p>
-</li>
-<li>
-<p>运行<code>nginx -t</code>检查配置文件是否正确。</p>
-</li>
-<li>
-<p>检查权限：</p>
+<li>检查<code>/etc/nginx/conf.d/download.conf</code>是否有<code>include /etc/nginx/conf.d/*.conf;</code>， 如果没有则添加。</li>
+<li>运行<code>nginx -t</code>检查配置文件是否正确。</li>
+<li>检查权限：
 <ol>
 <li>查看运行nginx的用户:</li>
 </ol>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep &quot;nginx: worker process&quot; | awk &apos;&#123;print $1&#125;&apos;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep &quot;nginx: worker process&quot; | awk &#x27;&#123;print $1&#125;&#x27;</span><br></pre></td></tr></table></figure>
 <ol start="2">
 <li>对配置中的<code>root</code>目录，如上例中的<code>/var/www/myblog/</code>及其所有父目录和需要http访问的子目录，设置权限为755，对所有文件设为644。<em>（注意这里很多网上资料的解决方案是将nginx运行用户改为root用户，这样也能解决权限导致的403问题，但出于安全考虑不建议这样做。）</em></li>
 </ol>
 </li>
-<li>
-<p>访问http://&lt;ip address&gt;:&lt;port&gt; 检查配置的正确性。</p>
-</li>
+<li>访问http://&lt;ip address&gt;:&lt;port&gt; 检查配置的正确性。</li>
 </ol>
 
             </div>
@@ -430,7 +442,7 @@
 <nav id="article-nav">
     
         <a href="/2018/07/09/Transmission-UDP-Failed-to-set-receive-buffer/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Plus récent</strong>
+            <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
                     Linux下Transmission的“UDP Failed to set receive buffer”错误
@@ -440,7 +452,7 @@
     
     
         <a href="/2018/07/05/Linux-UFW-Firewall/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Plus ancien</strong>
+            <strong class="article-nav-caption">Older</strong>
             <div class="article-nav-title">Linux上使用ufw进行端口管理</div>
         </a>
     
@@ -466,8 +478,8 @@
     <div class="outer">
         <div id="footer-info" class="inner">
             BookSword &copy; 2022 
-            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
-            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
             
                 <br>
                 <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
@@ -481,18 +493,38 @@
         
 
     
-        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
     
     
-        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
     
     
         <script type="text/x-mathjax-config">
@@ -520,7 +552,9 @@
 
 
 <!-- Custom Scripts -->
+
 <script src="/js/main.js"></script>
+
 
     </div>
 </body>
