@@ -195,7 +195,7 @@
                             &nbsp;
                             Cuda
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/02/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/">Linux Mint安装Cuda 9.1以及cuDNN、NICC</a></li>  <li class="file"><a href="/2018/07/10/Linux-multi-graphic-card-overclock/">Linux系统下多Nvidia显卡超频</a></li>  <li class="file"><a href="/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/">Linux Mint 19安装Cuda 9.2以及cuDNN、NCCL</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/02/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/">Linux Mint安装Cuda 9.1以及cuDNN、NICC</a></li>  <li class="file"><a href="/2018/07/10/Linux-multi-graphic-card-overclock/">Linux系统下多Nvidia显卡超频</a></li>  <li class="file"><a href="/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/">Linux Mint 19安装Cuda 9.2以及cuDNN、NCCL</a></li>  <li class="file"><a href="/2022/11/03/ubuntucuda/">Ubuntu 22.04安装Cuda Toolkit</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -352,6 +352,105 @@
 </aside>
             
             <section id="main">
+        <article id="post-Nginx-setup-second-server" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/nginx/">nginx</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/07/08/Nginx-setup-second-server/">
+            <time datetime="2018-07-08T08:53:39.000Z" itemprop="datePublished">2018-07-08</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/Nginx-setup-second-server.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/Nginx-setup-second-server.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/Nginx-setup-second-server.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/07/08/Nginx-setup-second-server/">Nginx建立多个server</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><ol>
+<li>在<code>/etc/nginx/conf.d/</code>中添加<code>conf</code>文件，如<code>myblog.conf</code>，最简内容如下：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       &lt;port&gt;;</span><br><span class="line">    root  /var/www/myblog/;                 # root path</span><br><span class="line">    index index.html index.htm index.php;   # default page</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2018/07/08/Nginx-setup-second-server/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-Linux-UFW-Firewall" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1223,100 +1322,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2018/06/26/About-GongFu-Wall/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-Tesseract" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/06/26/Tesseract/">
-            <time datetime="2018-06-26T13:02:15.000Z" itemprop="datePublished">2018-06-26</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/Tesseract.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/Tesseract.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/Tesseract.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/06/26/Tesseract/">Tesseract</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Install"><a class="header-anchor" href="#Install">¶</a>Install</h2>
-<h4 id="1-Required-package"><a class="header-anchor" href="#1-Required-package">¶</a>1. Required package</h4>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt install autoconf-archive automake g++ libtool make pkg-config <span class="comment"># for main recognization</span></span><br><span class="line">apt install asciidoc <span class="comment"># for document</span></span><br><span class="line">apt-get install libicu-dev libpango1.0-dev libcairo2-dev <span class="comment"># for training tool</span></span><br></pre></td></tr></table></figure>
-<h5 id="1-1-Build-libleptonica-dev-from-source"><a class="header-anchor" href="#1-1-Build-libleptonica-dev-from-source">¶</a>1.1 Build libleptonica-dev from source</h5>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo -i <span class="comment"># build as root</span></span><br><span class="line">wget http://www.leptonica.org/source/leptonica-1.76.0.tar.gz <span class="comment"># check http://www.leptonica.org/download.html for latest version</span></span><br><span class="line">tar -xzf leptonica-1.76.0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> leptonica-1.76.0/</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2018/06/26/Tesseract/#more">Read More</a>
             </div>
         
         <footer class="article-footer">

@@ -195,7 +195,7 @@
                             &nbsp;
                             Cuda
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/02/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/">Linux Mint安装Cuda 9.1以及cuDNN、NICC</a></li>  <li class="file"><a href="/2018/07/10/Linux-multi-graphic-card-overclock/">Linux系统下多Nvidia显卡超频</a></li>  <li class="file"><a href="/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/">Linux Mint 19安装Cuda 9.2以及cuDNN、NCCL</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/02/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/">Linux Mint安装Cuda 9.1以及cuDNN、NICC</a></li>  <li class="file"><a href="/2018/07/10/Linux-multi-graphic-card-overclock/">Linux系统下多Nvidia显卡超频</a></li>  <li class="file"><a href="/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/">Linux Mint 19安装Cuda 9.2以及cuDNN、NCCL</a></li>  <li class="file"><a href="/2022/11/03/ubuntucuda/">Ubuntu 22.04安装Cuda Toolkit</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -352,6 +352,105 @@
 </aside>
             
             <section id="main">
+        <article id="post-ubuntucuda" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Linux/">Linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Linux/Cuda/">Cuda</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2022/11/03/ubuntucuda/">
+            <time datetime="2022-11-03T03:54:00.000Z" itemprop="datePublished">2022-11-03</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/ubuntucuda.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/ubuntucuda.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/ubuntucuda.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2022/11/03/ubuntucuda/">Ubuntu 22.04安装Cuda Toolkit</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Nvidia现在要求安装CuDNN和NICC都得登录Nvidia Developer网站，国内巨慢。药丸。</p>
+<h4 id="CUDA"><a class="header-anchor" href="#CUDA">¶</a>CUDA</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo -i <span class="comment"># 切换root权限</span></span><br><span class="line">wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.0-1_all.deb</span><br><span class="line">dpkg -i cuda-keyring_1.0-1_all.deb</span><br><span class="line">apt update &amp;&amp; apt install cuda -y</span><br></pre></td></tr></table></figure>
+<h4 id="NICC"><a class="header-anchor" href="#NICC">¶</a>NICC</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install libnccl2=2.15.5-1+cuda11.8 libnccl-dev=2.15.5-1+cuda11.8</span><br></pre></td></tr></table></figure>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2022/11/03/ubuntucuda/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-修复mongodb设置导致mongod无法启动" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1223,105 +1322,6 @@
 <p>解决方案如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sysctl -w net.core.rmem_max=8388608</span><br><span class="line">sysctl -w net.core.wmem_max=8388608</span><br></pre></td></tr></table></figure>
 
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-Nginx-setup-second-server" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/nginx/">nginx</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/07/08/Nginx-setup-second-server/">
-            <time datetime="2018-07-08T08:53:39.000Z" itemprop="datePublished">2018-07-08</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/Nginx-setup-second-server.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/Nginx-setup-second-server.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/Nginx-setup-second-server.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/07/08/Nginx-setup-second-server/">Nginx建立多个server</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><ol>
-<li>在<code>/etc/nginx/conf.d/</code>中添加<code>conf</code>文件，如<code>myblog.conf</code>，最简内容如下：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       &lt;port&gt;;</span><br><span class="line">    root  /var/www/myblog/;                 # root path</span><br><span class="line">    index index.html index.htm index.php;   # default page</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2018/07/08/Nginx-setup-second-server/#more">Read More</a>
             </div>
         
         <footer class="article-footer">

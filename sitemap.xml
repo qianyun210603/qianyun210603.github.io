@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2022/11/03/ubuntucuda/</loc>
+    
+    <lastmod>2022-11-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/06/30/New-personal-tax/</loc>
     
     <lastmod>2022-10-25</lastmod>
@@ -265,7 +274,7 @@
 
   <url>
     <loc>http://yoursite.com/</loc>
-    <lastmod>2022-11-02</lastmod>
+    <lastmod>2022-11-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -273,21 +282,21 @@
   
   <url>
     <loc>http://yoursite.com/tags/GFW-gooreplacer-ss/</loc>
-    <lastmod>2022-11-02</lastmod>
+    <lastmod>2022-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/Linux/</loc>
-    <lastmod>2022-11-02</lastmod>
+    <lastmod>2022-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/python-pandas/</loc>
-    <lastmod>2022-11-02</lastmod>
+    <lastmod>2022-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -296,84 +305,84 @@
   
   <url>
     <loc>http://yoursite.com/categories/Linux/</loc>
-    <lastmod>2022-11-02</lastmod>
+    <lastmod>2022-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/categories/Programming/</loc>
-    <lastmod>2022-11-02</lastmod>
+    <lastmod>2022-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/categories/%E5%85%B6%E4%BB%96/</loc>
-    <lastmod>2022-11-02</lastmod>
+    <lastmod>2022-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/categories/Hexo/</loc>
-    <lastmod>2022-11-02</lastmod>
+    <lastmod>2022-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2022-11-02</lastmod>
+    <lastmod>2022-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/categories/Programming/Python/</loc>
-    <lastmod>2022-11-02</lastmod>
+    <lastmod>2022-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/categories/Linux/Cuda/</loc>
-    <lastmod>2022-11-02</lastmod>
+    <lastmod>2022-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/categories/nginx/</loc>
-    <lastmod>2022-11-02</lastmod>
+    <lastmod>2022-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/categories/Programming/Visual-Studio/</loc>
-    <lastmod>2022-11-02</lastmod>
+    <lastmod>2022-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/categories/Linux/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/</loc>
-    <lastmod>2022-11-02</lastmod>
+    <lastmod>2022-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/categories/%E8%A7%86%E9%A2%91%E5%8E%8B%E5%88%B6/</loc>
-    <lastmod>2022-11-02</lastmod>
+    <lastmod>2022-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/categories/Programming/MongoDB/</loc>
-    <lastmod>2022-11-02</lastmod>
+    <lastmod>2022-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

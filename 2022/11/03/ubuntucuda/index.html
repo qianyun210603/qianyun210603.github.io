@@ -3,21 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>apt提示key expired问题 | 书剑阁</title>
+    <title>Ubuntu 22.04安装Cuda Toolkit | 书剑阁</title>
     
     
-        <meta name="keywords" content="apt提示key expired问题" />
+        <meta name="keywords" content="Ubuntu 22.04安装Cuda Toolkit" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="首先找出过期的key: 12$ apt-key list | grep expiredpub   4096R&#x2F;BE1DB1F1 2011-03-29 [expired: 2014-03-28] 其中BE1DB1F1就是key ID。 找到ID后即可用 1sudo apt-key adv --recv-keys --keyserver keys.gnupg.net BE1DB1F1 更新key。 ¶">
+    <meta name="description" content="Nvidia现在要求安装CuDNN和NICC都得登录Nvidia Developer网站，国内巨慢。药丸。 ¶CUDA 1234sudo -i # 切换root权限wget https:&#x2F;&#x2F;developer.download.nvidia.com&#x2F;compute&#x2F;cuda&#x2F;repos&#x2F;ubuntu2204&#x2F;x86_64&#x2F;cuda-keyring_1.0-1_all.debdpkg -i cuda">
 <meta property="og:type" content="article">
-<meta property="og:title" content="apt提示key expired问题">
-<meta property="og:url" content="http://yoursite.com/2018/07/02/apt-key-expired/index.html">
+<meta property="og:title" content="Ubuntu 22.04安装Cuda Toolkit">
+<meta property="og:url" content="http://yoursite.com/2022/11/03/ubuntucuda/index.html">
 <meta property="og:site_name" content="书剑阁">
-<meta property="og:description" content="首先找出过期的key: 12$ apt-key list | grep expiredpub   4096R&#x2F;BE1DB1F1 2011-03-29 [expired: 2014-03-28] 其中BE1DB1F1就是key ID。 找到ID后即可用 1sudo apt-key adv --recv-keys --keyserver keys.gnupg.net BE1DB1F1 更新key。 ¶">
+<meta property="og:description" content="Nvidia现在要求安装CuDNN和NICC都得登录Nvidia Developer网站，国内巨慢。药丸。 ¶CUDA 1234sudo -i # 切换root权限wget https:&#x2F;&#x2F;developer.download.nvidia.com&#x2F;compute&#x2F;cuda&#x2F;repos&#x2F;ubuntu2204&#x2F;x86_64&#x2F;cuda-keyring_1.0-1_all.debdpkg -i cuda">
 <meta property="og:locale">
-<meta property="article:published_time" content="2018-07-02T04:02:12.000Z">
-<meta property="article:modified_time" content="2018-07-02T12:04:33.280Z">
+<meta property="article:published_time" content="2022-11-03T03:54:00.000Z">
+<meta property="article:modified_time" content="2022-11-03T04:41:42.421Z">
 <meta property="article:author" content="BookSword">
 <meta name="twitter:card" content="summary">
     
@@ -193,13 +193,13 @@
                             Linux
                         </a>
                          <ul class="unstyled" id="tree" > 
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             Cuda
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/02/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/">Linux Mint安装Cuda 9.1以及cuDNN、NICC</a></li>  <li class="file"><a href="/2018/07/10/Linux-multi-graphic-card-overclock/">Linux系统下多Nvidia显卡超频</a></li>  <li class="file"><a href="/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/">Linux Mint 19安装Cuda 9.2以及cuDNN、NCCL</a></li>  <li class="file"><a href="/2022/11/03/ubuntucuda/">Ubuntu 22.04安装Cuda Toolkit</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/02/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/">Linux Mint安装Cuda 9.1以及cuDNN、NICC</a></li>  <li class="file"><a href="/2018/07/10/Linux-multi-graphic-card-overclock/">Linux系统下多Nvidia显卡超频</a></li>  <li class="file"><a href="/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/">Linux Mint 19安装Cuda 9.2以及cuDNN、NCCL</a></li>  <li class="file active"><a href="/2022/11/03/ubuntucuda/">Ubuntu 22.04安装Cuda Toolkit</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -210,7 +210,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/09/Transmission-UDP-Failed-to-set-receive-buffer/">Linux下Transmission的“UDP Failed to set receive buffer”错误</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2018/06/26/Linux-Mint-Cleanup/">Linux Mint Cleanup</a></li>  <li class="file"><a href="/2018/06/26/Install-HP-print-driver-on-Linux-mint/">Install HP print driver on Linux mint</a></li>  <li class="file"><a href="/2018/07/01/Move-linux-to-new-disk/">无损迁移Linux系统到新磁盘</a></li>  <li class="file active"><a href="/2018/07/02/apt-key-expired/">apt提示key expired问题</a></li>  <li class="file"><a href="/2018/07/05/Linux-UFW-Firewall/">Linux上使用ufw进行端口管理</a></li>  <li class="file"><a href="/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/">Linux Mint从18.3升级到19</a></li>  <li class="file"><a href="/2018/07/29/Linux-fcitx-input-method-cannot-use/">Linux Mint某些程序无法使用fcitx的输入法</a></li>  <li class="file"><a href="/2022/09/26/2022-09-26-ubuntu-22-04_install_mongodb-4-2/">Ubuntu 22.04安装MongoDB 4.2</a></li>  </ul> 
+                     <li class="file"><a href="/2018/06/26/Linux-Mint-Cleanup/">Linux Mint Cleanup</a></li>  <li class="file"><a href="/2018/06/26/Install-HP-print-driver-on-Linux-mint/">Install HP print driver on Linux mint</a></li>  <li class="file"><a href="/2018/07/01/Move-linux-to-new-disk/">无损迁移Linux系统到新磁盘</a></li>  <li class="file"><a href="/2018/07/02/apt-key-expired/">apt提示key expired问题</a></li>  <li class="file"><a href="/2018/07/05/Linux-UFW-Firewall/">Linux上使用ufw进行端口管理</a></li>  <li class="file"><a href="/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/">Linux Mint从18.3升级到19</a></li>  <li class="file"><a href="/2018/07/29/Linux-fcitx-input-method-cannot-use/">Linux Mint某些程序无法使用fcitx的输入法</a></li>  <li class="file"><a href="/2022/09/26/2022-09-26-ubuntu-22-04_install_mongodb-4-2/">Ubuntu 22.04安装MongoDB 4.2</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -355,7 +355,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-apt-key-expired" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-ubuntucuda" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -365,15 +365,15 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Linux/">Linux</a>
+        <a class="article-category-link" href="/categories/Linux/">Linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Linux/Cuda/">Cuda</a>
     </div>
 
                         
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/07/02/apt-key-expired/">
-            <time datetime="2018-07-02T04:02:12.000Z" itemprop="datePublished">2018-07-02</time>
+        <a href="/2022/11/03/ubuntucuda/">
+            <time datetime="2022-11-03T03:54:00.000Z" itemprop="datePublished">2022-11-03</time>
         </a>
     </div>
 
@@ -384,13 +384,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/apt-key-expired.md'> Source </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/ubuntucuda.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/apt-key-expired.md'> Edit </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/ubuntucuda.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/apt-key-expired.md'> History </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/ubuntucuda.md'> History </a>
                             </div>
                         
                     </div>
@@ -398,7 +398,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            apt提示key expired问题
+            Ubuntu 22.04安装Cuda Toolkit
         </h1>
     
 
@@ -411,14 +411,19 @@
             
         
         
-            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>首先找出过期的key:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ apt-key list | grep expired</span><br><span class="line">pub   4096R/BE1DB1F1 2011-03-29 [expired: 2014-03-28]</span><br></pre></td></tr></table></figure>
-<p>其中<font color="#0000ff">BE1DB1F1</font>就是key ID。</p>
-<p>找到ID后即可用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-key adv --recv-keys --keyserver keys.gnupg.net BE1DB1F1</span><br></pre></td></tr></table></figure>
-<p>更新key。</p>
-<h5 id="Reference"><a class="header-anchor" href="#Reference">¶</a>Reference</h5>
-<p><a target="_blank" rel="noopener" href="https://serverfault.com/questions/7145/what-should-i-do-when-i-got-the-keyexpired-error-message-after-an-apt-get-update/718435#718435">https://serverfault.com/questions/7145/what-should-i-do-when-i-got-the-keyexpired-error-message-after-an-apt-get-update/718435#718435</a></p>
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Nvidia现在要求安装CuDNN和NICC都得登录Nvidia Developer网站，国内巨慢。药丸。</p>
+<h4 id="CUDA"><a class="header-anchor" href="#CUDA">¶</a>CUDA</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo -i <span class="comment"># 切换root权限</span></span><br><span class="line">wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.0-1_all.deb</span><br><span class="line">dpkg -i cuda-keyring_1.0-1_all.deb</span><br><span class="line">apt update &amp;&amp; apt install cuda -y</span><br></pre></td></tr></table></figure>
+<h4 id="NICC"><a class="header-anchor" href="#NICC">¶</a>NICC</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install libnccl2=2.15.5-1+cuda11.8 libnccl-dev=2.15.5-1+cuda11.8</span><br></pre></td></tr></table></figure>
+<h4 id="cuDNN"><a class="header-anchor" href="#cuDNN">¶</a>cuDNN</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i cudnn-local-repo-ubuntu2204-8.6.0.163_1.0-1_amd64.deb</span><br><span class="line"><span class="built_in">cp</span> /var/cudnn-local-repo-ubuntu2204-8.6.0.163/cudnn-local-FAED14DD-keyring.gpg /usr/share/keyrings/</span><br><span class="line">apt install libcudnn8 libcudnn8-dev libcudnn8-samples</span><br></pre></td></tr></table></figure>
+<h6 id="测试cuDNN"><a class="header-anchor" href="#测试cuDNN">¶</a>测试cuDNN</h6>
+<p>mnistCUDNN测试需要FreeImage。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install libfreeimage3 libfreeimage-dev</span><br></pre></td></tr></table></figure>
+<p>将sample拷贝到有写权限的目录，并正确设置权限。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> /usr/src/cudnn_samples_v8/ . -R</span><br></pre></td></tr></table></figure>
+<p>进入每个目录<code>make</code>生成可执行文件，运行。如都可以运行，显示<code>Test passed!</code>，则安装成功。</p>
 
             </div>
         
@@ -431,19 +436,10 @@
     
 <nav id="article-nav">
     
-        <a href="/2018/07/02/Rename-Visual-Studio-Project-name-checklist/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    重命名Visual Studio项目
-                
-            </div>
-        </a>
     
-    
-        <a href="/2018/07/01/Move-linux-to-new-disk/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2022/10/15/%E4%BF%AE%E5%A4%8Dmongodb%E8%AE%BE%E7%BD%AE%E5%AF%BC%E8%87%B4mongod%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">无损迁移Linux系统到新磁盘</div>
+            <div class="article-nav-title">修复MongoDB设置导致mongod无法启动</div>
         </a>
     
 </nav>
