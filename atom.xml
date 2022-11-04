@@ -3,11 +3,11 @@
   <title>书剑阁</title>
   
   <subtitle>技术の记录本</subtitle>
-  <link href="http://yoursite.com/atom.xml" rel="self"/>
+  <link href="https://booksword.tk/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://booksword.tk/"/>
   <updated>2022-11-03T04:41:42.421Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://booksword.tk/</id>
   
   <author>
     <name>BookSword</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Ubuntu 22.04安装Cuda Toolkit</title>
-    <link href="http://yoursite.com/2022/11/03/ubuntucuda/"/>
-    <id>http://yoursite.com/2022/11/03/ubuntucuda/</id>
+    <link href="https://booksword.tk/2022/11/03/ubuntucuda/"/>
+    <id>https://booksword.tk/2022/11/03/ubuntucuda/</id>
     <published>2022-11-03T03:54:00.000Z</published>
     <updated>2022-11-03T04:41:42.421Z</updated>
     
@@ -33,17 +33,17 @@
     
     
     
-    <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    <category term="Linux" scheme="https://booksword.tk/categories/Linux/"/>
     
-    <category term="Cuda" scheme="http://yoursite.com/categories/Linux/Cuda/"/>
+    <category term="Cuda" scheme="https://booksword.tk/categories/Linux/Cuda/"/>
     
     
   </entry>
   
   <entry>
     <title>修复MongoDB设置导致mongod无法启动</title>
-    <link href="http://yoursite.com/2022/10/15/%E4%BF%AE%E5%A4%8Dmongodb%E8%AE%BE%E7%BD%AE%E5%AF%BC%E8%87%B4mongod%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/"/>
-    <id>http://yoursite.com/2022/10/15/%E4%BF%AE%E5%A4%8Dmongodb%E8%AE%BE%E7%BD%AE%E5%AF%BC%E8%87%B4mongod%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/</id>
+    <link href="https://booksword.tk/2022/10/15/%E4%BF%AE%E5%A4%8Dmongodb%E8%AE%BE%E7%BD%AE%E5%AF%BC%E8%87%B4mongod%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/"/>
+    <id>https://booksword.tk/2022/10/15/%E4%BF%AE%E5%A4%8Dmongodb%E8%AE%BE%E7%BD%AE%E5%AF%BC%E8%87%B4mongod%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/</id>
     <published>2022-10-15T08:04:00.000Z</published>
     <updated>2022-10-15T10:38:45.536Z</updated>
     
@@ -57,17 +57,17 @@
     
     
     
-    <category term="Programming" scheme="http://yoursite.com/categories/Programming/"/>
+    <category term="Programming" scheme="https://booksword.tk/categories/Programming/"/>
     
-    <category term="MongoDB" scheme="http://yoursite.com/categories/Programming/MongoDB/"/>
+    <category term="MongoDB" scheme="https://booksword.tk/categories/Programming/MongoDB/"/>
     
     
   </entry>
   
   <entry>
     <title>消除&amp;lt;frozen importlib._bootstrap&amp;gt;:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility.</title>
-    <link href="http://yoursite.com/2022/10/01/2022-10-01-%E6%B6%88%E9%99%A4-frozen-importlib-bootstrap-228-runtimewarning-scipy-lib-messagestream-messagestream-size-changed-may-indicate-binary-incompatibility/"/>
-    <id>http://yoursite.com/2022/10/01/2022-10-01-%E6%B6%88%E9%99%A4-frozen-importlib-bootstrap-228-runtimewarning-scipy-lib-messagestream-messagestream-size-changed-may-indicate-binary-incompatibility/</id>
+    <link href="https://booksword.tk/2022/10/01/2022-10-01-%E6%B6%88%E9%99%A4-frozen-importlib-bootstrap-228-runtimewarning-scipy-lib-messagestream-messagestream-size-changed-may-indicate-binary-incompatibility/"/>
+    <id>https://booksword.tk/2022/10/01/2022-10-01-%E6%B6%88%E9%99%A4-frozen-importlib-bootstrap-228-runtimewarning-scipy-lib-messagestream-messagestream-size-changed-may-indicate-binary-incompatibility/</id>
     <published>2022-10-01T06:08:00.000Z</published>
     <updated>2022-10-01T08:54:07.852Z</updated>
     
@@ -81,17 +81,17 @@
     
     
     
-    <category term="Programming" scheme="http://yoursite.com/categories/Programming/"/>
+    <category term="Programming" scheme="https://booksword.tk/categories/Programming/"/>
     
-    <category term="Python" scheme="http://yoursite.com/categories/Programming/Python/"/>
+    <category term="Python" scheme="https://booksword.tk/categories/Programming/Python/"/>
     
     
   </entry>
   
   <entry>
     <title>Ubuntu 22.04安装MongoDB 4.2</title>
-    <link href="http://yoursite.com/2022/09/26/2022-09-26-ubuntu-22-04_install_mongodb-4-2/"/>
-    <id>http://yoursite.com/2022/09/26/2022-09-26-ubuntu-22-04_install_mongodb-4-2/</id>
+    <link href="https://booksword.tk/2022/09/26/2022-09-26-ubuntu-22-04_install_mongodb-4-2/"/>
+    <id>https://booksword.tk/2022/09/26/2022-09-26-ubuntu-22-04_install_mongodb-4-2/</id>
     <published>2022-09-26T01:52:00.000Z</published>
     <updated>2022-09-26T10:32:03.472Z</updated>
     
@@ -105,15 +105,15 @@
     
     
     
-    <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    <category term="Linux" scheme="https://booksword.tk/categories/Linux/"/>
     
     
   </entry>
   
   <entry>
     <title>AVS合并视频文件</title>
-    <link href="http://yoursite.com/2018/10/02/avs-merge-wmv/"/>
-    <id>http://yoursite.com/2018/10/02/avs-merge-wmv/</id>
+    <link href="https://booksword.tk/2018/10/02/avs-merge-wmv/"/>
+    <id>https://booksword.tk/2018/10/02/avs-merge-wmv/</id>
     <published>2018-10-02T06:55:46.000Z</published>
     <updated>2018-10-02T07:11:27.565Z</updated>
     
@@ -127,15 +127,15 @@
     
     
     
-    <category term="视频压制" scheme="http://yoursite.com/categories/%E8%A7%86%E9%A2%91%E5%8E%8B%E5%88%B6/"/>
+    <category term="视频压制" scheme="https://booksword.tk/categories/%E8%A7%86%E9%A2%91%E5%8E%8B%E5%88%B6/"/>
     
     
   </entry>
   
   <entry>
     <title>Linux Mint某些程序无法使用fcitx的输入法</title>
-    <link href="http://yoursite.com/2018/07/29/Linux-fcitx-input-method-cannot-use/"/>
-    <id>http://yoursite.com/2018/07/29/Linux-fcitx-input-method-cannot-use/</id>
+    <link href="https://booksword.tk/2018/07/29/Linux-fcitx-input-method-cannot-use/"/>
+    <id>https://booksword.tk/2018/07/29/Linux-fcitx-input-method-cannot-use/</id>
     <published>2018-07-29T04:59:32.000Z</published>
     <updated>2018-07-29T05:10:24.853Z</updated>
     
@@ -149,15 +149,15 @@
     
     
     
-    <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    <category term="Linux" scheme="https://booksword.tk/categories/Linux/"/>
     
     
   </entry>
   
   <entry>
     <title>Linux Mint 19安装Cuda 9.2以及cuDNN、NCCL</title>
-    <link href="http://yoursite.com/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/"/>
-    <id>http://yoursite.com/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/</id>
+    <link href="https://booksword.tk/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/"/>
+    <id>https://booksword.tk/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/</id>
     <published>2018-07-14T09:49:25.000Z</published>
     <updated>2018-07-14T10:44:44.723Z</updated>
     
@@ -171,17 +171,17 @@
     
     
     
-    <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    <category term="Linux" scheme="https://booksword.tk/categories/Linux/"/>
     
-    <category term="Cuda" scheme="http://yoursite.com/categories/Linux/Cuda/"/>
+    <category term="Cuda" scheme="https://booksword.tk/categories/Linux/Cuda/"/>
     
     
   </entry>
   
   <entry>
     <title>Linux Mint从18.3升级到19</title>
-    <link href="http://yoursite.com/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/"/>
-    <id>http://yoursite.com/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/</id>
+    <link href="https://booksword.tk/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/"/>
+    <id>https://booksword.tk/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/</id>
     <published>2018-07-12T10:54:37.000Z</published>
     <updated>2018-07-12T11:25:13.352Z</updated>
     
@@ -198,15 +198,15 @@
     
     
     
-    <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    <category term="Linux" scheme="https://booksword.tk/categories/Linux/"/>
     
     
   </entry>
   
   <entry>
     <title>Linux系统下多Nvidia显卡超频</title>
-    <link href="http://yoursite.com/2018/07/10/Linux-multi-graphic-card-overclock/"/>
-    <id>http://yoursite.com/2018/07/10/Linux-multi-graphic-card-overclock/</id>
+    <link href="https://booksword.tk/2018/07/10/Linux-multi-graphic-card-overclock/"/>
+    <id>https://booksword.tk/2018/07/10/Linux-multi-graphic-card-overclock/</id>
     <published>2018-07-10T11:56:58.000Z</published>
     <updated>2018-07-10T12:15:54.317Z</updated>
     
@@ -223,17 +223,17 @@
     
     
     
-    <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    <category term="Linux" scheme="https://booksword.tk/categories/Linux/"/>
     
-    <category term="Cuda" scheme="http://yoursite.com/categories/Linux/Cuda/"/>
+    <category term="Cuda" scheme="https://booksword.tk/categories/Linux/Cuda/"/>
     
     
   </entry>
   
   <entry>
     <title>Linux下Transmission的“UDP Failed to set receive buffer”错误</title>
-    <link href="http://yoursite.com/2018/07/09/Transmission-UDP-Failed-to-set-receive-buffer/"/>
-    <id>http://yoursite.com/2018/07/09/Transmission-UDP-Failed-to-set-receive-buffer/</id>
+    <link href="https://booksword.tk/2018/07/09/Transmission-UDP-Failed-to-set-receive-buffer/"/>
+    <id>https://booksword.tk/2018/07/09/Transmission-UDP-Failed-to-set-receive-buffer/</id>
     <published>2018-07-09T13:09:06.000Z</published>
     <updated>2022-10-01T08:54:06.002Z</updated>
     
@@ -247,17 +247,17 @@
     
     
     
-    <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    <category term="Linux" scheme="https://booksword.tk/categories/Linux/"/>
     
-    <category term="应用软件" scheme="http://yoursite.com/categories/Linux/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/"/>
+    <category term="应用软件" scheme="https://booksword.tk/categories/Linux/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/"/>
     
     
   </entry>
   
   <entry>
     <title>Nginx建立多个server</title>
-    <link href="http://yoursite.com/2018/07/08/Nginx-setup-second-server/"/>
-    <id>http://yoursite.com/2018/07/08/Nginx-setup-second-server/</id>
+    <link href="https://booksword.tk/2018/07/08/Nginx-setup-second-server/"/>
+    <id>https://booksword.tk/2018/07/08/Nginx-setup-second-server/</id>
     <published>2018-07-08T08:53:39.000Z</published>
     <updated>2018-07-08T09:23:54.039Z</updated>
     
@@ -272,15 +272,15 @@
     
     
     
-    <category term="nginx" scheme="http://yoursite.com/categories/nginx/"/>
+    <category term="nginx" scheme="https://booksword.tk/categories/nginx/"/>
     
     
   </entry>
   
   <entry>
     <title>Linux上使用ufw进行端口管理</title>
-    <link href="http://yoursite.com/2018/07/05/Linux-UFW-Firewall/"/>
-    <id>http://yoursite.com/2018/07/05/Linux-UFW-Firewall/</id>
+    <link href="https://booksword.tk/2018/07/05/Linux-UFW-Firewall/"/>
+    <id>https://booksword.tk/2018/07/05/Linux-UFW-Firewall/</id>
     <published>2018-07-05T13:37:49.000Z</published>
     <updated>2018-07-08T09:22:16.248Z</updated>
     
@@ -294,15 +294,15 @@
     
     
     
-    <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    <category term="Linux" scheme="https://booksword.tk/categories/Linux/"/>
     
     
   </entry>
   
   <entry>
     <title>Hexo静态博客系列之一——在VPS上搭建</title>
-    <link href="http://yoursite.com/2018/07/03/Build-Hexo-blog/"/>
-    <id>http://yoursite.com/2018/07/03/Build-Hexo-blog/</id>
+    <link href="https://booksword.tk/2018/07/03/Build-Hexo-blog/"/>
+    <id>https://booksword.tk/2018/07/03/Build-Hexo-blog/</id>
     <published>2018-07-03T13:02:14.000Z</published>
     <updated>2018-07-03T12:50:52.894Z</updated>
     
@@ -316,15 +316,15 @@
     
     
     
-    <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
+    <category term="Hexo" scheme="https://booksword.tk/categories/Hexo/"/>
     
     
   </entry>
   
   <entry>
     <title>Linux Mint安装Cuda 9.1以及cuDNN、NICC</title>
-    <link href="http://yoursite.com/2018/07/02/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/"/>
-    <id>http://yoursite.com/2018/07/02/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/</id>
+    <link href="https://booksword.tk/2018/07/02/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/"/>
+    <id>https://booksword.tk/2018/07/02/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/</id>
     <published>2018-07-02T13:02:10.000Z</published>
     <updated>2018-07-14T09:29:14.971Z</updated>
     
@@ -338,17 +338,17 @@
     
     
     
-    <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    <category term="Linux" scheme="https://booksword.tk/categories/Linux/"/>
     
-    <category term="Cuda" scheme="http://yoursite.com/categories/Linux/Cuda/"/>
+    <category term="Cuda" scheme="https://booksword.tk/categories/Linux/Cuda/"/>
     
     
   </entry>
   
   <entry>
     <title>重命名Visual Studio项目</title>
-    <link href="http://yoursite.com/2018/07/02/Rename-Visual-Studio-Project-name-checklist/"/>
-    <id>http://yoursite.com/2018/07/02/Rename-Visual-Studio-Project-name-checklist/</id>
+    <link href="https://booksword.tk/2018/07/02/Rename-Visual-Studio-Project-name-checklist/"/>
+    <id>https://booksword.tk/2018/07/02/Rename-Visual-Studio-Project-name-checklist/</id>
     <published>2018-07-02T13:02:08.000Z</published>
     <updated>2018-07-02T11:52:24.009Z</updated>
     
@@ -362,17 +362,17 @@
     
     
     
-    <category term="Programming" scheme="http://yoursite.com/categories/Programming/"/>
+    <category term="Programming" scheme="https://booksword.tk/categories/Programming/"/>
     
-    <category term="Visual Studio" scheme="http://yoursite.com/categories/Programming/Visual-Studio/"/>
+    <category term="Visual Studio" scheme="https://booksword.tk/categories/Programming/Visual-Studio/"/>
     
     
   </entry>
   
   <entry>
     <title>apt提示key expired问题</title>
-    <link href="http://yoursite.com/2018/07/02/apt-key-expired/"/>
-    <id>http://yoursite.com/2018/07/02/apt-key-expired/</id>
+    <link href="https://booksword.tk/2018/07/02/apt-key-expired/"/>
+    <id>https://booksword.tk/2018/07/02/apt-key-expired/</id>
     <published>2018-07-02T04:02:12.000Z</published>
     <updated>2018-07-02T12:04:33.280Z</updated>
     
@@ -387,15 +387,15 @@
     
     
     
-    <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    <category term="Linux" scheme="https://booksword.tk/categories/Linux/"/>
     
     
   </entry>
   
   <entry>
     <title>无损迁移Linux系统到新磁盘</title>
-    <link href="http://yoursite.com/2018/07/01/Move-linux-to-new-disk/"/>
-    <id>http://yoursite.com/2018/07/01/Move-linux-to-new-disk/</id>
+    <link href="https://booksword.tk/2018/07/01/Move-linux-to-new-disk/"/>
+    <id>https://booksword.tk/2018/07/01/Move-linux-to-new-disk/</id>
     <published>2018-07-01T13:02:10.000Z</published>
     <updated>2018-07-01T03:06:17.065Z</updated>
     
@@ -409,15 +409,15 @@
     
     
     
-    <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    <category term="Linux" scheme="https://booksword.tk/categories/Linux/"/>
     
     
   </entry>
   
   <entry>
     <title>个税改革分析，减税还是加税？</title>
-    <link href="http://yoursite.com/2018/06/30/New-personal-tax/"/>
-    <id>http://yoursite.com/2018/06/30/New-personal-tax/</id>
+    <link href="https://booksword.tk/2018/06/30/New-personal-tax/"/>
+    <id>https://booksword.tk/2018/06/30/New-personal-tax/</id>
     <published>2018-06-30T02:32:49.000Z</published>
     <updated>2022-10-25T12:43:25.999Z</updated>
     
@@ -431,15 +431,15 @@
     
     
     
-    <category term="其他" scheme="http://yoursite.com/categories/%E5%85%B6%E4%BB%96/"/>
+    <category term="其他" scheme="https://booksword.tk/categories/%E5%85%B6%E4%BB%96/"/>
     
     
   </entry>
   
   <entry>
     <title>MFC</title>
-    <link href="http://yoursite.com/2018/06/26/MFC/"/>
-    <id>http://yoursite.com/2018/06/26/MFC/</id>
+    <link href="https://booksword.tk/2018/06/26/MFC/"/>
+    <id>https://booksword.tk/2018/06/26/MFC/</id>
     <published>2018-06-26T13:02:16.000Z</published>
     <updated>2018-06-26T13:02:16.470Z</updated>
     
@@ -458,8 +458,8 @@
   
   <entry>
     <title>关于减轻功夫墙（GFW）造成的不便的一些探讨</title>
-    <link href="http://yoursite.com/2018/06/26/About-GongFu-Wall/"/>
-    <id>http://yoursite.com/2018/06/26/About-GongFu-Wall/</id>
+    <link href="https://booksword.tk/2018/06/26/About-GongFu-Wall/"/>
+    <id>https://booksword.tk/2018/06/26/About-GongFu-Wall/</id>
     <published>2018-06-26T13:02:15.000Z</published>
     <updated>2022-10-25T11:56:40.600Z</updated>
     
@@ -473,10 +473,10 @@
     
     
     
-    <category term="其他" scheme="http://yoursite.com/categories/%E5%85%B6%E4%BB%96/"/>
+    <category term="其他" scheme="https://booksword.tk/categories/%E5%85%B6%E4%BB%96/"/>
     
     
-    <category term="GFW, gooreplacer, ss" scheme="http://yoursite.com/tags/GFW-gooreplacer-ss/"/>
+    <category term="GFW, gooreplacer, ss" scheme="https://booksword.tk/tags/GFW-gooreplacer-ss/"/>
     
   </entry>
   
