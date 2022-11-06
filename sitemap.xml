@@ -2,6 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://booksword.tk/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/</loc>
+    
+    <lastmod>2022-11-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://booksword.tk/2018/07/02/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/</loc>
+    
+    <lastmod>2022-11-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://booksword.tk/2022/09/26/2022-09-26-ubuntu-22-04_install_mongodb-4-2/</loc>
+    
+    <lastmod>2022-11-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://booksword.tk/2018/06/26/Git-ticks/</loc>
+    
+    <lastmod>2022-11-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://booksword.tk/2022/11/03/ubuntucuda/</loc>
     
     <lastmod>2022-11-03</lastmod>
@@ -56,15 +92,6 @@
   </url>
   
   <url>
-    <loc>https://booksword.tk/2018/06/26/Git-ticks/</loc>
-    
-    <lastmod>2022-10-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://booksword.tk/2018/06/26/build-etherminer/</loc>
     
     <lastmod>2022-10-15</lastmod>
@@ -110,15 +137,6 @@
   </url>
   
   <url>
-    <loc>https://booksword.tk/2022/09/26/2022-09-26-ubuntu-22-04_install_mongodb-4-2/</loc>
-    
-    <lastmod>2022-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://booksword.tk/tags/index.html</loc>
     
     <lastmod>2022-09-17</lastmod>
@@ -158,24 +176,6 @@
     <loc>https://booksword.tk/2018/07/29/Linux-fcitx-input-method-cannot-use/</loc>
     
     <lastmod>2018-07-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://booksword.tk/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/</loc>
-    
-    <lastmod>2018-07-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://booksword.tk/2018/07/02/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/</loc>
-    
-    <lastmod>2018-07-14</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -274,7 +274,7 @@
 
   <url>
     <loc>https://booksword.tk/</loc>
-    <lastmod>2022-11-04</lastmod>
+    <lastmod>2022-11-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -282,21 +282,21 @@
   
   <url>
     <loc>https://booksword.tk/tags/GFW-gooreplacer-ss/</loc>
-    <lastmod>2022-11-04</lastmod>
+    <lastmod>2022-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.tk/tags/Linux/</loc>
-    <lastmod>2022-11-04</lastmod>
+    <lastmod>2022-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.tk/tags/python-pandas/</loc>
-    <lastmod>2022-11-04</lastmod>
+    <lastmod>2022-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -305,84 +305,98 @@
   
   <url>
     <loc>https://booksword.tk/categories/Linux/</loc>
-    <lastmod>2022-11-04</lastmod>
+    <lastmod>2022-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.tk/categories/Programming/</loc>
-    <lastmod>2022-11-04</lastmod>
+    <lastmod>2022-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.tk/categories/%E5%85%B6%E4%BB%96/</loc>
-    <lastmod>2022-11-04</lastmod>
+    <lastmod>2022-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.tk/categories/Hexo/</loc>
-    <lastmod>2022-11-04</lastmod>
+    <lastmod>2022-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.tk/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2022-11-04</lastmod>
+    <lastmod>2022-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.tk/categories/Programming/Python/</loc>
-    <lastmod>2022-11-04</lastmod>
+    <lastmod>2022-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.tk/categories/Linux/Cuda/</loc>
-    <lastmod>2022-11-04</lastmod>
+    <lastmod>2022-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.tk/categories/nginx/</loc>
-    <lastmod>2022-11-04</lastmod>
+    <lastmod>2022-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.tk/categories/Programming/Visual-Studio/</loc>
-    <lastmod>2022-11-04</lastmod>
+    <lastmod>2022-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.tk/categories/Linux/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/</loc>
-    <lastmod>2022-11-04</lastmod>
+    <lastmod>2022-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.tk/categories/%E8%A7%86%E9%A2%91%E5%8E%8B%E5%88%B6/</loc>
-    <lastmod>2022-11-04</lastmod>
+    <lastmod>2022-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.tk/categories/Programming/MongoDB/</loc>
-    <lastmod>2022-11-04</lastmod>
+    <lastmod>2022-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://booksword.tk/categories/Programming/Cuda/</loc>
+    <lastmod>2022-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://booksword.tk/categories/Programming/Git/</loc>
+    <lastmod>2022-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
