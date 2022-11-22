@@ -6,7 +6,7 @@
   <link href="https://booksword.tk/atom.xml" rel="self"/>
   
   <link href="https://booksword.tk/"/>
-  <updated>2022-11-14T08:25:47.838Z</updated>
+  <updated>2022-11-22T09:26:29.558Z</updated>
   <id>https://booksword.tk/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>.gitignore文件的顺序</title>
+    <link href="https://booksword.tk/2022/11/22/gitignore%E6%96%87%E4%BB%B6%E7%9A%84%E9%A1%BA%E5%BA%8F/"/>
+    <id>https://booksword.tk/2022/11/22/gitignore%E6%96%87%E4%BB%B6%E7%9A%84%E9%A1%BA%E5%BA%8F/</id>
+    <published>2022-11-22T09:26:00.000Z</published>
+    <updated>2022-11-22T09:26:29.558Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>设置局域网和广域网远程开机（Wake on Lan）</title>
+    <link href="https://booksword.tk/2022/11/22/wakeonlan/"/>
+    <id>https://booksword.tk/2022/11/22/wakeonlan/</id>
+    <published>2022-11-22T09:25:00.000Z</published>
+    <updated>2022-11-22T09:25:45.424Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="需求"><a class="header-anchor" href="#需求">¶</a>需求</h2><p>因为需要随时远程访问家里计算机，因此希望出远门后即便出现家里停电等情况，家里计算机意外关机，也能够通过远程唤醒。</p><h2 id="网上的资料"><a class="header-anchor" href="#网上的资料">¶</a>网上的资料</h2><p>网上的解决方案：</p><ol><li>Wake on LAN (WOL)<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>: 本文的方案。通过向目标机发送一个魔幻数据包（Magic Packet）进行远程唤醒，需要主板和网卡支持。本意设计是在局域网内，通过端口映射等方法也可以在广域网生效（需要公网静态IP或者公网动态IP+DDNS）。</li><li>各种开机棒等： 同样需要主板和网卡的支持，同时需要购买格外硬件，还要在硬件厂商的网站注册以让硬件厂商能直接访问对应硬件，安全性也是个顾虑。</li><li>智能插座，一些DIY的能在线控制的继电器之类的设备。</li></ol><p>考虑需要远程的连接的PC都支持WOL，研究采用WOL的方案。</p><h2 id="实现"><a class="header-anchor" href="#实现">¶</a>实现</h2><h3 id="局域网唤醒"><a class="header-anchor" href="#局域网唤醒">¶</a>局域网唤醒</h3><h4 id="主板BIOS设置"><a class="header-anchor" href="#主板BIOS设置">¶</a>主板BIOS设置</h4><ul><li>开机按<code>Del</code>（根据主板品牌可能是其他功能键，建议查阅主板说明书）进入BIOS设置，打开设备唤醒中的PCIE设备唤醒选项。根据品牌可能被称为<ul><li>Boot on LAN</li><li>Wake on LAN</li><li>PME Event WakeUp,</li><li>Resume by MAC LAN</li><li>Wake-Up by PCI card</li><li>Wake Up On PCI PME</li><li>Power On by PCI Card</li><li>WakeUp by PME of PCI</li><li>Power On By PCI Devices</li><li>WakeUp by Onborad LAN</li><li>Resume By PCI or PCI-E Ddevice<br>等等。</li></ul></li><li>如果有的话，关闭Fast Boot或类似选项。</li><li>如果有的话，关闭EMP。</li></ul><h4 id="目标机系统设置"><a class="header-anchor" href="#目标机系统设置">¶</a>目标机系统设置</h4><h6 id="Windows-10"><a class="header-anchor" href="#Windows-10">¶</a>Windows 10</h6><ul><li>首先，更新网卡驱动到最新版本。<ul><li>建议去主板/网卡的官网下载。Windows集成的更新并不及时。</li></ul></li><li>搜索框搜“设备管理器（Device Manager）”并打开。</li><li>在“网络适配器（Network adapters）”下面找到有线网卡，右键菜单“属性（Properties）”。<ul><li>进入“高级（Advanced）”选项卡，开启“Wait for Link”, “Wake on Link Settings”, “Wake on Magic Packet”, “Wake on Pattern Match”。</li><li>进入“电源管理（Power Management）”选项卡，把三个复选框全部选上。</li></ul></li></ul><h6 id="Ubuntu-22-04"><a class="header-anchor" href="#Ubuntu-22-04">¶</a>Ubuntu 22.04</h6><ul><li>首先查看本机的各网卡名称和MAC地址<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig</span><br><span class="line">enp5s0: flags=4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu xxxx</span><br><span class="line">        ether xx:xx:xx:xx:xx:xx  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line">        device memory 0xfc000000-fc01ffff</span><br><span class="line"></span><br><span class="line">enpxxx: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.x.xxx  netmask 255.255.255.0  broadcast 192.168.x.255</span><br><span class="line">        inet6 xxxx:1b43  prefixlen 64  scopeid 0x0&lt;global&gt;</span><br><span class="line">        inet6 fe80::271e:d40:2e18:9c6  prefixlen 64  scopeid 0x20&lt;<span class="built_in">link</span>&gt;</span><br><span class="line">        inet6 xxxx:7bb2  prefixlen 64  scopeid 0x0&lt;global&gt;</span><br><span class="line">        inet6 xxxx:9b94  prefixlen 64  scopeid 0x0&lt;global&gt;</span><br><span class="line">        inet6 xxxx:99f1  prefixlen 64  scopeid 0x0&lt;global&gt;</span><br><span class="line">        ether xx:xx:xx:xx:xx:xx  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 53552819  bytes 30767884934 (30.7 GB)</span><br><span class="line">        RX errors 0  dropped 671  overruns 0  frame 0</span><br><span class="line">        TX packets 72797481  bytes 71048847776 (71.0 GB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>从上面信息查出本机有线网网卡名称为<code>enpxxx</code>。</li><li>然后使用<code>ethtool</code>查看是否开启了WOL。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> $ sudo ethtool enpxxx | grep Wake</span><br><span class="line">Supports Wake-on: pumbg</span><br><span class="line">Wake-on: g</span><br></pre></td></tr></table></figure>这样表示支持WOL且已经开启。<ul><li>如果显示<code>Wake-on: d</code>则表示WOL被禁用，需使用命令<code>sudo ethtool -s enpxxx wol g</code>开启。</li><li>如未安装<code>ethtool</code>可以<code>sudo apt install ethtool</code>安装。</li></ul></li></ul><h4 id="控制软件"><a class="header-anchor" href="#控制软件">¶</a>控制软件</h4><h6 id="Android平台"><a class="header-anchor" href="#Android平台">¶</a>Android平台</h6><p>笔者使用的是Wake on LAN v1.35，官网已不可考，吾爱破解有个<a href="https://www.52pojie.cn/thread-1609028-1-1.html">帖子</a>提供了apk文件的下载。<br>点&quot;+&quot;按钮新建，选择“ENTER MANUALLY”，起个名字填入MAC地址即可。填写完成后<code>ADD DEVICE</code>，就会显示在列表里。<br><img src="/images/2022/11/wol_lan_control_android.jpg" alt=""><img src="/images/2022/11/wol_mainlist_control_android.jpg" alt=""></p><p>将手机连接到目标机同一局域网内的WiFi上，点击条目即可唤醒。</p><h3 id="广域网唤醒"><a class="header-anchor" href="#广域网唤醒">¶</a>广域网唤醒</h3><h4 id="公网网址"><a class="header-anchor" href="#公网网址">¶</a>公网网址</h4><p>国内运营商对家用网络一般给的都是内网IP，具体可以到运营商给的光猫里查看。如果申请了桥接，那么需要到连接光猫的路由器里查看。</p><ul><li>如果网址以10.或者172.开头，则多半是内网IP。</li><li>完全确认可以去<a href="https://www.ip138.com/">ip138</a>等网站上查看本机对外的IP，如果和光猫、路由的IP一致则是公网IP，否则是内网IP。</li></ul><h4 id="动态域名"><a class="header-anchor" href="#动态域名">¶</a>动态域名</h4><p>（待更新）</p><h4 id="路由器设置"><a class="header-anchor" href="#路由器设置">¶</a>路由器设置</h4><p>（待更新）</p><hr class="footnotes-sep"><section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p><a href="https://wiki.wireshark.org/WakeOnLAN">wiki.wireshak: WakeOnLAN</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p></li></ol></section>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;h2 id=&quot;需求&quot;&gt;&lt;a class=&quot;header-anchor&quot; href</summary>
+      
+    
+    
+    
+    <category term="其他" scheme="https://booksword.tk/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Git Forked Repository强制与Fork源同步</title>
@@ -443,48 +485,6 @@
     
     
     <category term="Linux" scheme="https://booksword.tk/categories/Linux/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>个税改革分析，减税还是加税？</title>
-    <link href="https://booksword.tk/2018/06/30/New-personal-tax/"/>
-    <id>https://booksword.tk/2018/06/30/New-personal-tax/</id>
-    <published>2018-06-30T02:32:49.000Z</published>
-    <updated>2022-10-25T12:43:25.999Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>万众期待的个税改革草案昨天被发布出来征求公众意见，目前似乎讨论都只集中在起征点和级距上。然而，相比于另一个重大变化，也许起征点提高那么一点点的利得对于相当一部分人来说会被完全抵消。这个重大变化就是——年终奖要和工资合并计税了，从此以后年终奖的税是大大提高了的。。</p><p>为了仔细分析这一点的影响，先来看下目前的年终奖扣税规定：</p><p>以下内容引用自《国家税务总局关于调整个人取得全年一次性奖金等计算征收个人所得税方法问题的通知》（国税发〔2005〕9号）：</p><blockquote><dl><dt>二、纳税人取得全年一次性奖金，单独作为一个月工资、薪金所得计算纳税，并按以下计税办法，由扣缴义务人发放时代扣代缴：</dt><dd><dl><dt>(一) 先将雇员当月内取得的全年一次性奖金，除以12个月，按其商数确定适用税率和速算扣除数。</dt><dd>如果在发放年终一次性奖金的当月，雇员当月工资薪金所得低于税法规定的费用扣除额，应将全年一次性奖金减除“雇员当月工资薪金所得与费用扣除额的差额”后的余额，按上述办法确定全年一次性奖金的适用税率和速算扣除数。</dd><dt>(二) 将雇员个人当月内取得的全年一次性奖金，按本条第(一)项确定的适用税率和速算扣除数计算征税，计算公式如下：</dt><dd><ul><li>如果雇员当月工资薪金所得高于(或等于)税法规定的费用扣除额的，适用公式为：应纳税额＝雇员当月取得全年一次性奖金×适用税率一速算扣除数</li><li>如果雇员当月工资薪金所得低于税法规定的费用扣除额的，适用公式为：应纳税额＝(雇员当月取得全年一次性奖金一雇员当月工资薪金所得与费用扣除额的差额)×适用税率一速算扣除数</li></ul></dd></dl></dd></dl></blockquote><p>因此目前年终奖税率和基本工资是基本没有关系的。而草案税制实施后，由于所有收入要“综合计税”并按年扣缴，所以年终奖的最低税率将变成基本工资的边际税率。</p><blockquote>    “（一）居民个人的综合所得，以每一纳税年度的收入额减除费用六万元以及专项扣除、专项附加扣除和依法确定的其他扣除后的余额，为应纳税所得额。专项扣除包括居民个人按照国家规定的范围和标准缴纳的基本养老保险、基本医疗保险、失业保险等社会保险费和住房公积金等；专项附加扣除包括子女教育、继续教育、大病医疗、住房贷款利息和住房租金等支出。</blockquote><p>因此，尽管草案税制起征点略有提高，并且级距稍有扩大，但其实对大多数中产的减税作用并没有想象得那么大，部分人甚至会被加税。</p><p>笔者试算了从年总收入1万到300万区间内草案税制的影响，结果如下图所示：<br><img src="/2018/06/30/New-personal-tax/taxchange.png" alt="2018个税草案影响"><br>图中左上为草案税制与现行税制需缴纳税款的差额；右上和左下分别为现行税制和草案税制下平均税负，即个税/总收入；右下为平均税负的变化。</p><p>试算基于如下假设：</p><ul><li>按帝都规定正常缴纳五险一金，帝都平均工资取最新公布8467元/月。正常情况下这个数字即将用于2018年7月到2019年6月社保基数计算。</li><li>只在一个单位取得工资奖金收入，没有其他需要“综合计税”的收入。</li><li>旧税率：<br>月标准扣除额3500元</li></ul><table><thead><tr><th>全月应纳税所得额（含税级距）</th><th>税率</th><th>速算扣除数</th></tr></thead><tbody><tr><td>不超过1,500元</td><td>3%</td><td>0</td></tr><tr><td>超过1,500元至4,500元的部分</td><td>10%</td><td>105</td></tr><tr><td>超过4,500元至9,000元的部分</td><td>20%</td><td>555</td></tr><tr><td>超过9,000元至35,000元的部分</td><td>25%</td><td>1,005</td></tr><tr><td>超过35,000元至55,000元的部分</td><td>30%</td><td>2,755</td></tr><tr><td>超过55,000元至80,000元的部分</td><td>35%</td><td>5,505</td></tr><tr><td>超过80,000元的部分</td><td>45%</td><td>13,505</td></tr></tbody></table><ul><li>草案税率：<br>年标准扣除额60000元</li></ul><table><thead><tr><th>全年应纳税所得额（含税级距）</th><th>税率</th><th>速算扣除数</th></tr></thead><tbody><tr><td>不超过36,000元</td><td>3%</td><td>0</td></tr><tr><td>超过36,000元至144,000元的部分</td><td>10%</td><td>2,520</td></tr><tr><td>超过144,000元至300,000元的部分</td><td>20%</td><td>16,920</td></tr><tr><td>超过300,000元至420,000元的部分</td><td>25%</td><td>31,920</td></tr><tr><td>超过420,000元至660,000元的部分</td><td>30%</td><td>52,920</td></tr><tr><td>超过660,000元至960,000元的部分</td><td>35%</td><td>85,920</td></tr><tr><td>超过960,000元的部分</td><td>45%</td><td>181,920</td></tr></tbody></table><p>可以看出，如果按照草案执行，收入在90-200万元，奖金占总收入比例在20%-60%（也就是年终奖为3-18个月月薪）的相对高收入中产是最不幸的，不但没有获得减税，反而被加了税，最高可能要多缴纳总收入4-5%的税。考虑到收入在250万以上的人群年终奖占比都会比较高，所以大部分真正高收入的人群，比如年薪几千万的某保险公司老总这种反而能获得一小点减税（至少不会被加税，虽然他们也不会在意这么几万元钱）。当然，一直宣传的给低收入群体减税也算是实现了吧。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;p&gt;万众期待的个税改革草案昨天被发布出来征求公众意见，目前似乎讨论都只集中在起征</summary>
-      
-    
-    
-    
-    <category term="其他" scheme="https://booksword.tk/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>MFC</title>
-    <link href="https://booksword.tk/2018/06/26/MFC/"/>
-    <id>https://booksword.tk/2018/06/26/MFC/</id>
-    <published>2018-06-26T13:02:16.000Z</published>
-    <updated>2018-06-26T13:02:16.470Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="Function-call-flow"><a class="header-anchor" href="#Function-call-flow">¶</a>Function call flow</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CDialog::<span class="built_in">PreInitDialog</span>()</span><br><span class="line">CDialog::<span class="built_in">HandleInitDialog</span>(WPARAM, LPARAM)</span><br><span class="line">CDemoDlg::<span class="built_in">OnInitDialog</span>()</span><br><span class="line">CDialog::<span class="built_in">CheckAutoCenter</span>()</span><br><span class="line">CDialog::<span class="built_in">OnCmdMsg</span>(nID, nCode, pExtra, pHandlerInfo);</span><br><span class="line">CDialog::<span class="built_in">PreTranslateMessage</span>(pMsg)</span><br></pre></td></tr></table></figure><h3 id="Solve-“Opened-in-another-editor”-in-Resource-View"><a class="header-anchor" href="#Solve-“Opened-in-another-editor”-in-Resource-View">¶</a>Solve “Opened in another editor” in Resource View</h3><p>Close “Resource.h” and all “.rc” file. Then shrink and re-expand the “rc” folder in Resource View.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;h3 id=&quot;Function-call-flow&quot;&gt;&lt;a class=&quot;hea</summary>
-      
-    
-    
     
     
   </entry>
