@@ -17,7 +17,7 @@
 <meta property="og:description" content="¶Caching GitHub password in Git In Terminal, enter the following: 12git config --global credential.helper cache# Set git to use the credential memory cache To change the default password cache timeout">
 <meta property="og:locale">
 <meta property="article:published_time" content="2018-06-26T13:02:14.000Z">
-<meta property="article:modified_time" content="2022-11-06T03:02:26.569Z">
+<meta property="article:modified_time" content="2022-11-22T09:31:59.559Z">
 <meta property="article:author" content="BookSword">
 <meta name="twitter:card" content="summary">
     
@@ -235,7 +235,7 @@
                             &nbsp;
                             Git
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/2018/06/26/Git-ticks/">Git ticks</a></li>  <li class="file"><a href="/2022/11/14/git-forked-repository%E5%BC%BA%E5%88%B6%E4%B8%8E%E4%B8%8A%E6%B8%B8%E5%90%8C%E6%AD%A5/">Git Forked Repository强制与Fork源同步</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/2018/06/26/Git-ticks/">Git ticks</a></li>  <li class="file"><a href="/2022/11/14/git-forked-repository%E5%BC%BA%E5%88%B6%E4%B8%8E%E4%B8%8A%E6%B8%B8%E5%90%8C%E6%AD%A5/">Git Forked Repository强制与Fork源同步</a></li>  <li class="file"><a href="/2022/11/22/gitignore%E6%96%87%E4%BB%B6%E7%9A%84%E9%A1%BA%E5%BA%8F/">gitignore文件的顺序</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -302,7 +302,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/10/02/avs-merge-wmv/">AVS合并视频文件</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2018/06/26/Tesseract/">Tesseract</a></li>  <li class="file"><a href="/2018/06/26/MFC/">MFC</a></li>  <li class="file"><a href="/2022/11/22/gitignore%E6%96%87%E4%BB%B6%E7%9A%84%E9%A1%BA%E5%BA%8F/">.gitignore文件的顺序</a></li>  </ul> 
+                     <li class="file"><a href="/2018/06/26/Tesseract/">Tesseract</a></li>  <li class="file"><a href="/2018/06/26/MFC/">MFC</a></li>  </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -440,14 +440,6 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- readme.txt <span class="comment"># revert readme.txt to previous commit</span></span><br></pre></td></tr></table></figure>
 <p>or</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all</span><br><span class="line">git reset --hard origin/master</span><br><span class="line">git pull // can be ignored</span><br></pre></td></tr></table></figure>
-<h4 id="gitignore有顺序"><a class="header-anchor" href="#gitignore有顺序">¶</a><code>.gitignore</code>有顺序</h4>
-<p>今日发现<code>.gitignore</code>里面条目顺序是有意义的。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">*.c</span><br><span class="line">*.cpp</span><br><span class="line">!skts.c</span><br><span class="line">!np_datetime.c</span><br><span class="line">!np_datetime_strings.c</span><br></pre></td></tr></table></figure>
-<p>则<code>!</code>的几项生效</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch main</span><br><span class="line">Your branch is up to date with &#x27;origin/main&#x27;.</span><br><span class="line"></span><br><span class="line">Changes not staged for commit:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line">        modified:   .gitignore</span><br><span class="line"></span><br><span class="line">Untracked files:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span><br><span class="line">        __init__.pxd</span><br><span class="line">        pandas_helper/_libs/tslibs/src/datetime/np_datetime.c</span><br><span class="line">        pandas_helper/_libs/tslibs/src/datetime/np_datetime_strings.c</span><br><span class="line"></span><br><span class="line">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</span><br></pre></td></tr></table></figure>
-<p>如果反过来</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">!skts.c</span><br><span class="line">!np_datetime.c</span><br><span class="line">!np_datetime_strings.c</span><br><span class="line">*.c</span><br><span class="line">*.cpp</span><br></pre></td></tr></table></figure>
-<p>则<code>!</code>的几项就没效果了。</p>
 
             </div>
         

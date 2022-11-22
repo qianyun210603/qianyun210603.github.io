@@ -6,7 +6,7 @@
   <link href="https://booksword.tk/atom.xml" rel="self"/>
   
   <link href="https://booksword.tk/"/>
-  <updated>2022-11-22T09:26:29.558Z</updated>
+  <updated>2022-11-22T09:32:01.854Z</updated>
   <id>https://booksword.tk/</id>
   
   <author>
@@ -17,21 +17,25 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>.gitignore文件的顺序</title>
+    <title>gitignore文件的顺序</title>
     <link href="https://booksword.tk/2022/11/22/gitignore%E6%96%87%E4%BB%B6%E7%9A%84%E9%A1%BA%E5%BA%8F/"/>
     <id>https://booksword.tk/2022/11/22/gitignore%E6%96%87%E4%BB%B6%E7%9A%84%E9%A1%BA%E5%BA%8F/</id>
     <published>2022-11-22T09:26:00.000Z</published>
-    <updated>2022-11-22T09:26:29.558Z</updated>
+    <updated>2022-11-22T09:32:01.854Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>发现<code>.gitignore</code>里面条目顺序是有意义的。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">*.c</span><br><span class="line">*.cpp</span><br><span class="line">!skts.c</span><br><span class="line">!np_datetime.c</span><br><span class="line">!np_datetime_strings.c</span><br></pre></td></tr></table></figure><p>则<code>!</code>的几项生效</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch main</span><br><span class="line">Your branch is up to date with &#x27;origin/main&#x27;.</span><br><span class="line"></span><br><span class="line">Changes not staged for commit:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line">        modified:   .gitignore</span><br><span class="line"></span><br><span class="line">Untracked files:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span><br><span class="line">        __init__.pxd</span><br><span class="line">        pandas_helper/_libs/tslibs/src/datetime/np_datetime.c</span><br><span class="line">        pandas_helper/_libs/tslibs/src/datetime/np_datetime_strings.c</span><br><span class="line"></span><br><span class="line">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</span><br></pre></td></tr></table></figure><p>如果反过来</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">!skts.c</span><br><span class="line">!np_datetime.c</span><br><span class="line">!np_datetime_strings.c</span><br><span class="line">*.c</span><br><span class="line">*.cpp</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;p&gt;发现&lt;code&gt;.gitignore&lt;/code&gt;里面条目顺序是有意义的。&lt;</summary>
       
     
     
+    
+    <category term="Programming" scheme="https://booksword.tk/categories/Programming/"/>
+    
+    <category term="Git" scheme="https://booksword.tk/categories/Programming/Git/"/>
     
     
   </entry>
