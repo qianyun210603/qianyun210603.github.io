@@ -298,7 +298,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/10/02/avs-merge-wmv/">AVS合并视频文件</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2018/06/26/Tesseract/">Tesseract</a></li>  <li class="file"><a href="/2018/06/26/MFC/">MFC</a></li>  </ul> 
+                     <li class="file"><a href="/2018/06/26/Tesseract/">Tesseract</a></li>  <li class="file"><a href="/2018/06/26/MFC/">MFC</a></li>  <li class="file"><a href="/2022/11/29/ubuntu-mount-windows-share-drive-with-credential-file/">Ubuntu系统挂载Windows共享文件夹通过credential文件认证</a></li>  </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -370,6 +370,100 @@
 </aside>
             
             <section id="main">
+        <article id="post-ubuntu-mount-windows-share-drive-with-credential-file" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2022/11/29/ubuntu-mount-windows-share-drive-with-credential-file/">
+            <time datetime="2022-11-29T07:55:00.000Z" itemprop="datePublished">2022-11-29</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/ubuntu-mount-windows-share-drive-with-credential-file.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/ubuntu-mount-windows-share-drive-with-credential-file.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/ubuntu-mount-windows-share-drive-with-credential-file.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2022/11/29/ubuntu-mount-windows-share-drive-with-credential-file/">Ubuntu系统挂载Windows共享文件夹通过credential文件认证</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="问题"><a class="header-anchor" href="#问题">¶</a>问题</h3>
+<p>要把Windows的共享文件夹挂载到Ubuntu系统的电脑里面，使用命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -t cifs //&lt;ip or host&gt;/&lt;source folder&gt; &lt;destiny folder&gt; -o username=&#x27;xxx&#x27;&#x27;,password=&#x27;xxx&#x27;,vers=2.0</span><br></pre></td></tr></table></figure>
+<p>可以，但是使用密码文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -t cifs //&lt;ip or host&gt;/&lt;source folder&gt; &lt;destiny folder&gt; -o credentials=/xxx/.smbcredentials,vers=2.0</span><br></pre></td></tr></table></figure>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2022/11/29/ubuntu-mount-windows-share-drive-with-credential-file/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-gitignore文件的顺序" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1266,112 +1360,8 @@
 
 
     
-        <article id="post-cuda-9-2-installation-on-Linux-mint-19" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Cuda/">Cuda</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Linux/" rel="tag">Linux</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/">
-            <time datetime="2018-07-14T09:49:25.000Z" itemprop="datePublished">2018-07-14</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/cuda-9-2-installation-on-Linux-mint-19.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/cuda-9-2-installation-on-Linux-mint-19.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/cuda-9-2-installation-on-Linux-mint-19.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/">Linux Mint 19安装Cuda 9.2以及cuDNN、NCCL</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="CUDA"><a class="header-anchor" href="#CUDA">¶</a>CUDA</h3>
-<p>系统升级到了Mint 19需要重新安装配置Cuda，同时升级到Cuda 9.2。Cuda 9.2需要Nvidia的驱动版本至少是396.37，但不幸的是apt仓库里的396版本驱动有问题，安装后无法被内核加载从而导致系统运行在软解状态。因此只好用bin文件安装。步骤如下：</p>
-<ol>
-<li>
-<p>去官网下载Cuda 9.2的bin安装文件，注意里面自带驱动所以不需要单独安装驱动。<br>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
         </nav>
     
 </section>
@@ -1379,7 +1369,7 @@
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            BookSword &copy; 2022 
+            BookSword &copy; 2023 
             <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
             <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
             
