@@ -6,7 +6,7 @@
   <link href="https://booksword.tk/atom.xml" rel="self"/>
   
   <link href="https://booksword.tk/"/>
-  <updated>2022-11-29T08:03:57.875Z</updated>
+  <updated>2023-01-11T12:02:07.462Z</updated>
   <id>https://booksword.tk/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux Swap交换分区</title>
+    <link href="https://booksword.tk/2023/01/11/linux-swap%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA/"/>
+    <id>https://booksword.tk/2023/01/11/linux-swap%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA/</id>
+    <published>2023-01-11T12:02:00.000Z</published>
+    <updated>2023-01-11T12:02:07.462Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在我们自己的购买的服务器环境中，一般是买的1g的内存，但是当服务器里面的东西装的比较多的时候就会导致内存不够用了,这个时候可以通过增加虚拟内存来夸大内存容量。</p><h4 id="设置"><a class="header-anchor" href="#设置">¶</a>设置</h4><p>0、查看内存使用情况</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ free -m</span><br><span class="line">              total        used        free      shared  buff/cache   available</span><br><span class="line">Mem:           3914         161        1110           0        2643        3479</span><br><span class="line">Swap:          8703          64        8639</span><br></pre></td></tr></table></figure><p>1、检查 Swap 空间，先检查一下系统里有没有既存的 Swap 文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ swapon -s</span><br></pre></td></tr></table></figure><p>如果返回的信息概要是空的，则表示 Swap 文件不存在。</p><p>2、创建文件并全部写入0.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero of=/swapfile bs=1G count=4</span><br></pre></td></tr></table></figure><p>以上命令创建4G的全零文件。</p><p>【参数说明】</p><ul><li>if=文件名：输入文件名，缺省为标准输入。即指定源文件。&lt; if=input file &gt;</li><li>of=文件名：输出文件名，缺省为标准输出。即指定目的文件。&lt; of=output file &gt;</li><li>bs=bytes：同时设置读入/输出的块大小为bytes个字节</li><li>count=blocks：仅拷贝blocks个块，块大小等于bs指定的字节数。</li></ul><p>3、将创建的文件转为swap</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkswap /swapfile</span><br></pre></td></tr></table></figure><p>4、激活</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ swapon /swapfile</span><br></pre></td></tr></table></figure><p>之后可使用0，1步骤中的命令检测是否开启成功。</p><p>5、(可选)如果要机器重启的时候自动挂载 Swap ，那么还需要修改<code>/etc/fstab</code>，添加如下行：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/swapfile   swap   swap    defaults 0 0</span><br></pre></td></tr></table></figure><p>6、删除文件Swap</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ swapoff  /swapfile  <span class="comment">#卸载swap文件</span></span><br><span class="line">$ <span class="built_in">rm</span> -rf /swapfile  <span class="comment">#删除文件</span></span><br></pre></td></tr></table></figure><p>如果进行了步骤5，须相应删除该行。</p><h4 id="相关知识"><a class="header-anchor" href="#相关知识">¶</a>相关知识</h4><p>交换技术<br>交换（Swapping）技术它的主要特点是：打破了一个程序一旦进入内存，就一直驻留在内存直到运行结束的限制。</p><p>在多道程序环境下，内存中可以同时存在多个进程（程序），其中的一部分进程由于等待某些事件而处于阻塞状态，但这些处于阻塞状态的进程仍然驻留内存，并占据着内存空间；另一方面，外存上可能有许多等待装入内存运行的程序，却因内存不足而未能装入。显然，这是一种严重的系统资源浪费，它会使系统的吞吐量下降。为了解决这个问题，可以在操作系统中增加交换（对换）功能，即由操作系统根据需要，将内存中暂时不具备运行条件的部分程序或数据移到外存（换出），以便腾出足够的内存空间，将外存中需要运行的程序或数据调入内存（换入）投入运行。在操作系统中引入交换（对换）技术，可以显著提高内存资源的利用率并改善系统的性能。</p><p>以交换的单位不同来划分，则有以下两种交换方式。</p><p>以进程为单位的交换。每次换入/换出的是整个进程，我们称这种交换为进程交换（进程对换）或整体交换（整体对换）。进程交换广泛应用于分时系统，主要解决内存紧张问题。</p><p>以页（此处不多做介绍）或段（此处不多做介绍）为单位的交换。这种交换分别称为页置换（页交换或页对换）或段置换（段交换或段对换），页置换和段置换是以进程中的某一部分为交换单位，因此又称为部分交换（部分对换）。部分交换广泛应用于现代操作系统中，是实现虚拟存储器的基础。</p><p>我们这里所说的交换是指进程交换，为了实现进程交换，操作系统需要解决以下两个问题。</p><p>对换空间的管理。在具有交换功能的操作系统中，一般将外存空间分为文件区和交换区（对换区）。文件区用来存放文件，而交换区则用来存放从内存中换出的进程，或等待换入内存的进程。尽管文件区一般采用离散分配方式来分配外存存储空间，但交换区的存储空间分配则宜采用连续分配方式，这是因为交换区中存放的是换入/换出的进程，为了提高交换速度，有必要采用连续分配方式，并且交换区可以采用与可变分区存储管理类似的方法进行管理。例如，使用空闲分区表或空闲分区链来记录外存交换区的使用情况，利用首次适应算法、最佳适应算法或最差适应算法来进行外存交换区的分配。</p><p>交换的时机以及选择哪些进程交换。交换时机一般选择在进程的时间片用完，以及进程等待输入/输出时，或者在进程要求扩充其内存空间而得不到满足时。换出到外存的进程一般选择处于阻塞状态，或优先级低且短时间内不会再次投入运行的进程；换入到内存的进程则应选择换出时间最久且已处于就绪状态的进程。</p><h5 id="参考"><a class="header-anchor" href="#参考">¶</a>参考</h5><p>1、<a href="https://cloud.tencent.com/developer/article/1704157">https://cloud.tencent.com/developer/article/1704157</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;p&gt;在我们自己的购买的服务器环境中，一般是买的1g的内存，但是当服务器里面的东西</summary>
+      
+    
+    
+    
+    <category term="Linux" scheme="https://booksword.tk/categories/Linux/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Ubuntu系统挂载Windows共享文件夹通过credential文件认证</title>
@@ -464,29 +486,6 @@
     <category term="Programming" scheme="https://booksword.tk/categories/Programming/"/>
     
     <category term="Visual Studio" scheme="https://booksword.tk/categories/Programming/Visual-Studio/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>apt提示key expired问题</title>
-    <link href="https://booksword.tk/2018/07/02/apt-key-expired/"/>
-    <id>https://booksword.tk/2018/07/02/apt-key-expired/</id>
-    <published>2018-07-02T04:02:12.000Z</published>
-    <updated>2018-07-02T12:04:33.280Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>首先找出过期的key:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ apt-key list | grep expired</span><br><span class="line">pub   4096R/BE1DB1F1 2011-03-29 [expired: 2014-03-28]</span><br></pre></td></tr></table></figure><p>其中<font color="#0000ff">BE1DB1F1</font>就是key ID。</p><p>找到ID后即可用</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-key adv --recv-keys --keyserver keys.gnupg.net BE1DB1F1</span><br></pre></td></tr></table></figure><p>更新key。</p><h5 id="Reference"><a class="header-anchor" href="#Reference">¶</a>Reference</h5><p><a href="https://serverfault.com/questions/7145/what-should-i-do-when-i-got-the-keyexpired-error-message-after-an-apt-get-update/718435#718435">https://serverfault.com/questions/7145/what-should-i-do-when-i-got-the-keyexpired-error-message-after-an-apt-get-update/718435#718435</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;p&gt;首先找出过期的key:&lt;/p&gt;
-&lt;figure class=&quot;highlig</summary>
-      
-    
-    
-    
-    <category term="Linux" scheme="https://booksword.tk/categories/Linux/"/>
     
     
   </entry>

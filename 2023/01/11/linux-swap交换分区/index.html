@@ -3,26 +3,23 @@
 <head>
     <meta charset="utf-8">
     
-    <title>关于减轻功夫墙（GFW）造成的不便的一些探讨 | 书剑阁</title>
+    <title>Linux Swap交换分区 | 书剑阁</title>
     
     
-        <meta name="keywords" content="GFW, gooreplacer, ss" />
+        <meta name="keywords" content="Linux Swap交换分区" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="¶使用gooreplacer重定向对Google的访问 众所周知，天朝无法访问任何Google的服务。但不幸很多外国网站，如码农必备的Stackoverflow等都会调用Google的API，这就导致了这些网站访问速度巨慢，功能不全等问题。在网上发现了有人开发的关于可以重定向Google API到国内镜像的插件，可以用于Firefox和Google Chrome上。特记录于此： 插件地址：http">
+    <meta name="description" content="在我们自己的购买的服务器环境中，一般是买的1g的内存，但是当服务器里面的东西装的比较多的时候就会导致内存不够用了,这个时候可以通过增加虚拟内存来夸大内存容量。 ¶设置 0、查看内存使用情况 1234$ free -m              total        used        free      shared  buff&#x2F;cache   availableMem:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于减轻功夫墙（GFW）造成的不便的一些探讨">
-<meta property="og:url" content="https://booksword.tk/2018/06/26/About-GongFu-Wall/index.html">
+<meta property="og:title" content="Linux Swap交换分区">
+<meta property="og:url" content="https://booksword.tk/2023/01/11/linux-swap%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA/index.html">
 <meta property="og:site_name" content="书剑阁">
-<meta property="og:description" content="¶使用gooreplacer重定向对Google的访问 众所周知，天朝无法访问任何Google的服务。但不幸很多外国网站，如码农必备的Stackoverflow等都会调用Google的API，这就导致了这些网站访问速度巨慢，功能不全等问题。在网上发现了有人开发的关于可以重定向Google API到国内镜像的插件，可以用于Firefox和Google Chrome上。特记录于此： 插件地址：http">
+<meta property="og:description" content="在我们自己的购买的服务器环境中，一般是买的1g的内存，但是当服务器里面的东西装的比较多的时候就会导致内存不够用了,这个时候可以通过增加虚拟内存来夸大内存容量。 ¶设置 0、查看内存使用情况 1234$ free -m              total        used        free      shared  buff&#x2F;cache   availableMem:">
 <meta property="og:locale">
-<meta property="og:image" content="https://note.youdao.com/yws/public/resource/d7098784592b6d9090942f083ef9167b/xmlnote/WEBRESOURCEe496e589eb4c6a1a2889fb66a36ea602/530">
-<meta property="article:published_time" content="2018-06-26T13:02:15.000Z">
-<meta property="article:modified_time" content="2022-10-25T11:56:40.600Z">
+<meta property="article:published_time" content="2023-01-11T12:02:00.000Z">
+<meta property="article:modified_time" content="2023-01-11T12:02:07.462Z">
 <meta property="article:author" content="BookSword">
-<meta property="article:tag" content="GFW, gooreplacer, ss">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://note.youdao.com/yws/public/resource/d7098784592b6d9090942f083ef9167b/xmlnote/WEBRESOURCEe496e589eb4c6a1a2889fb66a36ea602/530">
     
 
     
@@ -189,9 +186,9 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/03/Build-Hexo-blog/">Hexo静态博客系列之一——在VPS上搭建</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             Linux
                         </a>
@@ -213,7 +210,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/09/Transmission-UDP-Failed-to-set-receive-buffer/">Linux下Transmission的“UDP Failed to set receive buffer”错误</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2018/06/26/Linux-Mint-Cleanup/">Linux Mint Cleanup</a></li>  <li class="file"><a href="/2018/06/26/Install-HP-print-driver-on-Linux-mint/">Install HP print driver on Linux mint</a></li>  <li class="file"><a href="/2018/07/01/Move-linux-to-new-disk/">无损迁移Linux系统到新磁盘</a></li>  <li class="file"><a href="/2018/07/02/apt-key-expired/">apt提示key expired问题</a></li>  <li class="file"><a href="/2018/07/05/Linux-UFW-Firewall/">Linux上使用ufw进行端口管理</a></li>  <li class="file"><a href="/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/">Linux Mint从18.3升级到19</a></li>  <li class="file"><a href="/2018/07/29/Linux-fcitx-input-method-cannot-use/">Linux Mint某些程序无法使用fcitx的输入法</a></li>  <li class="file"><a href="/2023/01/11/linux-swap%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA/">Linux Swap交换分区</a></li>  </ul> 
+                     <li class="file"><a href="/2018/06/26/Linux-Mint-Cleanup/">Linux Mint Cleanup</a></li>  <li class="file"><a href="/2018/06/26/Install-HP-print-driver-on-Linux-mint/">Install HP print driver on Linux mint</a></li>  <li class="file"><a href="/2018/07/01/Move-linux-to-new-disk/">无损迁移Linux系统到新磁盘</a></li>  <li class="file"><a href="/2018/07/02/apt-key-expired/">apt提示key expired问题</a></li>  <li class="file"><a href="/2018/07/05/Linux-UFW-Firewall/">Linux上使用ufw进行端口管理</a></li>  <li class="file"><a href="/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/">Linux Mint从18.3升级到19</a></li>  <li class="file"><a href="/2018/07/29/Linux-fcitx-input-method-cannot-use/">Linux Mint某些程序无法使用fcitx的输入法</a></li>  <li class="file active"><a href="/2023/01/11/linux-swap%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA/">Linux Swap交换分区</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -279,13 +276,13 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/08/Nginx-setup-second-server/">Nginx建立多个server</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             其他
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/build-etherminer/">build etherminer</a></li>  <li class="file active"><a href="/2018/06/26/About-GongFu-Wall/">关于减轻功夫墙（GFW）造成的不便的一些探讨</a></li>  <li class="file"><a href="/2018/06/30/New-personal-tax/">个税改革分析，减税还是加税？</a></li>  <li class="file"><a href="/2022/11/22/wakeonlan/">设置局域网和广域网远程开机（Wake on Lan）</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/build-etherminer/">build etherminer</a></li>  <li class="file"><a href="/2018/06/26/About-GongFu-Wall/">关于减轻功夫墙（GFW）造成的不便的一些探讨</a></li>  <li class="file"><a href="/2018/06/30/New-personal-tax/">个税改革分析，减税还是加税？</a></li>  <li class="file"><a href="/2022/11/22/wakeonlan/">设置局域网和广域网远程开机（Wake on Lan）</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -376,7 +373,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-About-GongFu-Wall" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-linux-swap交换分区" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -386,20 +383,15 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+        <a class="article-category-link" href="/categories/Linux/">Linux</a>
     </div>
 
                         
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/GFW-gooreplacer-ss/" rel="tag">GFW, gooreplacer, ss</a>
-    </div>
-
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/06/26/About-GongFu-Wall/">
-            <time datetime="2018-06-26T13:02:15.000Z" itemprop="datePublished">2018-06-26</time>
+        <a href="/2023/01/11/linux-swap%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA/">
+            <time datetime="2023-01-11T12:02:00.000Z" itemprop="datePublished">2023-01-11</time>
         </a>
     </div>
 
@@ -410,13 +402,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/About-GongFu-Wall.md'> Source </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/linux-swap交换分区.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/About-GongFu-Wall.md'> Edit </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/linux-swap交换分区.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/About-GongFu-Wall.md'> History </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/linux-swap交换分区.md'> History </a>
                             </div>
                         
                     </div>
@@ -424,7 +416,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            关于减轻功夫墙（GFW）造成的不便的一些探讨
+            Linux Swap交换分区
         </h1>
     
 
@@ -437,27 +429,45 @@
             
         
         
-            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="使用gooreplacer重定向对Google的访问"><a class="header-anchor" href="#使用gooreplacer重定向对Google的访问">¶</a>使用gooreplacer重定向对Google的访问</h3>
-<p>众所周知，天朝无法访问任何Google的服务。但不幸很多外国网站，如码农必备的Stackoverflow等都会调用Google的API，这就导致了这些网站访问速度巨慢，功能不全等问题。在网上发现了有人开发的关于可以重定向Google API到国内镜像的插件，可以用于Firefox和Google Chrome上。特记录于此：<br>
-插件地址：<a target="_blank" rel="noopener" href="https://github.com/jiacai2050/gooreplacer">https://github.com/jiacai2050/gooreplacer</a><br>
-如果只需要重定向Google的访问，可以复制如下Rules，保存为.gson格式后导入。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;createBy&quot;: &quot;http://liujiacai.net/gooreplacer/&quot;,</span><br><span class="line">    &quot;createAt&quot;: &quot;Tue Jan 10 2017 17:45:39 GMT+0000&quot;,</span><br><span class="line">    &quot;rules&quot;: &#123;</span><br><span class="line">        &quot;ajax.googleapis.com&quot;: &#123;</span><br><span class="line">            &quot;dstURL&quot;: &quot;ajax.proxy.ustclug.org&quot;,</span><br><span class="line">            &quot;kind&quot;: &quot;wildcard&quot;,</span><br><span class="line">            &quot;enable&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;storage.googleapis.com&quot;: &#123;</span><br><span class="line">            &quot;dstURL&quot;: &quot;storage-googleapis.proxy.ustclug.org&quot;,</span><br><span class="line">            &quot;kind&quot;: &quot;wildcard&quot;,</span><br><span class="line">            &quot;enable&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;gerrit.googlesource.com&quot;: &#123;</span><br><span class="line">            &quot;dstURL&quot;: &quot;gerrit-googlesource.proxy.ustclug.org&quot;,</span><br><span class="line">            &quot;kind&quot;: &quot;wildcard&quot;,</span><br><span class="line">            &quot;enable&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;themes.googleusercontent.com&quot;: &#123;</span><br><span class="line">            &quot;dstURL&quot;: &quot;google-themes.proxy.ustclug.org&quot;,</span><br><span class="line">            &quot;kind&quot;: &quot;wildcard&quot;,</span><br><span class="line">            &quot;enable&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;platform.twitter.com/widgets.js&quot;: &#123;</span><br><span class="line">            &quot;dstURL&quot;: &quot;cdn.rawgit.com/jiacai2050/gooreplacer/gh-pages/proxy/widgets.js&quot;,</span><br><span class="line">            &quot;kind&quot;: &quot;wildcard&quot;,</span><br><span class="line">            &quot;enable&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;apis.google.com/js/api.js&quot;: &#123;</span><br><span class="line">            &quot;dstURL&quot;: &quot;cdn.rawgit.com/jiacai2050/gooreplacer/gh-pages/proxy/api.js&quot;,</span><br><span class="line">            &quot;kind&quot;: &quot;wildcard&quot;,</span><br><span class="line">            &quot;enable&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;apis.google.com/js/plusone.js&quot;: &#123;</span><br><span class="line">            &quot;dstURL&quot;: &quot;cdn.rawgit.com/jiacai2050/gooreplacer/gh-pages/proxy/plusone.js&quot;,</span><br><span class="line">            &quot;kind&quot;: &quot;wildcard&quot;,</span><br><span class="line">            &quot;enable&quot;: true</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>目前该插件存在一点问题，就是配置是基于Cookies保存的，如果浏览器设置了隐私模式或清除了Cookies，配置会丢失。</p>
-<h3 id="Use-PAC-list-for-ss"><a class="header-anchor" href="#Use-PAC-list-for-ss">¶</a>Use PAC list for ss</h3>
-<ol>
-<li>
-<p>Install GenPAC (reference <a target="_blank" rel="noopener" href="https://github.com/JinnLynn/GenPAC">https://github.com/JinnLynn/GenPAC</a>)</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install genpac</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>Download url list</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genpac --pac-proxy <span class="string">&quot;SOCKS5 127.0.0.1:1080&quot;</span> --gfwlist-proxy=<span class="string">&quot;SOCKS5 127.0.0.1:1080&quot;</span> --output=<span class="string">&quot;mypac.pac&quot;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>Setup global proxy in system</p>
-</li>
-</ol>
-<p><img src="https://note.youdao.com/yws/public/resource/d7098784592b6d9090942f083ef9167b/xmlnote/WEBRESOURCEe496e589eb4c6a1a2889fb66a36ea602/530" alt="image"></p>
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在我们自己的购买的服务器环境中，一般是买的1g的内存，但是当服务器里面的东西装的比较多的时候就会导致内存不够用了,这个时候可以通过增加虚拟内存来夸大内存容量。</p>
+<h4 id="设置"><a class="header-anchor" href="#设置">¶</a>设置</h4>
+<p>0、查看内存使用情况</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ free -m</span><br><span class="line">              total        used        free      shared  buff/cache   available</span><br><span class="line">Mem:           3914         161        1110           0        2643        3479</span><br><span class="line">Swap:          8703          64        8639</span><br></pre></td></tr></table></figure>
+<p>1、检查 Swap 空间，先检查一下系统里有没有既存的 Swap 文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ swapon -s</span><br></pre></td></tr></table></figure>
+<p>如果返回的信息概要是空的，则表示 Swap 文件不存在。</p>
+<p>2、创建文件并全部写入0.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero of=/swapfile bs=1G count=4</span><br></pre></td></tr></table></figure>
+<p>以上命令创建4G的全零文件。</p>
+<p>【参数说明】</p>
+<ul>
+<li>if=文件名：输入文件名，缺省为标准输入。即指定源文件。&lt; if=input file &gt;</li>
+<li>of=文件名：输出文件名，缺省为标准输出。即指定目的文件。&lt; of=output file &gt;</li>
+<li>bs=bytes：同时设置读入/输出的块大小为bytes个字节</li>
+<li>count=blocks：仅拷贝blocks个块，块大小等于bs指定的字节数。</li>
+</ul>
+<p>3、将创建的文件转为swap</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkswap /swapfile</span><br></pre></td></tr></table></figure>
+<p>4、激活</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ swapon /swapfile</span><br></pre></td></tr></table></figure>
+<p>之后可使用0，1步骤中的命令检测是否开启成功。</p>
+<p>5、(可选)如果要机器重启的时候自动挂载 Swap ，那么还需要修改<code>/etc/fstab</code>，添加如下行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/swapfile   swap   swap    defaults 0 0</span><br></pre></td></tr></table></figure>
+<p>6、删除文件Swap</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ swapoff  /swapfile  <span class="comment">#卸载swap文件</span></span><br><span class="line">$ <span class="built_in">rm</span> -rf /swapfile  <span class="comment">#删除文件</span></span><br></pre></td></tr></table></figure>
+<p>如果进行了步骤5，须相应删除该行。</p>
+<h4 id="相关知识"><a class="header-anchor" href="#相关知识">¶</a>相关知识</h4>
+<p>交换技术<br>
+交换（Swapping）技术它的主要特点是：打破了一个程序一旦进入内存，就一直驻留在内存直到运行结束的限制。</p>
+<p>在多道程序环境下，内存中可以同时存在多个进程（程序），其中的一部分进程由于等待某些事件而处于阻塞状态，但这些处于阻塞状态的进程仍然驻留内存，并占据着内存空间；另一方面，外存上可能有许多等待装入内存运行的程序，却因内存不足而未能装入。显然，这是一种严重的系统资源浪费，它会使系统的吞吐量下降。为了解决这个问题，可以在操作系统中增加交换（对换）功能，即由操作系统根据需要，将内存中暂时不具备运行条件的部分程序或数据移到外存（换出），以便腾出足够的内存空间，将外存中需要运行的程序或数据调入内存（换入）投入运行。在操作系统中引入交换（对换）技术，可以显著提高内存资源的利用率并改善系统的性能。</p>
+<p>以交换的单位不同来划分，则有以下两种交换方式。</p>
+<p>以进程为单位的交换。每次换入/换出的是整个进程，我们称这种交换为进程交换（进程对换）或整体交换（整体对换）。进程交换广泛应用于分时系统，主要解决内存紧张问题。</p>
+<p>以页（此处不多做介绍）或段（此处不多做介绍）为单位的交换。这种交换分别称为页置换（页交换或页对换）或段置换（段交换或段对换），页置换和段置换是以进程中的某一部分为交换单位，因此又称为部分交换（部分对换）。部分交换广泛应用于现代操作系统中，是实现虚拟存储器的基础。</p>
+<p>我们这里所说的交换是指进程交换，为了实现进程交换，操作系统需要解决以下两个问题。</p>
+<p>对换空间的管理。在具有交换功能的操作系统中，一般将外存空间分为文件区和交换区（对换区）。文件区用来存放文件，而交换区则用来存放从内存中换出的进程，或等待换入内存的进程。尽管文件区一般采用离散分配方式来分配外存存储空间，但交换区的存储空间分配则宜采用连续分配方式，这是因为交换区中存放的是换入/换出的进程，为了提高交换速度，有必要采用连续分配方式，并且交换区可以采用与可变分区存储管理类似的方法进行管理。例如，使用空闲分区表或空闲分区链来记录外存交换区的使用情况，利用首次适应算法、最佳适应算法或最差适应算法来进行外存交换区的分配。</p>
+<p>交换的时机以及选择哪些进程交换。交换时机一般选择在进程的时间片用完，以及进程等待输入/输出时，或者在进程要求扩充其内存空间而得不到满足时。换出到外存的进程一般选择处于阻塞状态，或优先级低且短时间内不会再次投入运行的进程；换入到内存的进程则应选择换出时间最久且已处于就绪状态的进程。</p>
+<h5 id="参考"><a class="header-anchor" href="#参考">¶</a>参考</h5>
+<p>1、<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1704157">https://cloud.tencent.com/developer/article/1704157</a></p>
 
             </div>
         
@@ -470,19 +480,10 @@
     
 <nav id="article-nav">
     
-        <a href="/2018/06/26/MFC/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    MFC
-                
-            </div>
-        </a>
     
-    
-        <a href="/2018/06/26/Tesseract/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2022/11/29/ubuntu-mount-windows-share-drive-with-credential-file/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Tesseract</div>
+            <div class="article-nav-title">Ubuntu系统挂载Windows共享文件夹通过credential文件认证</div>
         </a>
     
 </nav>
