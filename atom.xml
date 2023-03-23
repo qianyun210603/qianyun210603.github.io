@@ -6,7 +6,7 @@
   <link href="https://booksword.tk/atom.xml" rel="self"/>
   
   <link href="https://booksword.tk/"/>
-  <updated>2023-01-11T12:02:07.462Z</updated>
+  <updated>2023-03-21T12:17:21.542Z</updated>
   <id>https://booksword.tk/</id>
   
   <author>
@@ -15,6 +15,53 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ffmpeg合并文件报错“Unsafe file name”</title>
+    <link href="https://booksword.tk/2023/02/21/ffmpeg_unsafe_file_name/"/>
+    <id>https://booksword.tk/2023/02/21/ffmpeg_unsafe_file_name/</id>
+    <published>2023-02-21T13:37:49.000Z</published>
+    <updated>2023-03-21T12:17:21.542Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>解决：加上参数<code>-safe 0</code>。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;p&gt;解决：加上参数&lt;code&gt;-safe 0&lt;/code&gt;。&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="应用软件" scheme="https://booksword.tk/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="ffmpeg" scheme="https://booksword.tk/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/ffmpeg/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu 20.04安装VNC服务（Xfce4）</title>
+    <link href="https://booksword.tk/2023/02/04/Ubuntu%2020.04%E5%AE%89%E8%A3%85VNC%E6%9C%8D%E5%8A%A1%EF%BC%88Xfce4%EF%BC%89/"/>
+    <id>https://booksword.tk/2023/02/04/Ubuntu%2020.04%E5%AE%89%E8%A3%85VNC%E6%9C%8D%E5%8A%A1%EF%BC%88Xfce4%EF%BC%89/</id>
+    <published>2023-02-04T09:35:00.000Z</published>
+    <updated>2023-02-04T10:57:19.578Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4 id="目标"><a class="header-anchor" href="#目标">¶</a>目标</h4><p>给VPS安装VNC服务以能使用图形化界面软件。</p><h4 id="步骤"><a class="header-anchor" href="#步骤">¶</a>步骤</h4><ol><li>安装Xfce桌面环境<br><code> sudo apt install xfce4</code></li></ol><p><font size="1">a. 中途会让选择是用<code>gdm3</code>还是<code>lightdm</code>。根据网上描述[^fn1]，<code>lightdm</code>占用资源更少，支持的桌面系统更多，同时可定制性更好；而<code>gdm3</code>是专门为<code>GNOME</code>开发的。所以这里选<code>lightdm</code>。</font></p><ol start="2"><li><p>安装VNC Server<br><code> sudo apt install tigervnc-standalone-server</code></p></li><li><p>初始化</p></li><li><p>运行命令<code>vncserver</code>，会提示输入密码，这个密码是后期连接vnc的密码，一定要记住。</p></li><li><p>运行<code>vncserver -kill :1</code>杀掉刚刚的服务进程。</p></li><li><p><code>vi ~/.vnc/xstartup</code>建立<code>xstartup</code>文件，并将以下内容复制进去：</p></li></ol><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="comment"># Uncomment the following two lines for normal desktop:</span></span><br><span class="line"><span class="comment"># unset SESSION_MANAGER</span></span><br><span class="line"><span class="comment"># exec /etc/X11/xinit/xinitrc</span></span><br><span class="line"></span><br><span class="line">[ -x /etc/vnc/xstartup ] &amp;&amp; <span class="built_in">exec</span> /etc/vnc/xstartup</span><br><span class="line">[ -r <span class="variable">$HOME</span>/.Xresources ] &amp;&amp; xrdb <span class="variable">$HOME</span>/.Xresources</span><br><span class="line">xsetroot -solid grey</span><br><span class="line">vncconfig -iconic &amp;</span><br><span class="line">x-terminal-emulator -geometry 80x24+10+10 -<span class="built_in">ls</span> -title <span class="string">&quot;<span class="variable">$VNCDESKTOP</span> Desktop&quot;</span> &amp;</span><br><span class="line">x-window-manager &amp;</span><br><span class="line"></span><br><span class="line"><span class="comment">#gnome-terminal &amp;</span></span><br><span class="line"></span><br><span class="line">sesion-manager &amp; xfdesktop &amp; xfce4-panel &amp;</span><br><span class="line">xfce4-menu-plugin &amp;</span><br><span class="line">xfsettingsd &amp;</span><br><span class="line">xfconfd &amp;</span><br><span class="line">xfwm4 &amp;</span><br></pre></td></tr></table></figure></code></pre><ol start="4"><li>再次开启<code>vncserver</code>: <code>vncserver -localhost no</code><br><code>tigervncserver</code>默认只能本机访问，<code>-localhost no</code>参数关闭此限制。</li></ol><h4 id="其他："><a class="header-anchor" href="#其他：">¶</a>其他：</h4><ul><li>VNC服务默认使用从5901开始的端口，一台VPS上可以开启多个VNC服务，连接时<code>ip:1</code>对应5901端口的服务，连接时<code>ip:2</code>对应5902端口的服务，以此类推。</li><li>如VPS有防火墙需要打开对应的端口。</li></ul><p>^fn1: <a href="https://www.linuxfordevices.com/tutorials/linux/gdm3-vs-lightdm">https://www.linuxfordevices.com/tutorials/linux/gdm3-vs-lightdm</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;h4 id=&quot;目标&quot;&gt;&lt;a class=&quot;header-anchor&quot; href</summary>
+      
+    
+    
+    
+    <category term="Linux" scheme="https://booksword.tk/categories/Linux/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Linux Swap交换分区</title>
@@ -397,28 +444,6 @@
   </entry>
   
   <entry>
-    <title>Linux上使用ufw进行端口管理</title>
-    <link href="https://booksword.tk/2018/07/05/Linux-UFW-Firewall/"/>
-    <id>https://booksword.tk/2018/07/05/Linux-UFW-Firewall/</id>
-    <published>2018-07-05T13:37:49.000Z</published>
-    <updated>2018-07-08T09:22:16.248Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4 id="安装"><a class="header-anchor" href="#安装">¶</a>安装</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install ufw</span><br></pre></td></tr></table></figure><h3 id="启用"><a class="header-anchor" href="#启用">¶</a>启用</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw enable</span><br></pre></td></tr></table></figure><h3 id="增加规则允许访问端口"><a class="header-anchor" href="#增加规则允许访问端口">¶</a>增加规则允许访问端口</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw allow 80</span><br></pre></td></tr></table></figure><h3 id="删除规则允许访问端口"><a class="header-anchor" href="#删除规则允许访问端口">¶</a>删除规则允许访问端口</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw delete allow 80</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;h4 id=&quot;安装&quot;&gt;&lt;a class=&quot;header-anchor&quot; href</summary>
-      
-    
-    
-    
-    <category term="Linux" scheme="https://booksword.tk/categories/Linux/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Hexo静态博客系列之一——在VPS上搭建</title>
     <link href="https://booksword.tk/2018/07/03/Build-Hexo-blog/"/>
     <id>https://booksword.tk/2018/07/03/Build-Hexo-blog/</id>
@@ -463,30 +488,6 @@
     
     
     <category term="Linux" scheme="https://booksword.tk/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>重命名Visual Studio项目</title>
-    <link href="https://booksword.tk/2018/07/02/Rename-Visual-Studio-Project-name-checklist/"/>
-    <id>https://booksword.tk/2018/07/02/Rename-Visual-Studio-Project-name-checklist/</id>
-    <published>2018-07-02T13:02:08.000Z</published>
-    <updated>2018-07-02T11:52:24.009Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>因为Visual Stuido的主文件名和项目名以及一些依赖文件都是相互关联的，因此单单简单粗暴地重命名项目和源代码会导致编译错误。以下给出一个完美重命名VS项目的步骤检查表：</p><ol><li>在Visual Studio重命名项目；</li><li>重命名相关的源文件和头文件，并更正<code>#include</code>；</li><li>重命名<code>.sln</code>, .<code>vcpoj</code>和<code>.vcxpoj</code>文件；</li><li>将3中提到的三个文件（均为文本文件，可以用文本编辑器打开）中的旧名称替换为新名称。</li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;p&gt;因为Visual Stuido的主文件名和项目名以及一些依赖文件都是相互关联</summary>
-      
-    
-    
-    
-    <category term="Programming" scheme="https://booksword.tk/categories/Programming/"/>
-    
-    <category term="Visual Studio" scheme="https://booksword.tk/categories/Programming/Visual-Studio/"/>
-    
     
   </entry>
   

@@ -3,21 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Git Forked Repository强制与Fork源同步 | 书剑阁</title>
+    <title>Ubuntu 20.04安装VNC服务（Xfce4） | 书剑阁</title>
     
     
-        <meta name="keywords" content="Git Forked Repository强制与Fork源同步" />
+        <meta name="keywords" content="Ubuntu 20.04安装VNC服务（Xfce4）" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="首先将Fork源增加到分支的remote url里面， 1git remote add upstream git@github.com:microsoft&#x2F;qlib.git 然后pull --rebase 1git pull --rebase upstream main 再reset hard。 1git reset --hard upstream&#x2F;main 最后force push 1git p">
+    <meta name="description" content="¶目标 给VPS安装VNC服务以能使用图形化界面软件。 ¶步骤  安装Xfce桌面环境  sudo apt install xfce4  a. 中途会让选择是用gdm3还是lightdm。根据网上描述[^fn1]，lightdm占用资源更少，支持的桌面系统更多，同时可定制性更好；而gdm3是专门为GNOME开发的。所以这里选lightdm。   安装VNC Server  sudo apt ins">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git Forked Repository强制与Fork源同步">
-<meta property="og:url" content="https://booksword.tk/2022/11/14/git-forked-repository%E5%BC%BA%E5%88%B6%E4%B8%8E%E4%B8%8A%E6%B8%B8%E5%90%8C%E6%AD%A5/index.html">
+<meta property="og:title" content="Ubuntu 20.04安装VNC服务（Xfce4）">
+<meta property="og:url" content="https://booksword.tk/2023/02/04/Ubuntu%2020.04%E5%AE%89%E8%A3%85VNC%E6%9C%8D%E5%8A%A1%EF%BC%88Xfce4%EF%BC%89/index.html">
 <meta property="og:site_name" content="书剑阁">
-<meta property="og:description" content="首先将Fork源增加到分支的remote url里面， 1git remote add upstream git@github.com:microsoft&#x2F;qlib.git 然后pull --rebase 1git pull --rebase upstream main 再reset hard。 1git reset --hard upstream&#x2F;main 最后force push 1git p">
+<meta property="og:description" content="¶目标 给VPS安装VNC服务以能使用图形化界面软件。 ¶步骤  安装Xfce桌面环境  sudo apt install xfce4  a. 中途会让选择是用gdm3还是lightdm。根据网上描述[^fn1]，lightdm占用资源更少，支持的桌面系统更多，同时可定制性更好；而gdm3是专门为GNOME开发的。所以这里选lightdm。   安装VNC Server  sudo apt ins">
 <meta property="og:locale">
-<meta property="article:published_time" content="2022-11-14T08:04:00.000Z">
-<meta property="article:modified_time" content="2022-11-14T08:25:47.838Z">
+<meta property="article:published_time" content="2023-02-04T09:35:00.000Z">
+<meta property="article:modified_time" content="2023-02-04T10:57:19.578Z">
 <meta property="article:author" content="BookSword">
 <meta name="twitter:card" content="summary">
     
@@ -186,9 +186,9 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/03/Build-Hexo-blog/">Hexo静态博客系列之一——在VPS上搭建</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             Linux
                         </a>
@@ -210,12 +210,12 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/09/Transmission-UDP-Failed-to-set-receive-buffer/">Linux下Transmission的“UDP Failed to set receive buffer”错误</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2018/06/26/Linux-Mint-Cleanup/">Linux Mint Cleanup</a></li>  <li class="file"><a href="/2018/06/26/Install-HP-print-driver-on-Linux-mint/">Install HP print driver on Linux mint</a></li>  <li class="file"><a href="/2018/07/01/Move-linux-to-new-disk/">无损迁移Linux系统到新磁盘</a></li>  <li class="file"><a href="/2018/07/02/apt-key-expired/">apt提示key expired问题</a></li>  <li class="file"><a href="/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/">Linux Mint从18.3升级到19</a></li>  <li class="file"><a href="/2018/07/29/Linux-fcitx-input-method-cannot-use/">Linux Mint某些程序无法使用fcitx的输入法</a></li>  <li class="file"><a href="/2023/01/11/linux-swap%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA/">Linux Swap交换分区</a></li>  <li class="file"><a href="/2023/02/04/Ubuntu%2020.04%E5%AE%89%E8%A3%85VNC%E6%9C%8D%E5%8A%A1%EF%BC%88Xfce4%EF%BC%89/">Ubuntu 20.04安装VNC服务（Xfce4）</a></li>  </ul> 
+                     <li class="file"><a href="/2018/06/26/Linux-Mint-Cleanup/">Linux Mint Cleanup</a></li>  <li class="file"><a href="/2018/06/26/Install-HP-print-driver-on-Linux-mint/">Install HP print driver on Linux mint</a></li>  <li class="file"><a href="/2018/07/01/Move-linux-to-new-disk/">无损迁移Linux系统到新磁盘</a></li>  <li class="file"><a href="/2018/07/02/apt-key-expired/">apt提示key expired问题</a></li>  <li class="file"><a href="/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/">Linux Mint从18.3升级到19</a></li>  <li class="file"><a href="/2018/07/29/Linux-fcitx-input-method-cannot-use/">Linux Mint某些程序无法使用fcitx的输入法</a></li>  <li class="file"><a href="/2023/01/11/linux-swap%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA/">Linux Swap交换分区</a></li>  <li class="file active"><a href="/2023/02/04/Ubuntu%2020.04%E5%AE%89%E8%A3%85VNC%E6%9C%8D%E5%8A%A1%EF%BC%88Xfce4%EF%BC%89/">Ubuntu 20.04安装VNC服务（Xfce4）</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             Programming
                         </a>
@@ -229,13 +229,13 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/02/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/">Linux Mint安装Cuda 9.1以及cuDNN、NICC</a></li>  <li class="file"><a href="/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/">Linux Mint 19安装Cuda 9.2以及cuDNN、NCCL</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             Git
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/Git-ticks/">Git tricks</a></li>  <li class="file active"><a href="/2022/11/14/git-forked-repository%E5%BC%BA%E5%88%B6%E4%B8%8E%E4%B8%8A%E6%B8%B8%E5%90%8C%E6%AD%A5/">Git Forked Repository强制与Fork源同步</a></li>  <li class="file"><a href="/2022/11/22/gitignore%E6%96%87%E4%BB%B6%E7%9A%84%E9%A1%BA%E5%BA%8F/">gitignore文件的顺序</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/Git-ticks/">Git tricks</a></li>  <li class="file"><a href="/2022/11/14/git-forked-repository%E5%BC%BA%E5%88%B6%E4%B8%8E%E4%B8%8A%E6%B8%B8%E5%90%8C%E6%AD%A5/">Git Forked Repository强制与Fork源同步</a></li>  <li class="file"><a href="/2022/11/22/gitignore%E6%96%87%E4%BB%B6%E7%9A%84%E9%A1%BA%E5%BA%8F/">gitignore文件的顺序</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -391,7 +391,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-git-forked-repository强制与上游同步" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Ubuntu 20.04安装VNC服务（Xfce4）" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -401,15 +401,15 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Git/">Git</a>
+        <a class="article-category-link" href="/categories/Linux/">Linux</a>
     </div>
 
                         
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2022/11/14/git-forked-repository%E5%BC%BA%E5%88%B6%E4%B8%8E%E4%B8%8A%E6%B8%B8%E5%90%8C%E6%AD%A5/">
-            <time datetime="2022-11-14T08:04:00.000Z" itemprop="datePublished">2022-11-14</time>
+        <a href="/2023/02/04/Ubuntu%2020.04%E5%AE%89%E8%A3%85VNC%E6%9C%8D%E5%8A%A1%EF%BC%88Xfce4%EF%BC%89/">
+            <time datetime="2023-02-04T09:35:00.000Z" itemprop="datePublished">2023-02-04</time>
         </a>
     </div>
 
@@ -420,13 +420,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/git-forked-repository强制与上游同步.md'> Source </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/Ubuntu 20.04安装VNC服务（Xfce4）.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/git-forked-repository强制与上游同步.md'> Edit </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/Ubuntu 20.04安装VNC服务（Xfce4）.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/git-forked-repository强制与上游同步.md'> History </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/Ubuntu 20.04安装VNC服务（Xfce4）.md'> History </a>
                             </div>
                         
                     </div>
@@ -434,7 +434,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Git Forked Repository强制与Fork源同步
+            Ubuntu 20.04安装VNC服务（Xfce4）
         </h1>
     
 
@@ -447,14 +447,44 @@
             
         
         
-            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>首先将Fork源增加到分支的remote url里面，</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add upstream git@github.com:microsoft/qlib.git</span><br></pre></td></tr></table></figure>
-<p>然后<code>pull --rebase</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull --rebase upstream main</span><br></pre></td></tr></table></figure>
-<p>再<code>reset hard</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard upstream/main</span><br></pre></td></tr></table></figure>
-<p>最后<code>force push</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --force origin main</span><br></pre></td></tr></table></figure>
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4 id="目标"><a class="header-anchor" href="#目标">¶</a>目标</h4>
+<p>给VPS安装VNC服务以能使用图形化界面软件。</p>
+<h4 id="步骤"><a class="header-anchor" href="#步骤">¶</a>步骤</h4>
+<ol>
+<li>安装Xfce桌面环境<br>
+<code> sudo apt install xfce4</code></li>
+</ol>
+<p><font size="1">a. 中途会让选择是用<code>gdm3</code>还是<code>lightdm</code>。根据网上描述[^fn1]，<code>lightdm</code>占用资源更少，支持的桌面系统更多，同时可定制性更好；而<code>gdm3</code>是专门为<code>GNOME</code>开发的。所以这里选<code>lightdm</code>。</font></p>
+<ol start="2">
+<li>
+<p>安装VNC Server<br>
+<code> sudo apt install tigervnc-standalone-server</code></p>
+</li>
+<li>
+<p>初始化</p>
+</li>
+<li>
+<p>运行命令<code>vncserver</code>，会提示输入密码，这个密码是后期连接vnc的密码，一定要记住。</p>
+</li>
+<li>
+<p>运行<code>vncserver -kill :1</code>杀掉刚刚的服务进程。</p>
+</li>
+<li>
+<p><code>vi ~/.vnc/xstartup</code>建立<code>xstartup</code>文件，并将以下内容复制进去：</p>
+</li>
+</ol>
+<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="comment"># Uncomment the following two lines for normal desktop:</span></span><br><span class="line"><span class="comment"># unset SESSION_MANAGER</span></span><br><span class="line"><span class="comment"># exec /etc/X11/xinit/xinitrc</span></span><br><span class="line"></span><br><span class="line">[ -x /etc/vnc/xstartup ] &amp;&amp; <span class="built_in">exec</span> /etc/vnc/xstartup</span><br><span class="line">[ -r <span class="variable">$HOME</span>/.Xresources ] &amp;&amp; xrdb <span class="variable">$HOME</span>/.Xresources</span><br><span class="line">xsetroot -solid grey</span><br><span class="line">vncconfig -iconic &amp;</span><br><span class="line">x-terminal-emulator -geometry 80x24+10+10 -<span class="built_in">ls</span> -title <span class="string">&quot;<span class="variable">$VNCDESKTOP</span> Desktop&quot;</span> &amp;</span><br><span class="line">x-window-manager &amp;</span><br><span class="line"></span><br><span class="line"><span class="comment">#gnome-terminal &amp;</span></span><br><span class="line"></span><br><span class="line">sesion-manager &amp; xfdesktop &amp; xfce4-panel &amp;</span><br><span class="line">xfce4-menu-plugin &amp;</span><br><span class="line">xfsettingsd &amp;</span><br><span class="line">xfconfd &amp;</span><br><span class="line">xfwm4 &amp;</span><br></pre></td></tr></table></figure>
+</code></pre>
+<ol start="4">
+<li>再次开启<code>vncserver</code>: <code>vncserver -localhost no</code><br>
+<code>tigervncserver</code>默认只能本机访问，<code>-localhost no</code>参数关闭此限制。</li>
+</ol>
+<h4 id="其他："><a class="header-anchor" href="#其他：">¶</a>其他：</h4>
+<ul>
+<li>VNC服务默认使用从5901开始的端口，一台VPS上可以开启多个VNC服务，连接时<code>ip:1</code>对应5901端口的服务，连接时<code>ip:2</code>对应5902端口的服务，以此类推。</li>
+<li>如VPS有防火墙需要打开对应的端口。</li>
+</ul>
+<p>^fn1: <a target="_blank" rel="noopener" href="https://www.linuxfordevices.com/tutorials/linux/gdm3-vs-lightdm">https://www.linuxfordevices.com/tutorials/linux/gdm3-vs-lightdm</a></p>
 
             </div>
         
@@ -467,19 +497,19 @@
     
 <nav id="article-nav">
     
-        <a href="/2022/11/22/wakeonlan/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2023/02/21/ffmpeg_unsafe_file_name/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Más nuevo</strong>
             <div class="article-nav-title">
                 
-                    设置局域网和广域网远程开机（Wake on Lan）
+                    ffmpeg合并文件报错“Unsafe file name”
                 
             </div>
         </a>
     
     
-        <a href="/2022/11/03/ubuntucuda/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2023/01/11/linux-swap%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Más viejo</strong>
-            <div class="article-nav-title">Ubuntu 22.04安装Cuda Toolkit</div>
+            <div class="article-nav-title">Linux Swap交换分区</div>
         </a>
     
 </nav>
