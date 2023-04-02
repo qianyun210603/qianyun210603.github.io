@@ -18,12 +18,14 @@
     "hexo-generator-index": "^3.0.0",
     "hexo-generator-json-content": "^4.2.3",
     "hexo-generator-sitemap": "^3.0.1",
+    "hexo-generator-baidu-sitemap": "^0.1.9",
     "hexo-generator-tag": "^2.0.0",
     "hexo-reference": "^1.0.4",
     "hexo-renderer-ejs": "^2.0.0",
     "hexo-renderer-markdown-it": "^6.1.0",
     "hexo-renderer-stylus": "^2.1.0",
     "hexo-server": "^3.0.0",
-    "hexo-theme-doc": "^1.0.0-rc.1"
+    "hexo-theme-doc": "^1.0.0-rc.1",
+    "js-yaml": "4.1.0"
   }
 }

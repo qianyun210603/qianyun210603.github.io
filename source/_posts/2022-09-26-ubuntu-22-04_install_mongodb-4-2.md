@@ -1,9 +1,10 @@
 ---
 title: "Ubuntu 22.04安装MongoDB 4.2"
 date: "2022-09-26 09:52"
-tags:
+tags: Linux
 categories:
-- Linux
+  - Programming
+  - MongoDB
 ---
 问题在于Ubuntu 22.04开始移除了libssl1.1的支持。所以需要先安装libssl1.1
 

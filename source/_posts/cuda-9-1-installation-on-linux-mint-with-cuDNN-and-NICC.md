@@ -1,8 +1,9 @@
 ---
 title: Linux Mint安装Cuda 9.1以及cuDNN、NICC
 date: 2018-07-02 21:02:10
+tags: Linux
 categories:
-- Linux
+- Programming
 - Cuda
 ---
 #### CUDA
@@ -10,7 +11,7 @@ categories:
 ```bash
 # execute following command as root user
 sudo -i
-dpkg -i cuda-repo-ubuntu1604_9.1.85-1_amd64.deb 
+dpkg -i cuda-repo-ubuntu1604_9.1.85-1_amd64.deb
 apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub
 apt update
 apt install cuda
@@ -20,16 +21,16 @@ apt install libgl-dev libglu-dev libx11-dev libegl1-mesa-dev libgles2-mesa-dev l
 # back to normal user
 exit
 # install cuda examples
-cuda-install-samples-9.1.sh ./ 
+cuda-install-samples-9.1.sh ./
 # force input macro value as linux mint is not officially supported
-GLPATH="/usr/lib/x86_64-linux-gnu" GLLINK="-L/usr/lib/x86_64-linux-gnu" DFLT_PATH="/usr/lib" EGLLIB="/usr/lib/x86_64-linux-gnu" GLESLIB="/usr/lib/x86_64-linux-gnu" make -j6 
+GLPATH="/usr/lib/x86_64-linux-gnu" GLLINK="-L/usr/lib/x86_64-linux-gnu" DFLT_PATH="/usr/lib" EGLLIB="/usr/lib/x86_64-linux-gnu" GLESLIB="/usr/lib/x86_64-linux-gnu" make -j6
 ```
 
 #### cuDNN
 首先从https://developer.nvidia.com/rdp/cudnn-download
 * cuDNN v7.0.5 Runtime Library for Ubuntu16.04 (Deb)
 * cuDNN v7.0.5 Developer Library for Ubuntu16.04 (Deb)
-* cuDNN v7.0.5 Code Samples and User Guide for Ubuntu16.04 (Deb)    
+* cuDNN v7.0.5 Code Samples and User Guide for Ubuntu16.04 (Deb)
 
 
 接下来，安装

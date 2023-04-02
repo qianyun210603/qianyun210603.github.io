@@ -6,7 +6,6 @@ categories: Linux
 首先找出过期的key:
 ```bash
 $ apt-key list | grep expired
-pub   4096R/BE1DB1F1 2011-03-29 [expired: 2014-03-28]
 ```
 其中<font color=#0000ff>BE1DB1F1</font>就是key ID。
 

@@ -1,8 +1,9 @@
 ---
 title: Linux Mint 19安装Cuda 9.2以及cuDNN、NCCL
 date: 2018-07-14 17:49:25
+tags: Linux
 categories:
-- Linux
+- Programming
 - Cuda
 ---
 

@@ -1,9 +1,10 @@
 ---
-title: Git ticks
+title: Git tricks
 date: 2018-06-26 21:02:14
 tags:
 categories:
-
+- Programming
+- Git
 ---
 #### Caching GitHub password in Git
 
@@ -23,7 +24,7 @@ Or alternatively, store forever:
 git config --global credential.helper store
 ```
 
-#### revert local change to previous commit
+#### Revert local change to previous commit
 ```bash
 git checkout -- readme.txt # revert readme.txt to previous commit
 ```
@@ -32,4 +33,10 @@ or
 git fetch --all
 git reset --hard origin/master
 git pull // can be ignored
+```
+
+#### Revert to status in another branch
+
+```bash
+git checkout <other-branch-name> -- <path to your file_or_folder>
 ```
