@@ -3,6 +3,7 @@ layout: "post"
 title: "Ubuntu系统挂载Windows共享文件夹通过credential文件认证"
 date: "2022-11-29 15:55"
 categories:
+ - Linux
 ---
 
 ### 问题
