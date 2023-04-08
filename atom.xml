@@ -6,7 +6,7 @@
   <link href="https://booksword.tk/atom.xml" rel="self"/>
   
   <link href="https://booksword.tk/"/>
-  <updated>2023-04-06T08:43:33.745Z</updated>
+  <updated>2023-04-08T15:02:00.790Z</updated>
   <id>https://booksword.tk/</id>
   
   <author>
@@ -17,13 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>ffmpeg中的-filter_complex</title>
+    <link href="https://booksword.tk/2023/04/08/ffmpeg_filter_complex/"/>
+    <id>https://booksword.tk/2023/04/08/ffmpeg_filter_complex/</id>
+    <published>2023-04-08T05:38:06.000Z</published>
+    <updated>2023-04-08T15:02:00.790Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>需要合并两个分辨率不同的mp4视频，所以稍微研究了下ffmpeg中的complex_filter的合并语法。</p><p>如果要是合并相同编码，分辨率，FPS的视频，那很简单，直接用<code>concat</code>文件协议就行：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># mylist.txt</span><br><span class="line">file &#x27;video1.mp4&#x27;</span><br><span class="line">file &#x27;video2.mp4&#x27;</span><br></pre></td></tr></table></figure><p>（可以直接用<code>for f in *.mp4; do echo &quot;file '$f'&quot; &gt;&gt; mylist.txt; done</code>生成。）<br>然后</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -f concat -safe 0 -i mylist.txt -c copy video.mp4</span><br></pre></td></tr></table></figure><p>即可。</p><p>但是如果编码，分辨率，FPS不同，想用一行命令解决问题，就要用到<code>-filter_complex</code>参数，指定将哪个文件的哪个stream做什么样的变换。对于笔者的需求，将<code>video2.mp4</code>的分辨率转成和<code>video1.mp4</code>相同然后合并<code>video1.mp4</code>、<code>video2.mp4</code>，命令如下。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i video1.mp4 -i video2.mp4 -filter_complex <span class="string">&quot;[1:v]scale=640:480[v1];[0:v][0:a][v1][1:a]concat=n=2:v=1:a=1[outv][outa]&quot;</span> -map <span class="string">&quot;[outv]&quot;</span> -map <span class="string">&quot;[outa]&quot;</span> -c:v libx264 -crf 21 video.mp4</span><br></pre></td></tr></table></figure><p>参数解释：</p><ul><li><code>-i video1.mp4 -i video2.mp4</code>：输入视频，可以有多个；</li><li><code>-filter_complex</code>：后面跟complex filter表达式字符串（类似一种编程语言）<ul><li><code>[1:v]scale=640:480[v1]</code>: 将第二个输入文件的视频流分辨率转为640x480并用<code>[v1]</code>作为代号。<code>[1:v]</code>表示第一个输入视频文件的视频流，之所以这里是“1”是计算机界惯例编号从0开始。如果有多个视频流可以用<code>[1:v:0]</code>，<code>[1:v:1]</code>，……表示。</li><li><code>[0:v][0:a][v1][1:a]concat=n=2:v=1:a=1[outv][outa]</code>表示将第一个输入文件的音视频流，转换后的第二个输入文件视频流，第二个输入文件的音频流连接起来并分别赋予代号<code>[outv]</code>和<code>[outa]</code>，<code>n=2</code>表示一共两个文件，<code>v=1</code>表示一共一个视频流，<code>a=1</code>表示一共一个音频流。</li><li><code>-map &quot;[outv]&quot; -map &quot;[outa]&quot;</code>表示将<code>[outv]</code>和<code>[outa]</code>map为一个文件。</li><li><code>-c:v libx264</code>指定视频流编码器，<code>-crf 21</code>是编码器参数</li><li><code>video.mp4</code>指定输出文件名。</li></ul></li></ul><p>根据以上可以举一反三写出更复杂的filter表达式，具体的可用的filter可以参考<a href="https://www.ffmpeg.org/ffmpeg-filters.html">官方文档中的相关章节</a>。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;p&gt;需要合并两个分辨率不同的mp4视频，所以稍微研究了下ffmpeg中的comp</summary>
+      
+    
+    
+    
+    <category term="应用软件" scheme="https://booksword.tk/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="ffmpeg" scheme="https://booksword.tk/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/ffmpeg/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>TigerVNC：使用X.509加密连接</title>
     <link href="https://booksword.tk/2023/04/06/509%E5%8A%A0%E5%AF%86%E8%BF%9E%E6%8E%A5/"/>
     <id>https://booksword.tk/2023/04/06/509%E5%8A%A0%E5%AF%86%E8%BF%9E%E6%8E%A5/</id>
     <published>2023-04-06T00:06:00.000Z</published>
-    <updated>2023-04-06T08:43:33.745Z</updated>
+    <updated>2023-04-08T15:02:00.790Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>根据Ubuntu 20.04安装VNC服务（Xfce4）配置好VNC后，连接时会提示数据未加密所以不安全。</p><p><img src="/2023/04/06/509%E5%8A%A0%E5%AF%86%E8%BF%9E%E6%8E%A5/image.png.png" alt="image.png"></p><p>查阅文档后得知TigerVNC支持X.509认证的TLS加密。</p><h3 id="设置方法"><a class="header-anchor" href="#设置方法">¶</a>设置方法</h3><h4 id="服务端"><a class="header-anchor" href="#服务端">¶</a>服务端</h4><p>首先生成认证文件。可以使用商业的认证（如有）。如果没有，则需要使用OpenSSL生成自己的认证。</p><ol><li>安装OpenSSL</li></ol><ul><li>RedHat/CentOS/Fedora：<code>sudo yum install openssl</code></li><li>Debian/Ubuntu/Mint: <code>sudo apt-get install openssl</code></li></ul><ol start="2"><li>使用OpenSSL生成认证密钥对</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -x509 -newkey rsa -days 365 -nodes -keyout vnc-server-private.pem -out vnc-server.pem -subj <span class="string">&#x27;/CN=&lt;your server ip&gt;&#x27;</span> -addext <span class="string">&quot;subjectAltName=IP:&lt;your server ip&gt;&quot;</span></span><br></pre></td></tr></table></figure><p>（将<code>&lt;your server ip&gt;</code>替换成服务器真实IP）</p><p>会在运行命令的文件夹下面生成<code>vnc-server-private.pem</code>和<code>vnc-server.pem</code>两个文件。将<code>vnc-server.pem</code>下载到客户机上备用。<br>3. （可选）为了便于管理，将密钥对拷贝到<code>~/.vnc</code>下面。<br>4. 附带以下参数运行<code>vncserver</code>:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncserver -localhost no -SecurityTypes X509Vnc -X509Key vnc-server-private.pem -X509Cert vnc-server.pem</span><br></pre></td></tr></table></figure><h4 id="客户端（使用TigerVNCviewer）"><a class="header-anchor" href="#客户端（使用TigerVNCviewer）">¶</a>客户端（使用TigerVNCviewer）</h4><p>点击<code>Options...</code>按钮，将<code>Security</code>选项卡下的<code>Path to X509 CA certificate</code>指向从OpenSSL生成的公钥pem文件<code>vnc-server.pem</code>（之前从服务端下载的）。</p><p><img src="/2023/04/06/509%E5%8A%A0%E5%AF%86%E8%BF%9E%E6%8E%A5/2023-04-06T164308.png" alt="2023-04-06T164308"></p><p>然后照常连接。可以看到连接已经变成安全的了。</p><p><img src="/2023/04/06/509%E5%8A%A0%E5%AF%86%E8%BF%9E%E6%8E%A5/2023-04-06T164124.png" alt="2023-04-06T164124"></p><h4 id="服务端配置文件"><a class="header-anchor" href="#服务端配置文件">¶</a>服务端配置文件</h4><p>如果不想每次都运行服务都需要打那么长一串命令，可以把选项写入服务器上的配置文件，并放在<code>~/.vnc</code>文件夹下：</p><ul><li>版本1.10：<code>~/.vnc.conf</code></li><li>版本1.12+: <code>~/.vnc/tigervnc.conf</code></li></ul><p>配置文件内容如下：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$localhost=&quot;no&quot;;</span><br><span class="line">$SecurityTypes=&quot;X509Vnc&quot;;</span><br><span class="line">$X509Key=&quot;$ENV&#123;HOME&#125;/.vnc/vnc-server-private.pem&quot;;</span><br><span class="line">$X509Cert=&quot;$ENV&#123;HOME&#125;/.vnc/vnc-server.pem&quot;;</span><br></pre></td></tr></table></figure><h2 id="参考资料"><a class="header-anchor" href="#参考资料">¶</a>参考资料</h2><blockquote><ul><li><a href="https://github.com/TigerVNC/tigervnc/wiki/Secure-your-connection">Secure your connection</a></li></ul></blockquote>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>根据Ubuntu 20.04安装VNC服务（Xfce4）配置好VNC后，连接时会提示数据未加密所以不安全。</p><p><img src="/2023/04/06/509%E5%8A%A0%E5%AF%86%E8%BF%9E%E6%8E%A5/image.png.png" alt="image.png"></p><p>查阅文档后得知TigerVNC支持X.509认证的TLS加密。</p><h3 id="设置方法"><a class="header-anchor" href="#设置方法">¶</a>设置方法</h3><h4 id="服务端"><a class="header-anchor" href="#服务端">¶</a>服务端</h4><p>首先生成认证文件。可以使用商业的认证（如有）。如果没有，则需要使用OpenSSL生成自己的认证。</p><ol><li><p>安装OpenSSL</p><ul><li>RedHat/CentOS/Fedora：<code>sudo yum install openssl</code></li><li>Debian/Ubuntu/Mint: <code>sudo apt-get install openssl</code></li></ul></li><li><p>使用OpenSSL生成认证密钥对</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -x509 -newkey rsa -days 365 -nodes -keyout vnc-server-private.pem -out vnc-server.pem -subj <span class="string">&#x27;/CN=&lt;your server ip&gt;&#x27;</span> -addext <span class="string">&quot;subjectAltName=IP:&lt;your server ip&gt;&quot;</span></span><br></pre></td></tr></table></figure><p>（将<code>&lt;your server ip&gt;</code>替换成服务器真实IP）</p><p>会在运行命令的文件夹下面生成<code>vnc-server-private.pem</code>和<code>vnc-server.pem</code>两个文件。将<code>vnc-server.pem</code>下载到客户机上备用。</p></li><li><p>（可选）为了便于管理，将密钥对拷贝到<code>~/.vnc</code>下面。</p></li><li><p>附带以下参数运行<code>vncserver</code>:</p></li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncserver -localhost no -SecurityTypes X509Vnc -X509Key vnc-server-private.pem -X509Cert vnc-server.pem</span><br></pre></td></tr></table></figure><h4 id="客户端（使用TigerVNCviewer）"><a class="header-anchor" href="#客户端（使用TigerVNCviewer）">¶</a>客户端（使用TigerVNCviewer）</h4><p>点击<code>Options...</code>按钮，将<code>Security</code>选项卡下的<code>Path to X509 CA certificate</code>指向从OpenSSL生成的公钥pem文件<code>vnc-server.pem</code>（之前从服务端下载的）。</p><p><img src="/2023/04/06/509%E5%8A%A0%E5%AF%86%E8%BF%9E%E6%8E%A5/2023-04-06T164308.png" alt="2023-04-06T164308"></p><p>然后照常连接。可以看到连接已经变成安全的了。</p><p><img src="/2023/04/06/509%E5%8A%A0%E5%AF%86%E8%BF%9E%E6%8E%A5/2023-04-06T164124.png" alt="2023-04-06T164124"></p><h4 id="服务端配置文件"><a class="header-anchor" href="#服务端配置文件">¶</a>服务端配置文件</h4><p>如果不想每次都运行服务都需要打那么长一串命令，可以把选项写入服务器上的配置文件，并放在<code>~/.vnc</code>文件夹下：</p><ul><li>版本1.10：<code>~/.vnc.conf</code></li><li>版本1.12+: <code>~/.vnc/tigervnc.conf</code></li></ul><p>配置文件内容如下：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$localhost=&quot;no&quot;;</span><br><span class="line">$SecurityTypes=&quot;X509Vnc&quot;;</span><br><span class="line">$X509Key=&quot;$ENV&#123;HOME&#125;/.vnc/vnc-server-private.pem&quot;;</span><br><span class="line">$X509Cert=&quot;$ENV&#123;HOME&#125;/.vnc/vnc-server.pem&quot;;</span><br></pre></td></tr></table></figure><h2 id="参考资料"><a class="header-anchor" href="#参考资料">¶</a>参考资料</h2><blockquote><ul><li><a href="https://github.com/TigerVNC/tigervnc/wiki/Secure-your-connection">Secure your connection</a></li></ul></blockquote>]]></content>
     
     
       
@@ -462,29 +486,6 @@
     <category term="Linux" scheme="https://booksword.tk/categories/Linux/"/>
     
     <category term="应用软件" scheme="https://booksword.tk/categories/Linux/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Nginx建立多个server</title>
-    <link href="https://booksword.tk/2018/07/08/Nginx-setup-second-server/"/>
-    <id>https://booksword.tk/2018/07/08/Nginx-setup-second-server/</id>
-    <published>2018-07-08T08:53:39.000Z</published>
-    <updated>2018-07-08T09:23:54.039Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><ol><li>在<code>/etc/nginx/conf.d/</code>中添加<code>conf</code>文件，如<code>myblog.conf</code>，最简内容如下：</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       &lt;port&gt;;</span><br><span class="line">    root  /var/www/myblog/;                 # root path</span><br><span class="line">    index index.html index.htm index.php;   # default page</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="2"><li>检查<code>/etc/nginx/conf.d/download.conf</code>是否有<code>include /etc/nginx/conf.d/*.conf;</code>， 如果没有则添加。</li><li>运行<code>nginx -t</code>检查配置文件是否正确。</li><li>检查权限：<ol><li>查看运行nginx的用户:</li></ol> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep &quot;nginx: worker process&quot; | awk &#x27;&#123;print $1&#125;&#x27;</span><br></pre></td></tr></table></figure><ol start="2"><li>对配置中的<code>root</code>目录，如上例中的<code>/var/www/myblog/</code>及其所有父目录和需要http访问的子目录，设置权限为755，对所有文件设为644。<em>（注意这里很多网上资料的解决方案是将nginx运行用户改为root用户，这样也能解决权限导致的403问题，但出于安全考虑不建议这样做。）</em></li></ol></li><li>访问http://&lt;ip address&gt;:&lt;port&gt; 检查配置的正确性。</li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;ol&gt;
-&lt;li&gt;在&lt;code&gt;/etc/nginx/conf.d/&lt;/code&gt;</summary>
-      
-    
-    
-    
-    <category term="nginx" scheme="https://booksword.tk/categories/nginx/"/>
     
     
   </entry>

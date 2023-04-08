@@ -3,21 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Linux Mint Cleanup | 书剑阁</title>
+    <title>ffmpeg中的-filter_complex | 书剑阁</title>
     
     
-        <meta name="keywords" content="Linux Mint Cleanup" />
+        <meta name="keywords" content="ffmpeg中的-filter_complex" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Clean up old kernel 123uname -r #check current using kerneldpkg --get-selections |grep linux # list installed kernelsapt purge xxx # remove">
+    <meta name="description" content="需要合并两个分辨率不同的mp4视频，所以稍微研究了下ffmpeg中的complex_filter的合并语法。 如果要是合并相同编码，分辨率，FPS的视频，那很简单，直接用concat文件协议就行： 123# mylist.txtfile &amp;#x27;video1.mp4&amp;#x27;file &amp;#x27;video2.mp4&amp;#x27; （可以直接用for f in *.mp4; do echo &amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux Mint Cleanup">
-<meta property="og:url" content="https://booksword.tk/2018/06/26/Linux-Mint-Cleanup/index.html">
+<meta property="og:title" content="ffmpeg中的-filter_complex">
+<meta property="og:url" content="https://booksword.tk/2023/04/08/ffmpeg_filter_complex/index.html">
 <meta property="og:site_name" content="书剑阁">
-<meta property="og:description" content="Clean up old kernel 123uname -r #check current using kerneldpkg --get-selections |grep linux # list installed kernelsapt purge xxx # remove">
+<meta property="og:description" content="需要合并两个分辨率不同的mp4视频，所以稍微研究了下ffmpeg中的complex_filter的合并语法。 如果要是合并相同编码，分辨率，FPS的视频，那很简单，直接用concat文件协议就行： 123# mylist.txtfile &amp;#x27;video1.mp4&amp;#x27;file &amp;#x27;video2.mp4&amp;#x27; （可以直接用for f in *.mp4; do echo &amp;">
 <meta property="og:locale">
-<meta property="article:published_time" content="2018-06-26T13:02:09.000Z">
-<meta property="article:modified_time" content="2022-10-01T08:54:05.496Z">
+<meta property="article:published_time" content="2023-04-08T05:38:06.000Z">
+<meta property="article:modified_time" content="2023-04-08T15:02:00.790Z">
 <meta property="article:author" content="BookSword">
 <meta name="twitter:card" content="summary">
     
@@ -186,9 +186,9 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/03/Build-Hexo-blog/">Hexo静态博客系列之一——在VPS上搭建</a></li>  <li class="file"><a href="/2023/03/23/Hexo_missing_custom_domain/">Hexo部署到GitHub Pages后设置的自定义域名丢失</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             Linux
                         </a>
@@ -210,7 +210,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/09/Transmission-UDP-Failed-to-set-receive-buffer/">Linux下Transmission的“UDP Failed to set receive buffer”错误</a></li>  </ul> 
                     </li> 
-                     <li class="file active"><a href="/2018/06/26/Linux-Mint-Cleanup/">Linux Mint Cleanup</a></li>  <li class="file"><a href="/2018/06/26/Install-HP-print-driver-on-Linux-mint/">Install HP print driver on Linux mint</a></li>  <li class="file"><a href="/2018/07/01/Move-linux-to-new-disk/">无损迁移Linux系统到新磁盘</a></li>  <li class="file"><a href="/2018/07/02/apt-key-expired/">apt提示key expired问题</a></li>  <li class="file"><a href="/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/">Linux Mint从18.3升级到19</a></li>  <li class="file"><a href="/2018/07/29/Linux-fcitx-input-method-cannot-use/">Linux Mint某些程序无法使用fcitx的输入法</a></li>  <li class="file"><a href="/2022/11/29/ubuntu-mount-windows-share-drive-with-credential-file/">Ubuntu系统挂载Windows共享文件夹通过credential文件认证</a></li>  <li class="file"><a href="/2023/01/11/linux-swap%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA/">Linux Swap交换分区</a></li>  <li class="file"><a href="/2023/02/04/Ubuntu%2020.04%E5%AE%89%E8%A3%85VNC%E6%9C%8D%E5%8A%A1%EF%BC%88Xfce4%EF%BC%89/">Ubuntu 20.04安装VNC服务（Xfce4）</a></li>  </ul> 
+                     <li class="file"><a href="/2018/06/26/Linux-Mint-Cleanup/">Linux Mint Cleanup</a></li>  <li class="file"><a href="/2018/06/26/Install-HP-print-driver-on-Linux-mint/">Install HP print driver on Linux mint</a></li>  <li class="file"><a href="/2018/07/01/Move-linux-to-new-disk/">无损迁移Linux系统到新磁盘</a></li>  <li class="file"><a href="/2018/07/02/apt-key-expired/">apt提示key expired问题</a></li>  <li class="file"><a href="/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/">Linux Mint从18.3升级到19</a></li>  <li class="file"><a href="/2018/07/29/Linux-fcitx-input-method-cannot-use/">Linux Mint某些程序无法使用fcitx的输入法</a></li>  <li class="file"><a href="/2022/11/29/ubuntu-mount-windows-share-drive-with-credential-file/">Ubuntu系统挂载Windows共享文件夹通过credential文件认证</a></li>  <li class="file"><a href="/2023/01/11/linux-swap%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA/">Linux Swap交换分区</a></li>  <li class="file"><a href="/2023/02/04/Ubuntu%2020.04%E5%AE%89%E8%A3%85VNC%E6%9C%8D%E5%8A%A1%EF%BC%88Xfce4%EF%BC%89/">Ubuntu 20.04安装VNC服务（Xfce4）</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -285,20 +285,20 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/build-etherminer/">build etherminer</a></li>  <li class="file"><a href="/2018/06/26/About-GongFu-Wall/">关于减轻功夫墙（GFW）造成的不便的一些探讨</a></li>  <li class="file"><a href="/2018/06/30/New-personal-tax/">个税改革分析，减税还是加税？</a></li>  <li class="file"><a href="/2022/11/22/wakeonlan/">设置局域网和广域网远程开机（Wake on Lan）</a></li>  <li class="file"><a href="/2023/04/06/509%E5%8A%A0%E5%AF%86%E8%BF%9E%E6%8E%A5/">TigerVNC：使用X.509加密连接</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             应用软件
                         </a>
                          <ul class="unstyled" id="tree" > 
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             ffmpeg
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/02/21/ffmpeg_unsafe_file_name/">ffmpeg合并文件报错“Unsafe file name”</a></li>  <li class="file"><a href="/2023/04/08/ffmpeg_filter_complex/">ffmpeg中的-filter_complex</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/02/21/ffmpeg_unsafe_file_name/">ffmpeg合并文件报错“Unsafe file name”</a></li>  <li class="file active"><a href="/2023/04/08/ffmpeg_filter_complex/">ffmpeg中的-filter_complex</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -391,7 +391,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-Linux-Mint-Cleanup" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-ffmpeg_filter_complex" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -401,15 +401,15 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Linux/">Linux</a>
+        <a class="article-category-link" href="/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/">应用软件</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/ffmpeg/">ffmpeg</a>
     </div>
 
                         
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/06/26/Linux-Mint-Cleanup/">
-            <time datetime="2018-06-26T13:02:09.000Z" itemprop="datePublished">2018-06-26</time>
+        <a href="/2023/04/08/ffmpeg_filter_complex/">
+            <time datetime="2023-04-08T05:38:06.000Z" itemprop="datePublished">2023-04-08</time>
         </a>
     </div>
 
@@ -420,13 +420,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/Linux-Mint-Cleanup.md'> Source </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/ffmpeg_filter_complex.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/Linux-Mint-Cleanup.md'> Edit </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/ffmpeg_filter_complex.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/Linux-Mint-Cleanup.md'> History </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/ffmpeg_filter_complex.md'> History </a>
                             </div>
                         
                     </div>
@@ -434,7 +434,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Linux Mint Cleanup
+            ffmpeg中的-filter_complex
         </h1>
     
 
@@ -447,8 +447,29 @@
             
         
         
-            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Clean up old kernel</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uname</span> -r <span class="comment">#check current using kernel</span></span><br><span class="line">dpkg --get-selections |grep linux <span class="comment"># list installed kernels</span></span><br><span class="line">apt purge xxx <span class="comment"># remove</span></span><br></pre></td></tr></table></figure>
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>需要合并两个分辨率不同的mp4视频，所以稍微研究了下ffmpeg中的complex_filter的合并语法。</p>
+<p>如果要是合并相同编码，分辨率，FPS的视频，那很简单，直接用<code>concat</code>文件协议就行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># mylist.txt</span><br><span class="line">file &#x27;video1.mp4&#x27;</span><br><span class="line">file &#x27;video2.mp4&#x27;</span><br></pre></td></tr></table></figure>
+<p>（可以直接用<code>for f in *.mp4; do echo &quot;file '$f'&quot; &gt;&gt; mylist.txt; done</code>生成。）<br>
+然后</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -f concat -safe 0 -i mylist.txt -c copy video.mp4</span><br></pre></td></tr></table></figure>
+<p>即可。</p>
+<p>但是如果编码，分辨率，FPS不同，想用一行命令解决问题，就要用到<code>-filter_complex</code>参数，指定将哪个文件的哪个stream做什么样的变换。对于笔者的需求，将<code>video2.mp4</code>的分辨率转成和<code>video1.mp4</code>相同然后合并<code>video1.mp4</code>、<code>video2.mp4</code>，命令如下。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i video1.mp4 -i video2.mp4 -filter_complex <span class="string">&quot;[1:v]scale=640:480[v1];[0:v][0:a][v1][1:a]concat=n=2:v=1:a=1[outv][outa]&quot;</span> -map <span class="string">&quot;[outv]&quot;</span> -map <span class="string">&quot;[outa]&quot;</span> -c:v libx264 -crf 21 video.mp4</span><br></pre></td></tr></table></figure>
+<p>参数解释：</p>
+<ul>
+<li><code>-i video1.mp4 -i video2.mp4</code>：输入视频，可以有多个；</li>
+<li><code>-filter_complex</code>：后面跟complex filter表达式字符串（类似一种编程语言）
+<ul>
+<li><code>[1:v]scale=640:480[v1]</code>: 将第二个输入文件的视频流分辨率转为640x480并用<code>[v1]</code>作为代号。<code>[1:v]</code>表示第一个输入视频文件的视频流，之所以这里是“1”是计算机界惯例编号从0开始。如果有多个视频流可以用<code>[1:v:0]</code>，<code>[1:v:1]</code>，……表示。</li>
+<li><code>[0:v][0:a][v1][1:a]concat=n=2:v=1:a=1[outv][outa]</code>表示将第一个输入文件的音视频流，转换后的第二个输入文件视频流，第二个输入文件的音频流连接起来并分别赋予代号<code>[outv]</code>和<code>[outa]</code>，<code>n=2</code>表示一共两个文件，<code>v=1</code>表示一共一个视频流，<code>a=1</code>表示一共一个音频流。</li>
+<li><code>-map &quot;[outv]&quot; -map &quot;[outa]&quot;</code>表示将<code>[outv]</code>和<code>[outa]</code>map为一个文件。</li>
+<li><code>-c:v libx264</code>指定视频流编码器，<code>-crf 21</code>是编码器参数</li>
+<li><code>video.mp4</code>指定输出文件名。</li>
+</ul>
+</li>
+</ul>
+<p>根据以上可以举一反三写出更复杂的filter表达式，具体的可用的filter可以参考<a target="_blank" rel="noopener" href="https://www.ffmpeg.org/ffmpeg-filters.html">官方文档中的相关章节</a>。</p>
 
             </div>
         
@@ -461,15 +482,11 @@
     
 <nav id="article-nav">
     
-        <a href="/2018/06/26/Build-Tensorflow-from-source-on-Linux-Mint/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Plus récent</strong>
-            <div class="article-nav-title">
-                
-                    Build Tensorflow from source on Linux Mint
-                
-            </div>
-        </a>
     
+        <a href="/2023/04/06/509%E5%8A%A0%E5%AF%86%E8%BF%9E%E6%8E%A5/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Plus ancien</strong>
+            <div class="article-nav-title">TigerVNC：使用X.509加密连接</div>
+        </a>
     
 </nav>
 

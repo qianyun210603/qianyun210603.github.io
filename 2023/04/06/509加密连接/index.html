@@ -9,18 +9,18 @@
         <meta name="keywords" content="TigerVNC：使用X.509加密连接" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="根据Ubuntu 20.04安装VNC服务（Xfce4）配置好VNC后，连接时会提示数据未加密所以不安全。  查阅文档后得知TigerVNC支持X.509认证的TLS加密。 ¶设置方法 ¶服务端 首先生成认证文件。可以使用商业的认证（如有）。如果没有，则需要使用OpenSSL生成自己的认证。  安装OpenSSL   RedHat&#x2F;CentOS&#x2F;Fedora：sudo yum install op">
+    <meta name="description" content="根据Ubuntu 20.04安装VNC服务（Xfce4）配置好VNC后，连接时会提示数据未加密所以不安全。  查阅文档后得知TigerVNC支持X.509认证的TLS加密。 ¶设置方法 ¶服务端 首先生成认证文件。可以使用商业的认证（如有）。如果没有，则需要使用OpenSSL生成自己的认证。   安装OpenSSL  RedHat&#x2F;CentOS&#x2F;Fedora：sudo yum install op">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TigerVNC：使用X.509加密连接">
 <meta property="og:url" content="https://booksword.tk/2023/04/06/509%E5%8A%A0%E5%AF%86%E8%BF%9E%E6%8E%A5/index.html">
 <meta property="og:site_name" content="书剑阁">
-<meta property="og:description" content="根据Ubuntu 20.04安装VNC服务（Xfce4）配置好VNC后，连接时会提示数据未加密所以不安全。  查阅文档后得知TigerVNC支持X.509认证的TLS加密。 ¶设置方法 ¶服务端 首先生成认证文件。可以使用商业的认证（如有）。如果没有，则需要使用OpenSSL生成自己的认证。  安装OpenSSL   RedHat&#x2F;CentOS&#x2F;Fedora：sudo yum install op">
+<meta property="og:description" content="根据Ubuntu 20.04安装VNC服务（Xfce4）配置好VNC后，连接时会提示数据未加密所以不安全。  查阅文档后得知TigerVNC支持X.509认证的TLS加密。 ¶设置方法 ¶服务端 首先生成认证文件。可以使用商业的认证（如有）。如果没有，则需要使用OpenSSL生成自己的认证。   安装OpenSSL  RedHat&#x2F;CentOS&#x2F;Fedora：sudo yum install op">
 <meta property="og:locale">
 <meta property="og:image" content="https://booksword.tk/2023/04/06/509%E5%8A%A0%E5%AF%86%E8%BF%9E%E6%8E%A5/image.png.png">
 <meta property="og:image" content="https://booksword.tk/2023/04/06/509%E5%8A%A0%E5%AF%86%E8%BF%9E%E6%8E%A5/2023-04-06T164308.png">
 <meta property="og:image" content="https://booksword.tk/2023/04/06/509%E5%8A%A0%E5%AF%86%E8%BF%9E%E6%8E%A5/2023-04-06T164124.png">
 <meta property="article:published_time" content="2023-04-06T00:06:00.000Z">
-<meta property="article:modified_time" content="2023-04-06T08:43:33.745Z">
+<meta property="article:modified_time" content="2023-04-08T15:02:00.790Z">
 <meta property="article:author" content="BookSword">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://booksword.tk/2023/04/06/509%E5%8A%A0%E5%AF%86%E8%BF%9E%E6%8E%A5/image.png.png">
@@ -302,7 +302,7 @@
                             &nbsp;
                             ffmpeg
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/02/21/ffmpeg_unsafe_file_name/">ffmpeg合并文件报错“Unsafe file name”</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/02/21/ffmpeg_unsafe_file_name/">ffmpeg合并文件报错“Unsafe file name”</a></li>  <li class="file"><a href="/2023/04/08/ffmpeg_filter_complex/">ffmpeg中的-filter_complex</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -458,20 +458,26 @@
 <h4 id="服务端"><a class="header-anchor" href="#服务端">¶</a>服务端</h4>
 <p>首先生成认证文件。可以使用商业的认证（如有）。如果没有，则需要使用OpenSSL生成自己的认证。</p>
 <ol>
-<li>安装OpenSSL</li>
-</ol>
+<li>
+<p>安装OpenSSL</p>
 <ul>
 <li>RedHat/CentOS/Fedora：<code>sudo yum install openssl</code></li>
 <li>Debian/Ubuntu/Mint: <code>sudo apt-get install openssl</code></li>
 </ul>
-<ol start="2">
-<li>使用OpenSSL生成认证密钥对</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -x509 -newkey rsa -days 365 -nodes -keyout vnc-server-private.pem -out vnc-server.pem -subj <span class="string">&#x27;/CN=&lt;your server ip&gt;&#x27;</span> -addext <span class="string">&quot;subjectAltName=IP:&lt;your server ip&gt;&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>使用OpenSSL生成认证密钥对</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -x509 -newkey rsa -days 365 -nodes -keyout vnc-server-private.pem -out vnc-server.pem -subj <span class="string">&#x27;/CN=&lt;your server ip&gt;&#x27;</span> -addext <span class="string">&quot;subjectAltName=IP:&lt;your server ip&gt;&quot;</span></span><br></pre></td></tr></table></figure>
 <p>（将<code>&lt;your server ip&gt;</code>替换成服务器真实IP）</p>
-<p>会在运行命令的文件夹下面生成<code>vnc-server-private.pem</code>和<code>vnc-server.pem</code>两个文件。将<code>vnc-server.pem</code>下载到客户机上备用。<br>
-3. （可选）为了便于管理，将密钥对拷贝到<code>~/.vnc</code>下面。<br>
-4. 附带以下参数运行<code>vncserver</code>:</p>
+<p>会在运行命令的文件夹下面生成<code>vnc-server-private.pem</code>和<code>vnc-server.pem</code>两个文件。将<code>vnc-server.pem</code>下载到客户机上备用。</p>
+</li>
+<li>
+<p>（可选）为了便于管理，将密钥对拷贝到<code>~/.vnc</code>下面。</p>
+</li>
+<li>
+<p>附带以下参数运行<code>vncserver</code>:</p>
+</li>
+</ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncserver -localhost no -SecurityTypes X509Vnc -X509Key vnc-server-private.pem -X509Cert vnc-server.pem</span><br></pre></td></tr></table></figure>
 <h4 id="客户端（使用TigerVNCviewer）"><a class="header-anchor" href="#客户端（使用TigerVNCviewer）">¶</a>客户端（使用TigerVNCviewer）</h4>
 <p>点击<code>Options...</code>按钮，将<code>Security</code>选项卡下的<code>Path to X509 CA certificate</code>指向从OpenSSL生成的公钥pem文件<code>vnc-server.pem</code>（之前从服务端下载的）。</p>
@@ -503,6 +509,15 @@
 
     
 <nav id="article-nav">
+    
+        <a href="/2023/04/08/ffmpeg_filter_complex/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Plus récent</strong>
+            <div class="article-nav-title">
+                
+                    ffmpeg中的-filter_complex
+                
+            </div>
+        </a>
     
     
         <a href="/2023/03/23/Hexo_missing_custom_domain/" id="article-nav-older" class="article-nav-link-wrap">
