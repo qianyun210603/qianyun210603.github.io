@@ -6,7 +6,7 @@
   <link href="https://booksword.tk/atom.xml" rel="self"/>
   
   <link href="https://booksword.tk/"/>
-  <updated>2023-05-01T16:18:28.399Z</updated>
+  <updated>2023-08-12T07:26:19.234Z</updated>
   <id>https://booksword.tk/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>jupyterlab</title>
+    <link href="https://booksword.tk/2023/08/12/jupyterlab/"/>
+    <id>https://booksword.tk/2023/08/12/jupyterlab/</id>
+    <published>2023-08-12T07:24:35.370Z</published>
+    <updated>2023-08-12T07:26:19.234Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">[W 2023-08-12 15:11:31.242 LabApp] Failed validating settings (@jupyterlab/notebook-extension:tracker): Additional properties are not allowed (&#x27;experimentalDisableDocumentWideUndoRedo&#x27;, &#x27;numberCellsToRenderDirectly&#x27;, &#x27;observedBottomMargin&#x27;, &#x27;observedTopMargin&#x27;, &#x27;remainingTimeBeforeRescheduling&#x27;, &#x27;renderCellOnIdle&#x27; were unexpected)</span><br><span class="line"></span><br><span class="line">    Failed validating &#x27;additionalProperties&#x27; in schema:</span><br><span class="line">        &#123;&#x27;additionalProperties&#x27;: False,</span><br><span class="line">         &#x27;definitions&#x27;: &#123;&#x27;kernelStatusConfig&#x27;: &#123;&#x27;additionalProperties&#x27;: False,</span><br><span class="line">                                                &#x27;properties&#x27;: &#123;&#x27;showOnStatusBar&#x27;: &#123;&#x27;default&#x27;: False,</span><br><span class="line">                                                                                   &#x27;description&#x27;: &#x27;If &#x27;</span><br><span class="line">                                                                                                  &#x27;`true`, &#x27;</span><br><span class="line">                                                                                                  &#x27;the &#x27;</span><br><span class="line">                                                                                                  &#x27;kernel &#x27;</span><br><span class="line">                                                                                                  &#x27;status &#x27;</span><br><span class="line">                                                                                                  &#x27;progression &#x27;</span><br><span class="line">                                                                                                  &#x27;will &#x27;</span><br><span class="line">                                                                                                  &#x27;be &#x27;</span><br><span class="line">                                                                                                  &#x27;displayed &#x27;</span><br><span class="line">                                                                                                  &#x27;in &#x27;</span><br><span class="line">                                                                                                  &#x27;the &#x27;</span><br><span class="line">                                                                                                  &#x27;status &#x27;</span><br><span class="line">                                                                                                  &#x27;bar &#x27;</span><br><span class="line">                                                                                                  &#x27;otherwise &#x27;</span><br><span class="line">                                                                                                  &#x27;it &#x27;</span><br><span class="line">                                                                                                  &#x27;will &#x27;</span><br><span class="line">                                                                                                  &#x27;be &#x27;</span><br><span class="line">                                                                                                  &#x27;in &#x27;</span><br><span class="line">                                                                                                  &#x27;the &#x27;</span><br><span class="line">                                                                                                  &#x27;toolbar.&#x27;,</span><br><span class="line">                                                                                   &#x27;title&#x27;: &#x27;Show &#x27;</span><br><span class="line">                                                                                            &#x27;kernel &#x27;</span><br><span class="line">                                                                                            &#x27;status &#x27;</span><br><span class="line">                                                                                            &#x27;on &#x27;</span><br><span class="line">                                                                                            &#x27;toolbar &#x27;</span><br><span class="line">                                                                                            &#x27;or &#x27;</span><br><span class="line">                                                                                            &#x27;status &#x27;</span><br><span class="line">                                                                                            &#x27;bar.&#x27;,</span><br><span class="line">                                                                                   &#x27;type&#x27;: &#x27;boolean&#x27;&#125;,</span><br><span class="line">                                                               &#x27;showProgress&#x27;: &#123;&#x27;default&#x27;: True,</span><br><span class="line">                                                                                &#x27;title&#x27;: &#x27;Show &#x27;</span><br><span class="line">                                                                                         &#x27;execution &#x27;</span><br><span class="line">                                                                                         &#x27;progress.&#x27;,</span><br><span class="line">                                                                                &#x27;type&#x27;: &#x27;boolean&#x27;&#125;&#125;,</span><br><span class="line">                                                &#x27;type&#x27;: &#x27;object&#x27;&#125;&#125;,</span><br><span class="line">         &#x27;description&#x27;: &#x27;Notebook settings.&#x27;,</span><br><span class="line">...</span><br></pre></td></tr></table></figure><p>解决：从<code>~\.jupyter\lab\user-settings\@jupyterlab\notebook-extension\tracker.jupyterlab-settings</code>中删除以上选项。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;tabl</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>解决报错: qt.qpa.plugin Could not find the Qt platform plugin &quot;xcb&quot; in &quot;&quot;</title>
@@ -459,33 +479,6 @@
     
     
     <category term="Linux" scheme="https://booksword.tk/categories/Linux/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Linux系统下多Nvidia显卡超频</title>
-    <link href="https://booksword.tk/2018/07/10/Linux-multi-graphic-card-overclock/"/>
-    <id>https://booksword.tk/2018/07/10/Linux-multi-graphic-card-overclock/</id>
-    <published>2018-07-10T11:56:58.000Z</published>
-    <updated>2018-07-10T12:15:54.317Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><ol><li>安装驱动</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install nvidia-384 nvidia-384-dev</span><br></pre></td></tr></table></figure><ol start="2"><li><p>下载一个edid文件用来模拟显示器以使得没有连接显示器的显卡可以被设置。</p></li><li><p>用<code>xconfig</code>生成<code>xorg.conf</code>文件(生成后位于<code>/etc/X11/</code>)</p></li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-xconfig -a --cool-bits=28 --custom-edid=<span class="string">&quot;DFP-0:&lt;path to edid file&gt;&quot;</span> --connected-monitor=<span class="string">&quot;DFP-0&quot;</span> --no-use-display-device</span><br></pre></td></tr></table></figure><ol start="4"><li>打开<code>/etc/X11/xorg.conf</code>文件，可以看到对应每块显卡，均生成了<code>Monitor</code>，<code>Device</code>，<code>Screen</code>三个Section，其中<code>Screen</code> Section如下</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Section &quot;Screen&quot;</span><br><span class="line">    Identifier     &quot;Screen1&quot;</span><br><span class="line">    Device         &quot;Device1&quot;</span><br><span class="line">    Monitor        &quot;Monitor1&quot;</span><br><span class="line">    DefaultDepth    24</span><br><span class="line">    Option         &quot;CustomEDID&quot; &quot;DFP-0:/etc/X11/delledid.bin&quot;</span><br><span class="line">    Option         &quot;ConnectedMonitor&quot; &quot;DFP-0&quot;</span><br><span class="line">    Option         &quot;UseDisplayDevice&quot; &quot;none&quot;</span><br><span class="line">    Option         &quot;Coolbits&quot; &quot;28&quot;</span><br><span class="line">    SubSection     &quot;Display&quot;</span><br><span class="line">        Depth       24</span><br><span class="line">    EndSubSection</span><br><span class="line">EndSection</span><br></pre></td></tr></table></figure><p>可以看到刚才设置的各个条目都在<code>Option</code>里面。找到并删除掉实际连接显示器的Section中除了<code>Coolbits</code>之外的其他<code>Option</code>。</p><ol start="5"><li>重启电脑。</li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;ol&gt;
-&lt;li&gt;安装驱动&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&quot;h</summary>
-      
-    
-    
-    
-    <category term="Linux" scheme="https://booksword.tk/categories/Linux/"/>
-    
-    <category term="Cuda" scheme="https://booksword.tk/categories/Linux/Cuda/"/>
     
     
   </entry>

@@ -91,7 +91,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -110,10 +110,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Articles',
+            POSTS: 'Entradas',
             PAGES: 'Pages',
-            CATEGORIES: 'Catégories',
-            TAGS: 'Tags',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -146,7 +146,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
     </div>
 
                 </td>
@@ -163,7 +163,7 @@
         
     <div class="widget-wrap" id='categories'>
         <h3 class="widget-title">
-            <span>Catégories</span>
+            <span>Categorias</span>
             &nbsp;
             <a id='allExpand' href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -316,7 +316,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/10/02/avs-merge-wmv/">AVS合并视频文件</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2018/06/26/Tesseract/">Tesseract</a></li>  <li class="file"><a href="/2018/06/26/MFC/">MFC</a></li>  </ul> 
+                     <li class="file"><a href="/2018/06/26/Tesseract/">Tesseract</a></li>  <li class="file"><a href="/2018/06/26/MFC/">MFC</a></li>  <li class="file"><a href="/2023/08/12/jupyterlab/">jupyterlab</a></li>  </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -388,6 +388,85 @@
 </aside>
             
             <section id="main">
+        <article id="post-jupyterlab" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2023/08/12/jupyterlab/">
+            <time datetime="2023-08-12T07:24:35.370Z" itemprop="datePublished">2023-08-12</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/jupyterlab.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/jupyterlab.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/jupyterlab.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2023/08/12/jupyterlab/">jupyterlab</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+            
+        
+        
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">[W 2023-08-12 15:11:31.242 LabApp] Failed validating settings (@jupyterlab/notebook-extension:tracker): Additional properties are not allowed (&#x27;experimentalDisableDocumentWideUndoRedo&#x27;, &#x27;numberCellsToRenderDirectly&#x27;, &#x27;observedBottomMargin&#x27;, &#x27;observedTopMargin&#x27;, &#x27;remainingTimeBeforeRescheduling&#x27;, &#x27;renderCellOnIdle&#x27; were unexpected)</span><br><span class="line"></span><br><span class="line">    Failed validating &#x27;additionalProperties&#x27; in schema:</span><br><span class="line">        &#123;&#x27;additionalProperties&#x27;: False,</span><br><span class="line">         &#x27;definitions&#x27;: &#123;&#x27;kernelStatusConfig&#x27;: &#123;&#x27;additionalProperties&#x27;: False,</span><br><span class="line">                                                &#x27;properties&#x27;: &#123;&#x27;showOnStatusBar&#x27;: &#123;&#x27;default&#x27;: False,</span><br><span class="line">                                                                                   &#x27;description&#x27;: &#x27;If &#x27;</span><br><span class="line">                                                                                                  &#x27;`true`, &#x27;</span><br><span class="line">                                                                                                  &#x27;the &#x27;</span><br><span class="line">                                                                                                  &#x27;kernel &#x27;</span><br><span class="line">                                                                                                  &#x27;status &#x27;</span><br><span class="line">                                                                                                  &#x27;progression &#x27;</span><br><span class="line">                                                                                                  &#x27;will &#x27;</span><br><span class="line">                                                                                                  &#x27;be &#x27;</span><br><span class="line">                                                                                                  &#x27;displayed &#x27;</span><br><span class="line">                                                                                                  &#x27;in &#x27;</span><br><span class="line">                                                                                                  &#x27;the &#x27;</span><br><span class="line">                                                                                                  &#x27;status &#x27;</span><br><span class="line">                                                                                                  &#x27;bar &#x27;</span><br><span class="line">                                                                                                  &#x27;otherwise &#x27;</span><br><span class="line">                                                                                                  &#x27;it &#x27;</span><br><span class="line">                                                                                                  &#x27;will &#x27;</span><br><span class="line">                                                                                                  &#x27;be &#x27;</span><br><span class="line">                                                                                                  &#x27;in &#x27;</span><br><span class="line">                                                                                                  &#x27;the &#x27;</span><br><span class="line">                                                                                                  &#x27;toolbar.&#x27;,</span><br><span class="line">                                                                                   &#x27;title&#x27;: &#x27;Show &#x27;</span><br><span class="line">                                                                                            &#x27;kernel &#x27;</span><br><span class="line">                                                                                            &#x27;status &#x27;</span><br><span class="line">                                                                                            &#x27;on &#x27;</span><br><span class="line">                                                                                            &#x27;toolbar &#x27;</span><br><span class="line">                                                                                            &#x27;or &#x27;</span><br><span class="line">                                                                                            &#x27;status &#x27;</span><br><span class="line">                                                                                            &#x27;bar.&#x27;,</span><br><span class="line">                                                                                   &#x27;type&#x27;: &#x27;boolean&#x27;&#125;,</span><br><span class="line">                                                               &#x27;showProgress&#x27;: &#123;&#x27;default&#x27;: True,</span><br><span class="line">                                                                                &#x27;title&#x27;: &#x27;Show &#x27;</span><br><span class="line">                                                                                         &#x27;execution &#x27;</span><br><span class="line">                                                                                         &#x27;progress.&#x27;,</span><br><span class="line">                                                                                &#x27;type&#x27;: &#x27;boolean&#x27;&#125;&#125;,</span><br><span class="line">                                                &#x27;type&#x27;: &#x27;object&#x27;&#125;&#125;,</span><br><span class="line">         &#x27;description&#x27;: &#x27;Notebook settings.&#x27;,</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>解决：从<code>~\.jupyter\lab\user-settings\@jupyterlab\notebook-extension\tracker.jupyterlab-settings</code>中删除以上选项。</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-error Could not find the Qt platform plugin xcb in" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1260,107 +1339,8 @@
 
 
     
-        <article id="post-wakeonlan" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2022/11/22/wakeonlan/">
-            <time datetime="2022-11-22T09:25:00.000Z" itemprop="datePublished">2022-11-22</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/wakeonlan.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/wakeonlan.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/wakeonlan.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2022/11/22/wakeonlan/">设置局域网和广域网远程开机（Wake on Lan）</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="需求"><a class="header-anchor" href="#需求">¶</a>需求</h2>
-<p>因为需要随时远程访问家里计算机，因此希望出远门后即便出现家里停电等情况，家里计算机意外关机，也能够通过远程唤醒。</p>
-<h2 id="网上的资料"><a class="header-anchor" href="#网上的资料">¶</a>网上的资料</h2>
-<p>网上的解决方案：</p>
-<ol>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2022/11/22/wakeonlan/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Suiv &amp;raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Siguiente  &amp;raquo;</a>
         </nav>
     
 </section>
