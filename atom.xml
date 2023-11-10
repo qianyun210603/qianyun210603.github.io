@@ -3,11 +3,11 @@
   <title>书剑阁</title>
   
   <subtitle>技术の记录本</subtitle>
-  <link href="https://booksword.tk/atom.xml" rel="self"/>
+  <link href="https://booksword.top/atom.xml" rel="self"/>
   
-  <link href="https://booksword.tk/"/>
-  <updated>2023-08-12T07:26:19.234Z</updated>
-  <id>https://booksword.tk/</id>
+  <link href="https://booksword.top/"/>
+  <updated>2023-08-18T23:24:13.837Z</updated>
+  <id>https://booksword.top/</id>
   
   <author>
     <name>BookSword</name>
@@ -17,29 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>jupyterlab</title>
-    <link href="https://booksword.tk/2023/08/12/jupyterlab/"/>
-    <id>https://booksword.tk/2023/08/12/jupyterlab/</id>
-    <published>2023-08-12T07:24:35.370Z</published>
-    <updated>2023-08-12T07:26:19.234Z</updated>
+    <title>jupyterlab升级后的数个插件问题</title>
+    <link href="https://booksword.top/2023/08/19/jupyterlab/"/>
+    <id>https://booksword.top/2023/08/19/jupyterlab/</id>
+    <published>2023-08-18T23:09:06.000Z</published>
+    <updated>2023-08-18T23:24:13.837Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">[W 2023-08-12 15:11:31.242 LabApp] Failed validating settings (@jupyterlab/notebook-extension:tracker): Additional properties are not allowed (&#x27;experimentalDisableDocumentWideUndoRedo&#x27;, &#x27;numberCellsToRenderDirectly&#x27;, &#x27;observedBottomMargin&#x27;, &#x27;observedTopMargin&#x27;, &#x27;remainingTimeBeforeRescheduling&#x27;, &#x27;renderCellOnIdle&#x27; were unexpected)</span><br><span class="line"></span><br><span class="line">    Failed validating &#x27;additionalProperties&#x27; in schema:</span><br><span class="line">        &#123;&#x27;additionalProperties&#x27;: False,</span><br><span class="line">         &#x27;definitions&#x27;: &#123;&#x27;kernelStatusConfig&#x27;: &#123;&#x27;additionalProperties&#x27;: False,</span><br><span class="line">                                                &#x27;properties&#x27;: &#123;&#x27;showOnStatusBar&#x27;: &#123;&#x27;default&#x27;: False,</span><br><span class="line">                                                                                   &#x27;description&#x27;: &#x27;If &#x27;</span><br><span class="line">                                                                                                  &#x27;`true`, &#x27;</span><br><span class="line">                                                                                                  &#x27;the &#x27;</span><br><span class="line">                                                                                                  &#x27;kernel &#x27;</span><br><span class="line">                                                                                                  &#x27;status &#x27;</span><br><span class="line">                                                                                                  &#x27;progression &#x27;</span><br><span class="line">                                                                                                  &#x27;will &#x27;</span><br><span class="line">                                                                                                  &#x27;be &#x27;</span><br><span class="line">                                                                                                  &#x27;displayed &#x27;</span><br><span class="line">                                                                                                  &#x27;in &#x27;</span><br><span class="line">                                                                                                  &#x27;the &#x27;</span><br><span class="line">                                                                                                  &#x27;status &#x27;</span><br><span class="line">                                                                                                  &#x27;bar &#x27;</span><br><span class="line">                                                                                                  &#x27;otherwise &#x27;</span><br><span class="line">                                                                                                  &#x27;it &#x27;</span><br><span class="line">                                                                                                  &#x27;will &#x27;</span><br><span class="line">                                                                                                  &#x27;be &#x27;</span><br><span class="line">                                                                                                  &#x27;in &#x27;</span><br><span class="line">                                                                                                  &#x27;the &#x27;</span><br><span class="line">                                                                                                  &#x27;toolbar.&#x27;,</span><br><span class="line">                                                                                   &#x27;title&#x27;: &#x27;Show &#x27;</span><br><span class="line">                                                                                            &#x27;kernel &#x27;</span><br><span class="line">                                                                                            &#x27;status &#x27;</span><br><span class="line">                                                                                            &#x27;on &#x27;</span><br><span class="line">                                                                                            &#x27;toolbar &#x27;</span><br><span class="line">                                                                                            &#x27;or &#x27;</span><br><span class="line">                                                                                            &#x27;status &#x27;</span><br><span class="line">                                                                                            &#x27;bar.&#x27;,</span><br><span class="line">                                                                                   &#x27;type&#x27;: &#x27;boolean&#x27;&#125;,</span><br><span class="line">                                                               &#x27;showProgress&#x27;: &#123;&#x27;default&#x27;: True,</span><br><span class="line">                                                                                &#x27;title&#x27;: &#x27;Show &#x27;</span><br><span class="line">                                                                                         &#x27;execution &#x27;</span><br><span class="line">                                                                                         &#x27;progress.&#x27;,</span><br><span class="line">                                                                                &#x27;type&#x27;: &#x27;boolean&#x27;&#125;&#125;,</span><br><span class="line">                                                &#x27;type&#x27;: &#x27;object&#x27;&#125;&#125;,</span><br><span class="line">         &#x27;description&#x27;: &#x27;Notebook settings.&#x27;,</span><br><span class="line">...</span><br></pre></td></tr></table></figure><p>解决：从<code>~\.jupyter\lab\user-settings\@jupyterlab\notebook-extension\tracker.jupyterlab-settings</code>中删除以上选项。</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>第一，插件<code>@jupyterlab/notebook-extension:tracker</code>报错</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">[W 2023-08-12 15:11:31.242 LabApp] Failed validating settings (@jupyterlab/notebook-extension:tracker): Additional properties are not allowed (&#x27;experimentalDisableDocumentWideUndoRedo&#x27;, &#x27;numberCellsToRenderDirectly&#x27;, &#x27;observedBottomMargin&#x27;, &#x27;observedTopMargin&#x27;, &#x27;remainingTimeBeforeRescheduling&#x27;, &#x27;renderCellOnIdle&#x27; were unexpected)</span><br><span class="line"></span><br><span class="line">    Failed validating &#x27;additionalProperties&#x27; in schema:</span><br><span class="line">        &#123;&#x27;additionalProperties&#x27;: False,</span><br><span class="line">         &#x27;definitions&#x27;: &#123;&#x27;kernelStatusConfig&#x27;: &#123;&#x27;additionalProperties&#x27;: False,</span><br><span class="line">                                                &#x27;properties&#x27;: &#123;&#x27;showOnStatusBar&#x27;: &#123;&#x27;default&#x27;: False,</span><br><span class="line">                                                                                   &#x27;description&#x27;: &#x27;If &#x27;</span><br><span class="line">                                                                                                  &#x27;`true`, &#x27;</span><br><span class="line">                                                                                                  &#x27;the &#x27;</span><br><span class="line">                                                                                                  &#x27;kernel &#x27;</span><br><span class="line">                                                                                                  &#x27;status &#x27;</span><br><span class="line">                                                                                                  &#x27;progression &#x27;</span><br><span class="line">                                                                                                  &#x27;will &#x27;</span><br><span class="line">                                                                                                  &#x27;be &#x27;</span><br><span class="line">                                                                                                  &#x27;displayed &#x27;</span><br><span class="line">                                                                                                  &#x27;in &#x27;</span><br><span class="line">                                                                                                  &#x27;the &#x27;</span><br><span class="line">                                                                                                  &#x27;status &#x27;</span><br><span class="line">                                                                                                  &#x27;bar &#x27;</span><br><span class="line">                                                                                                  &#x27;otherwise &#x27;</span><br><span class="line">                                                                                                  &#x27;it &#x27;</span><br><span class="line">                                                                                                  &#x27;will &#x27;</span><br><span class="line">                                                                                                  &#x27;be &#x27;</span><br><span class="line">                                                                                                  &#x27;in &#x27;</span><br><span class="line">                                                                                                  &#x27;the &#x27;</span><br><span class="line">                                                                                                  &#x27;toolbar.&#x27;,</span><br><span class="line">                                                                                   &#x27;title&#x27;: &#x27;Show &#x27;</span><br><span class="line">                                                                                            &#x27;kernel &#x27;</span><br><span class="line">                                                                                            &#x27;status &#x27;</span><br><span class="line">                                                                                            &#x27;on &#x27;</span><br><span class="line">                                                                                            &#x27;toolbar &#x27;</span><br><span class="line">                                                                                            &#x27;or &#x27;</span><br><span class="line">                                                                                            &#x27;status &#x27;</span><br><span class="line">                                                                                            &#x27;bar.&#x27;,</span><br><span class="line">                                                                                   &#x27;type&#x27;: &#x27;boolean&#x27;&#125;,</span><br><span class="line">                                                               &#x27;showProgress&#x27;: &#123;&#x27;default&#x27;: True,</span><br><span class="line">                                                                                &#x27;title&#x27;: &#x27;Show &#x27;</span><br><span class="line">                                                                                         &#x27;execution &#x27;</span><br><span class="line">                                                                                         &#x27;progress.&#x27;,</span><br><span class="line">                                                                                &#x27;type&#x27;: &#x27;boolean&#x27;&#125;&#125;,</span><br><span class="line">                                                &#x27;type&#x27;: &#x27;object&#x27;&#125;&#125;,</span><br><span class="line">         &#x27;description&#x27;: &#x27;Notebook settings.&#x27;,</span><br><span class="line">...</span><br></pre></td></tr></table></figure><p>解决：从<code>~\.jupyter\lab\user-settings\@jupyterlab\notebook-extension\tracker.jupyterlab-settings</code>中删除以上选项。</p><p>第二，升级后部分Widgets无法正常显示，例如<code>tqdm</code>的进度条。</p><p>如果单单显示一个<code>Error display widgets</code>，那么首先要重新build插件。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter lab build</span><br></pre></td></tr></table></figure><p>如果提示node版本太低，就升级nodejs。</p><p>插件重新编译好后，应该可以进入js的阶段了。如果还是不能正常显示，显示一个框框让<code>Click to show javascript error</code>，那么可能需要升级<code>ipywidgets</code>的版本。</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;tabl</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;p&gt;第一，插件&lt;code&gt;@jupyterlab/notebook-extens</summary>
       
     
     
+    
+    <category term="Programming" scheme="https://booksword.top/categories/Programming/"/>
     
     
   </entry>
   
   <entry>
     <title>解决报错: qt.qpa.plugin Could not find the Qt platform plugin &quot;xcb&quot; in &quot;&quot;</title>
-    <link href="https://booksword.tk/2023/04/30/error%20Could%20not%20find%20the%20Qt%20platform%20plugin%20xcb%20in/"/>
-    <id>https://booksword.tk/2023/04/30/error%20Could%20not%20find%20the%20Qt%20platform%20plugin%20xcb%20in/</id>
+    <link href="https://booksword.top/2023/04/30/error%20Could%20not%20find%20the%20Qt%20platform%20plugin%20xcb%20in/"/>
+    <id>https://booksword.top/2023/04/30/error%20Could%20not%20find%20the%20Qt%20platform%20plugin%20xcb%20in/</id>
     <published>2023-04-30T02:41:32.000Z</published>
     <updated>2023-05-01T16:18:28.399Z</updated>
     
@@ -53,17 +55,17 @@
     
     
     
-    <category term="Programming" scheme="https://booksword.tk/categories/Programming/"/>
+    <category term="Programming" scheme="https://booksword.top/categories/Programming/"/>
     
-    <category term="Python" scheme="https://booksword.tk/categories/Programming/Python/"/>
+    <category term="Python" scheme="https://booksword.top/categories/Programming/Python/"/>
     
     
   </entry>
   
   <entry>
     <title>ffmpeg中的-filter_complex</title>
-    <link href="https://booksword.tk/2023/04/08/ffmpeg_filter_complex/"/>
-    <id>https://booksword.tk/2023/04/08/ffmpeg_filter_complex/</id>
+    <link href="https://booksword.top/2023/04/08/ffmpeg_filter_complex/"/>
+    <id>https://booksword.top/2023/04/08/ffmpeg_filter_complex/</id>
     <published>2023-04-08T05:38:06.000Z</published>
     <updated>2023-04-08T15:02:00.790Z</updated>
     
@@ -77,17 +79,17 @@
     
     
     
-    <category term="应用软件" scheme="https://booksword.tk/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/"/>
+    <category term="应用软件" scheme="https://booksword.top/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/"/>
     
-    <category term="ffmpeg" scheme="https://booksword.tk/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/ffmpeg/"/>
+    <category term="ffmpeg" scheme="https://booksword.top/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/ffmpeg/"/>
     
     
   </entry>
   
   <entry>
     <title>TigerVNC：使用X.509加密连接</title>
-    <link href="https://booksword.tk/2023/04/06/509%E5%8A%A0%E5%AF%86%E8%BF%9E%E6%8E%A5/"/>
-    <id>https://booksword.tk/2023/04/06/509%E5%8A%A0%E5%AF%86%E8%BF%9E%E6%8E%A5/</id>
+    <link href="https://booksword.top/2023/04/06/509%E5%8A%A0%E5%AF%86%E8%BF%9E%E6%8E%A5/"/>
+    <id>https://booksword.top/2023/04/06/509%E5%8A%A0%E5%AF%86%E8%BF%9E%E6%8E%A5/</id>
     <published>2023-04-06T00:06:00.000Z</published>
     <updated>2023-04-08T15:02:00.790Z</updated>
     
@@ -101,15 +103,15 @@
     
     
     
-    <category term="其他" scheme="https://booksword.tk/categories/%E5%85%B6%E4%BB%96/"/>
+    <category term="其他" scheme="https://booksword.top/categories/%E5%85%B6%E4%BB%96/"/>
     
     
   </entry>
   
   <entry>
     <title>Hexo部署到GitHub Pages后设置的自定义域名丢失</title>
-    <link href="https://booksword.tk/2023/03/23/Hexo_missing_custom_domain/"/>
-    <id>https://booksword.tk/2023/03/23/Hexo_missing_custom_domain/</id>
+    <link href="https://booksword.top/2023/03/23/Hexo_missing_custom_domain/"/>
+    <id>https://booksword.top/2023/03/23/Hexo_missing_custom_domain/</id>
     <published>2023-03-23T13:02:14.000Z</published>
     <updated>2023-03-23T09:18:08.414Z</updated>
     
@@ -123,15 +125,15 @@
     
     
     
-    <category term="Hexo" scheme="https://booksword.tk/categories/Hexo/"/>
+    <category term="Hexo" scheme="https://booksword.top/categories/Hexo/"/>
     
     
   </entry>
   
   <entry>
     <title>ffmpeg合并文件报错“Unsafe file name”</title>
-    <link href="https://booksword.tk/2023/02/21/ffmpeg_unsafe_file_name/"/>
-    <id>https://booksword.tk/2023/02/21/ffmpeg_unsafe_file_name/</id>
+    <link href="https://booksword.top/2023/02/21/ffmpeg_unsafe_file_name/"/>
+    <id>https://booksword.top/2023/02/21/ffmpeg_unsafe_file_name/</id>
     <published>2023-02-21T13:37:49.000Z</published>
     <updated>2023-03-21T12:17:21.542Z</updated>
     
@@ -146,17 +148,17 @@
     
     
     
-    <category term="应用软件" scheme="https://booksword.tk/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/"/>
+    <category term="应用软件" scheme="https://booksword.top/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/"/>
     
-    <category term="ffmpeg" scheme="https://booksword.tk/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/ffmpeg/"/>
+    <category term="ffmpeg" scheme="https://booksword.top/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/ffmpeg/"/>
     
     
   </entry>
   
   <entry>
     <title>Ubuntu 20.04安装VNC服务（Xfce4）</title>
-    <link href="https://booksword.tk/2023/02/04/Ubuntu%2020.04%E5%AE%89%E8%A3%85VNC%E6%9C%8D%E5%8A%A1%EF%BC%88Xfce4%EF%BC%89/"/>
-    <id>https://booksword.tk/2023/02/04/Ubuntu%2020.04%E5%AE%89%E8%A3%85VNC%E6%9C%8D%E5%8A%A1%EF%BC%88Xfce4%EF%BC%89/</id>
+    <link href="https://booksword.top/2023/02/04/Ubuntu%2020.04%E5%AE%89%E8%A3%85VNC%E6%9C%8D%E5%8A%A1%EF%BC%88Xfce4%EF%BC%89/"/>
+    <id>https://booksword.top/2023/02/04/Ubuntu%2020.04%E5%AE%89%E8%A3%85VNC%E6%9C%8D%E5%8A%A1%EF%BC%88Xfce4%EF%BC%89/</id>
     <published>2023-02-04T09:35:00.000Z</published>
     <updated>2023-04-30T02:40:00.154Z</updated>
     
@@ -170,15 +172,15 @@
     
     
     
-    <category term="Linux" scheme="https://booksword.tk/categories/Linux/"/>
+    <category term="Linux" scheme="https://booksword.top/categories/Linux/"/>
     
     
   </entry>
   
   <entry>
     <title>Linux Swap交换分区</title>
-    <link href="https://booksword.tk/2023/01/11/linux-swap%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA/"/>
-    <id>https://booksword.tk/2023/01/11/linux-swap%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA/</id>
+    <link href="https://booksword.top/2023/01/11/linux-swap%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA/"/>
+    <id>https://booksword.top/2023/01/11/linux-swap%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA/</id>
     <published>2023-01-11T12:02:00.000Z</published>
     <updated>2023-01-11T12:02:07.462Z</updated>
     
@@ -192,15 +194,15 @@
     
     
     
-    <category term="Linux" scheme="https://booksword.tk/categories/Linux/"/>
+    <category term="Linux" scheme="https://booksword.top/categories/Linux/"/>
     
     
   </entry>
   
   <entry>
     <title>Ubuntu系统挂载Windows共享文件夹通过credential文件认证</title>
-    <link href="https://booksword.tk/2022/11/29/ubuntu-mount-windows-share-drive-with-credential-file/"/>
-    <id>https://booksword.tk/2022/11/29/ubuntu-mount-windows-share-drive-with-credential-file/</id>
+    <link href="https://booksword.top/2022/11/29/ubuntu-mount-windows-share-drive-with-credential-file/"/>
+    <id>https://booksword.top/2022/11/29/ubuntu-mount-windows-share-drive-with-credential-file/</id>
     <published>2022-11-29T07:55:00.000Z</published>
     <updated>2023-04-06T08:07:18.796Z</updated>
     
@@ -214,15 +216,15 @@
     
     
     
-    <category term="Linux" scheme="https://booksword.tk/categories/Linux/"/>
+    <category term="Linux" scheme="https://booksword.top/categories/Linux/"/>
     
     
   </entry>
   
   <entry>
     <title>gitignore文件的顺序</title>
-    <link href="https://booksword.tk/2022/11/22/gitignore%E6%96%87%E4%BB%B6%E7%9A%84%E9%A1%BA%E5%BA%8F/"/>
-    <id>https://booksword.tk/2022/11/22/gitignore%E6%96%87%E4%BB%B6%E7%9A%84%E9%A1%BA%E5%BA%8F/</id>
+    <link href="https://booksword.top/2022/11/22/gitignore%E6%96%87%E4%BB%B6%E7%9A%84%E9%A1%BA%E5%BA%8F/"/>
+    <id>https://booksword.top/2022/11/22/gitignore%E6%96%87%E4%BB%B6%E7%9A%84%E9%A1%BA%E5%BA%8F/</id>
     <published>2022-11-22T09:26:00.000Z</published>
     <updated>2022-11-22T09:32:01.854Z</updated>
     
@@ -236,17 +238,17 @@
     
     
     
-    <category term="Programming" scheme="https://booksword.tk/categories/Programming/"/>
+    <category term="Programming" scheme="https://booksword.top/categories/Programming/"/>
     
-    <category term="Git" scheme="https://booksword.tk/categories/Programming/Git/"/>
+    <category term="Git" scheme="https://booksword.top/categories/Programming/Git/"/>
     
     
   </entry>
   
   <entry>
     <title>设置局域网和广域网远程开机（Wake on Lan）</title>
-    <link href="https://booksword.tk/2022/11/22/wakeonlan/"/>
-    <id>https://booksword.tk/2022/11/22/wakeonlan/</id>
+    <link href="https://booksword.top/2022/11/22/wakeonlan/"/>
+    <id>https://booksword.top/2022/11/22/wakeonlan/</id>
     <published>2022-11-22T09:25:00.000Z</published>
     <updated>2022-11-29T08:38:51.621Z</updated>
     
@@ -260,15 +262,15 @@
     
     
     
-    <category term="其他" scheme="https://booksword.tk/categories/%E5%85%B6%E4%BB%96/"/>
+    <category term="其他" scheme="https://booksword.top/categories/%E5%85%B6%E4%BB%96/"/>
     
     
   </entry>
   
   <entry>
     <title>Git Forked Repository强制与Fork源同步</title>
-    <link href="https://booksword.tk/2022/11/14/git-forked-repository%E5%BC%BA%E5%88%B6%E4%B8%8E%E4%B8%8A%E6%B8%B8%E5%90%8C%E6%AD%A5/"/>
-    <id>https://booksword.tk/2022/11/14/git-forked-repository%E5%BC%BA%E5%88%B6%E4%B8%8E%E4%B8%8A%E6%B8%B8%E5%90%8C%E6%AD%A5/</id>
+    <link href="https://booksword.top/2022/11/14/git-forked-repository%E5%BC%BA%E5%88%B6%E4%B8%8E%E4%B8%8A%E6%B8%B8%E5%90%8C%E6%AD%A5/"/>
+    <id>https://booksword.top/2022/11/14/git-forked-repository%E5%BC%BA%E5%88%B6%E4%B8%8E%E4%B8%8A%E6%B8%B8%E5%90%8C%E6%AD%A5/</id>
     <published>2022-11-14T08:04:00.000Z</published>
     <updated>2022-11-14T08:25:47.838Z</updated>
     
@@ -283,17 +285,17 @@
     
     
     
-    <category term="Programming" scheme="https://booksword.tk/categories/Programming/"/>
+    <category term="Programming" scheme="https://booksword.top/categories/Programming/"/>
     
-    <category term="Git" scheme="https://booksword.tk/categories/Programming/Git/"/>
+    <category term="Git" scheme="https://booksword.top/categories/Programming/Git/"/>
     
     
   </entry>
   
   <entry>
     <title>Ubuntu 22.04安装Cuda Toolkit</title>
-    <link href="https://booksword.tk/2022/11/03/ubuntucuda/"/>
-    <id>https://booksword.tk/2022/11/03/ubuntucuda/</id>
+    <link href="https://booksword.top/2022/11/03/ubuntucuda/"/>
+    <id>https://booksword.top/2022/11/03/ubuntucuda/</id>
     <published>2022-11-03T03:54:00.000Z</published>
     <updated>2022-11-03T04:41:42.421Z</updated>
     
@@ -307,17 +309,17 @@
     
     
     
-    <category term="Linux" scheme="https://booksword.tk/categories/Linux/"/>
+    <category term="Linux" scheme="https://booksword.top/categories/Linux/"/>
     
-    <category term="Cuda" scheme="https://booksword.tk/categories/Linux/Cuda/"/>
+    <category term="Cuda" scheme="https://booksword.top/categories/Linux/Cuda/"/>
     
     
   </entry>
   
   <entry>
     <title>修复MongoDB设置导致mongod无法启动</title>
-    <link href="https://booksword.tk/2022/10/15/%E4%BF%AE%E5%A4%8Dmongodb%E8%AE%BE%E7%BD%AE%E5%AF%BC%E8%87%B4mongod%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/"/>
-    <id>https://booksword.tk/2022/10/15/%E4%BF%AE%E5%A4%8Dmongodb%E8%AE%BE%E7%BD%AE%E5%AF%BC%E8%87%B4mongod%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/</id>
+    <link href="https://booksword.top/2022/10/15/%E4%BF%AE%E5%A4%8Dmongodb%E8%AE%BE%E7%BD%AE%E5%AF%BC%E8%87%B4mongod%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/"/>
+    <id>https://booksword.top/2022/10/15/%E4%BF%AE%E5%A4%8Dmongodb%E8%AE%BE%E7%BD%AE%E5%AF%BC%E8%87%B4mongod%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/</id>
     <published>2022-10-15T08:04:00.000Z</published>
     <updated>2022-10-15T10:38:45.536Z</updated>
     
@@ -331,17 +333,17 @@
     
     
     
-    <category term="Programming" scheme="https://booksword.tk/categories/Programming/"/>
+    <category term="Programming" scheme="https://booksword.top/categories/Programming/"/>
     
-    <category term="MongoDB" scheme="https://booksword.tk/categories/Programming/MongoDB/"/>
+    <category term="MongoDB" scheme="https://booksword.top/categories/Programming/MongoDB/"/>
     
     
   </entry>
   
   <entry>
     <title>消除&amp;lt;frozen importlib._bootstrap&amp;gt;:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility.</title>
-    <link href="https://booksword.tk/2022/10/01/2022-10-01-%E6%B6%88%E9%99%A4-frozen-importlib-bootstrap-228-runtimewarning-scipy-lib-messagestream-messagestream-size-changed-may-indicate-binary-incompatibility/"/>
-    <id>https://booksword.tk/2022/10/01/2022-10-01-%E6%B6%88%E9%99%A4-frozen-importlib-bootstrap-228-runtimewarning-scipy-lib-messagestream-messagestream-size-changed-may-indicate-binary-incompatibility/</id>
+    <link href="https://booksword.top/2022/10/01/2022-10-01-%E6%B6%88%E9%99%A4-frozen-importlib-bootstrap-228-runtimewarning-scipy-lib-messagestream-messagestream-size-changed-may-indicate-binary-incompatibility/"/>
+    <id>https://booksword.top/2022/10/01/2022-10-01-%E6%B6%88%E9%99%A4-frozen-importlib-bootstrap-228-runtimewarning-scipy-lib-messagestream-messagestream-size-changed-may-indicate-binary-incompatibility/</id>
     <published>2022-10-01T06:08:00.000Z</published>
     <updated>2022-10-01T08:54:07.852Z</updated>
     
@@ -355,17 +357,17 @@
     
     
     
-    <category term="Programming" scheme="https://booksword.tk/categories/Programming/"/>
+    <category term="Programming" scheme="https://booksword.top/categories/Programming/"/>
     
-    <category term="Python" scheme="https://booksword.tk/categories/Programming/Python/"/>
+    <category term="Python" scheme="https://booksword.top/categories/Programming/Python/"/>
     
     
   </entry>
   
   <entry>
     <title>Ubuntu 22.04安装MongoDB 4.2</title>
-    <link href="https://booksword.tk/2022/09/26/2022-09-26-ubuntu-22-04_install_mongodb-4-2/"/>
-    <id>https://booksword.tk/2022/09/26/2022-09-26-ubuntu-22-04_install_mongodb-4-2/</id>
+    <link href="https://booksword.top/2022/09/26/2022-09-26-ubuntu-22-04_install_mongodb-4-2/"/>
+    <id>https://booksword.top/2022/09/26/2022-09-26-ubuntu-22-04_install_mongodb-4-2/</id>
     <published>2022-09-26T01:52:00.000Z</published>
     <updated>2022-11-06T03:02:38.901Z</updated>
     
@@ -379,19 +381,19 @@
     
     
     
-    <category term="Programming" scheme="https://booksword.tk/categories/Programming/"/>
+    <category term="Programming" scheme="https://booksword.top/categories/Programming/"/>
     
-    <category term="MongoDB" scheme="https://booksword.tk/categories/Programming/MongoDB/"/>
+    <category term="MongoDB" scheme="https://booksword.top/categories/Programming/MongoDB/"/>
     
     
-    <category term="Linux" scheme="https://booksword.tk/tags/Linux/"/>
+    <category term="Linux" scheme="https://booksword.top/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>AVS合并视频文件</title>
-    <link href="https://booksword.tk/2018/10/02/avs-merge-wmv/"/>
-    <id>https://booksword.tk/2018/10/02/avs-merge-wmv/</id>
+    <link href="https://booksword.top/2018/10/02/avs-merge-wmv/"/>
+    <id>https://booksword.top/2018/10/02/avs-merge-wmv/</id>
     <published>2018-10-02T06:55:46.000Z</published>
     <updated>2018-10-02T07:11:27.565Z</updated>
     
@@ -405,15 +407,15 @@
     
     
     
-    <category term="视频压制" scheme="https://booksword.tk/categories/%E8%A7%86%E9%A2%91%E5%8E%8B%E5%88%B6/"/>
+    <category term="视频压制" scheme="https://booksword.top/categories/%E8%A7%86%E9%A2%91%E5%8E%8B%E5%88%B6/"/>
     
     
   </entry>
   
   <entry>
     <title>Linux Mint某些程序无法使用fcitx的输入法</title>
-    <link href="https://booksword.tk/2018/07/29/Linux-fcitx-input-method-cannot-use/"/>
-    <id>https://booksword.tk/2018/07/29/Linux-fcitx-input-method-cannot-use/</id>
+    <link href="https://booksword.top/2018/07/29/Linux-fcitx-input-method-cannot-use/"/>
+    <id>https://booksword.top/2018/07/29/Linux-fcitx-input-method-cannot-use/</id>
     <published>2018-07-29T04:59:32.000Z</published>
     <updated>2018-07-29T05:10:24.853Z</updated>
     
@@ -427,15 +429,15 @@
     
     
     
-    <category term="Linux" scheme="https://booksword.tk/categories/Linux/"/>
+    <category term="Linux" scheme="https://booksword.top/categories/Linux/"/>
     
     
   </entry>
   
   <entry>
     <title>Linux Mint 19安装Cuda 9.2以及cuDNN、NCCL</title>
-    <link href="https://booksword.tk/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/"/>
-    <id>https://booksword.tk/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/</id>
+    <link href="https://booksword.top/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/"/>
+    <id>https://booksword.top/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/</id>
     <published>2018-07-14T09:49:25.000Z</published>
     <updated>2022-11-06T03:02:40.861Z</updated>
     
@@ -449,19 +451,19 @@
     
     
     
-    <category term="Programming" scheme="https://booksword.tk/categories/Programming/"/>
+    <category term="Programming" scheme="https://booksword.top/categories/Programming/"/>
     
-    <category term="Cuda" scheme="https://booksword.tk/categories/Programming/Cuda/"/>
+    <category term="Cuda" scheme="https://booksword.top/categories/Programming/Cuda/"/>
     
     
-    <category term="Linux" scheme="https://booksword.tk/tags/Linux/"/>
+    <category term="Linux" scheme="https://booksword.top/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>Linux Mint从18.3升级到19</title>
-    <link href="https://booksword.tk/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/"/>
-    <id>https://booksword.tk/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/</id>
+    <link href="https://booksword.top/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/"/>
+    <id>https://booksword.top/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/</id>
     <published>2018-07-12T10:54:37.000Z</published>
     <updated>2018-07-12T11:25:13.352Z</updated>
     
@@ -478,7 +480,7 @@
     
     
     
-    <category term="Linux" scheme="https://booksword.tk/categories/Linux/"/>
+    <category term="Linux" scheme="https://booksword.top/categories/Linux/"/>
     
     
   </entry>

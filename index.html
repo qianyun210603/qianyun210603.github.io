@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta property="og:type" content="website">
 <meta property="og:title" content="书剑阁">
-<meta property="og:url" content="https://booksword.tk/index.html">
+<meta property="og:url" content="https://booksword.top/index.html">
 <meta property="og:site_name" content="书剑阁">
 <meta property="og:locale">
 <meta property="article:author" content="BookSword">
@@ -91,7 +91,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -110,10 +110,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -146,7 +146,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
     </div>
 
                 </td>
@@ -163,7 +163,7 @@
         
     <div class="widget-wrap" id='categories'>
         <h3 class="widget-title">
-            <span>Categorias</span>
+            <span>categories</span>
             &nbsp;
             <a id='allExpand' href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -260,7 +260,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/02/Rename-Visual-Studio-Project-name-checklist/">重命名Visual Studio项目</a></li>  </ul> 
                     </li> 
-                     </ul> 
+                     <li class="file"><a href="/2023/08/19/jupyterlab/">jupyterlab升级后的数个插件问题</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -316,7 +316,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/10/02/avs-merge-wmv/">AVS合并视频文件</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2018/06/26/Tesseract/">Tesseract</a></li>  <li class="file"><a href="/2018/06/26/MFC/">MFC</a></li>  <li class="file"><a href="/2023/08/12/jupyterlab/">jupyterlab</a></li>  </ul> 
+                     <li class="file"><a href="/2018/06/26/Tesseract/">Tesseract</a></li>  <li class="file"><a href="/2018/06/26/MFC/">MFC</a></li>  </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -396,12 +396,17 @@
                 
                     <div class="article-meta">
                         
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+    </div>
+
                         
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2023/08/12/jupyterlab/">
-            <time datetime="2023-08-12T07:24:35.370Z" itemprop="datePublished">2023-08-12</time>
+        <a href="/2023/08/19/jupyterlab/">
+            <time datetime="2023-08-18T23:09:06.000Z" itemprop="datePublished">2023-08-19</time>
         </a>
     </div>
 
@@ -426,7 +431,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2023/08/12/jupyterlab/">jupyterlab</a>
+            <a class="article-title" href="/2023/08/19/jupyterlab/">jupyterlab升级后的数个插件问题</a>
         </h1>
     
 
@@ -448,12 +453,27 @@
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>第一，插件<code>@jupyterlab/notebook-extension:tracker</code>报错</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">[W 2023-08-12 15:11:31.242 LabApp] Failed validating settings (@jupyterlab/notebook-extension:tracker): Additional properties are not allowed (&#x27;experimentalDisableDocumentWideUndoRedo&#x27;, &#x27;numberCellsToRenderDirectly&#x27;, &#x27;observedBottomMargin&#x27;, &#x27;observedTopMargin&#x27;, &#x27;remainingTimeBeforeRescheduling&#x27;, &#x27;renderCellOnIdle&#x27; were unexpected)</span><br><span class="line"></span><br><span class="line">    Failed validating &#x27;additionalProperties&#x27; in schema:</span><br><span class="line">        &#123;&#x27;additionalProperties&#x27;: False,</span><br><span class="line">         &#x27;definitions&#x27;: &#123;&#x27;kernelStatusConfig&#x27;: &#123;&#x27;additionalProperties&#x27;: False,</span><br><span class="line">                                                &#x27;properties&#x27;: &#123;&#x27;showOnStatusBar&#x27;: &#123;&#x27;default&#x27;: False,</span><br><span class="line">                                                                                   &#x27;description&#x27;: &#x27;If &#x27;</span><br><span class="line">                                                                                                  &#x27;`true`, &#x27;</span><br><span class="line">                                                                                                  &#x27;the &#x27;</span><br><span class="line">                                                                                                  &#x27;kernel &#x27;</span><br><span class="line">                                                                                                  &#x27;status &#x27;</span><br><span class="line">                                                                                                  &#x27;progression &#x27;</span><br><span class="line">                                                                                                  &#x27;will &#x27;</span><br><span class="line">                                                                                                  &#x27;be &#x27;</span><br><span class="line">                                                                                                  &#x27;displayed &#x27;</span><br><span class="line">                                                                                                  &#x27;in &#x27;</span><br><span class="line">                                                                                                  &#x27;the &#x27;</span><br><span class="line">                                                                                                  &#x27;status &#x27;</span><br><span class="line">                                                                                                  &#x27;bar &#x27;</span><br><span class="line">                                                                                                  &#x27;otherwise &#x27;</span><br><span class="line">                                                                                                  &#x27;it &#x27;</span><br><span class="line">                                                                                                  &#x27;will &#x27;</span><br><span class="line">                                                                                                  &#x27;be &#x27;</span><br><span class="line">                                                                                                  &#x27;in &#x27;</span><br><span class="line">                                                                                                  &#x27;the &#x27;</span><br><span class="line">                                                                                                  &#x27;toolbar.&#x27;,</span><br><span class="line">                                                                                   &#x27;title&#x27;: &#x27;Show &#x27;</span><br><span class="line">                                                                                            &#x27;kernel &#x27;</span><br><span class="line">                                                                                            &#x27;status &#x27;</span><br><span class="line">                                                                                            &#x27;on &#x27;</span><br><span class="line">                                                                                            &#x27;toolbar &#x27;</span><br><span class="line">                                                                                            &#x27;or &#x27;</span><br><span class="line">                                                                                            &#x27;status &#x27;</span><br><span class="line">                                                                                            &#x27;bar.&#x27;,</span><br><span class="line">                                                                                   &#x27;type&#x27;: &#x27;boolean&#x27;&#125;,</span><br><span class="line">                                                               &#x27;showProgress&#x27;: &#123;&#x27;default&#x27;: True,</span><br><span class="line">                                                                                &#x27;title&#x27;: &#x27;Show &#x27;</span><br><span class="line">                                                                                         &#x27;execution &#x27;</span><br><span class="line">                                                                                         &#x27;progress.&#x27;,</span><br><span class="line">                                                                                &#x27;type&#x27;: &#x27;boolean&#x27;&#125;&#125;,</span><br><span class="line">                                                &#x27;type&#x27;: &#x27;object&#x27;&#125;&#125;,</span><br><span class="line">         &#x27;description&#x27;: &#x27;Notebook settings.&#x27;,</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>解决：从<code>~\.jupyter\lab\user-settings\@jupyterlab\notebook-extension\tracker.jupyterlab-settings</code>中删除以上选项。</p>
+<p>第二，升级后部分Widgets无法正常显示，例如<code>tqdm</code>的进度条。</p>
+<p>如果单单显示一个<code>Error display widgets</code>，那么首先要重新build插件。</p>
+<p>
+                
             
         
         
-            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">[W 2023-08-12 15:11:31.242 LabApp] Failed validating settings (@jupyterlab/notebook-extension:tracker): Additional properties are not allowed (&#x27;experimentalDisableDocumentWideUndoRedo&#x27;, &#x27;numberCellsToRenderDirectly&#x27;, &#x27;observedBottomMargin&#x27;, &#x27;observedTopMargin&#x27;, &#x27;remainingTimeBeforeRescheduling&#x27;, &#x27;renderCellOnIdle&#x27; were unexpected)</span><br><span class="line"></span><br><span class="line">    Failed validating &#x27;additionalProperties&#x27; in schema:</span><br><span class="line">        &#123;&#x27;additionalProperties&#x27;: False,</span><br><span class="line">         &#x27;definitions&#x27;: &#123;&#x27;kernelStatusConfig&#x27;: &#123;&#x27;additionalProperties&#x27;: False,</span><br><span class="line">                                                &#x27;properties&#x27;: &#123;&#x27;showOnStatusBar&#x27;: &#123;&#x27;default&#x27;: False,</span><br><span class="line">                                                                                   &#x27;description&#x27;: &#x27;If &#x27;</span><br><span class="line">                                                                                                  &#x27;`true`, &#x27;</span><br><span class="line">                                                                                                  &#x27;the &#x27;</span><br><span class="line">                                                                                                  &#x27;kernel &#x27;</span><br><span class="line">                                                                                                  &#x27;status &#x27;</span><br><span class="line">                                                                                                  &#x27;progression &#x27;</span><br><span class="line">                                                                                                  &#x27;will &#x27;</span><br><span class="line">                                                                                                  &#x27;be &#x27;</span><br><span class="line">                                                                                                  &#x27;displayed &#x27;</span><br><span class="line">                                                                                                  &#x27;in &#x27;</span><br><span class="line">                                                                                                  &#x27;the &#x27;</span><br><span class="line">                                                                                                  &#x27;status &#x27;</span><br><span class="line">                                                                                                  &#x27;bar &#x27;</span><br><span class="line">                                                                                                  &#x27;otherwise &#x27;</span><br><span class="line">                                                                                                  &#x27;it &#x27;</span><br><span class="line">                                                                                                  &#x27;will &#x27;</span><br><span class="line">                                                                                                  &#x27;be &#x27;</span><br><span class="line">                                                                                                  &#x27;in &#x27;</span><br><span class="line">                                                                                                  &#x27;the &#x27;</span><br><span class="line">                                                                                                  &#x27;toolbar.&#x27;,</span><br><span class="line">                                                                                   &#x27;title&#x27;: &#x27;Show &#x27;</span><br><span class="line">                                                                                            &#x27;kernel &#x27;</span><br><span class="line">                                                                                            &#x27;status &#x27;</span><br><span class="line">                                                                                            &#x27;on &#x27;</span><br><span class="line">                                                                                            &#x27;toolbar &#x27;</span><br><span class="line">                                                                                            &#x27;or &#x27;</span><br><span class="line">                                                                                            &#x27;status &#x27;</span><br><span class="line">                                                                                            &#x27;bar.&#x27;,</span><br><span class="line">                                                                                   &#x27;type&#x27;: &#x27;boolean&#x27;&#125;,</span><br><span class="line">                                                               &#x27;showProgress&#x27;: &#123;&#x27;default&#x27;: True,</span><br><span class="line">                                                                                &#x27;title&#x27;: &#x27;Show &#x27;</span><br><span class="line">                                                                                         &#x27;execution &#x27;</span><br><span class="line">                                                                                         &#x27;progress.&#x27;,</span><br><span class="line">                                                                                &#x27;type&#x27;: &#x27;boolean&#x27;&#125;&#125;,</span><br><span class="line">                                                &#x27;type&#x27;: &#x27;object&#x27;&#125;&#125;,</span><br><span class="line">         &#x27;description&#x27;: &#x27;Notebook settings.&#x27;,</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>解决：从<code>~\.jupyter\lab\user-settings\@jupyterlab\notebook-extension\tracker.jupyterlab-settings</code>中删除以上选项。</p>
-
+            </div>   
+            <div class="article-more-link">
+                <a href="/2023/08/19/jupyterlab/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -1340,7 +1360,7 @@
 
     
         <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Siguiente  &amp;raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
         </nav>
     
 </section>
