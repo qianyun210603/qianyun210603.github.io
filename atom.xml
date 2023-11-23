@@ -6,7 +6,7 @@
   <link href="https://booksword.top/atom.xml" rel="self"/>
   
   <link href="https://booksword.top/"/>
-  <updated>2023-08-18T23:24:13.837Z</updated>
+  <updated>2023-11-23T09:37:17.846Z</updated>
   <id>https://booksword.top/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在Anaconda环境下安装Apache Airflow以进行定时任务管理：设置为系统服务</title>
+    <link href="https://booksword.top/2023/11/23/ApacheAirflow2/"/>
+    <id>https://booksword.top/2023/11/23/ApacheAirflow2/</id>
+    <published>2023-11-23T00:57:03.000Z</published>
+    <updated>2023-11-23T09:37:17.846Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><ol><li><p>下载系统服务配置模板</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/apache/airflow/master/scripts/systemd/airflow</span><br><span class="line">wget https://raw.githubusercontent.com/apache/airflow/master/scripts/systemd/airflow-webserver.service</span><br><span class="line">wget https://raw.githubusercontent.com/apache/airflow/master/scripts/systemd/airflow-scheduler.service</span><br></pre></td></tr></table></figure></li><li><p>第一个文件配置了在启动系统服务时候需要设置的环境变量，即<code>AIRFLOW_HOME</code>，<code>AIRFLOW_CONFIG</code>，设置成和安装篇里面一样的值即可。而后将其拷贝到适当位置，推荐为<code>/etc/sysconfig/airflow</code>，并将所有权修改到运行Airflow的用户下。</p></li><li><p>然后配置<code>airflow-scheduler.service</code>如下：</p><p><code>airflow-scheduler.service</code>：</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Airflow scheduler daemon</span><br><span class="line">After=network.target postgresql.service mysql.service redis.service rabbitmq-server.service</span><br><span class="line">Wants=postgresql.service mysql.service redis.service rabbitmq-server.service</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">EnvironmentFile=&lt;2中的环境变量配置文件&gt;</span><br><span class="line">User=&lt;airflow user&gt;</span><br><span class="line">Group=&lt;airflow user group&gt;</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=&lt;path to airflow&gt;/airflow scheduler&#x27;</span><br><span class="line">Restart=always</span><br><span class="line">RestartSec=5s</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure></li><li><p>再配置<code>airflow-webserver.service</code>如下<br><code>airflow-webserver.service</code>：</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Airflow webserver daemon</span><br><span class="line">After=network.target postgresql.service mysql.service redis.service rabbitmq-server.service</span><br><span class="line">Wants=postgresql.service mysql.service redis.service rabbitmq-server.service</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">EnvironmentFile=&lt;2中的环境变量配置文件&gt;</span><br><span class="line">User=&lt;airflow user&gt;</span><br><span class="line">Group=&lt;airflow user group&gt;</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=&lt;path to airflow&gt;/airflow webserver --pid /run/airflow/webserver.pid</span><br><span class="line">Restart=on-failure</span><br><span class="line">RestartSec=5s</span><br><span class="line">PrivateTmp=true</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure><p>这里我们发现需要一个<code>pid</code>文件</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /run/airflow</span><br><span class="line">chown &lt;airflow user&gt;:&lt;airflow user group&gt; /run/airflow</span><br></pre></td></tr></table></figure></li><li><p>然后启动服务</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload  # 让更改生效</span><br><span class="line">sudo systemctl start airflow-scheduler.service</span><br><span class="line">sudo systemctl start airflow-webserver.service</span><br></pre></td></tr></table></figure></li><li><p>但这个时候发现很奇怪的问题，<code>airflow-scheduler</code>服务总是时断时续，报错“找不到airflow”。<br>研究后发现，虽然我们通过指定<code>&lt;path to airflow&gt;/airflow</code>保证了<code>webserver</code>和<code>scheduler</code>本身是通过Anaconda环境运行的，但是<code>scheduler</code>在运行任务时候，是运行<code>airflow task run xxx ...</code>，这个时候由于<code>systemctl</code>并不会自动激活conda环境，所以就无法找到<code>airflow</code>这个命令。</p><p>所以需要在<code>ExecStart</code>里面加入激活环境的相关命令，<code>airflow-scheduler.service</code>须变更如下：</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ExecStart=/bin/bash -c &#x27;source /home/booksword/anaconda3/etc/profile.d/conda.sh &amp;&amp; conda activate &amp;&amp; airflow scheduler&#x27;</span><br></pre></td></tr></table></figure><p><code>airflow-scheduler.service</code>变更如下：</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ExecStart=/bin/bash -c &#x27;source /home/booksword/anaconda3/etc/profile.d/conda.sh &amp;&amp; conda activate &amp;&amp; airflow webserver --pid /run/airflow/webserver.pid&#x27;</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;下载系统服务配置模板&lt;/p&gt;
+ &lt;figure clas</summary>
+      
+    
+    
+    
+    <category term="应用软件" scheme="https://booksword.top/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="Airflow" scheme="https://booksword.top/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/Airflow/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>jupyterlab升级后的数个插件问题</title>
@@ -34,6 +61,30 @@
     
     
     <category term="Programming" scheme="https://booksword.top/categories/Programming/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>在Anaconda环境下安装Apache Airflow以进行定时任务管理：安装篇</title>
+    <link href="https://booksword.top/2023/07/15/ApacheAirflow1/"/>
+    <id>https://booksword.top/2023/07/15/ApacheAirflow1/</id>
+    <published>2023-07-14T23:30:21.000Z</published>
+    <updated>2023-11-23T08:55:16.818Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>本文将介绍如何在Anaconda环境下安装和配置Apache Airflow，用于管理和调度定时任务。以下是主要步骤：</p><ol><li><p>在Anaconda的base环境或者自定义的环境下，通过pip安装<code>typing_extensions</code>和<code>apache-airflow</code>包。</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install typing_extensions</span><br><span class="line">pip install apache-airflow</span><br></pre></td></tr></table></figure></li><li><p>创建一个目录来存放Airflow的数据，并将这个目录的路径设置为环境变量<code>AIRFLOW_HOME</code>。</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> &lt;<span class="built_in">where</span> you want to put airflow data <span class="keyword">in</span>&gt;</span><br><span class="line"><span class="built_in">export</span> AIRFLOW_HOME=&lt;<span class="built_in">where</span> you want to put airflow data <span class="keyword">in</span>&gt;</span><br></pre></td></tr></table></figure></li><li><p>运行<code>airflow scheduler</code>命令，然后退出。这将在<code>$AIRFLOW_HOME</code>目录下创建基础的文件。</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">airflow scheduler</span><br></pre></td></tr></table></figure></li><li><p>运行<code>airflow db migrate</code>命令来初始化数据库，然后创建一个用户。</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">airflow db migrate</span><br><span class="line">airflow <span class="built_in">users</span> create --username airflow --role Admin -f xxx -l xxx -e xxx@xxx.com</span><br></pre></td></tr></table></figure></li><li><p>运行<code>airflow scheduler</code>和<code>airflow webserver</code>命令来分别启动定时器后台和网页服务。你可以选择使用<code>nohup</code>命令来使这些服务在后台运行。</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">nohup</span> airflow scheduler &gt; scheduler.log 2&gt;&amp;1 &amp;</span><br><span class="line"><span class="built_in">nohup</span> airflow webserver &gt; scheduler.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure></li><li><p>通过浏览器访问<code>http://localhost:8080</code>来管理定时任务。Airflow已经提供了多个例子，你可以参考这些例子来配置自己的定时任务。</p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;p&gt;本文将介绍如何在Anaconda环境下安装和配置Apache Airflow</summary>
+      
+    
+    
+    
+    <category term="应用软件" scheme="https://booksword.top/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="Airflow" scheme="https://booksword.top/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/Airflow/"/>
     
     
   </entry>
@@ -425,57 +476,6 @@
       
       
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;h4 id=&quot;问题&quot;&gt;&lt;a class=&quot;header-anchor&quot; href</summary>
-      
-    
-    
-    
-    <category term="Linux" scheme="https://booksword.top/categories/Linux/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Linux Mint 19安装Cuda 9.2以及cuDNN、NCCL</title>
-    <link href="https://booksword.top/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/"/>
-    <id>https://booksword.top/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/</id>
-    <published>2018-07-14T09:49:25.000Z</published>
-    <updated>2022-11-06T03:02:40.861Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="CUDA"><a class="header-anchor" href="#CUDA">¶</a>CUDA</h3><p>系统升级到了Mint 19需要重新安装配置Cuda，同时升级到Cuda 9.2。Cuda 9.2需要Nvidia的驱动版本至少是396.37，但不幸的是apt仓库里的396版本驱动有问题，安装后无法被内核加载从而导致系统运行在软解状态。因此只好用bin文件安装。步骤如下：</p><ol><li><p>去官网下载Cuda 9.2的bin安装文件，注意里面自带驱动所以不需要单独安装驱动。<br><img src="/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/downloadconfig.png" alt=""></p></li><li><p>按<code>Ctrl+Alt+F2</code>进入命令行模式，登录并<code>sudo -i</code>切换到root用户。</p></li><li><p>将之前安装的Nvidia驱动卸载掉以避免冲突。</p></li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt purge nvidia-396 nvidia-modprobe nvidia-settings</span><br><span class="line">apt autoremove</span><br></pre></td></tr></table></figure><ol start="4"><li>停止X桌面服务。</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/lightdm stop</span><br></pre></td></tr></table></figure><ol start="5"><li>给下载的run文件加执行权限，并运行</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> a+x cuda_9.2.148_396.37_linux.run</span><br><span class="line">./cuda_9.2.148_396.37_linux.run</span><br></pre></td></tr></table></figure><p>按提示操作。问yes/no的问题都选yes。</p><ol start="6"><li><p>安装完成后重启。</p></li><li><p>将cuda加入系统路径中：<br>在<code>/etc/profile</code>文件中加入如下内容</p></li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/usr/local/cuda/bin:$PAT</span><br></pre></td></tr></table></figure><ol start="8"><li>安装cuda示例所需依赖。</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libgl-dev libglu-dev libx11-dev libegl1-mesa-dev libgles2-mesa-dev libmpich-dev</span><br></pre></td></tr></table></figure><ol start="9"><li>将cuda示例的所有者从root改为当前用户(默认情况示例会被自动安装在sudo用户的<code>$HOME</code>下)。</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chown</span> -R booksword:booksword NVIDIA_CUDA-9.2_Samples/</span><br></pre></td></tr></table></figure><ol start="10"><li>编译示例。</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># force input macro value as linux mint is not officially supported</span></span><br><span class="line">GLPATH=<span class="string">&quot;/usr/lib/x86_64-linux-gnu&quot;</span> GLLINK=<span class="string">&quot;-L/usr/lib/x86_64-linux-gnu&quot;</span> DFLT_PATH=<span class="string">&quot;/usr/lib&quot;</span> EGLLIB=<span class="string">&quot;/usr/lib/x86_64-linux-gnu&quot;</span> GLESLIB=<span class="string">&quot;/usr/lib/x86_64-linux-gnu&quot;</span> make -j6</span><br></pre></td></tr></table></figure><h3 id="cuDNN"><a class="header-anchor" href="#cuDNN">¶</a>cuDNN</h3><p>首先从<a href="https://developer.nvidia.com/rdp/cudnn-download">官网</a>下载cudnn的deb文件:</p><ul><li>cuDNN v7.1.4 Runtime Library for Ubuntu16.04 (Deb)</li><li>cuDNN v7.1.4 Developer Library for Ubuntu16.04 (Deb)</li><li>cuDNN v7.1.4 Code Samples and User Guide for Ubuntu16.04 (Deb)</li></ul><p>然后安装</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i libcudnn7_7.1.4.18-1+cuda9.2_amd64.deb</span><br><span class="line">dpkg -i libcudnn7-dev_7.1.4.18-1+cuda9.2_amd64.deb</span><br><span class="line">dpkg -i libcudnn7-doc_7.1.4.18-1+cuda9.2_amd64.deb</span><br></pre></td></tr></table></figure><p>安装完成后编译运行官方测试用例以验证安装：<br>将<code>/usr/src/cudnn_samples_v7/</code>复制到有写权限的目录下，并编译</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> cudnn_samples_v7/mnistCUDNN/</span><br><span class="line">make</span><br></pre></td></tr></table></figure><h3 id="NCCL"><a class="header-anchor" href="#NCCL">¶</a>NCCL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i nccl-repo-ubuntu1604-2.2.13-ga-cuda9.2_1-1_amd64.deb</span><br></pre></td></tr></table></figure><h4 id="参考资料"><a class="header-anchor" href="#参考资料">¶</a>参考资料</h4><blockquote><p>官网文档</p></blockquote>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;h3 id=&quot;CUDA&quot;&gt;&lt;a class=&quot;header-anchor&quot; hr</summary>
-      
-    
-    
-    
-    <category term="Programming" scheme="https://booksword.top/categories/Programming/"/>
-    
-    <category term="Cuda" scheme="https://booksword.top/categories/Programming/Cuda/"/>
-    
-    
-    <category term="Linux" scheme="https://booksword.top/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux Mint从18.3升级到19</title>
-    <link href="https://booksword.top/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/"/>
-    <id>https://booksword.top/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/</id>
-    <published>2018-07-12T10:54:37.000Z</published>
-    <updated>2018-07-12T11:25:13.352Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>#####一、检查升级需求是否满足</p><ol><li><p>只有Linux Mint 18.3 Cinnamon，MATE和Xfce版本可以用升级包升级。</p><ul><li>使用18、18.1、18.2的需要先用Update Manager升级到18.3。</li></ul></li><li><p>使用Timeshift保存一个系统镜像。</p><ul><li>使用<code>apt install timeshift</code>安装Timeshift。</li><li>进入&quot;Menu -&gt; Administration -&gt; Timeshift&quot;打开Timeshift。</li><li>按提示创建镜像并设置自动创建频率，一切按默认选项即可。</li></ul></li><li><p>确定当前X Display Manager是LightDM。</p></li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/X11/default-display-manager</span><br></pre></td></tr></table></figure><ul><li>如果得到<code>/usr/sbin/lightdm</code>，满足条件。</li><li>如果是<code>/usr/sbin/mdm</code>，则需要切换到LightDM。</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install lightdm lightdm-settings slick-greeter # 要求选择LDM或MDM时选择LDM</span><br><span class="line">sudo apt remove --purge mdm mint-mdm-themes*</span><br><span class="line">sudo dpkg-reconfigure lightdm</span><br><span class="line">sudo reboot</span><br></pre></td></tr></table></figure><h4 id="升级步骤"><a class="header-anchor" href="#升级步骤">¶</a>升级步骤</h4><ol><li>更新现有Linux Mint 18.3系统。</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure><ol start="2"><li><p>设置终端可以滚动无限多行以方便在失败后通过输出查找原因。<br>打开终端，在&quot;Edit&quot;菜单中&quot;Profile Preferences&quot;中&quot;Scrolling&quot;选项卡，把“Limit scrollback to XX lines”前面的复选框去掉。</p></li><li><p>安装升级工具。</p></li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install mintupgrade</span><br></pre></td></tr></table></figure><ol start="4"><li><p>检查安装<br>使用<code>mintupgrade check</code>命令模拟升级，遵照显示的说明。此命令临时将系统指向Linux Mint 19并估计升级会带来的影响，但不会真执行升级操作所以不会对现有系统造成任何影响。如果检查过程中显示有软件包有冲突，用<code>apt purge</code>命令删除掉该软件包并记下包名，此外也要注意记录重要但会在升级时被自动删除掉的包，以备升级成功后重新安装。<br>重复执行本步骤直至输出符合预期（意味着没有冲突和重要的包会受到升级影响）。</p></li><li><p>下载更新并按装</p></li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mintupgrade download</span><br><span class="line">mintupgrade upgrade</span><br></pre></td></tr></table></figure><h5 id="参考资料"><a class="header-anchor" href="#参考资料">¶</a>参考资料</h5><blockquote><ul><li><a href="https://community.linuxmint.com/tutorial/view/2416">How to upgrade to Linux Mint 19</a></li></ul></blockquote>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;p&gt;#####一、检查升级需求是否满足&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;只有L</summary>
       
     
     
