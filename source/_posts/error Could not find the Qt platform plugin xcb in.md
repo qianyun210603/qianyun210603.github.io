@@ -1,7 +1,6 @@
 ---
-layout: "post"
-title: 解决报错：qt.qpa.plugin: Could not find the Qt platform plugin "xcb" in ""
-date: 2023-04-30T10:41:32+08:00
+title: "解决报错: qt.qpa.plugin Could not find the Qt platform plugin \"xcb\" in \"\""
+date: 2023-04-30 10:41:32
 categories: 
  - Programming
  - Python
