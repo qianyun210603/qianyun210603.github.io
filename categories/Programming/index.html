@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Catégorie: Programming | 书剑阁</title>
+    <title>Category: Programming | 书剑阁</title>
     
     
         <meta name="keywords" content="书剑阁" />
@@ -91,7 +91,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -110,9 +110,9 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Articles',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Catégories',
+            CATEGORIES: 'Categories',
             TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
@@ -146,7 +146,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
     </div>
 
                 </td>
@@ -163,7 +163,7 @@
         
     <div class="widget-wrap" id='categories'>
         <h3 class="widget-title">
-            <span>Catégories</span>
+            <span>categories</span>
             &nbsp;
             <a id='allExpand' href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -173,6 +173,33 @@
         
         
          <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            AI
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            OCR
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/Tesseract/">Tesseract</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            框架
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/Build-Tensorflow-from-source-on-Linux-Mint/">Build Tensorflow from source on Linux Mint</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
@@ -260,7 +287,16 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/02/Rename-Visual-Studio-Project-name-checklist/">重命名Visual Studio项目</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/08/19/jupyterlab/">jupyterlab升级后的数个插件问题</a></li>  </ul> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            jupyter
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/08/19/jupyterlab/">jupyterlab升级后的数个插件问题</a></li>  </ul> 
+                    </li> 
+                     </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -294,7 +330,7 @@
                             &nbsp;
                             Airflow
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/07/15/ApacheAirflow1/">在Anaconda环境下安装Apache Airflow以进行定时任务管理：安装篇</a></li>  <li class="file"><a href="/2023/11/23/ApacheAirflow2/">在Anaconda环境下安装Apache Airflow以进行定时任务管理：设置为系统服务</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/07/15/ApacheAirflow1/">在Anaconda环境下安装Apache Airflow以进行定时任务管理：安装篇</a></li>  <li class="file"><a href="/2023/07/15/ApacheAirflow3/">单个非root用户Anaconda下安装Apache Airflow用于定时任务：使用Postgresql</a></li>  <li class="file"><a href="/2023/11/23/ApacheAirflow2/">在Anaconda环境下安装Apache Airflow以进行定时任务管理：设置为系统服务</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -312,9 +348,18 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            机器学习
+                            数据库
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/Build-Tensorflow-from-source-on-Linux-Mint/">Build Tensorflow from source on Linux Mint</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Postgresql
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/12/24/Ubuntu%E5%AE%89%E8%A3%85Postgresql%E5%B9%B6%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/">Ubuntu安装Postgresql并设置自己的数据文件位置</a></li>  </ul> 
+                    </li> 
+                     </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -325,7 +370,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/10/02/avs-merge-wmv/">AVS合并视频文件</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2018/06/26/Tesseract/">Tesseract</a></li>  <li class="file"><a href="/2018/06/26/MFC/">MFC</a></li>  </ul> 
+                     <li class="file"><a href="/2018/06/26/MFC/">MFC</a></li>  </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -426,7 +471,7 @@
                     
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/jupyter/">jupyter</a>
     </div>
 
                     
@@ -731,7 +776,7 @@
 </div>
 
     <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/categories/Programming/page/2/">2</a><a class="extend next" rel="next" href="/categories/Programming/page/2/">Suiv &amp;raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/categories/Programming/page/2/">2</a><a class="extend next" rel="next" href="/categories/Programming/page/2/">Next &amp;raquo;</a>
     </nav>
 </section>
         </div>

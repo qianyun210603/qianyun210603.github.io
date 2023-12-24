@@ -17,7 +17,7 @@
 <meta property="og:description" content="本文将介绍如何在Anaconda环境下安装和配置Apache Airflow，用于管理和调度定时任务。以下是主要步骤：   在Anaconda的base环境或者自定义的环境下，通过pip安装typing_extensions和apache-airflow包。  12pip install typing_extensionspip install apache-airflow   创建一个目录来存放">
 <meta property="og:locale">
 <meta property="article:published_time" content="2023-07-14T23:30:21.000Z">
-<meta property="article:modified_time" content="2023-11-23T08:55:16.818Z">
+<meta property="article:modified_time" content="2023-12-24T09:32:07.157Z">
 <meta property="article:author" content="BookSword">
 <meta name="twitter:card" content="summary">
     
@@ -95,7 +95,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -114,9 +114,9 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Articles',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Catégories',
+            CATEGORIES: 'Categories',
             TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
@@ -150,7 +150,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
     </div>
 
                 </td>
@@ -167,7 +167,7 @@
         
     <div class="widget-wrap" id='categories'>
         <h3 class="widget-title">
-            <span>Catégories</span>
+            <span>categories</span>
             &nbsp;
             <a id='allExpand' href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -177,6 +177,33 @@
         
         
          <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            AI
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            OCR
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/Tesseract/">Tesseract</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            框架
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/Build-Tensorflow-from-source-on-Linux-Mint/">Build Tensorflow from source on Linux Mint</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
@@ -264,7 +291,16 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/02/Rename-Visual-Studio-Project-name-checklist/">重命名Visual Studio项目</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/08/19/jupyterlab/">jupyterlab升级后的数个插件问题</a></li>  </ul> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            jupyter
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/08/19/jupyterlab/">jupyterlab升级后的数个插件问题</a></li>  </ul> 
+                    </li> 
+                     </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -298,7 +334,7 @@
                             &nbsp;
                             Airflow
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/2023/07/15/ApacheAirflow1/">在Anaconda环境下安装Apache Airflow以进行定时任务管理：安装篇</a></li>  <li class="file"><a href="/2023/11/23/ApacheAirflow2/">在Anaconda环境下安装Apache Airflow以进行定时任务管理：设置为系统服务</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/2023/07/15/ApacheAirflow1/">在Anaconda环境下安装Apache Airflow以进行定时任务管理：安装篇</a></li>  <li class="file"><a href="/2023/07/15/ApacheAirflow3/">单个非root用户Anaconda下安装Apache Airflow用于定时任务：使用Postgresql</a></li>  <li class="file"><a href="/2023/11/23/ApacheAirflow2/">在Anaconda环境下安装Apache Airflow以进行定时任务管理：设置为系统服务</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -316,9 +352,18 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            机器学习
+                            数据库
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/Build-Tensorflow-from-source-on-Linux-Mint/">Build Tensorflow from source on Linux Mint</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Postgresql
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/12/24/Ubuntu%E5%AE%89%E8%A3%85Postgresql%E5%B9%B6%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/">Ubuntu安装Postgresql并设置自己的数据文件位置</a></li>  </ul> 
+                    </li> 
+                     </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -329,7 +374,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/10/02/avs-merge-wmv/">AVS合并视频文件</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2018/06/26/Tesseract/">Tesseract</a></li>  <li class="file"><a href="/2018/06/26/MFC/">MFC</a></li>  </ul> 
+                     <li class="file"><a href="/2018/06/26/MFC/">MFC</a></li>  </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -478,13 +523,21 @@
 <li>
 <p>运行<code>airflow db migrate</code>命令来初始化数据库，然后创建一个用户。</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">airflow db migrate</span><br><span class="line">airflow <span class="built_in">users</span> create --username airflow --role Admin -f xxx -l xxx -e xxx@xxx.com</span><br></pre></td></tr></table></figure>
+<p>这会在<code>AIRFLOW_HOME</code>下面创建一个名为<code>airflow.db</code>的<code>sqlite3</code>文件。</p>
 </li>
 <li>
 <p>运行<code>airflow scheduler</code>和<code>airflow webserver</code>命令来分别启动定时器后台和网页服务。你可以选择使用<code>nohup</code>命令来使这些服务在后台运行。</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">nohup</span> airflow scheduler &gt; scheduler.log 2&gt;&amp;1 &amp;</span><br><span class="line"><span class="built_in">nohup</span> airflow webserver &gt; scheduler.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">nohup</span> airflow scheduler &gt; scheduler.log 2&gt;&amp;1 &amp;</span><br><span class="line"><span class="built_in">nohup</span> airflow webserver &gt; webserver.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>通过浏览器访问<code>http://localhost:8080</code>来管理定时任务。Airflow已经提供了多个例子，你可以参考这些例子来配置自己的定时任务。</p>
+<ul>
+<li>在浏览器的管理页面会看到一个警告，让避免使用<code>SequentialExecutor</code>，这是因为<code>SequentialExecutor</code>会使用<code>airflow</code>的主进程顺序执行所有任务，导致每个任务都会卡住<code>scheduler</code>。虽然不知道为啥官方要默认到<code>SequentialExecutor</code>，不过解决方案很简单，到<code>$AIRFLOW_HOME/airflow.cfg</code>文件中找到</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">executor = SequentialExecutor</span><br></pre></td></tr></table></figure>
+<p>改成</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">executor = LocalExecutor</span><br></pre></td></tr></table></figure>
+<p>并重启<code>airflow scheduler</code>服务就可以了。</p>
 </li>
 </ol>
 
@@ -500,7 +553,7 @@
 <nav id="article-nav">
     
         <a href="/2023/08/19/jupyterlab/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Plus récent</strong>
+            <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
                     jupyterlab升级后的数个插件问题
@@ -509,9 +562,9 @@
         </a>
     
     
-        <a href="/2023/04/30/error%20Could%20not%20find%20the%20Qt%20platform%20plugin%20xcb%20in/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Plus ancien</strong>
-            <div class="article-nav-title">解决报错: qt.qpa.plugin Could not find the Qt platform plugin &#34;xcb&#34; in &#34;&#34;</div>
+        <a href="/2023/07/15/ApacheAirflow3/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">单个非root用户Anaconda下安装Apache Airflow用于定时任务：使用Postgresql</div>
         </a>
     
 </nav>

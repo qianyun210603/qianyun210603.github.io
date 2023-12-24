@@ -17,7 +17,7 @@
 <meta property="og:description" content="Install Bazel (a )  Install JDK 8 Install JDK 8 by using: 1apt install openjdk-8-jdk  Add Bazel distribution URI as a package source (one time setup) 12echo &quot;deb [arch&#x3D;amd64] http:&#x2F;&#x2F;storage.goo">
 <meta property="og:locale">
 <meta property="article:published_time" content="2018-06-26T13:02:09.000Z">
-<meta property="article:modified_time" content="2022-10-25T12:43:02.448Z">
+<meta property="article:modified_time" content="2023-11-24T02:12:53.952Z">
 <meta property="article:author" content="BookSword">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -96,7 +96,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -115,9 +115,9 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Articles',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Catégories',
+            CATEGORIES: 'Categories',
             TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
@@ -151,7 +151,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
     </div>
 
                 </td>
@@ -168,7 +168,7 @@
         
     <div class="widget-wrap" id='categories'>
         <h3 class="widget-title">
-            <span>Catégories</span>
+            <span>categories</span>
             &nbsp;
             <a id='allExpand' href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -178,6 +178,33 @@
         
         
          <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            AI
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            OCR
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/Tesseract/">Tesseract</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            框架
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/2018/06/26/Build-Tensorflow-from-source-on-Linux-Mint/">Build Tensorflow from source on Linux Mint</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
@@ -265,7 +292,16 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/02/Rename-Visual-Studio-Project-name-checklist/">重命名Visual Studio项目</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/08/19/jupyterlab/">jupyterlab升级后的数个插件问题</a></li>  </ul> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            jupyter
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/08/19/jupyterlab/">jupyterlab升级后的数个插件问题</a></li>  </ul> 
+                    </li> 
+                     </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -299,7 +335,7 @@
                             &nbsp;
                             Airflow
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/07/15/ApacheAirflow1/">在Anaconda环境下安装Apache Airflow以进行定时任务管理：安装篇</a></li>  <li class="file"><a href="/2023/11/23/ApacheAirflow2/">在Anaconda环境下安装Apache Airflow以进行定时任务管理：设置为系统服务</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/07/15/ApacheAirflow1/">在Anaconda环境下安装Apache Airflow以进行定时任务管理：安装篇</a></li>  <li class="file"><a href="/2023/07/15/ApacheAirflow3/">单个非root用户Anaconda下安装Apache Airflow用于定时任务：使用Postgresql</a></li>  <li class="file"><a href="/2023/11/23/ApacheAirflow2/">在Anaconda环境下安装Apache Airflow以进行定时任务管理：设置为系统服务</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -313,13 +349,22 @@
                      </ul> 
                     </li> 
                     
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
-                            机器学习
+                            数据库
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/2018/06/26/Build-Tensorflow-from-source-on-Linux-Mint/">Build Tensorflow from source on Linux Mint</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Postgresql
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/12/24/Ubuntu%E5%AE%89%E8%A3%85Postgresql%E5%B9%B6%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/">Ubuntu安装Postgresql并设置自己的数据文件位置</a></li>  </ul> 
+                    </li> 
+                     </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -330,7 +375,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/10/02/avs-merge-wmv/">AVS合并视频文件</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2018/06/26/Tesseract/">Tesseract</a></li>  <li class="file"><a href="/2018/06/26/MFC/">MFC</a></li>  </ul> 
+                     <li class="file"><a href="/2018/06/26/MFC/">MFC</a></li>  </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -411,7 +456,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+        <a class="article-category-link" href="/categories/AI/">AI</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/AI/%E6%A1%86%E6%9E%B6/">框架</a>
     </div>
 
                         
@@ -539,7 +584,7 @@ If you want to install the testing version of Bazel, replace stable with testing
 <nav id="article-nav">
     
         <a href="/2018/06/26/build-etherminer/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Plus récent</strong>
+            <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
                     build etherminer
@@ -549,7 +594,7 @@ If you want to install the testing version of Bazel, replace stable with testing
     
     
         <a href="/2018/06/26/Linux-Mint-Cleanup/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Plus ancien</strong>
+            <strong class="article-nav-caption">Older</strong>
             <div class="article-nav-title">Linux Mint Cleanup</div>
         </a>
     
