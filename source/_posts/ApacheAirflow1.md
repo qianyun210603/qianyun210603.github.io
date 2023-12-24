@@ -32,11 +32,23 @@ categories:
     airflow db migrate
     airflow users create --username airflow --role Admin -f xxx -l xxx -e xxx@xxx.com
     ```
+    这会在`AIRFLOW_HOME`下面创建一个名为`airflow.db`的`sqlite3`文件。
 
-5. 运行`airflow scheduler`和`airflow webserver`命令来分别启动定时器后台和网页服务。你可以选择使用`nohup`命令来使这些服务在后台运行。
+
+6. 运行`airflow scheduler`和`airflow webserver`命令来分别启动定时器后台和网页服务。你可以选择使用`nohup`命令来使这些服务在后台运行。
     ```bash
     nohup airflow scheduler > scheduler.log 2>&1 &
-    nohup airflow webserver > scheduler.log 2>&1 &
+    nohup airflow webserver > webserver.log 2>&1 &
     ```
 
-6. 通过浏览器访问`http://localhost:8080`来管理定时任务。Airflow已经提供了多个例子，你可以参考这些例子来配置自己的定时任务。
+7. 通过浏览器访问`http://localhost:8080`来管理定时任务。Airflow已经提供了多个例子，你可以参考这些例子来配置自己的定时任务。
+    
+    - 在浏览器的管理页面会看到一个警告，让避免使用`SequentialExecutor`，这是因为`SequentialExecutor`会使用`airflow`的主进程顺序执行所有任务，导致每个任务都会卡住`scheduler`。虽然不知道为啥官方要默认到`SequentialExecutor`，不过解决方案很简单，到`$AIRFLOW_HOME/airflow.cfg`文件中找到
+    ```
+    executor = SequentialExecutor
+    ```
+    改成
+    ```
+    executor = LocalExecutor
+    ```
+    并重启`airflow scheduler`服务就可以了。

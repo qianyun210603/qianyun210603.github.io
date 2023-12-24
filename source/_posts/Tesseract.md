@@ -2,6 +2,9 @@
 title: Tesseract
 date: 2018-06-26 21:02:15
 tags:
+categories:
+- AI
+- OCR
 ---
 ## Install
 

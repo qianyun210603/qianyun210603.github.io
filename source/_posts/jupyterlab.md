@@ -3,6 +3,7 @@ title: jupyterlab升级后的数个插件问题
 date: 2023-08-19 07:09:06
 categories:
 - Programming
+- jupyter
 ---
 
 第一，插件`@jupyterlab/notebook-extension:tracker`报错

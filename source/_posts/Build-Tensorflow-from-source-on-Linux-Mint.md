@@ -3,7 +3,8 @@ title: Build Tensorflow from source on Linux Mint
 date: 2018-06-26 21:02:09
 tags: Linux
 categories:
-  - 机器学习
+  - AI
+  - 框架
 ---
 1. Install Bazel (a )
     1. Install JDK 8
