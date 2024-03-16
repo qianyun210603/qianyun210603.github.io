@@ -9,15 +9,15 @@
         <meta name="keywords" content="CTP踩坑记" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="¶数据篇  郑商所数据垃圾值  部分日夜盘最后一个tick的时间戳会被标到第二日； 夜盘开始时20:5x会有垃圾tick； 没有最后修改毫秒，需要自己插值；">
+    <meta name="description" content="¶数据篇   郑商所数据垃圾值  部分日夜盘最后一个tick的时间戳会被标到第二日； 夜盘开始时20:5x会有垃圾tick； 没有最后修改毫秒，需要自己插值；    K线合成   注意每个交易时间段最后一个tick。比如合成5分钟K线，对9:00-10:15时间段，10:15整可能会有一个tick需要归到10:10开始的K线里。   一般的行情软件和数据商，包括TB、天软、米筐K线按第一个有成交的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CTP踩坑记">
 <meta property="og:url" content="https://booksword.top/2024/01/21/CTP%E8%B8%A9%E5%9D%91%E8%AE%B0/index.html">
 <meta property="og:site_name" content="书剑阁">
-<meta property="og:description" content="¶数据篇  郑商所数据垃圾值  部分日夜盘最后一个tick的时间戳会被标到第二日； 夜盘开始时20:5x会有垃圾tick； 没有最后修改毫秒，需要自己插值；">
+<meta property="og:description" content="¶数据篇   郑商所数据垃圾值  部分日夜盘最后一个tick的时间戳会被标到第二日； 夜盘开始时20:5x会有垃圾tick； 没有最后修改毫秒，需要自己插值；    K线合成   注意每个交易时间段最后一个tick。比如合成5分钟K线，对9:00-10:15时间段，10:15整可能会有一个tick需要归到10:10开始的K线里。   一般的行情软件和数据商，包括TB、天软、米筐K线按第一个有成交的">
 <meta property="og:locale">
 <meta property="article:published_time" content="2024-01-21T02:38:25.000Z">
-<meta property="article:modified_time" content="2024-01-21T10:41:17.235Z">
+<meta property="article:modified_time" content="2024-03-16T08:19:27.581Z">
 <meta property="article:author" content="BookSword">
 <meta name="twitter:card" content="summary">
     
@@ -289,7 +289,7 @@
                             &nbsp;
                             Python
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/pandas-tricks/">pandas tricks</a></li>  <li class="file"><a href="/2022/10/01/2022-10-01-%E6%B6%88%E9%99%A4-frozen-importlib-bootstrap-228-runtimewarning-scipy-lib-messagestream-messagestream-size-changed-may-indicate-binary-incompatibility/">消除&lt;frozen importlib._bootstrap&gt;:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility.</a></li>  <li class="file"><a href="/2023/04/30/error%20Could%20not%20find%20the%20Qt%20platform%20plugin%20xcb%20in/">解决报错: qt.qpa.plugin Could not find the Qt platform plugin "xcb" in ""</a></li>  <li class="file"><a href="/2024/01/21/publish_python_package_pypi/">发布Python包到PyPi上</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/pandas-tricks/">pandas tricks</a></li>  <li class="file"><a href="/2022/10/01/2022-10-01-%E6%B6%88%E9%99%A4-frozen-importlib-bootstrap-228-runtimewarning-scipy-lib-messagestream-messagestream-size-changed-may-indicate-binary-incompatibility/">消除&lt;frozen importlib._bootstrap&gt;:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility.</a></li>  <li class="file"><a href="/2023/04/30/error%20Could%20not%20find%20the%20Qt%20platform%20plugin%20xcb%20in/">解决报错: qt.qpa.plugin Could not find the Qt platform plugin "xcb" in ""</a></li>  <li class="file"><a href="/2024/01/21/publish_python_package_pypi/">发布Python包到PyPi上</a></li>  <li class="file"><a href="/2024/03/16/Python%E4%B8%AD%E7%9A%84PriorityQueue%E6%B5%8B%E8%AF%95/">Python中的PriorityQueue测试</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -319,6 +319,24 @@
                             nginx
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/08/Nginx-setup-second-server/">Nginx建立多个server</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            交易策略开发
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            数据
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2024/01/21/%E6%95%B0%E6%8D%AE%E6%BA%90%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6/">数据源问题集锦</a></li>  </ul> 
+                    </li> 
+                     </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -510,20 +528,40 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">Catalogue</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%AF%87"><span class="toc-number">1.</span> <span class="toc-text">数据篇</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%AF%87"><span class="toc-number">1.</span> <span class="toc-text">数据篇</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E7%AF%87"><span class="toc-number">2.</span> <span class="toc-text">接口篇</span></a></li></ol>
                 </div>
             
         
         
             <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="数据篇"><a class="header-anchor" href="#数据篇">¶</a>数据篇</h2>
 <ul>
-<li>郑商所数据垃圾值
+<li>
+<p>郑商所数据垃圾值</p>
 <ul>
 <li>部分日夜盘最后一个tick的时间戳会被标到第二日；</li>
 <li>夜盘开始时20:5x会有垃圾tick；</li>
 <li>没有<code>最后修改毫秒</code>，需要自己插值；</li>
 </ul>
 </li>
+<li>
+<p>K线合成</p>
+</li>
+<li>
+<p>注意每个交易时间段最后一个tick。比如合成5分钟K线，对9:00-10:15时间段，10:15整可能会有一个tick需要归到10:10开始的K线里。</p>
+</li>
+<li>
+<p>一般的行情软件和数据商，包括TB、天软、米筐K线按第一个有成交的tick来计算，但CTP推送的时候按500ms切片，即便无成交。</p>
+</li>
+<li>
+<p>可能有些高/低价包含在500ms内，从而不能从<code>last_price</code>得知。目前能做到的最好是参考CTP推送的日内最高/低价修正部分。</p>
+</li>
+</ul>
+<h2 id="接口篇"><a class="header-anchor" href="#接口篇">¶</a>接口篇</h2>
+<ul>
+<li>似乎有两个乘数【合约数量乘数】和【合约基础商品乘数】，分别定义为<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">///合约数量乘数</span></span><br><span class="line">TThostFtdcVolumeMultipleType VolumeMultiple;</span><br><span class="line"><span class="comment">///合约基础商品乘数</span></span><br><span class="line">TThostFtdcUnderlyingMultipleType UnderlyingMultiple;</span><br></pre></td></tr></table></figure>
+按文档，标的期货保证金为 [标的期货合约结算价×期货合约乘数×标的期货合约交易所保证金率（按金额）+ 标的期货合约交易所保证金<br>
+率(按手数) ]×基础商品乘数<br>
+这个【合约基础商品乘数】到底怎么用的？</li>
 </ul>
 
             </div>
@@ -536,6 +574,15 @@
 
     
 <nav id="article-nav">
+    
+        <a href="/2024/03/16/Python%E4%B8%AD%E7%9A%84PriorityQueue%E6%B5%8B%E8%AF%95/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Plus récent</strong>
+            <div class="article-nav-title">
+                
+                    Python中的PriorityQueue测试
+                
+            </div>
+        </a>
     
     
         <a href="/2024/01/21/publish_python_package_pypi/" id="article-nav-older" class="article-nav-link-wrap">
