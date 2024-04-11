@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://booksword.top/2024/04/11/KDB+%E6%95%88%E8%83%BD%E7%8E%A9%E7%A5%A8%E6%B5%8B%E8%AF%95/</loc>
+    
+    <lastmod>2024-04-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://booksword.top/2024/01/21/CTP%E8%B8%A9%E5%9D%91%E8%AE%B0/</loc>
     
     <lastmod>2024-03-16</lastmod>
@@ -445,7 +454,7 @@
 
   <url>
     <loc>https://booksword.top/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -453,21 +462,21 @@
   
   <url>
     <loc>https://booksword.top/tags/GFW-gooreplacer-ss/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/tags/Linux/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/tags/python-pandas/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -476,175 +485,182 @@
   
   <url>
     <loc>https://booksword.top/categories/Linux/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/categories/Programming/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/categories/%E5%85%B6%E4%BB%96/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/categories/Hexo/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/categories/Programming/Python/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/categories/Linux/Cuda/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/categories/nginx/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/categories/Programming/Visual-Studio/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/categories/Linux/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/categories/%E8%A7%86%E9%A2%91%E5%8E%8B%E5%88%B6/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/categories/Programming/MongoDB/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/categories/Programming/Cuda/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/categories/Programming/Git/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/ffmpeg/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/Airflow/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/categories/AI/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/categories/AI/%E6%A1%86%E6%9E%B6/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/categories/Programming/jupyter/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/categories/AI/OCR/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/Postgresql/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/categories/Programming/CTP/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/categories/%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://booksword.top/categories/%E4%BA%A4%E6%98%93%E7%AD%96%E7%95%A5%E5%BC%80%E5%8F%91/%E6%95%B0%E6%8D%AE/</loc>
-    <lastmod>2024-03-16</lastmod>
+    <lastmod>2024-04-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://booksword.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/KDB/</loc>
+    <lastmod>2024-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
