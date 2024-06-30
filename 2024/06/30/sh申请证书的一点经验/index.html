@@ -3,21 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>单个非root用户Anaconda下安装Apache Airflow用于定时任务：使用Postgresql | 书剑阁</title>
+    <title>acme.sh申请SSL证书的一点经验 | 书剑阁</title>
     
     
-        <meta name="keywords" content="单个非root用户Anaconda下安装Apache Airflow用于定时任务：使用Postgresql" />
+        <meta name="keywords" content="acme.sh申请SSL证书的一点经验" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="¶准备工作 首先参考：  《在Anaconda环境下安装Apache Airflow以进行定时任务管理：安装篇》安装airflow 《Ubuntu安装Postgresql并设置自己的数据文件位置》配置好数据库 安装SQLAlchemy和psycopg2 12pip install SQLAlchemypip install psycopg2  停止Airflow相关服务  12sudo syste">
+    <meta name="description" content="¶acme.sh安装 12curl https:&#x2F;&#x2F;get.acme.sh | sh -s email&#x3D;business@kailinjt.comalias  acme.sh&#x3D;&amp;#x27;&#x2F;root&#x2F;.acme.sh&#x2F;acme.sh&amp;#x27; ¶CA机构  Let’s Encrypt不晚于2024-06-29强制要求DNSSEC，否则报错DNSSEC: DNSKEY Missing。但鹅厂的DN">
 <meta property="og:type" content="article">
-<meta property="og:title" content="单个非root用户Anaconda下安装Apache Airflow用于定时任务：使用Postgresql">
-<meta property="og:url" content="https://booksword.top/2023/07/15/ApacheAirflow3/index.html">
+<meta property="og:title" content="acme.sh申请SSL证书的一点经验">
+<meta property="og:url" content="https://booksword.top/2024/06/30/sh%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6%E7%9A%84%E4%B8%80%E7%82%B9%E7%BB%8F%E9%AA%8C/index.html">
 <meta property="og:site_name" content="书剑阁">
-<meta property="og:description" content="¶准备工作 首先参考：  《在Anaconda环境下安装Apache Airflow以进行定时任务管理：安装篇》安装airflow 《Ubuntu安装Postgresql并设置自己的数据文件位置》配置好数据库 安装SQLAlchemy和psycopg2 12pip install SQLAlchemypip install psycopg2  停止Airflow相关服务  12sudo syste">
+<meta property="og:description" content="¶acme.sh安装 12curl https:&#x2F;&#x2F;get.acme.sh | sh -s email&#x3D;business@kailinjt.comalias  acme.sh&#x3D;&amp;#x27;&#x2F;root&#x2F;.acme.sh&#x2F;acme.sh&amp;#x27; ¶CA机构  Let’s Encrypt不晚于2024-06-29强制要求DNSSEC，否则报错DNSSEC: DNSKEY Missing。但鹅厂的DN">
 <meta property="og:locale">
-<meta property="article:published_time" content="2023-07-14T23:30:21.000Z">
-<meta property="article:modified_time" content="2023-12-24T09:30:41.174Z">
+<meta property="article:published_time" content="2024-06-29T16:12:12.000Z">
+<meta property="article:modified_time" content="2024-06-30T01:00:25.540Z">
 <meta property="article:author" content="BookSword">
 <meta name="twitter:card" content="summary">
     
@@ -339,29 +339,29 @@
                      </ul> 
                     </li> 
                     
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            其他
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/build-etherminer/">build etherminer</a></li>  <li class="file"><a href="/2018/06/26/About-GongFu-Wall/">关于减轻功夫墙（GFW）造成的不便的一些探讨</a></li>  <li class="file"><a href="/2018/06/30/New-personal-tax/">个税改革分析，减税还是加税？</a></li>  <li class="file"><a href="/2022/11/22/wakeonlan/">设置局域网和广域网远程开机（Wake on Lan）</a></li>  <li class="file"><a href="/2023/04/06/509%E5%8A%A0%E5%AF%86%E8%BF%9E%E6%8E%A5/">TigerVNC：使用X.509加密连接</a></li>  <li class="file active"><a href="/2024/06/30/sh%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6%E7%9A%84%E4%B8%80%E7%82%B9%E7%BB%8F%E9%AA%8C/">acme.sh申请SSL证书的一点经验</a></li>  </ul> 
+                    </li> 
+                    
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            其他
-                        </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/build-etherminer/">build etherminer</a></li>  <li class="file"><a href="/2018/06/26/About-GongFu-Wall/">关于减轻功夫墙（GFW）造成的不便的一些探讨</a></li>  <li class="file"><a href="/2018/06/30/New-personal-tax/">个税改革分析，减税还是加税？</a></li>  <li class="file"><a href="/2022/11/22/wakeonlan/">设置局域网和广域网远程开机（Wake on Lan）</a></li>  <li class="file"><a href="/2023/04/06/509%E5%8A%A0%E5%AF%86%E8%BF%9E%E6%8E%A5/">TigerVNC：使用X.509加密连接</a></li>  <li class="file"><a href="/2024/06/30/sh%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6%E7%9A%84%E4%B8%80%E7%82%B9%E7%BB%8F%E9%AA%8C/">acme.sh申请SSL证书的一点经验</a></li>  </ul> 
-                    </li> 
-                    
-                    <li class="directory open">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
-                            &nbsp;
                             应用软件
                         </a>
                          <ul class="unstyled" id="tree" > 
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             Airflow
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/07/15/ApacheAirflow1/">在Anaconda环境下安装Apache Airflow以进行定时任务管理：安装篇</a></li>  <li class="file active"><a href="/2023/07/15/ApacheAirflow3/">单个非root用户Anaconda下安装Apache Airflow用于定时任务：使用Postgresql</a></li>  <li class="file"><a href="/2023/11/23/ApacheAirflow2/">在Anaconda环境下安装Apache Airflow以进行定时任务管理：设置为系统服务</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/07/15/ApacheAirflow1/">在Anaconda环境下安装Apache Airflow以进行定时任务管理：安装篇</a></li>  <li class="file"><a href="/2023/07/15/ApacheAirflow3/">单个非root用户Anaconda下安装Apache Airflow用于定时任务：使用Postgresql</a></li>  <li class="file"><a href="/2023/11/23/ApacheAirflow2/">在Anaconda环境下安装Apache Airflow以进行定时任务管理：设置为系统服务</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -481,7 +481,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-ApacheAirflow3" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-sh申请证书的一点经验" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -491,15 +491,15 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/">应用软件</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/Airflow/">Airflow</a>
+        <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
     </div>
 
                         
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2023/07/15/ApacheAirflow3/">
-            <time datetime="2023-07-14T23:30:21.000Z" itemprop="datePublished">2023-07-15</time>
+        <a href="/2024/06/30/sh%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6%E7%9A%84%E4%B8%80%E7%82%B9%E7%BB%8F%E9%AA%8C/">
+            <time datetime="2024-06-29T16:12:12.000Z" itemprop="datePublished">2024-06-30</time>
         </a>
     </div>
 
@@ -510,13 +510,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/ApacheAirflow3.md'> Source </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/sh申请证书的一点经验.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/ApacheAirflow3.md'> Edit </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/sh申请证书的一点经验.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/ApacheAirflow3.md'> History </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/sh申请证书的一点经验.md'> History </a>
                             </div>
                         
                     </div>
@@ -524,7 +524,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            单个非root用户Anaconda下安装Apache Airflow用于定时任务：使用Postgresql
+            acme.sh申请SSL证书的一点经验
         </h1>
     
 
@@ -537,49 +537,36 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">Catalogue</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAAirflow%E7%9B%B8%E5%85%B3%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E7%94%A8%E6%88%B7"><span class="toc-number">2.</span> <span class="toc-text">创建Airflow相关的数据库和数据库用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9Airflow%E9%85%8D%E7%BD%AE%E5%B9%B6%E8%BF%81%E7%A7%BB%E5%88%B0%E6%96%B0%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">3.</span> <span class="toc-text">修改Airflow配置并迁移到新数据库</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#acme-sh%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">acme.sh安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CA%E6%9C%BA%E6%9E%84"><span class="toc-number">2.</span> <span class="toc-text">CA机构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87DNSPod%E8%AE%A4%E8%AF%81%E8%8E%B7%E5%8F%96%E8%AF%81%E4%B9%A6"><span class="toc-number">3.</span> <span class="toc-text">通过DNSPod认证获取证书</span></a></li></ol>
                 </div>
             
         
         
-            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="准备工作"><a class="header-anchor" href="#准备工作">¶</a>准备工作</h2>
-<p>首先参考：</p>
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="acme-sh安装"><a class="header-anchor" href="#acme-sh安装">¶</a>acme.sh安装</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl https://get.acme.sh | sh -s email=business@kailinjt.com</span><br><span class="line"><span class="built_in">alias</span>  acme.sh=<span class="string">&#x27;/root/.acme.sh/acme.sh&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="CA机构"><a class="header-anchor" href="#CA机构">¶</a>CA机构</h3>
 <ul>
-<li>《在Anaconda环境下安装Apache Airflow以进行定时任务管理：安装篇》安装<code>airflow</code></li>
-<li>《Ubuntu安装Postgresql并设置自己的数据文件位置》配置好数据库</li>
-<li>安装<code>SQLAlchemy</code>和<code>psycopg2</code> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install SQLAlchemy</span><br><span class="line">pip install psycopg2</span><br></pre></td></tr></table></figure>
+<li>Let’s Encrypt不晚于2024-06-29强制要求DNSSEC，否则报错<code>DNSSEC: DNSKEY Missing</code>。但鹅厂的DNSPod需要付费才能开启DNSSEC，故放弃。</li>
+<li>切换默认CA到ZeroSSL  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acme.sh --set-default-ca --server zerossl</span><br></pre></td></tr></table></figure>
 </li>
-<li>停止Airflow相关服务  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl stop airflow-scheduler.service</span><br><span class="line">sudo systemctl stop airflow-webserver.service</span><br></pre></td></tr></table></figure>
+<li>ZeroSSL需要登记下邮箱  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acme.sh --register-account -m qianyun6@sina.com --server zerossl</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="创建Airflow相关的数据库和数据库用户"><a class="header-anchor" href="#创建Airflow相关的数据库和数据库用户">¶</a>创建Airflow相关的数据库和数据库用户</h2>
+<h3 id="通过DNSPod认证获取证书"><a class="header-anchor" href="#通过DNSPod认证获取证书">¶</a>通过DNSPod认证获取证书</h3>
 <ul>
-<li>切换到Postgresql的管理用户，运行<code>psql</code>进入Postgresql的命令行  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo su postgres</span><br><span class="line">psql</span><br></pre></td></tr></table></figure>
+<li>
+<p>获取腾讯云SecretId和SecretKey</p>
+<p>参考<a target="_blank" rel="noopener" href="https://docs.dnspod.cn/dns/acme-sh/">acme.sh 自动解析并申请证书</a></p>
 </li>
-<li>在Postgresql的命令行运行以下命令（注意最后的分号要带上）创建相应的DB和用户。  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DATABASE airflow_db;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> airflow_user <span class="keyword">WITH</span> PASSWORD <span class="string">&#x27;airflow_pass&#x27;</span>;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> PRIVILEGES <span class="keyword">ON</span> DATABASE airflow_db <span class="keyword">TO</span> airflow_user;</span><br><span class="line"><span class="comment">-- PostgreSQL 15+ requires additional privileges:</span></span><br><span class="line">\<span class="keyword">connect</span> airflow_db;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">ON</span> SCHEMA public <span class="keyword">TO</span> airflow_user;</span><br></pre></td></tr></table></figure>
+<li>
+<p>将获取的SecretId和SecretKey设为环境变量：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export Tencent_SecretId=&quot;&lt;Your SecretId&gt;&quot;</span><br><span class="line">export Tencent_SecretKey=&quot;&lt;Your SecretKey&gt;&quot;</span><br></pre></td></tr></table></figure>
 </li>
-<li>编辑Postgresql的<code>pg_hba.conf</code>文件赋予<code>airflow_user</code>访问权限
-<ul>
-<li>默认位于<code>/etc/postgresql/16/main/pg_hba.conf</code></li>
-<li>添加一行<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">host    all             all             127.0.0.1/32            password</span><br></pre></td></tr></table></figure>
-允许所有本地用户通过<code>localhost</code>访问。这个限制有些宽，可以具体限制到用户访问ip等。</li>
+<li>
+<p>用acem.sh获取证书</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acme.sh --issue --dns dns_tencent -d &lt;your domain&gt;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-</li>
-</ul>
-<h2 id="修改Airflow配置并迁移到新数据库"><a class="header-anchor" href="#修改Airflow配置并迁移到新数据库">¶</a>修改Airflow配置并迁移到新数据库</h2>
-<p>首先配置环境变量：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> AIRFLOW_HOME=/data/airflow</span><br><span class="line"><span class="built_in">export</span> AIRFLOW_CONFIG=/data/airflow/airflow.cfg</span><br></pre></td></tr></table></figure>
-<p>(注意这里一定要手工<code>export</code>，试验过<code>source /etc/sysconfig/airflow</code>，尽管<code>echo $AIRFLOW_HOME</code>输出的是正确的目录，还是不能被<code>airflow</code>识别，不知道是不是因为用的Anaconda环境。)</p>
-<p>打开<code>airflow.cfg</code>文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi $AIRFLOW_CONFIG</span><br></pre></td></tr></table></figure>
-<p>将<code>sql_alchemy_conn</code>设为<code>Postgresql</code>的链接</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sql_alchemy_conn = postgresql+psycopg2://airflow_user:airflow_pass@localhost/airflow_db</span><br></pre></td></tr></table></figure>
-<p>初始化</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">airflow db migrate</span><br></pre></td></tr></table></figure>
-<p>重新启Airflow的服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start airflow-scheduler.service</span><br><span class="line">sudo systemctl start airflow-webserver.service</span><br></pre></td></tr></table></figure>
-<p>检查状态</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status airflow-scheduler.service</span><br><span class="line">sudo systemctl status airflow-webserver.service</span><br></pre></td></tr></table></figure>
 
             </div>
         
@@ -592,19 +579,10 @@
     
 <nav id="article-nav">
     
-        <a href="/2023/07/15/ApacheAirflow1/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Plus récent</strong>
-            <div class="article-nav-title">
-                
-                    在Anaconda环境下安装Apache Airflow以进行定时任务管理：安装篇
-                
-            </div>
-        </a>
     
-    
-        <a href="/2023/04/30/error%20Could%20not%20find%20the%20Qt%20platform%20plugin%20xcb%20in/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2024/04/11/KDB+%E6%95%88%E8%83%BD%E7%8E%A9%E7%A5%A8%E6%B5%8B%E8%AF%95/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Plus ancien</strong>
-            <div class="article-nav-title">解决报错: qt.qpa.plugin Could not find the Qt platform plugin &#34;xcb&#34; in &#34;&#34;</div>
+            <div class="article-nav-title">KDB+效能玩票测试</div>
         </a>
     
 </nav>
