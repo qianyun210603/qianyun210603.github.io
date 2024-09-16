@@ -8,6 +8,8 @@ categories:
     - ffmpeg
 ---
 
+## 合并
+
 需要合并两个分辨率不同的mp4视频，所以稍微研究了下ffmpeg中的complex_filter的合并语法。
 
 如果要是合并相同编码，分辨率，FPS的视频，那很简单，直接用`concat`文件协议就行：
@@ -44,3 +46,5 @@ ffmpeg -i video1.mp4 -i video2.mp4 -filter_complex "[1:v]scale=640:480[v1];[0:v]
   - `video.mp4`指定输出文件名。
 
 根据以上可以举一反三写出更复杂的filter表达式，具体的可用的filter可以参考[官方文档中的相关章节](https://www.ffmpeg.org/ffmpeg-filters.html)。
+
+

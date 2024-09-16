@@ -1,6 +1,6 @@
 ---
 layout: "post"
-title: "消除&lt;frozen importlib._bootstrap&gt;:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility."
+title: 【Python Debug】"消除&lt;frozen importlib._bootstrap&gt;:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility."
 date: "2022-10-01 14:08"
 categories:
 - Programming

@@ -1,5 +1,5 @@
 ---
-title: pandas tricks
+title: 【Python知识库】pandas tricks
 date: 2018-06-26 21:02:12
 tags: python, pandas
 categories:
