@@ -91,7 +91,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -110,10 +110,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Articles',
+            POSTS: 'Entradas',
             PAGES: 'Pages',
-            CATEGORIES: 'Catégories',
-            TAGS: 'Tags',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -146,7 +146,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
     </div>
 
                 </td>
@@ -163,7 +163,7 @@
         
     <div class="widget-wrap" id='categories'>
         <h3 class="widget-title">
-            <span>Catégories</span>
+            <span>Categorias</span>
             &nbsp;
             <a id='allExpand' href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -247,6 +247,15 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            C++
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2024/07/01/Cpp1##stdafx/">【C++知识库】关于stdafx.h</a></li>  <li class="file"><a href="/2024/07/01/cpp##_stdfunction/">【C++知识库】关于std::function的开销</a></li>  <li class="file"><a href="/2024/07/04/cpp##function_ptr_to_member_function/">【C++知识库】定义指向成员函数的函数指针</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
                             CTP
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2024/01/21/CTP%E8%B8%A9%E5%9D%91%E8%AE%B0/">CTP踩坑记</a></li>  </ul> 
@@ -285,7 +294,7 @@
                             &nbsp;
                             Python
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/pandas-tricks/">pandas tricks</a></li>  <li class="file"><a href="/2022/10/01/2022-10-01-%E6%B6%88%E9%99%A4-frozen-importlib-bootstrap-228-runtimewarning-scipy-lib-messagestream-messagestream-size-changed-may-indicate-binary-incompatibility/">消除&lt;frozen importlib._bootstrap&gt;:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility.</a></li>  <li class="file"><a href="/2023/04/30/error%20Could%20not%20find%20the%20Qt%20platform%20plugin%20xcb%20in/">解决报错: qt.qpa.plugin Could not find the Qt platform plugin "xcb" in ""</a></li>  <li class="file"><a href="/2024/01/21/publish_python_package_pypi/">发布Python包到PyPi上</a></li>  <li class="file"><a href="/2024/03/16/Python%E4%B8%AD%E7%9A%84PriorityQueue%E6%B5%8B%E8%AF%95/">Python中的PriorityQueue测试</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/pandas-tricks/">【Python知识库】pandas tricks</a></li>  <li class="file"><a href="/2022/10/01/2022-10-01-%E6%B6%88%E9%99%A4-frozen-importlib-bootstrap-228-runtimewarning-scipy-lib-messagestream-messagestream-size-changed-may-indicate-binary-incompatibility/">消除&lt;frozen importlib._bootstrap&gt;:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility.</a></li>  <li class="file"><a href="/2023/04/30/error%20Could%20not%20find%20the%20Qt%20platform%20plugin%20xcb%20in/">解决报错: qt.qpa.plugin Could not find the Qt platform plugin "xcb" in ""</a></li>  <li class="file"><a href="/2024/01/21/publish_python_package_pypi/">发布Python包到PyPi上</a></li>  <li class="file"><a href="/2024/03/16/Python%E4%B8%AD%E7%9A%84PriorityQueue%E6%B5%8B%E8%AF%95/">【Python知识库】Python中的PriorityQueue测试</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -406,7 +415,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/10/02/avs-merge-wmv/">AVS合并视频文件</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2018/06/26/MFC/">MFC</a></li>  </ul> 
+                     <li class="file"><a href="/2018/06/26/MFC/">MFC</a></li>  <li class="file"><a href="/2024/09/16/properly_terminate_qthread_in_pyqt/">properly_terminate_qthread_in_pyqt</a></li>  </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -478,6 +487,397 @@
 </aside>
             
             <section id="main">
+        <article id="post-properly_terminate_qthread_in_pyqt" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2024/09/16/properly_terminate_qthread_in_pyqt/">
+            <time datetime="2024-09-15T23:42:13.000Z" itemprop="datePublished">2024-09-16</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/properly_terminate_qthread_in_pyqt.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/properly_terminate_qthread_in_pyqt.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/properly_terminate_qthread_in_pyqt.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2024/09/16/properly_terminate_qthread_in_pyqt/">properly_terminate_qthread_in_pyqt</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="参考资料"><a class="header-anchor" href="#参考资料">¶</a>参考资料</h2>
+<blockquote>
+<ul>
+<li><a href=""></a></li>
+<li><a href=""></a></li>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2024/09/16/properly_terminate_qthread_in_pyqt/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-cpp##function_ptr_to_member_function" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/C/">C++</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2024/07/04/cpp##function_ptr_to_member_function/">
+            <time datetime="2024-07-04T01:55:23.000Z" itemprop="datePublished">2024-07-04</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/cpp##function_ptr_to_member_function.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/cpp##function_ptr_to_member_function.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/cpp##function_ptr_to_member_function.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2024/07/04/cpp##function_ptr_to_member_function/">【C++知识库】定义指向成员函数的函数指针</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>要在 C++ 中定义一个指向类成员函数的原始函数指针，你需要知道成员函数有一个隐式的 this 指针作为它们的第一个参数，这使它们与自由函数或静态成员函数区别开来。因此，声明指向成员函数的指针的语法包括类名和 ::* 操作符。<br>
+这是定义指向非静态成员函数的原始函数指针的一般语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ReturnType (ClassName::*pointerName)(ParameterTypes...) = &amp;ClassName::FunctionName;</span><br></pre></td></tr></table></figure>
+<h3 id="示例："><a class="header-anchor" href="#示例：">¶</a>示例：</h3>
+<p>考虑一个类 MyClass，它有一个成员函数 doSomething：</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2024/07/04/cpp##function_ptr_to_member_function/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-cpp##_stdfunction" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/C/">C++</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2024/07/01/cpp##_stdfunction/">
+            <time datetime="2024-07-01T02:26:49.000Z" itemprop="datePublished">2024-07-01</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/cpp##_stdfunction.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/cpp##_stdfunction.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/cpp##_stdfunction.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2024/07/01/cpp##_stdfunction/">【C++知识库】关于std::function的开销</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在 C++ 中使用 <code>std::function</code> 相比于使用函数指针或直接函数调用会引入一定的运行时成本。这个成本主要是由于 <code>std::function</code> 使用的类型擦除机制，使其能够存储、复制和调用任何与其签名匹配的可调用目标（函数、lambda 表达式、bind 表达式或其他函数对象）。以下是导致其运行时成本的关键因素：</p>
+<ol>
+<li>间接性：<code>std::function</code> 涉及一个额外的间接层级。当你调用一个 <code>std::function</code> 时，它内部通过指向虚函数表（vtable）的指针调用存储的可调用对象。这种间接性可以阻止某些编译器优化，如内联，这些优化对于直接函数调用或甚至是函数指针来说更可行。</li>
+<li>堆分配：对于超出小对象优化（SOO）阈值（这是实现定义的）的可调用对象，<code>std::function</code> 可能会执行堆分配。这可能引入动态内存分配/释放的开销，并可能导致堆碎片化。然而，对于小对象，<code>std::function</code> 通常使用一种优化来在栈上存储对象，避免了堆分配。</li>
+<li>类型擦除开销：使 <code>std::function</code> 能够存储任何匹配签名的可调用类型的类型擦除机制也引入了开销。这是因为它必须维护对各种可调用类型的统一接口，这涉及到存储额外的元数据，并可能执行动态类型检查。</li>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2024/07/01/cpp##_stdfunction/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-Cpp1##stdafx" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/C/">C++</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2024/07/01/Cpp1##stdafx/">
+            <time datetime="2024-06-30T23:36:36.000Z" itemprop="datePublished">2024-07-01</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/Cpp1##stdafx.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/Cpp1##stdafx.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/Cpp1##stdafx.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2024/07/01/Cpp1##stdafx/">【C++知识库】关于stdafx.h</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>  <code>stdafx.h</code>是Visual Studio项目中用于加速构建过程的预编译头文件。<code>stdafx.h</code>的名称是传统上的，来源于Visual Studio的早期版本，但它本身没有任何内在的含义。使用预编译头文件可以显著减少大型项目的编译时间。</p>
+<h3 id="预编译头文件的工作原理"><a class="header-anchor" href="#预编译头文件的工作原理">¶</a>预编译头文件的工作原理</h3>
+<p>  当你编译一个 C++ 程序时，编译器会处理每个编译单元（通常是一个 .cpp 文件）中包含的头文件。这个过程可能非常耗时，特别是对于有许多头文件在多个编译单元中被包含的大型项目。为了优化这一点，引入了预编译头文件的概念。</p>
+<p>  预编译头文件被编译一次，然后在多个编译单元中重用。这意味着，只要这些头文件没有改变，编译器就可以跳过在每个编译单元中处理预编译头文件中包含的头文件，从而加速编译过程。</p>
+<h3 id="stdafx-h和stdafx-cpp"><a class="header-anchor" href="#stdafx-h和stdafx-cpp">¶</a><code>stdafx.h</code>和<code>stdafx.cpp</code></h3>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2024/07/01/Cpp1##stdafx/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-sh申请证书的一点经验" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -555,7 +955,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl https://get.acme.sh | sh -s email=business@kailinjt.com</span><br><span class="line"><span class="built_in">alias</span>  acme.sh=<span class="string">&#x27;/root/.acme.sh/acme.sh&#x27;</span></span><br></pre></td></tr></table></figure>
 <h3 id="CA机构"><a class="header-anchor" href="#CA机构">¶</a>CA机构</h3>
 <ul>
-<li>Let’s Encrypt不晚于2024-06-29强制要求DNSSEC，否则报错<code>DNSSEC: DNSKEY Missing</code>。但鹅厂的DNSPod需要付费才能开启DNSSEC，故放弃。</li>
+<li>Let’s Encrypt不晚于2024-06-29强制要求DNSSEC，否则报错<code>DNSSEC: DNSKEY Missing</code>。但鹅厂的DNSPod需要付费才能开启DNSSEC，故放弃。
 <p>
                 
             
@@ -719,7 +1119,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2024/03/16/Python%E4%B8%AD%E7%9A%84PriorityQueue%E6%B5%8B%E8%AF%95/">Python中的PriorityQueue测试</a>
+            <a class="article-title" href="/2024/03/16/Python%E4%B8%AD%E7%9A%84PriorityQueue%E6%B5%8B%E8%AF%95/">【Python知识库】Python中的PriorityQueue测试</a>
         </h1>
     
 
@@ -1072,404 +1472,8 @@
 
 
     
-        <article id="post-Ubuntu安装Postgresql并设置自己的数据文件位置" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/Postgresql/">Postgresql</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2023/12/24/Ubuntu%E5%AE%89%E8%A3%85Postgresql%E5%B9%B6%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/">
-            <time datetime="2023-12-24T09:31:10.000Z" itemprop="datePublished">2023-12-24</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/Ubuntu安装Postgresql并设置自己的数据文件位置.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/Ubuntu安装Postgresql并设置自己的数据文件位置.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/Ubuntu安装Postgresql并设置自己的数据文件位置.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2023/12/24/Ubuntu%E5%AE%89%E8%A3%85Postgresql%E5%B9%B6%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/">Ubuntu安装Postgresql并设置自己的数据文件位置</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="安装"><a class="header-anchor" href="#安装">¶</a>安装</h2>
-<p>可以直接从官方<code>apt</code>源安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo sh -c <span class="string">&#x27;echo &quot;deb https://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main&quot; &gt; /etc/apt/sources.list.d/pgdg.list&#x27;</span></span><br><span class="line">wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -</span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install postgresql</span><br></pre></td></tr></table></figure>
-<h2 id="设置数据文件位置"><a class="header-anchor" href="#设置数据文件位置">¶</a>设置数据文件位置</h2>
-<h4 id="准备工作——创建新位置"><a class="header-anchor" href="#准备工作——创建新位置">¶</a>准备工作——创建新位置</h4>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2023/12/24/Ubuntu%E5%AE%89%E8%A3%85Postgresql%E5%B9%B6%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-ApacheAirflow2" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/">应用软件</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/Airflow/">Airflow</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2023/11/23/ApacheAirflow2/">
-            <time datetime="2023-11-23T00:57:03.000Z" itemprop="datePublished">2023-11-23</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/ApacheAirflow2.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/ApacheAirflow2.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/ApacheAirflow2.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2023/11/23/ApacheAirflow2/">在Anaconda环境下安装Apache Airflow以进行定时任务管理：设置为系统服务</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><ol>
-<li>
-<p>下载系统服务配置模板</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/apache/airflow/master/scripts/systemd/airflow</span><br><span class="line">wget https://raw.githubusercontent.com/apache/airflow/master/scripts/systemd/airflow-webserver.service</span><br><span class="line">wget https://raw.githubusercontent.com/apache/airflow/master/scripts/systemd/airflow-scheduler.service</span><br></pre></td></tr></table></figure>
-</li>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2023/11/23/ApacheAirflow2/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-jupyterlab" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/jupyter/">jupyter</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2023/08/19/jupyterlab/">
-            <time datetime="2023-08-18T23:09:06.000Z" itemprop="datePublished">2023-08-19</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/jupyterlab.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/jupyterlab.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/jupyterlab.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2023/08/19/jupyterlab/">jupyterlab升级后的数个插件问题</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>第一，插件<code>@jupyterlab/notebook-extension:tracker</code>报错</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">[W 2023-08-12 15:11:31.242 LabApp] Failed validating settings (@jupyterlab/notebook-extension:tracker): Additional properties are not allowed (&#x27;experimentalDisableDocumentWideUndoRedo&#x27;, &#x27;numberCellsToRenderDirectly&#x27;, &#x27;observedBottomMargin&#x27;, &#x27;observedTopMargin&#x27;, &#x27;remainingTimeBeforeRescheduling&#x27;, &#x27;renderCellOnIdle&#x27; were unexpected)</span><br><span class="line"></span><br><span class="line">    Failed validating &#x27;additionalProperties&#x27; in schema:</span><br><span class="line">        &#123;&#x27;additionalProperties&#x27;: False,</span><br><span class="line">         &#x27;definitions&#x27;: &#123;&#x27;kernelStatusConfig&#x27;: &#123;&#x27;additionalProperties&#x27;: False,</span><br><span class="line">                                                &#x27;properties&#x27;: &#123;&#x27;showOnStatusBar&#x27;: &#123;&#x27;default&#x27;: False,</span><br><span class="line">                                                                                   &#x27;description&#x27;: &#x27;If &#x27;</span><br><span class="line">                                                                                                  &#x27;`true`, &#x27;</span><br><span class="line">                                                                                                  &#x27;the &#x27;</span><br><span class="line">                                                                                                  &#x27;kernel &#x27;</span><br><span class="line">                                                                                                  &#x27;status &#x27;</span><br><span class="line">                                                                                                  &#x27;progression &#x27;</span><br><span class="line">                                                                                                  &#x27;will &#x27;</span><br><span class="line">                                                                                                  &#x27;be &#x27;</span><br><span class="line">                                                                                                  &#x27;displayed &#x27;</span><br><span class="line">                                                                                                  &#x27;in &#x27;</span><br><span class="line">                                                                                                  &#x27;the &#x27;</span><br><span class="line">                                                                                                  &#x27;status &#x27;</span><br><span class="line">                                                                                                  &#x27;bar &#x27;</span><br><span class="line">                                                                                                  &#x27;otherwise &#x27;</span><br><span class="line">                                                                                                  &#x27;it &#x27;</span><br><span class="line">                                                                                                  &#x27;will &#x27;</span><br><span class="line">                                                                                                  &#x27;be &#x27;</span><br><span class="line">                                                                                                  &#x27;in &#x27;</span><br><span class="line">                                                                                                  &#x27;the &#x27;</span><br><span class="line">                                                                                                  &#x27;toolbar.&#x27;,</span><br><span class="line">                                                                                   &#x27;title&#x27;: &#x27;Show &#x27;</span><br><span class="line">                                                                                            &#x27;kernel &#x27;</span><br><span class="line">                                                                                            &#x27;status &#x27;</span><br><span class="line">                                                                                            &#x27;on &#x27;</span><br><span class="line">                                                                                            &#x27;toolbar &#x27;</span><br><span class="line">                                                                                            &#x27;or &#x27;</span><br><span class="line">                                                                                            &#x27;status &#x27;</span><br><span class="line">                                                                                            &#x27;bar.&#x27;,</span><br><span class="line">                                                                                   &#x27;type&#x27;: &#x27;boolean&#x27;&#125;,</span><br><span class="line">                                                               &#x27;showProgress&#x27;: &#123;&#x27;default&#x27;: True,</span><br><span class="line">                                                                                &#x27;title&#x27;: &#x27;Show &#x27;</span><br><span class="line">                                                                                         &#x27;execution &#x27;</span><br><span class="line">                                                                                         &#x27;progress.&#x27;,</span><br><span class="line">                                                                                &#x27;type&#x27;: &#x27;boolean&#x27;&#125;&#125;,</span><br><span class="line">                                                &#x27;type&#x27;: &#x27;object&#x27;&#125;&#125;,</span><br><span class="line">         &#x27;description&#x27;: &#x27;Notebook settings.&#x27;,</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>解决：从<code>~\.jupyter\lab\user-settings\@jupyterlab\notebook-extension\tracker.jupyterlab-settings</code>中删除以上选项。</p>
-<p>第二，升级后部分Widgets无法正常显示，例如<code>tqdm</code>的进度条。</p>
-<p>如果单单显示一个<code>Error display widgets</code>，那么首先要重新build插件。</p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2023/08/19/jupyterlab/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-ApacheAirflow1" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/">应用软件</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/Airflow/">Airflow</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2023/07/15/ApacheAirflow1/">
-            <time datetime="2023-07-14T23:30:21.000Z" itemprop="datePublished">2023-07-15</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/ApacheAirflow1.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/ApacheAirflow1.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/ApacheAirflow1.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2023/07/15/ApacheAirflow1/">在Anaconda环境下安装Apache Airflow以进行定时任务管理：安装篇</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>本文将介绍如何在Anaconda环境下安装和配置Apache Airflow，用于管理和调度定时任务。以下是主要步骤：</p>
-<ol>
-<li>
-<p>在Anaconda的base环境或者自定义的环境下，通过pip安装<code>typing_extensions</code>和<code>apache-airflow</code>包。</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install typing_extensions</span><br><span class="line">pip install apache-airflow</span><br></pre></td></tr></table></figure>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2023/07/15/ApacheAirflow1/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Suiv &amp;raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Siguiente  &amp;raquo;</a>
         </nav>
     
 </section>

@@ -91,7 +91,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -110,10 +110,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Articles',
+            POSTS: 'Entradas',
             PAGES: 'Pages',
-            CATEGORIES: 'Catégories',
-            TAGS: 'Tags',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -146,7 +146,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
     </div>
 
                 </td>
@@ -163,7 +163,7 @@
         
     <div class="widget-wrap" id='categories'>
         <h3 class="widget-title">
-            <span>Catégories</span>
+            <span>Categorias</span>
             &nbsp;
             <a id='allExpand' href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -247,6 +247,15 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            C++
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2024/07/01/Cpp1##stdafx/">【C++知识库】关于stdafx.h</a></li>  <li class="file"><a href="/2024/07/01/cpp##_stdfunction/">【C++知识库】关于std::function的开销</a></li>  <li class="file"><a href="/2024/07/04/cpp##function_ptr_to_member_function/">【C++知识库】定义指向成员函数的函数指针</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
                             CTP
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2024/01/21/CTP%E8%B8%A9%E5%9D%91%E8%AE%B0/">CTP踩坑记</a></li>  </ul> 
@@ -285,7 +294,7 @@
                             &nbsp;
                             Python
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/pandas-tricks/">pandas tricks</a></li>  <li class="file"><a href="/2022/10/01/2022-10-01-%E6%B6%88%E9%99%A4-frozen-importlib-bootstrap-228-runtimewarning-scipy-lib-messagestream-messagestream-size-changed-may-indicate-binary-incompatibility/">消除&lt;frozen importlib._bootstrap&gt;:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility.</a></li>  <li class="file"><a href="/2023/04/30/error%20Could%20not%20find%20the%20Qt%20platform%20plugin%20xcb%20in/">解决报错: qt.qpa.plugin Could not find the Qt platform plugin "xcb" in ""</a></li>  <li class="file"><a href="/2024/01/21/publish_python_package_pypi/">发布Python包到PyPi上</a></li>  <li class="file"><a href="/2024/03/16/Python%E4%B8%AD%E7%9A%84PriorityQueue%E6%B5%8B%E8%AF%95/">Python中的PriorityQueue测试</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/pandas-tricks/">【Python知识库】pandas tricks</a></li>  <li class="file"><a href="/2022/10/01/2022-10-01-%E6%B6%88%E9%99%A4-frozen-importlib-bootstrap-228-runtimewarning-scipy-lib-messagestream-messagestream-size-changed-may-indicate-binary-incompatibility/">消除&lt;frozen importlib._bootstrap&gt;:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility.</a></li>  <li class="file"><a href="/2023/04/30/error%20Could%20not%20find%20the%20Qt%20platform%20plugin%20xcb%20in/">解决报错: qt.qpa.plugin Could not find the Qt platform plugin "xcb" in ""</a></li>  <li class="file"><a href="/2024/01/21/publish_python_package_pypi/">发布Python包到PyPi上</a></li>  <li class="file"><a href="/2024/03/16/Python%E4%B8%AD%E7%9A%84PriorityQueue%E6%B5%8B%E8%AF%95/">【Python知识库】Python中的PriorityQueue测试</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -406,7 +415,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/10/02/avs-merge-wmv/">AVS合并视频文件</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2018/06/26/MFC/">MFC</a></li>  </ul> 
+                     <li class="file"><a href="/2018/06/26/MFC/">MFC</a></li>  <li class="file"><a href="/2024/09/16/properly_terminate_qthread_in_pyqt/">properly_terminate_qthread_in_pyqt</a></li>  </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -478,6 +487,402 @@
 </aside>
             
             <section id="main">
+        <article id="post-Rename-Visual-Studio-Project-name-checklist" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Visual-Studio/">Visual Studio</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/07/02/Rename-Visual-Studio-Project-name-checklist/">
+            <time datetime="2018-07-02T13:02:08.000Z" itemprop="datePublished">2018-07-02</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/Rename-Visual-Studio-Project-name-checklist.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/Rename-Visual-Studio-Project-name-checklist.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/Rename-Visual-Studio-Project-name-checklist.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/07/02/Rename-Visual-Studio-Project-name-checklist/">重命名Visual Studio项目</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>因为Visual Stuido的主文件名和项目名以及一些依赖文件都是相互关联的，因此单单简单粗暴地重命名项目和源代码会导致编译错误。以下给出一个完美重命名VS项目的步骤检查表：</p>
+<ol>
+<li>在Visual Studio重命名项目；</li>
+<li>重命名相关的源文件和头文件，并更正<code>#include</code>；</li>
+<li>重命名<code>.sln</code>, .<code>vcpoj</code>和<code>.vcxpoj</code>文件；</li>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2018/07/02/Rename-Visual-Studio-Project-name-checklist/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-apt-key-expired" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Linux/">Linux</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/07/02/apt-key-expired/">
+            <time datetime="2018-07-02T04:02:12.000Z" itemprop="datePublished">2018-07-02</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/apt-key-expired.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/apt-key-expired.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/apt-key-expired.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/07/02/apt-key-expired/">apt提示key expired问题</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>首先找出过期的key:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ apt-key list | grep expired</span><br></pre></td></tr></table></figure>
+<p>其中<font color="#0000ff">BE1DB1F1</font>就是key ID。</p>
+<p>找到ID后即可用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-key adv --recv-keys --keyserver keys.gnupg.net BE1DB1F1</span><br></pre></td></tr></table></figure>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2018/07/02/apt-key-expired/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-Move-linux-to-new-disk" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Linux/">Linux</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/07/01/Move-linux-to-new-disk/">
+            <time datetime="2018-07-01T13:02:10.000Z" itemprop="datePublished">2018-07-01</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/Move-linux-to-new-disk.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/Move-linux-to-new-disk.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/Move-linux-to-new-disk.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/07/01/Move-linux-to-new-disk/">无损迁移Linux系统到新磁盘</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>笔者的电脑原有一块SSD上装了Windows 10和Linux的双系统，其中Linux分配了大约300GB空间，但随着系统膨胀，发现空间逐步不够使用了，因此又买了一块1TB的SSD，打算将Linux整体迁移到1TB盘上，将原SSD上Linux部分都划给Windows 10。在此记录下迁移步骤，以供参考。<br>
+（此步骤基于Linux Mint，其他发行版应该大同小异。）</p>
+<h4 id="迁移步骤"><a class="header-anchor" href="#迁移步骤">¶</a>迁移步骤</h4>
+<ol>
+<li>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2018/07/01/Move-linux-to-new-disk/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-New-personal-tax" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/06/30/New-personal-tax/">
+            <time datetime="2018-06-30T02:32:49.000Z" itemprop="datePublished">2018-06-30</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/New-personal-tax.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/New-personal-tax.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/New-personal-tax.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/06/30/New-personal-tax/">个税改革分析，减税还是加税？</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>万众期待的个税改革草案昨天被发布出来征求公众意见，目前似乎讨论都只集中在起征点和级距上。然而，相比于另一个重大变化，也许起征点提高那么一点点的利得对于相当一部分人来说会被完全抵消。这个重大变化就是——年终奖要和工资合并计税了，从此以后年终奖的税是大大提高了的。。</p>
+<p>为了仔细分析这一点的影响，先来看下目前的年终奖扣税规定：</p>
+<p>以下内容引用自《国家税务总局关于调整个人取得全年一次性奖金等计算征收个人所得税方法问题的通知》（国税发〔2005〕9号）：</p>
+<blockquote>
+<dl><dt>二、纳税人取得全年一次性奖金，单独作为一个月工资、薪金所得计算纳税，并按以下计税办法，由扣缴义务人发放时代扣代缴：</dt><dd><dl><dt>(一) 先将雇员当月内取得的全年一次性奖金，除以12个月，按其商数确定适用税率和速算扣除数。</dt><dd>如果在发放年终一次性奖金的当月，雇员当月工资薪金所得低于税法规定的费用扣除额，应将全年一次性奖金减除“雇员当月工资薪金所得与费用扣除额的差额”后的余额，按上述办法确定全年一次性奖金的适用税率和速算扣除数。</dd>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2018/06/30/New-personal-tax/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-MFC" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -995,7 +1400,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/06/26/pandas-tricks/">pandas tricks</a>
+            <a class="article-title" href="/2018/06/26/pandas-tricks/">【Python知识库】pandas tricks</a>
         </h1>
     
 
@@ -1051,276 +1456,8 @@
 
 
     
-        <article id="post-build-etherminer" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/06/26/build-etherminer/">
-            <time datetime="2018-06-26T13:02:11.000Z" itemprop="datePublished">2018-06-26</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/build-etherminer.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/build-etherminer.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/build-etherminer.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/06/26/build-etherminer/">build etherminer</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-            
-        
-        
-            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
-
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-Build-Tensorflow-from-source-on-Linux-Mint" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/AI/">AI</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/AI/%E6%A1%86%E6%9E%B6/">框架</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Linux/" rel="tag">Linux</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/06/26/Build-Tensorflow-from-source-on-Linux-Mint/">
-            <time datetime="2018-06-26T13:02:09.000Z" itemprop="datePublished">2018-06-26</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/Build-Tensorflow-from-source-on-Linux-Mint.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/Build-Tensorflow-from-source-on-Linux-Mint.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/Build-Tensorflow-from-source-on-Linux-Mint.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/06/26/Build-Tensorflow-from-source-on-Linux-Mint/">Build Tensorflow from source on Linux Mint</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><ol>
-<li>
-<p>Install Bazel (a )</p>
-<ol>
-<li>Install JDK 8<br>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2018/06/26/Build-Tensorflow-from-source-on-Linux-Mint/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-Linux-Mint-Cleanup" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Linux/">Linux</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/06/26/Linux-Mint-Cleanup/">
-            <time datetime="2018-06-26T13:02:09.000Z" itemprop="datePublished">2018-06-26</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/Linux-Mint-Cleanup.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/Linux-Mint-Cleanup.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/Linux-Mint-Cleanup.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/06/26/Linux-Mint-Cleanup/">Linux Mint Cleanup</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-            
-        
-        
-            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Clean up old kernel</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uname</span> -r <span class="comment">#check current using kernel</span></span><br><span class="line">dpkg --get-selections |grep linux <span class="comment"># list installed kernels</span></span><br><span class="line">apt purge xxx <span class="comment"># remove</span></span><br></pre></td></tr></table></figure>
-
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/4/">&amp;laquo; Préc</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+        <a class="extend prev" rel="prev" href="/page/4/">&amp;laquo; Anterior</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">Siguiente  &amp;raquo;</a>
         </nav>
     
 </section>
