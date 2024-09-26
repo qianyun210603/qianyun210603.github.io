@@ -6,7 +6,7 @@
   <link href="https://booksword.top/atom.xml" rel="self"/>
   
   <link href="https://booksword.top/"/>
-  <updated>2024-09-16T07:42:13.097Z</updated>
+  <updated>2024-09-26T08:46:17.087Z</updated>
   <id>https://booksword.top/</id>
   
   <author>
@@ -17,21 +17,49 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Github：解除Fork关系</title>
+    <link href="https://booksword.top/2024/09/26/github_detach_fork/"/>
+    <id>https://booksword.top/2024/09/26/github_detach_fork/</id>
+    <published>2024-09-26T00:27:50.000Z</published>
+    <updated>2024-09-26T08:46:17.087Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>开发者在利用GitHub进行项目开发时，常会遇到与Fork操作相关的一系列挑战，尤其是在项目独立发展后，这些挑战尤为突出。以下是几个关键问题及其有条理的重述：</p><h5 id="1-项目独立发展后的管理难题"><a class="header-anchor" href="#1-项目独立发展后的管理难题">¶</a>1. <strong>项目独立发展后的管理难题</strong></h5><ul><li><strong>深度定制与分化</strong>：最初通过Fork一个仓库开始的项目，随着时间推移，可能经历了从功能扩展到开发语言的变更，导致该仓库与原始父仓库在各个方面都已显著分化，各自独立发展。</li></ul><h5 id="2-Pull-Request的误操作风险"><a class="header-anchor" href="#2-Pull-Request的误操作风险">¶</a>2. <strong>Pull Request的误操作风险</strong></h5><ul><li><strong>默认目标分支问题</strong>：由于项目是从Fork开始的，每次创建Pull Request（PR）时，GitHub默认将父仓库作为目标分支，这增加了不小心将更改提交到父仓库的风险，可能导致不必要的混乱或冲突。</li></ul><h5 id="3-社区与贡献度显示的局限性"><a class="header-anchor" href="#3-社区与贡献度显示的局限性">¶</a>3. <strong>社区与贡献度显示的局限性</strong></h5><ul><li><strong>贡献者识别缺失</strong>：在Fork的仓库中，即使有人做出了重要贡献，这些贡献在GitHub上可能无法被正确归因，因为系统主要基于原始仓库来追踪贡献者。</li><li><strong>项目影响力不明</strong>：此外，由于Fork的仓库与父仓库在GitHub上的关联，很难直观地展示该项目被哪些其他项目所依赖或使用，这限制了项目的曝光度和影响力评估。</li></ul><h5 id="4-与父仓库分离的需求"><a class="header-anchor" href="#4-与父仓库分离的需求">¶</a>4. <strong>与父仓库分离的需求</strong></h5><ul><li><strong>缺乏直接解决方案</strong>：鉴于上述问题，开发者可能希望将Fork的仓库与父仓库正式分离，以便更好地管理项目、展示贡献者及影响力。然而，GitHub当前并未提供直接的“Unfork”或“Detach”功能来实现这一需求。</li></ul><h2 id="解决方案"><a class="header-anchor" href="#解决方案">¶</a>解决方案</h2><h4 id="删除并重新创建仓库"><a class="header-anchor" href="#删除并重新创建仓库">¶</a>删除并重新创建仓库</h4><ul><li><p>打开Git Bash。</p></li><li><p>创建一个 Fork 的裸克隆。</p>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --bare https://github.com/EXAMPLE-USER/FORK-NAME.git</span><br></pre></td></tr></table></figure></li><li><p>删除Fork的仓库。</p><p>警告：删除 Fork 将永久删除所有相关的拉取请求（Pull Requests）和配置。此操作无法撤销。</p></li><li><p>在同一位置使用相同的名称创建一个新仓库。</p></li><li><p>将仓库镜像推送到相同的远程 URL。</p>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> FORK-NAME.git</span><br><span class="line">git push --mirror https://github.com/EXAMPLE-USER/FORK-NAME.git</span><br></pre></td></tr></table></figure></li><li><p>删除之前创建的临时本地克隆。</p>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"><span class="built_in">rm</span> -rf FORK-NAME.git</span><br></pre></td></tr></table></figure></li></ul><p>请注意，上述步骤中的<code>EXAMPLE-USER</code>和<code>FORK-NAME</code>需要替换为您实际的GitHub用户名和Fork仓库的名称。此外，<code>git push --mirror</code>命令会将所有引用（包括分支和标签）以及对象推送到远程仓库，这通常用于镜像或备份目的。在这个场景中，它被用来将本地裸克隆的内容推送到新创建的GitHub仓库中，从而“重建”Fork，但不再与原始仓库有 Fork 关系。</p><p>这种方法的缺点是会丢失原有的Issues，Wiki等。</p><h4 id="联系Github-Support"><a class="header-anchor" href="#联系Github-Support">¶</a>联系Github Support</h4><p>可以直接点击下面链接：</p><p><a href="https://support.github.com/contact?tags=rr-forks&amp;subject=Detach%20Fork&amp;flow=detach_fork">https://support.github.com/contact?tags=rr-forks&amp;subject=Detach Fork&amp;flow=detach_fork</a></p><p>然后根据virtual-assistant的提示一步步进行，之后会自动生成Ticket，等待Github客服处理。一般一个工作日内就能收到解决完毕的邮件了。</p><h2 id="参考资料"><a class="header-anchor" href="#参考资料">¶</a>参考资料</h2><blockquote><ul><li><a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/detaching-a-fork">Detaching a fork</a></li><li><a href="https://stackoverflow.com/questions/16052477/delete-fork-dependency-of-a-github-repository">Delete fork dependency of a GitHub repository</a></li></ul></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;p&gt;开发者在利用GitHub进行项目开发时，常会遇到与Fork操作相关的一系列挑</summary>
+      
+    
+    
+    
+    <category term="Programming" scheme="https://booksword.top/categories/Programming/"/>
+    
+    <category term="Git" scheme="https://booksword.top/categories/Programming/Git/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>properly_terminate_qthread_in_pyqt</title>
     <link href="https://booksword.top/2024/09/16/properly_terminate_qthread_in_pyqt/"/>
     <id>https://booksword.top/2024/09/16/properly_terminate_qthread_in_pyqt/</id>
     <published>2024-09-15T23:42:13.000Z</published>
-    <updated>2024-09-16T07:42:13.097Z</updated>
+    <updated>2024-09-16T07:56:53.842Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="参考资料"><a class="header-anchor" href="#参考资料">¶</a>参考资料</h2><blockquote><ul><li><a href=""></a></li><li><a href=""></a></li></ul></blockquote>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>如果程序中使用了<code>QThread</code>，需要正确销毁，否则会在程序退出时崩溃。</p><ol><li>定义<code>finished</code>信号在worker类里面；</li><li>在<code>finished</code>对应的槽函数里面调用<code>QThread</code>的<code>quit()</code>和<code>wait()</code>函数；</li><li><code>QThread</code>自带<code>finished</code>函数，将其链接到<code>QThread</code>对应的<code>deleteLater()</code>函数上。</li></ol><p>示例：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> PyQt6.QtCore <span class="keyword">import</span> QThread, pyqtSignal, QObject, pyqtSlot, QMetaObject</span><br><span class="line"><span class="keyword">from</span> PyQt6.QtWidgets <span class="keyword">import</span> QApplication, QWidget, QPushButton, QVBoxLayout</span><br><span class="line"><span class="keyword">from</span> pydev_ipython.qt <span class="keyword">import</span> QtCore</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Worker</span>(<span class="title class_ inherited__">QObject</span>):</span><br><span class="line"></span><br><span class="line">    finished = pyqtSignal()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, parent=<span class="literal">None</span></span>):</span><br><span class="line">        <span class="built_in">super</span>(Worker, self).__init__(parent)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">run</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">import</span> time</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>):</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">            <span class="built_in">print</span>(i)</span><br><span class="line">        self.finished.emit()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MainApp</span>(<span class="title class_ inherited__">QWidget</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(MainApp, self).__init__()</span><br><span class="line">        self.setWindowTitle(<span class="string">&quot;QThread Example&quot;</span>)</span><br><span class="line">        layout = QVBoxLayout()</span><br><span class="line">        self.setLayout(layout)</span><br><span class="line">        self.setGeometry(<span class="number">100</span>, <span class="number">100</span>, <span class="number">400</span>, <span class="number">200</span>)</span><br><span class="line">        self.btn = QPushButton(<span class="string">&quot;Start Thread&quot;</span>)</span><br><span class="line">        layout.addWidget(self.btn)</span><br><span class="line">        self.btn.clicked.connect(self.start_thread)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">start_thread</span>(<span class="params">self</span>):</span><br><span class="line">        self.worker = Worker(parent=self)</span><br><span class="line">        self.worker.setObjectName(<span class="string">&quot;worker1&quot;</span>)</span><br><span class="line">        self.thread = QThread()</span><br><span class="line">        self.worker.moveToThread(self.thread)</span><br><span class="line">        self.thread.started.connect(self.worker.run)</span><br><span class="line">        <span class="comment"># self.worker.finished.connect(self.on_worker_finished)</span></span><br><span class="line">        self.worker.finished.connect(self.worker.deleteLater)</span><br><span class="line">        self.thread.finished.connect(self.thread.deleteLater)</span><br><span class="line">        QMetaObject.connectSlotsByName(self)</span><br><span class="line">        self.thread.start()</span><br><span class="line"></span><br><span class="line"><span class="meta">    @pyqtSlot()</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">on_worker1_finished</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Worker finished&quot;</span>)</span><br><span class="line">        self.thread.quit()</span><br><span class="line">        self.thread.wait()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Thread finished&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app = QApplication(sys.argv)</span><br><span class="line">    window = MainApp()</span><br><span class="line">    window.show()</span><br><span class="line">    sys.exit(app.<span class="built_in">exec</span>())</span><br></pre></td></tr></table></figure><h2 id="参考资料"><a class="header-anchor" href="#参考资料">¶</a>参考资料</h2><blockquote><ul><li><a href=""></a></li><li><a href=""></a></li></ul></blockquote>]]></content>
     
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;h2 id=&quot;参考资料&quot;&gt;&lt;a class=&quot;header-anchor&quot; hr</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;p&gt;如果程序中使用了&lt;code&gt;QThread&lt;/code&gt;，需要正确销毁，否则</summary>
       
     
     
+    
+    <category term="Programming" scheme="https://booksword.top/categories/Programming/"/>
+    
+    <category term="Python" scheme="https://booksword.top/categories/Programming/Python/"/>
     
     
   </entry>
@@ -463,31 +491,6 @@
     
     
     <category term="Hexo" scheme="https://booksword.top/categories/Hexo/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>ffmpeg合并文件报错“Unsafe file name”</title>
-    <link href="https://booksword.top/2023/02/21/ffmpeg_unsafe_file_name/"/>
-    <id>https://booksword.top/2023/02/21/ffmpeg_unsafe_file_name/</id>
-    <published>2023-02-21T13:37:49.000Z</published>
-    <updated>2023-03-21T12:17:21.542Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>解决：加上参数<code>-safe 0</code>。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;p&gt;解决：加上参数&lt;code&gt;-safe 0&lt;/code&gt;。&lt;/p&gt;
-</summary>
-      
-    
-    
-    
-    <category term="应用软件" scheme="https://booksword.top/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/"/>
-    
-    <category term="ffmpeg" scheme="https://booksword.top/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/ffmpeg/"/>
     
     
   </entry>
