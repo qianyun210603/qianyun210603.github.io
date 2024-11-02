@@ -16,12 +16,12 @@
 <meta property="og:site_name" content="书剑阁">
 <meta property="og:description" content="从pandas的GitHub上克隆源码；   使用源码目录里面的environment.yml建立一个新env；（否则会破坏现有环境，因为pandas编译要设很多临时环境变量）;  1conda env create --file environment.yml 这会自动创建名为pandas-dev的环境并安装所需依赖，但还差一个meson，切换到pandas-dev，使用如下命令安装：  1">
 <meta property="og:locale">
-<meta property="og:image" content="https://booksword.top/2024/10/26/Windows%E6%9C%AC%E5%9C%B0%E7%BC%96%E8%AF%91pandas%E6%BA%90%E7%A0%81/Screenshot%202024-10-26%20174350.png">
+<meta property="og:image" content="https://booksword.top/2024/10/26/Windows%E6%9C%AC%E5%9C%B0%E7%BC%96%E8%AF%91pandas%E6%BA%90%E7%A0%81/1.png">
 <meta property="article:published_time" content="2024-10-26T02:03:02.000Z">
-<meta property="article:modified_time" content="2024-10-26T10:29:40.249Z">
+<meta property="article:modified_time" content="2024-11-02T03:34:12.353Z">
 <meta property="article:author" content="BookSword">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://booksword.top/2024/10/26/Windows%E6%9C%AC%E5%9C%B0%E7%BC%96%E8%AF%91pandas%E6%BA%90%E7%A0%81/Screenshot%202024-10-26%20174350.png">
+<meta name="twitter:image" content="https://booksword.top/2024/10/26/Windows%E6%9C%AC%E5%9C%B0%E7%BC%96%E8%AF%91pandas%E6%BA%90%E7%A0%81/1.png">
     
 
     
@@ -571,7 +571,7 @@
 <li>找不到<code>cl.exe</code>。<br>
 这是因为Visual Studio或者Build Tools for Visual Studio 2022的安装目录没有被加入系统目录。找到安装目录，然后导引到<code>VC\Tools\MSVC\14.xxxx\bin\Hostx86\x86\</code>，<code>cl.exe</code>就在这个目录里面，将其加入系统的<code>Path</code>环境变量。其中14.xxxx是版本号，<code>Hostx86\x86\</code>也可以是<code>Hostx64\x64\</code>，看想用32位编译器还是64位编译器。</li>
 <li>找不到<code>MSVCRT.lib</code>（或其他系统<code>lib</code>文件）。这里要检查第2步中<code>activate</code>的输出，一般是未能找到所需的MSVC编译器版本，这时第2步里面设置环境变量就会显示找不到<code>vcvars64.bat</code>。这里面需要注意pandas需要用VS2019的Build Toolset (v142)，所以如果之前没有安装需要用Visual Studio Installer补上。<br>
-<img src="/2024/10/26/Windows%E6%9C%AC%E5%9C%B0%E7%BC%96%E8%AF%91pandas%E6%BA%90%E7%A0%81/Screenshot%202024-10-26%20174350.png" alt="alt text"><br>
+<img src="/2024/10/26/Windows%E6%9C%AC%E5%9C%B0%E7%BC%96%E8%AF%91pandas%E6%BA%90%E7%A0%81/1.png" alt="alt text"><br>
 注意一定要用<code>Desktop development with C++</code>里面的<code>MSVC v142 - VS2019 C++ x64/x86 build tools</code>。原因是<code>pandas</code>给的conda脚本是根据VS的Component ID找VS安装目录的。只有这个Build tools符合脚本要求。如果安装的是<code>Individual components</code>里面的v142，那还是找不到，ID不一样。</li>
 </ul>
 </li>
