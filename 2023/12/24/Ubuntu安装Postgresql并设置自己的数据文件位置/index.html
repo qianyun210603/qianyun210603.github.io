@@ -95,7 +95,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Cari" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -114,10 +114,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
+            POSTS: 'pos',
             PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            CATEGORIES: 'kategori',
+            TAGS: 'tag',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -150,7 +150,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Cari" />
     </div>
 
                 </td>
@@ -167,7 +167,7 @@
         
     <div class="widget-wrap" id='categories'>
         <h3 class="widget-title">
-            <span>categories</span>
+            <span>kategori</span>
             &nbsp;
             <a id='allExpand' href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -298,7 +298,7 @@
                             &nbsp;
                             Python
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/pandas-tricks/">【Python知识库】pandas tricks</a></li>  <li class="file"><a href="/2022/10/01/2022-10-01-%E6%B6%88%E9%99%A4-frozen-importlib-bootstrap-228-runtimewarning-scipy-lib-messagestream-messagestream-size-changed-may-indicate-binary-incompatibility/">消除&lt;frozen importlib._bootstrap&gt;:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility.</a></li>  <li class="file"><a href="/2023/04/30/error%20Could%20not%20find%20the%20Qt%20platform%20plugin%20xcb%20in/">解决报错: qt.qpa.plugin Could not find the Qt platform plugin "xcb" in ""</a></li>  <li class="file"><a href="/2024/01/21/publish_python_package_pypi/">发布Python包到PyPi上</a></li>  <li class="file"><a href="/2024/03/16/Python%E4%B8%AD%E7%9A%84PriorityQueue%E6%B5%8B%E8%AF%95/">【Python知识库】Python中的PriorityQueue测试</a></li>  <li class="file"><a href="/2024/09/16/properly_terminate_qthread_in_pyqt/">properly_terminate_qthread_in_pyqt</a></li>  <li class="file"><a href="/2024/10/26/Windows%E6%9C%AC%E5%9C%B0%E7%BC%96%E8%AF%91pandas%E6%BA%90%E7%A0%81/">Windows本地编译pandas源码</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/pandas-tricks/">【Python知识库】pandas tricks</a></li>  <li class="file"><a href="/2022/10/01/2022-10-01-%E6%B6%88%E9%99%A4-frozen-importlib-bootstrap-228-runtimewarning-scipy-lib-messagestream-messagestream-size-changed-may-indicate-binary-incompatibility/">消除&lt;frozen importlib._bootstrap&gt;:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility.</a></li>  <li class="file"><a href="/2023/04/30/error%20Could%20not%20find%20the%20Qt%20platform%20plugin%20xcb%20in/">解决报错: qt.qpa.plugin Could not find the Qt platform plugin "xcb" in ""</a></li>  <li class="file"><a href="/2024/01/21/publish_python_package_pypi/">发布Python包到PyPi上</a></li>  <li class="file"><a href="/2024/03/16/Python%E4%B8%AD%E7%9A%84PriorityQueue%E6%B5%8B%E8%AF%95/">【Python知识库】Python中的PriorityQueue测试</a></li>  <li class="file"><a href="/2024/09/16/properly_terminate_qthread_in_pyqt/">properly_terminate_qthread_in_pyqt</a></li>  <li class="file"><a href="/2024/10/26/Windows%E6%9C%AC%E5%9C%B0%E7%BC%96%E8%AF%91pandas%E6%BA%90%E7%A0%81/">Windows本地编译pandas源码</a></li>  <li class="file"><a href="/2024/11/09/%E5%B5%8C%E5%85%A5%E7%9A%84Qt%E5%AF%B9%E8%AF%9D%E6%A1%86%E8%BE%93%E5%85%A5%E4%B8%80%E4%BA%9B%E4%B8%9C%E8%A5%BF%E7%9B%B8%E5%85%B3/">嵌入的Qt对话框输入一些东西相关(.exec/.show etc)</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -318,7 +318,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/08/19/jupyterlab/">jupyterlab升级后的数个插件问题</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2022/10/15/%E7%BC%96%E8%AF%91Google%20protobuf/">Windows下编译Google protobuf</a></li>  </ul> 
+                     <li class="file"><a href="/2022/10/15/%E7%BC%96%E8%AF%91Google%20protobuf/">Windows下编译Google protobuf</a></li>  <li class="file"><a href="/2024/11/02/Windows%E9%85%8D%E7%BD%AEnvm%EF%BC%8Cnodejs/">Windows配置nvm，nodejs</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -615,7 +615,7 @@
 <nav id="article-nav">
     
         <a href="/2024/01/21/%E6%95%B0%E6%8D%AE%E6%BA%90%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
+            <strong class="article-nav-caption">Lebih baru</strong>
             <div class="article-nav-title">
                 
                     数据源问题集锦
@@ -625,7 +625,7 @@
     
     
         <a href="/2023/11/23/ApacheAirflow2/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
+            <strong class="article-nav-caption">Lebih Tua</strong>
             <div class="article-nav-title">在Anaconda环境下安装Apache Airflow以进行定时任务管理：设置为系统服务</div>
         </a>
     

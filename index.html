@@ -91,7 +91,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Cari" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -110,10 +110,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
+            POSTS: 'pos',
             PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            CATEGORIES: 'kategori',
+            TAGS: 'tag',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -146,7 +146,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Cari" />
     </div>
 
                 </td>
@@ -163,7 +163,7 @@
         
     <div class="widget-wrap" id='categories'>
         <h3 class="widget-title">
-            <span>categories</span>
+            <span>kategori</span>
             &nbsp;
             <a id='allExpand' href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -294,7 +294,7 @@
                             &nbsp;
                             Python
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/pandas-tricks/">【Python知识库】pandas tricks</a></li>  <li class="file"><a href="/2022/10/01/2022-10-01-%E6%B6%88%E9%99%A4-frozen-importlib-bootstrap-228-runtimewarning-scipy-lib-messagestream-messagestream-size-changed-may-indicate-binary-incompatibility/">消除&lt;frozen importlib._bootstrap&gt;:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility.</a></li>  <li class="file"><a href="/2023/04/30/error%20Could%20not%20find%20the%20Qt%20platform%20plugin%20xcb%20in/">解决报错: qt.qpa.plugin Could not find the Qt platform plugin "xcb" in ""</a></li>  <li class="file"><a href="/2024/01/21/publish_python_package_pypi/">发布Python包到PyPi上</a></li>  <li class="file"><a href="/2024/03/16/Python%E4%B8%AD%E7%9A%84PriorityQueue%E6%B5%8B%E8%AF%95/">【Python知识库】Python中的PriorityQueue测试</a></li>  <li class="file"><a href="/2024/09/16/properly_terminate_qthread_in_pyqt/">properly_terminate_qthread_in_pyqt</a></li>  <li class="file"><a href="/2024/10/26/Windows%E6%9C%AC%E5%9C%B0%E7%BC%96%E8%AF%91pandas%E6%BA%90%E7%A0%81/">Windows本地编译pandas源码</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/pandas-tricks/">【Python知识库】pandas tricks</a></li>  <li class="file"><a href="/2022/10/01/2022-10-01-%E6%B6%88%E9%99%A4-frozen-importlib-bootstrap-228-runtimewarning-scipy-lib-messagestream-messagestream-size-changed-may-indicate-binary-incompatibility/">消除&lt;frozen importlib._bootstrap&gt;:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility.</a></li>  <li class="file"><a href="/2023/04/30/error%20Could%20not%20find%20the%20Qt%20platform%20plugin%20xcb%20in/">解决报错: qt.qpa.plugin Could not find the Qt platform plugin "xcb" in ""</a></li>  <li class="file"><a href="/2024/01/21/publish_python_package_pypi/">发布Python包到PyPi上</a></li>  <li class="file"><a href="/2024/03/16/Python%E4%B8%AD%E7%9A%84PriorityQueue%E6%B5%8B%E8%AF%95/">【Python知识库】Python中的PriorityQueue测试</a></li>  <li class="file"><a href="/2024/09/16/properly_terminate_qthread_in_pyqt/">properly_terminate_qthread_in_pyqt</a></li>  <li class="file"><a href="/2024/10/26/Windows%E6%9C%AC%E5%9C%B0%E7%BC%96%E8%AF%91pandas%E6%BA%90%E7%A0%81/">Windows本地编译pandas源码</a></li>  <li class="file"><a href="/2024/11/09/%E5%B5%8C%E5%85%A5%E7%9A%84Qt%E5%AF%B9%E8%AF%9D%E6%A1%86%E8%BE%93%E5%85%A5%E4%B8%80%E4%BA%9B%E4%B8%9C%E8%A5%BF%E7%9B%B8%E5%85%B3/">嵌入的Qt对话框输入一些东西相关(.exec/.show etc)</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -314,7 +314,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/08/19/jupyterlab/">jupyterlab升级后的数个插件问题</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2022/10/15/%E7%BC%96%E8%AF%91Google%20protobuf/">Windows下编译Google protobuf</a></li>  </ul> 
+                     <li class="file"><a href="/2022/10/15/%E7%BC%96%E8%AF%91Google%20protobuf/">Windows下编译Google protobuf</a></li>  <li class="file"><a href="/2024/11/02/Windows%E9%85%8D%E7%BD%AEnvm%EF%BC%8Cnodejs/">Windows配置nvm，nodejs</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -487,6 +487,204 @@
 </aside>
             
             <section id="main">
+        <article id="post-嵌入的Qt对话框输入一些东西相关" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Python/">Python</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2024/11/09/%E5%B5%8C%E5%85%A5%E7%9A%84Qt%E5%AF%B9%E8%AF%9D%E6%A1%86%E8%BE%93%E5%85%A5%E4%B8%80%E4%BA%9B%E4%B8%9C%E8%A5%BF%E7%9B%B8%E5%85%B3/">
+            <time datetime="2024-11-08T20:24:29.000Z" itemprop="datePublished">2024-11-09</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/嵌入的Qt对话框输入一些东西相关.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/嵌入的Qt对话框输入一些东西相关.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/嵌入的Qt对话框输入一些东西相关.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2024/11/09/%E5%B5%8C%E5%85%A5%E7%9A%84Qt%E5%AF%B9%E8%AF%9D%E6%A1%86%E8%BE%93%E5%85%A5%E4%B8%80%E4%BA%9B%E4%B8%9C%E8%A5%BF%E7%9B%B8%E5%85%B3/">嵌入的Qt对话框输入一些东西相关(.exec/.show etc)</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>基本框架</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># some content load from remote data service</span></span><br><span class="line"><span class="comment"># ... code ignored ...</span></span><br><span class="line"></span><br><span class="line">app = QApplication([])</span><br><span class="line">dialog = ContentEditDialog(original_content)</span><br><span class="line">dialog.<span class="built_in">exec</span>()</span><br><span class="line"><span class="comment"># dialog.show()</span></span><br><span class="line"><span class="comment"># app.exec()</span></span><br><span class="line"></span><br><span class="line">updated_content = dialog.collect_edited_content()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(updated_content)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>只有<code>dialog.exec()</code>：程序阻塞，编辑生效。</li>
+<li>只有<code>dialog.show()</code>: 程序不阻塞，对话框一闪即逝，无法编辑。</li>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2024/11/09/%E5%B5%8C%E5%85%A5%E7%9A%84Qt%E5%AF%B9%E8%AF%9D%E6%A1%86%E8%BE%93%E5%85%A5%E4%B8%80%E4%BA%9B%E4%B8%9C%E8%A5%BF%E7%9B%B8%E5%85%B3/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-Windows配置nvm，nodejs" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2024/11/02/Windows%E9%85%8D%E7%BD%AEnvm%EF%BC%8Cnodejs/">
+            <time datetime="2024-11-01T19:43:04.000Z" itemprop="datePublished">2024-11-02</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/Windows配置nvm，nodejs.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/Windows配置nvm，nodejs.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/Windows配置nvm，nodejs.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2024/11/02/Windows%E9%85%8D%E7%BD%AEnvm%EF%BC%8Cnodejs/">Windows配置nvm，nodejs</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><ol>
+<li>
+<p>下载<code>nvm</code>安装包：<a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases">下载地址</a>；</p>
+</li>
+<li>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2024/11/02/Windows%E9%85%8D%E7%BD%AEnvm%EF%BC%8Cnodejs/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-Windows本地编译pandas源码" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1279,206 +1477,8 @@
 
 
     
-        <article id="post-KDB+效能玩票测试" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/KDB/">KDB+</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2024/04/11/KDB+%E6%95%88%E8%83%BD%E7%8E%A9%E7%A5%A8%E6%B5%8B%E8%AF%95/">
-            <time datetime="2024-04-10T22:12:43.000Z" itemprop="datePublished">2024-04-11</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/KDB+效能玩票测试.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/KDB+效能玩票测试.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/KDB+效能玩票测试.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2024/04/11/KDB+%E6%95%88%E8%83%BD%E7%8E%A9%E7%A5%A8%E6%B5%8B%E8%AF%95/">KDB+效能玩票测试</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="动因"><a class="header-anchor" href="#动因">¶</a>动因</h2>
-<p>之前使用Man-Group的Arctic系统（老Arctic，基于MongoDB的那个）存储各种交易标的的数据，但发现比较慢。测试下传说中的KDB+看能否替换。目前并不期望能使用KDB+强项的内部计算（由于<code>q</code>语言学习成本过高），只是简单作为时序数据库使用，支持读取写入增删改查即可。</p>
-<h2 id="架构"><a class="header-anchor" href="#架构">¶</a>架构</h2>
-<p>使用一台Linux主机作为数据库服务器，与客户机在同一个局域网（千兆以太网）下。具体配置过程略。</p>
-<h2 id="简单测试"><a class="header-anchor" href="#简单测试">¶</a>简单测试</h2>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2024/04/11/KDB+%E6%95%88%E8%83%BD%E7%8E%A9%E7%A5%A8%E6%B5%8B%E8%AF%95/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-Python中的PriorityQueue测试" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Python/">Python</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2024/03/16/Python%E4%B8%AD%E7%9A%84PriorityQueue%E6%B5%8B%E8%AF%95/">
-            <time datetime="2024-03-16T00:15:40.000Z" itemprop="datePublished">2024-03-16</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/Python中的PriorityQueue测试.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/Python中的PriorityQueue测试.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/Python中的PriorityQueue测试.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2024/03/16/Python%E4%B8%AD%E7%9A%84PriorityQueue%E6%B5%8B%E8%AF%95/">【Python知识库】Python中的PriorityQueue测试</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Python官方提供一个<code>PriorityQueue</code>，可以按优先级取出Push入队的对象，但这个Queue不稳定（即相同优先级并不保证先进先出）。</p>
-<p>测试代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"><span class="keyword">from</span> queue <span class="keyword">import</span> Empty, Queue, PriorityQueue</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread, get_ident</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> <span class="type">Any</span>, <span class="type">Callable</span>, <span class="type">List</span></span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">EVENT_SLEEP = <span class="string">&quot;eSleep&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Event</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Event object consists of a type string which is used</span></span><br><span class="line"><span class="string">    by event engine for distributing event, and a data</span></span><br><span class="line"><span class="string">    object which contains the real data.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, etype: <span class="built_in">str</span>, data: <span class="type">Any</span> = <span class="literal">None</span>, priority: <span class="built_in">int</span> = <span class="number">100</span></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;&quot;&quot;&quot;</span></span><br><span class="line">        self.<span class="built_in">type</span>: <span class="built_in">str</span> = etype</span><br><span class="line">        self.priority = priority</span><br><span class="line">        self.data: <span class="type">Any</span> = data</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__lt__</span>(<span class="params">self, other</span>):</span><br><span class="line">        <span class="keyword">return</span> self.priority &gt; other.priority</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__le__</span>(<span class="params">self, other</span>):</span><br><span class="line">        <span class="keyword">return</span> self.priority &gt;= other.priority</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Defines handler function to be used in event engine.</span></span><br><span class="line">HandlerType: <span class="built_in">callable</span> = <span class="type">Callable</span>[[Event], <span class="literal">None</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EventEngine</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Event engine distributes event object based on its type</span></span><br><span class="line"><span class="string">    to those handlers registered.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    It also generates timer event by every interval seconds,</span></span><br><span class="line"><span class="string">    which can be used for timing purpose.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, interval: <span class="built_in">int</span> = <span class="number">1</span>, using_priority = <span class="literal">False</span></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Timer event is generated every 1 second by default, if</span></span><br><span class="line"><span class="string">        interval not specified.</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        self._interval: <span class="built_in">int</span> = interval</span><br><span class="line">        self._queue: Queue = PriorityQueue() <span class="keyword">if</span> using_priority <span class="keyword">else</span> Queue()</span><br><span class="line">        self._active: <span class="built_in">bool</span> = <span class="literal">False</span></span><br><span class="line">        self._thread: Thread = Thread(target=self._run)</span><br><span class="line">        self._handlers: defaultdict = defaultdict(<span class="built_in">list</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_run</span>(<span class="params">self</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Get event from queue and then process it.</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;Event engine started. Thread ID: <span class="subst">&#123;get_ident()&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">while</span> self._active:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                event: Event = self._queue.get(block=<span class="literal">True</span>, timeout=<span class="number">1</span>)</span><br><span class="line">                self._process(event)</span><br><span class="line">            <span class="keyword">except</span> Empty:</span><br><span class="line">                <span class="comment"># logger.info(f&quot;Event Queue empty. Thread ID: &#123;get_ident()&#125;&quot;)</span></span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_process</span>(<span class="params">self, event: Event</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        First distribute event to those handlers registered listening</span></span><br><span class="line"><span class="string">        to this type.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        Then distribute event to those general handlers which listens</span></span><br><span class="line"><span class="string">        to all types.</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">if</span> event.<span class="built_in">type</span> <span class="keyword">in</span> self._handlers:</span><br><span class="line">            <span class="keyword">for</span> handler <span class="keyword">in</span> self._handlers[event.<span class="built_in">type</span>]:</span><br><span class="line">                handler(event)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">start</span>(<span class="params">self</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Start event engine to process events and generate timer events.</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        self._active = <span class="literal">True</span></span><br><span class="line">        self._thread.start()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">stop</span>(<span class="params">self</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Stop event engine.</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        self._active = <span class="literal">False</span></span><br><span class="line">        self._thread.join()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">put</span>(<span class="params">self, event: Event</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Put an event object into event queue.</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        self._queue.put(event)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">register</span>(<span class="params">self, etype: <span class="built_in">str</span>, handler: HandlerType</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Register a new handler function for a specific event type. Every</span></span><br><span class="line"><span class="string">        function can only be registered once for each event type.</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        handler_list: <span class="built_in">list</span> = self._handlers[etype]</span><br><span class="line">        <span class="keyword">if</span> handler <span class="keyword">not</span> <span class="keyword">in</span> handler_list:</span><br><span class="line">            handler_list.append(handler)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">unregister</span>(<span class="params">self, etype: <span class="built_in">str</span>, handler: HandlerType</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Unregister an existing handler function from event engine.</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        handler_list: <span class="built_in">list</span> = self._handlers[etype]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> handler <span class="keyword">in</span> handler_list:</span><br><span class="line">            handler_list.remove(handler)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> handler_list:</span><br><span class="line">            self._handlers.pop(<span class="built_in">type</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">process_sleep_event</span>(<span class="params">event</span>):</span><br><span class="line">    name, sleepseconds = event.data</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;In <span class="subst">&#123;get_ident()&#125;</span>, Task <span class="subst">&#123;name&#125;</span> sleep <span class="subst">&#123;sleepseconds&#125;</span> start @ <span class="subst">&#123;datetime.now().isoformat()&#125;</span>&quot;</span>)</span><br><span class="line">    sleep(sleepseconds)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;In <span class="subst">&#123;get_ident()&#125;</span>, Task <span class="subst">&#123;name&#125;</span> sleep <span class="subst">&#123;sleepseconds&#125;</span> end @ <span class="subst">&#123;datetime.now().isoformat()&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;main thread: <span class="subst">&#123;get_ident()&#125;</span> start  @ <span class="subst">&#123;datetime.now().isoformat()&#125;</span>&quot;</span>)</span><br><span class="line">    engine = EventEngine(using_priority=<span class="literal">True</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;using <span class="subst">&#123;<span class="built_in">type</span>(engine._queue)&#125;</span>&quot;</span>)</span><br><span class="line">    engine.register(EVENT_SLEEP, process_sleep_event)</span><br><span class="line">    engine.start()</span><br><span class="line"></span><br><span class="line">    engine.put(Event(EVENT_SLEEP, (<span class="string">&quot;1st_1sec_event&quot;</span>, <span class="number">1</span>)))</span><br><span class="line">    engine.put(Event(EVENT_SLEEP, (<span class="string">&quot;2nd_1sec_event&quot;</span>, <span class="number">1</span>), priority=<span class="number">50</span>))</span><br><span class="line">    engine.put(Event(EVENT_SLEEP, (<span class="string">&quot;3rd_5sec_event&quot;</span>, <span class="number">5</span>)))</span><br><span class="line">    engine.put(Event(EVENT_SLEEP, (<span class="string">&quot;4th_5sec_event&quot;</span>, <span class="number">5</span>), priority=<span class="number">200</span>))</span><br><span class="line">    sleep(<span class="number">13</span>)</span><br><span class="line">    engine.put(Event(EVENT_SLEEP, (<span class="string">&quot;5th_5sec_event&quot;</span>, <span class="number">3</span>), priority=<span class="number">300</span>))</span><br><span class="line"></span><br><span class="line">    engine.stop()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;main thread: <span class="subst">&#123;get_ident()&#125;</span>, exit @ <span class="subst">&#123;datetime.now().isoformat()&#125;</span>&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">main thread: 117652 start  @ 2024-03-16T15:58:45.398626</span><br><span class="line">using &lt;class &#x27;queue.PriorityQueue&#x27;&gt;</span><br><span class="line">Event engine started. Thread ID: 102312</span><br><span class="line">In 102312, Task 4th_5sec_event sleep 5 start @ 2024-03-16T15:58:45.399626</span><br><span class="line">In 102312, Task 4th_5sec_event sleep 5 end @ 2024-03-16T15:58:50.402557</span><br><span class="line">In 102312, Task 3rd_5sec_event sleep 5 start @ 2024-03-16T15:58:50.402557</span><br><span class="line">In 102312, Task 3rd_5sec_event sleep 5 end @ 2024-03-16T15:58:55.413506</span><br><span class="line">In 102312, Task 1st_1sec_event sleep 1 start @ 2024-03-16T15:58:55.413506</span><br><span class="line">In 102312, Task 1st_1sec_event sleep 1 end @ 2024-03-16T15:58:56.418677</span><br><span class="line">In 102312, Task 2nd_1sec_event sleep 1 start @ 2024-03-16T15:58:56.418677</span><br><span class="line">In 102312, Task 2nd_1sec_event sleep 1 end @ 2024-03-16T15:58:57.424852</span><br><span class="line">In 102312, Task 5th_5sec_event sleep 3 start @ 2024-03-16T15:58:58.403006</span><br><span class="line">In 102312, Task 5th_5sec_event sleep 3 end @ 2024-03-16T15:59:01.406562</span><br><span class="line">main thread: 117652, exit @ 2024-03-16T15:59:01.406562</span><br></pre></td></tr></table></figure>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2024/03/16/Python%E4%B8%AD%E7%9A%84PriorityQueue%E6%B5%8B%E8%AF%95/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Berikutnya &amp;raquo;</a>
         </nav>
     
 </section>
