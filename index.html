@@ -91,7 +91,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Cari" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -110,10 +110,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'pos',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'kategori',
-            TAGS: 'tag',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -146,7 +146,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Cari" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
     </div>
 
                 </td>
@@ -163,7 +163,7 @@
         
     <div class="widget-wrap" id='categories'>
         <h3 class="widget-title">
-            <span>kategori</span>
+            <span>categories</span>
             &nbsp;
             <a id='allExpand' href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -249,7 +249,7 @@
                             &nbsp;
                             C++
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2024/07/01/Cpp1##stdafx/">【C++知识库】关于stdafx.h</a></li>  <li class="file"><a href="/2024/07/01/cpp##_stdfunction/">【C++知识库】关于std::function的开销</a></li>  <li class="file"><a href="/2024/07/04/cpp##function_ptr_to_member_function/">【C++知识库】定义指向成员函数的函数指针</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2024/07/01/Cpp1##stdafx/">【C++知识库】关于stdafx.h</a></li>  <li class="file"><a href="/2024/07/01/cpp##_stdfunction/">【C++知识库】关于std::function的开销</a></li>  <li class="file"><a href="/2024/07/04/cpp##function_ptr_to_member_function/">【C++知识库】定义指向成员函数的函数指针</a></li>  <li class="file"><a href="/2024/12/07/Win11_build_boost/">Windows 11编译Boost (v1.86.0)库并加入系统路径</a></li>  <li class="file"><a href="/2024/12/07/Windows%2011%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85pkg-config/">Windows 11编译安装pkg-config</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -415,7 +415,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/10/02/avs-merge-wmv/">AVS合并视频文件</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2018/06/26/MFC/">MFC</a></li>  </ul> 
+                     <li class="file"><a href="/2018/06/26/MFC/">MFC</a></li>  <li class="file"><a href="/2024/12/05/windows_build_glib/">windows_build_glib</a></li>  <li class="file"><a href="/2025/02/13/Qt6%E5%85%8D%E7%BB%A7%E6%89%BF%E5%AE%9E%E7%8E%B0QTableWidget%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/">Qt6免继承实现QTableWidget右键菜单</a></li>  </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -487,6 +487,392 @@
 </aside>
             
             <section id="main">
+        <article id="post-Qt6免继承实现QTableWidget右键菜单" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2025/02/13/Qt6%E5%85%8D%E7%BB%A7%E6%89%BF%E5%AE%9E%E7%8E%B0QTableWidget%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/">
+            <time datetime="2025-02-13T07:28:23.589Z" itemprop="datePublished">2025-02-13</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/Qt6免继承实现QTableWidget右键菜单.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/Qt6免继承实现QTableWidget右键菜单.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/Qt6免继承实现QTableWidget右键菜单.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2025/02/13/Qt6%E5%85%8D%E7%BB%A7%E6%89%BF%E5%AE%9E%E7%8E%B0QTableWidget%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/">Qt6免继承实现QTableWidget右键菜单</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>通过事件过滤器（<code>eventFilter</code>）来实现右键菜单并显示行号。这种方法更加灵活，适合在已有的 <code>QTableWidget</code> 上添加功能，而无需修改或继承它。</p>
+<p>以下是完整的示例代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QApplication&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QTableWidget&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QMenu&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QContextMenuEvent&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QMessageBox&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QHBoxLayout&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QWidget&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">    <span class="function">QApplication <span class="title">app</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建主窗口</span></span><br><span class="line">    QWidget window;</span><br><span class="line">    QHBoxLayout *layout = <span class="keyword">new</span> <span class="built_in">QHBoxLayout</span>(&amp;window);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建 QTableWidget</span></span><br><span class="line">    QTableWidget *tableWidget = <span class="keyword">new</span> <span class="built_in">QTableWidget</span>(<span class="number">5</span>, <span class="number">3</span>);</span><br><span class="line">    tableWidget-&gt;<span class="built_in">setHorizontalHeaderLabels</span>(&#123;<span class="string">&quot;Column 1&quot;</span>, <span class="string">&quot;Column 2&quot;</span>, <span class="string">&quot;Column 3&quot;</span>&#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 填充一些数据</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> row = <span class="number">0</span>; row &lt; <span class="number">5</span>; ++row) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> col = <span class="number">0</span>; col &lt; <span class="number">3</span>; ++col) &#123;</span><br><span class="line">            QTableWidgetItem *item = <span class="keyword">new</span> <span class="built_in">QTableWidgetItem</span>(<span class="built_in">tr</span>(<span class="string">&quot;Item %1-%2&quot;</span>).<span class="built_in">arg</span>(row).<span class="built_in">arg</span>(col));</span><br><span class="line">            tableWidget-&gt;<span class="built_in">setItem</span>(row, col, item);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将 QTableWidget 添加到布局中</span></span><br><span class="line">    layout-&gt;<span class="built_in">addWidget</span>(tableWidget);</span><br><span class="line">    window.<span class="built_in">setLayout</span>(layout);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 安装事件过滤器</span></span><br><span class="line">    tableWidget-&gt;<span class="built_in">viewport</span>()-&gt;<span class="built_in">installEventFilter</span>(&amp;window);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 事件过滤器实现</span></span><br><span class="line">    window.<span class="built_in">installEventFilter</span>(tableWidget);</span><br><span class="line">    QObject::<span class="built_in">connect</span>(tableWidget, &amp;QTableWidget::customContextMenuRequested, [tableWidget](<span class="type">const</span> QPoint &amp;pos) &#123;</span><br><span class="line">        QTableWidgetItem *item = tableWidget-&gt;<span class="built_in">itemAt</span>(pos);</span><br><span class="line">        <span class="keyword">if</span> (item) &#123;</span><br><span class="line">            <span class="type">int</span> row = item-&gt;<span class="built_in">row</span>();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 创建右键菜单</span></span><br><span class="line">            QMenu menu;</span><br><span class="line">            QAction *showRowAction = menu.<span class="built_in">addAction</span>(<span class="built_in">tr</span>(<span class="string">&quot;Show Row Number&quot;</span>));</span><br><span class="line">            QObject::<span class="built_in">connect</span>(showRowAction, &amp;QAction::triggered, [row]() &#123;</span><br><span class="line">                QMessageBox::<span class="built_in">information</span>(<span class="literal">nullptr</span>, <span class="built_in">tr</span>(<span class="string">&quot;Row Number&quot;</span>), <span class="built_in">tr</span>(<span class="string">&quot;You clicked on row: %1&quot;</span>).<span class="built_in">arg</span>(row));</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 显示菜单</span></span><br><span class="line">            menu.<span class="built_in">exec</span>(tableWidget-&gt;<span class="built_in">viewport</span>()-&gt;<span class="built_in">mapToGlobal</span>(pos));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 启用右键菜单</span></span><br><span class="line">    tableWidget-&gt;<span class="built_in">setContextMenuPolicy</span>(Qt::CustomContextMenu);</span><br><span class="line"></span><br><span class="line">    window.<span class="built_in">show</span>();</span><br><span class="line">    <span class="keyword">return</span> app.<span class="built_in">exec</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="代码说明："><a class="header-anchor" href="#代码说明：">¶</a>代码说明：</h3>
+<ol>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2025/02/13/Qt6%E5%85%8D%E7%BB%A7%E6%89%BF%E5%AE%9E%E7%8E%B0QTableWidget%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-Windows 11编译安装pkg-config" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/C/">C++</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2024/12/07/Windows%2011%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85pkg-config/">
+            <time datetime="2024-12-06T19:28:13.000Z" itemprop="datePublished">2024-12-07</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/Windows 11编译安装pkg-config.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/Windows 11编译安装pkg-config.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/Windows 11编译安装pkg-config.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2024/12/07/Windows%2011%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85pkg-config/">Windows 11编译安装pkg-config</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>待完成</p>
+<h2 id="参考资料"><a class="header-anchor" href="#参考资料">¶</a>参考资料</h2>
+<blockquote>
+<ul>
+<li><a href=""></a></li>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2024/12/07/Windows%2011%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85pkg-config/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-Win11_build_boost" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/C/">C++</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2024/12/07/Win11_build_boost/">
+            <time datetime="2024-12-06T18:33:22.000Z" itemprop="datePublished">2024-12-07</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/Win11_build_boost.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/Win11_build_boost.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/Win11_build_boost.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2024/12/07/Win11_build_boost/">Windows 11编译Boost (v1.86.0)库并加入系统路径</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><ol>
+<li>去官网下载源码压缩包并解压；</li>
+<li>打开Developer Command Prompt for VS 2022，切换到解压后的目录；</li>
+<li>运行以下命令：<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> installed</span><br><span class="line">bootstrap.bat</span><br><span class="line">b2 install variant=release link=shared,static threading=multi address-model=<span class="number">64</span> --prefix=installed</span><br></pre></td></tr></table></figure>
+<ul>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2024/12/07/Win11_build_boost/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-windows_build_glib" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2024/12/05/windows_build_glib/">
+            <time datetime="2024-12-05T05:27:50.000Z" itemprop="datePublished">2024-12-05</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/windows_build_glib.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/windows_build_glib.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/windows_build_glib.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2024/12/05/windows_build_glib/">windows_build_glib</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">meson .. --buildtype=&lt;release|debug|debugoptimized&gt; --prefix=&lt;path&gt;</span><br><span class="line">meson install</span><br></pre></td></tr></table></figure>
+<h2 id="参考资料"><a class="header-anchor" href="#参考资料">¶</a>参考资料</h2>
+<blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/GNOME/glib/blob/main/docs/win32-build.md">Building with Visual Studio 2015 or newer</a></li>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2024/12/05/windows_build_glib/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-嵌入的Qt对话框输入一些东西相关" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1081,404 +1467,8 @@
 
 
     
-        <article id="post-cpp##function_ptr_to_member_function" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/C/">C++</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2024/07/04/cpp##function_ptr_to_member_function/">
-            <time datetime="2024-07-04T01:55:23.000Z" itemprop="datePublished">2024-07-04</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/cpp##function_ptr_to_member_function.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/cpp##function_ptr_to_member_function.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/cpp##function_ptr_to_member_function.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2024/07/04/cpp##function_ptr_to_member_function/">【C++知识库】定义指向成员函数的函数指针</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>要在 C++ 中定义一个指向类成员函数的原始函数指针，你需要知道成员函数有一个隐式的 this 指针作为它们的第一个参数，这使它们与自由函数或静态成员函数区别开来。因此，声明指向成员函数的指针的语法包括类名和 ::* 操作符。<br>
-这是定义指向非静态成员函数的原始函数指针的一般语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ReturnType (ClassName::*pointerName)(ParameterTypes...) = &amp;ClassName::FunctionName;</span><br></pre></td></tr></table></figure>
-<h3 id="示例："><a class="header-anchor" href="#示例：">¶</a>示例：</h3>
-<p>考虑一个类 MyClass，它有一个成员函数 doSomething：</p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2024/07/04/cpp##function_ptr_to_member_function/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-cpp##_stdfunction" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/C/">C++</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2024/07/01/cpp##_stdfunction/">
-            <time datetime="2024-07-01T02:26:49.000Z" itemprop="datePublished">2024-07-01</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/cpp##_stdfunction.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/cpp##_stdfunction.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/cpp##_stdfunction.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2024/07/01/cpp##_stdfunction/">【C++知识库】关于std::function的开销</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在 C++ 中使用 <code>std::function</code> 相比于使用函数指针或直接函数调用会引入一定的运行时成本。这个成本主要是由于 <code>std::function</code> 使用的类型擦除机制，使其能够存储、复制和调用任何与其签名匹配的可调用目标（函数、lambda 表达式、bind 表达式或其他函数对象）。以下是导致其运行时成本的关键因素：</p>
-<ol>
-<li>间接性：<code>std::function</code> 涉及一个额外的间接层级。当你调用一个 <code>std::function</code> 时，它内部通过指向虚函数表（vtable）的指针调用存储的可调用对象。这种间接性可以阻止某些编译器优化，如内联，这些优化对于直接函数调用或甚至是函数指针来说更可行。</li>
-<li>堆分配：对于超出小对象优化（SOO）阈值（这是实现定义的）的可调用对象，<code>std::function</code> 可能会执行堆分配。这可能引入动态内存分配/释放的开销，并可能导致堆碎片化。然而，对于小对象，<code>std::function</code> 通常使用一种优化来在栈上存储对象，避免了堆分配。</li>
-<li>类型擦除开销：使 <code>std::function</code> 能够存储任何匹配签名的可调用类型的类型擦除机制也引入了开销。这是因为它必须维护对各种可调用类型的统一接口，这涉及到存储额外的元数据，并可能执行动态类型检查。</li>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2024/07/01/cpp##_stdfunction/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-Cpp1##stdafx" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/C/">C++</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2024/07/01/Cpp1##stdafx/">
-            <time datetime="2024-06-30T23:36:36.000Z" itemprop="datePublished">2024-07-01</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/Cpp1##stdafx.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/Cpp1##stdafx.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/Cpp1##stdafx.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2024/07/01/Cpp1##stdafx/">【C++知识库】关于stdafx.h</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>  <code>stdafx.h</code>是Visual Studio项目中用于加速构建过程的预编译头文件。<code>stdafx.h</code>的名称是传统上的，来源于Visual Studio的早期版本，但它本身没有任何内在的含义。使用预编译头文件可以显著减少大型项目的编译时间。</p>
-<h3 id="预编译头文件的工作原理"><a class="header-anchor" href="#预编译头文件的工作原理">¶</a>预编译头文件的工作原理</h3>
-<p>  当你编译一个 C++ 程序时，编译器会处理每个编译单元（通常是一个 .cpp 文件）中包含的头文件。这个过程可能非常耗时，特别是对于有许多头文件在多个编译单元中被包含的大型项目。为了优化这一点，引入了预编译头文件的概念。</p>
-<p>  预编译头文件被编译一次，然后在多个编译单元中重用。这意味着，只要这些头文件没有改变，编译器就可以跳过在每个编译单元中处理预编译头文件中包含的头文件，从而加速编译过程。</p>
-<h3 id="stdafx-h和stdafx-cpp"><a class="header-anchor" href="#stdafx-h和stdafx-cpp">¶</a><code>stdafx.h</code>和<code>stdafx.cpp</code></h3>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2024/07/01/Cpp1##stdafx/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-sh申请证书的一点经验" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2024/06/30/sh%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6%E7%9A%84%E4%B8%80%E7%82%B9%E7%BB%8F%E9%AA%8C/">
-            <time datetime="2024-06-29T16:12:12.000Z" itemprop="datePublished">2024-06-30</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/sh申请证书的一点经验.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/sh申请证书的一点经验.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/sh申请证书的一点经验.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2024/06/30/sh%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6%E7%9A%84%E4%B8%80%E7%82%B9%E7%BB%8F%E9%AA%8C/">acme.sh申请SSL证书的一点经验</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="acme-sh安装"><a class="header-anchor" href="#acme-sh安装">¶</a>acme.sh安装</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl https://get.acme.sh | sh -s email=business@kailinjt.com</span><br><span class="line"><span class="built_in">alias</span>  acme.sh=<span class="string">&#x27;/root/.acme.sh/acme.sh&#x27;</span></span><br></pre></td></tr></table></figure>
-<h3 id="CA机构"><a class="header-anchor" href="#CA机构">¶</a>CA机构</h3>
-<ul>
-<li>Let’s Encrypt不晚于2024-06-29强制要求DNSSEC，否则报错<code>DNSSEC: DNSKEY Missing</code>。但鹅厂的DNSPod需要付费才能开启DNSSEC，故放弃。
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2024/06/30/sh%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6%E7%9A%84%E4%B8%80%E7%82%B9%E7%BB%8F%E9%AA%8C/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Berikutnya &amp;raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
         </nav>
     
 </section>
@@ -1486,7 +1476,7 @@
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            BookSword &copy; 2024 
+            BookSword &copy; 2025 
             <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
             <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
             

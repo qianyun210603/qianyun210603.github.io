@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Qt6免继承实现QTableWidget右键菜单 | 书剑阁</title>
+    
+    
+        <meta name="keywords" content="Qt6免继承实现QTableWidget右键菜单" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="通过事件过滤器（eventFilter）来实现右键菜单并显示行号。这种方法更加灵活，适合在已有的 QTableWidget 上添加功能，而无需修改或继承它。 以下是完整的示例代码： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qt6免继承实现QTableWidget右键菜单">
+<meta property="og:url" content="https://booksword.top/2025/02/13/Qt6%E5%85%8D%E7%BB%A7%E6%89%BF%E5%AE%9E%E7%8E%B0QTableWidget%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/index.html">
+<meta property="og:site_name" content="书剑阁">
+<meta property="og:description" content="通过事件过滤器（eventFilter）来实现右键菜单并显示行号。这种方法更加灵活，适合在已有的 QTableWidget 上添加功能，而无需修改或继承它。 以下是完整的示例代码： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859">
+<meta property="og:locale">
+<meta property="article:published_time" content="2025-02-13T07:28:23.589Z">
+<meta property="article:modified_time" content="2025-02-13T07:29:04.602Z">
+<meta property="article:author" content="BookSword">
+<meta name="twitter:card" content="summary">
+    
+
+    
+
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="书剑阁" type="application/atom+xml">
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">书剑阁</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>categories</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            AI
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            OCR
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/Tesseract/">Tesseract</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            框架
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/Build-Tensorflow-from-source-on-Linux-Mint/">Build Tensorflow from source on Linux Mint</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Hexo
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/03/Build-Hexo-blog/">Hexo静态博客系列之一——在VPS上搭建</a></li>  <li class="file"><a href="/2023/03/23/Hexo_missing_custom_domain/">Hexo部署到GitHub Pages后设置的自定义域名丢失</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Linux
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Cuda
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/10/Linux-multi-graphic-card-overclock/">Linux系统下多Nvidia显卡超频</a></li>  <li class="file"><a href="/2022/11/03/ubuntucuda/">Ubuntu 22.04安装Cuda Toolkit</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            应用软件
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/09/Transmission-UDP-Failed-to-set-receive-buffer/">Linux下Transmission的“UDP Failed to set receive buffer”错误</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/06/26/Linux-Mint-Cleanup/">Linux Mint Cleanup</a></li>  <li class="file"><a href="/2018/06/26/Install-HP-print-driver-on-Linux-mint/">Install HP print driver on Linux mint</a></li>  <li class="file"><a href="/2018/07/01/Move-linux-to-new-disk/">无损迁移Linux系统到新磁盘</a></li>  <li class="file"><a href="/2018/07/02/apt-key-expired/">apt提示key expired问题</a></li>  <li class="file"><a href="/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/">Linux Mint从18.3升级到19</a></li>  <li class="file"><a href="/2018/07/29/Linux-fcitx-input-method-cannot-use/">Linux Mint某些程序无法使用fcitx的输入法</a></li>  <li class="file"><a href="/2022/11/29/ubuntu-mount-windows-share-drive-with-credential-file/">Ubuntu系统挂载Windows共享文件夹通过credential文件认证</a></li>  <li class="file"><a href="/2023/01/11/linux-swap%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA/">Linux Swap交换分区</a></li>  <li class="file"><a href="/2023/02/04/Ubuntu%2020.04%E5%AE%89%E8%A3%85VNC%E6%9C%8D%E5%8A%A1%EF%BC%88Xfce4%EF%BC%89/">Ubuntu 20.04安装VNC服务（Xfce4）</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Programming
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            C++
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2024/07/01/Cpp1##stdafx/">【C++知识库】关于stdafx.h</a></li>  <li class="file"><a href="/2024/07/01/cpp##_stdfunction/">【C++知识库】关于std::function的开销</a></li>  <li class="file"><a href="/2024/07/04/cpp##function_ptr_to_member_function/">【C++知识库】定义指向成员函数的函数指针</a></li>  <li class="file"><a href="/2024/12/07/Win11_build_boost/">Windows 11编译Boost (v1.86.0)库并加入系统路径</a></li>  <li class="file"><a href="/2024/12/07/Windows%2011%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85pkg-config/">Windows 11编译安装pkg-config</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            CTP
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2024/01/21/CTP%E8%B8%A9%E5%9D%91%E8%AE%B0/">CTP踩坑记</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Cuda
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/02/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/">Linux Mint安装Cuda 9.1以及cuDNN、NICC</a></li>  <li class="file"><a href="/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/">Linux Mint 19安装Cuda 9.2以及cuDNN、NCCL</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Git
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/Git-ticks/">Git tricks</a></li>  <li class="file"><a href="/2022/11/14/git-forked-repository%E5%BC%BA%E5%88%B6%E4%B8%8E%E4%B8%8A%E6%B8%B8%E5%90%8C%E6%AD%A5/">Git Forked Repository强制与Fork源同步</a></li>  <li class="file"><a href="/2022/11/22/gitignore%E6%96%87%E4%BB%B6%E7%9A%84%E9%A1%BA%E5%BA%8F/">gitignore文件的顺序</a></li>  <li class="file"><a href="/2024/09/26/github_detach_fork/">Github：解除Fork关系</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            MongoDB
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/09/26/2022-09-26-ubuntu-22-04_install_mongodb-4-2/">Ubuntu 22.04安装MongoDB 4.2</a></li>  <li class="file"><a href="/2022/10/15/%E4%BF%AE%E5%A4%8Dmongodb%E8%AE%BE%E7%BD%AE%E5%AF%BC%E8%87%B4mongod%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/">修复MongoDB设置导致mongod无法启动</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Python
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/pandas-tricks/">【Python知识库】pandas tricks</a></li>  <li class="file"><a href="/2022/10/01/2022-10-01-%E6%B6%88%E9%99%A4-frozen-importlib-bootstrap-228-runtimewarning-scipy-lib-messagestream-messagestream-size-changed-may-indicate-binary-incompatibility/">消除&lt;frozen importlib._bootstrap&gt;:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility.</a></li>  <li class="file"><a href="/2023/04/30/error%20Could%20not%20find%20the%20Qt%20platform%20plugin%20xcb%20in/">解决报错: qt.qpa.plugin Could not find the Qt platform plugin "xcb" in ""</a></li>  <li class="file"><a href="/2024/01/21/publish_python_package_pypi/">发布Python包到PyPi上</a></li>  <li class="file"><a href="/2024/03/16/Python%E4%B8%AD%E7%9A%84PriorityQueue%E6%B5%8B%E8%AF%95/">【Python知识库】Python中的PriorityQueue测试</a></li>  <li class="file"><a href="/2024/09/16/properly_terminate_qthread_in_pyqt/">properly_terminate_qthread_in_pyqt</a></li>  <li class="file"><a href="/2024/10/26/Windows%E6%9C%AC%E5%9C%B0%E7%BC%96%E8%AF%91pandas%E6%BA%90%E7%A0%81/">Windows本地编译pandas源码</a></li>  <li class="file"><a href="/2024/11/09/%E5%B5%8C%E5%85%A5%E7%9A%84Qt%E5%AF%B9%E8%AF%9D%E6%A1%86%E8%BE%93%E5%85%A5%E4%B8%80%E4%BA%9B%E4%B8%9C%E8%A5%BF%E7%9B%B8%E5%85%B3/">嵌入的Qt对话框输入一些东西相关(.exec/.show etc)</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Visual Studio
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/02/Rename-Visual-Studio-Project-name-checklist/">重命名Visual Studio项目</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            jupyter
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/08/19/jupyterlab/">jupyterlab升级后的数个插件问题</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2022/10/15/%E7%BC%96%E8%AF%91Google%20protobuf/">Windows下编译Google protobuf</a></li>  <li class="file"><a href="/2024/11/02/Windows%E9%85%8D%E7%BD%AEnvm%EF%BC%8Cnodejs/">Windows配置nvm，nodejs</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            nginx
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/08/Nginx-setup-second-server/">Nginx建立多个server</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            交易策略开发
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            数据
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2024/01/21/%E6%95%B0%E6%8D%AE%E6%BA%90%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6/">数据源问题集锦</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            其他
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/build-etherminer/">build etherminer</a></li>  <li class="file"><a href="/2018/06/26/About-GongFu-Wall/">关于减轻功夫墙（GFW）造成的不便的一些探讨</a></li>  <li class="file"><a href="/2018/06/30/New-personal-tax/">个税改革分析，减税还是加税？</a></li>  <li class="file"><a href="/2022/11/22/wakeonlan/">设置局域网和广域网远程开机（Wake on Lan）</a></li>  <li class="file"><a href="/2023/04/06/509%E5%8A%A0%E5%AF%86%E8%BF%9E%E6%8E%A5/">TigerVNC：使用X.509加密连接</a></li>  <li class="file"><a href="/2024/06/30/sh%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6%E7%9A%84%E4%B8%80%E7%82%B9%E7%BB%8F%E9%AA%8C/">acme.sh申请SSL证书的一点经验</a></li>  <li class="file"><a href="/2024/10/20/Windows%E7%AB%AF%E5%8F%A3%E6%88%90%E4%B8%BA%E7%B3%BB%E7%BB%9F%E4%BF%9D%E7%95%99%E7%AB%AF%E5%8F%A3%E7%9A%84%E9%97%AE%E9%A2%98/">Windows端口成为系统保留端口的问题</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            应用软件
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Airflow
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/07/15/ApacheAirflow1/">在Anaconda环境下安装Apache Airflow以进行定时任务管理：安装篇</a></li>  <li class="file"><a href="/2023/07/15/ApacheAirflow3/">单个非root用户Anaconda下安装Apache Airflow用于定时任务：使用Postgresql</a></li>  <li class="file"><a href="/2023/11/23/ApacheAirflow2/">在Anaconda环境下安装Apache Airflow以进行定时任务管理：设置为系统服务</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            ffmpeg
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/02/21/ffmpeg_unsafe_file_name/">ffmpeg合并文件报错“Unsafe file name”</a></li>  <li class="file"><a href="/2023/04/08/ffmpeg_filter_complex/">ffmpeg中的-filter_complex</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            数据库
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            KDB+
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2024/04/11/KDB+%E6%95%88%E8%83%BD%E7%8E%A9%E7%A5%A8%E6%B5%8B%E8%AF%95/">KDB+效能玩票测试</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Postgresql
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/12/24/Ubuntu%E5%AE%89%E8%A3%85Postgresql%E5%B9%B6%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/">Ubuntu安装Postgresql并设置自己的数据文件位置</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            视频压制
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/10/02/avs-merge-wmv/">AVS合并视频文件</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/06/26/MFC/">MFC</a></li>  <li class="file"><a href="/2024/12/05/windows_build_glib/">windows_build_glib</a></li>  <li class="file active"><a href="/2025/02/13/Qt6%E5%85%8D%E7%BB%A7%E6%89%BF%E5%AE%9E%E7%8E%B0QTableWidget%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/">Qt6免继承实现QTableWidget右键菜单</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-Qt6免继承实现QTableWidget右键菜单" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2025/02/13/Qt6%E5%85%8D%E7%BB%A7%E6%89%BF%E5%AE%9E%E7%8E%B0QTableWidget%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/">
+            <time datetime="2025-02-13T07:28:23.589Z" itemprop="datePublished">2025-02-13</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/Qt6免继承实现QTableWidget右键菜单.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/Qt6免继承实现QTableWidget右键菜单.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/Qt6免继承实现QTableWidget右键菜单.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Qt6免继承实现QTableWidget右键菜单
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>通过事件过滤器（<code>eventFilter</code>）来实现右键菜单并显示行号。这种方法更加灵活，适合在已有的 <code>QTableWidget</code> 上添加功能，而无需修改或继承它。</p>
+<p>以下是完整的示例代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QApplication&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QTableWidget&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QMenu&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QContextMenuEvent&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QMessageBox&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QHBoxLayout&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QWidget&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">    <span class="function">QApplication <span class="title">app</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建主窗口</span></span><br><span class="line">    QWidget window;</span><br><span class="line">    QHBoxLayout *layout = <span class="keyword">new</span> <span class="built_in">QHBoxLayout</span>(&amp;window);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建 QTableWidget</span></span><br><span class="line">    QTableWidget *tableWidget = <span class="keyword">new</span> <span class="built_in">QTableWidget</span>(<span class="number">5</span>, <span class="number">3</span>);</span><br><span class="line">    tableWidget-&gt;<span class="built_in">setHorizontalHeaderLabels</span>(&#123;<span class="string">&quot;Column 1&quot;</span>, <span class="string">&quot;Column 2&quot;</span>, <span class="string">&quot;Column 3&quot;</span>&#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 填充一些数据</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> row = <span class="number">0</span>; row &lt; <span class="number">5</span>; ++row) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> col = <span class="number">0</span>; col &lt; <span class="number">3</span>; ++col) &#123;</span><br><span class="line">            QTableWidgetItem *item = <span class="keyword">new</span> <span class="built_in">QTableWidgetItem</span>(<span class="built_in">tr</span>(<span class="string">&quot;Item %1-%2&quot;</span>).<span class="built_in">arg</span>(row).<span class="built_in">arg</span>(col));</span><br><span class="line">            tableWidget-&gt;<span class="built_in">setItem</span>(row, col, item);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将 QTableWidget 添加到布局中</span></span><br><span class="line">    layout-&gt;<span class="built_in">addWidget</span>(tableWidget);</span><br><span class="line">    window.<span class="built_in">setLayout</span>(layout);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 安装事件过滤器</span></span><br><span class="line">    tableWidget-&gt;<span class="built_in">viewport</span>()-&gt;<span class="built_in">installEventFilter</span>(&amp;window);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 事件过滤器实现</span></span><br><span class="line">    window.<span class="built_in">installEventFilter</span>(tableWidget);</span><br><span class="line">    QObject::<span class="built_in">connect</span>(tableWidget, &amp;QTableWidget::customContextMenuRequested, [tableWidget](<span class="type">const</span> QPoint &amp;pos) &#123;</span><br><span class="line">        QTableWidgetItem *item = tableWidget-&gt;<span class="built_in">itemAt</span>(pos);</span><br><span class="line">        <span class="keyword">if</span> (item) &#123;</span><br><span class="line">            <span class="type">int</span> row = item-&gt;<span class="built_in">row</span>();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 创建右键菜单</span></span><br><span class="line">            QMenu menu;</span><br><span class="line">            QAction *showRowAction = menu.<span class="built_in">addAction</span>(<span class="built_in">tr</span>(<span class="string">&quot;Show Row Number&quot;</span>));</span><br><span class="line">            QObject::<span class="built_in">connect</span>(showRowAction, &amp;QAction::triggered, [row]() &#123;</span><br><span class="line">                QMessageBox::<span class="built_in">information</span>(<span class="literal">nullptr</span>, <span class="built_in">tr</span>(<span class="string">&quot;Row Number&quot;</span>), <span class="built_in">tr</span>(<span class="string">&quot;You clicked on row: %1&quot;</span>).<span class="built_in">arg</span>(row));</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 显示菜单</span></span><br><span class="line">            menu.<span class="built_in">exec</span>(tableWidget-&gt;<span class="built_in">viewport</span>()-&gt;<span class="built_in">mapToGlobal</span>(pos));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 启用右键菜单</span></span><br><span class="line">    tableWidget-&gt;<span class="built_in">setContextMenuPolicy</span>(Qt::CustomContextMenu);</span><br><span class="line"></span><br><span class="line">    window.<span class="built_in">show</span>();</span><br><span class="line">    <span class="keyword">return</span> app.<span class="built_in">exec</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="代码说明："><a class="header-anchor" href="#代码说明：">¶</a>代码说明：</h3>
+<ol>
+<li>
+<p><strong>事件过滤器</strong>：</p>
+<ul>
+<li>我们通过 <code>installEventFilter</code> 将事件过滤器安装到 <code>QTableWidget</code> 的视口（<code>viewport()</code>）上。</li>
+<li>在事件过滤器中，我们可以捕获右键点击事件并显示菜单。</li>
+</ul>
+</li>
+<li>
+<p><strong>右键菜单</strong>：</p>
+<ul>
+<li>使用 <code>QMenu</code> 创建一个右键菜单。</li>
+<li>通过 <code>QTableWidget::itemAt</code> 获取当前点击的单元格，并提取行号。</li>
+<li>添加一个菜单项来显示行号，点击后会弹出一个消息框。</li>
+</ul>
+</li>
+<li>
+<p><strong><code>setContextMenuPolicy</code></strong>：</p>
+<ul>
+<li>设置 <code>QTableWidget</code> 的上下文菜单策略为 <code>Qt::CustomContextMenu</code>，以便触发 <code>customContextMenuRequested</code> 信号。</li>
+</ul>
+</li>
+<li>
+<p><strong>信号与槽</strong>：</p>
+<ul>
+<li>连接 <code>customContextMenuRequested</code> 信号，在右键点击时显示菜单。</li>
+</ul>
+</li>
+</ol>
+<h3 id="运行效果："><a class="header-anchor" href="#运行效果：">¶</a>运行效果：</h3>
+<ul>
+<li>右键点击表格中的任意单元格，会弹出一个菜单。</li>
+<li>选择 “Show Row Number” 菜单项，会弹出一个消息框显示当前点击的行号。</li>
+</ul>
+<h3 id="优点："><a class="header-anchor" href="#优点：">¶</a>优点：</h3>
+<ul>
+<li>不需要继承 <code>QTableWidget</code>，适合在已有代码基础上扩展功能。</li>
+<li>更加灵活，可以轻松应用到其他控件上。</li>
+</ul>
+<p>如果不想修改现有代码结构，这种方法是非常合适的！</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+    
+        <a href="/2024/12/07/Windows%2011%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85pkg-config/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Windows 11编译安装pkg-config</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            BookSword &copy; 2025 
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>
