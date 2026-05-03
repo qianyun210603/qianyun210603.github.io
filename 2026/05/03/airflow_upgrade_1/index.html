@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Airflow 升级与配置问题处理记录 | 书剑阁</title>
+    
+    
+        <meta name="keywords" content="Airflow 升级与配置问题处理记录" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="具体升级流程客参见Apache-Airflow的官方文档 ¶以下是过程中遇到的问题  Q1. 升级 Airflow 建议先清理数据库 airflow db clean，参数如何设置？ Q2. airflow.cfg中logging&#x2F;log_filename_template是做什么的？为何在 Airflow 3 中被移除？ Q3. airflow db migrate 报错 No module n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Airflow 升级与配置问题处理记录">
+<meta property="og:url" content="https://booksword.top/2026/05/03/airflow_upgrade_1/index.html">
+<meta property="og:site_name" content="书剑阁">
+<meta property="og:description" content="具体升级流程客参见Apache-Airflow的官方文档 ¶以下是过程中遇到的问题  Q1. 升级 Airflow 建议先清理数据库 airflow db clean，参数如何设置？ Q2. airflow.cfg中logging&#x2F;log_filename_template是做什么的？为何在 Airflow 3 中被移除？ Q3. airflow db migrate 报错 No module n">
+<meta property="og:locale">
+<meta property="article:published_time" content="2026-05-03T03:20:44.000Z">
+<meta property="article:modified_time" content="2026-05-03T11:21:07.429Z">
+<meta property="article:author" content="BookSword">
+<meta name="twitter:card" content="summary">
+    
+
+    
+
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="书剑阁" type="application/atom+xml">
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">书剑阁</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Entradas',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>Categorias</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            AI
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            OCR
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/Tesseract/">Tesseract</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            框架
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/Build-Tensorflow-from-source-on-Linux-Mint/">Build Tensorflow from source on Linux Mint</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Hexo
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/03/Build-Hexo-blog/">Hexo静态博客系列之一——在VPS上搭建</a></li>  <li class="file"><a href="/2023/03/23/Hexo_missing_custom_domain/">Hexo部署到GitHub Pages后设置的自定义域名丢失</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Linux
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Cuda
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/10/Linux-multi-graphic-card-overclock/">Linux系统下多Nvidia显卡超频</a></li>  <li class="file"><a href="/2022/11/03/ubuntucuda/">Ubuntu 22.04安装Cuda Toolkit</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            应用软件
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/09/Transmission-UDP-Failed-to-set-receive-buffer/">Linux下Transmission的“UDP Failed to set receive buffer”错误</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            软件
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/2026/05/03/airflow_upgrade_1/">Airflow 升级与配置问题处理记录</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/06/26/Linux-Mint-Cleanup/">Linux Mint Cleanup</a></li>  <li class="file"><a href="/2018/06/26/Install-HP-print-driver-on-Linux-mint/">Install HP print driver on Linux mint</a></li>  <li class="file"><a href="/2018/07/01/Move-linux-to-new-disk/">无损迁移Linux系统到新磁盘</a></li>  <li class="file"><a href="/2018/07/02/apt-key-expired/">apt提示key expired问题</a></li>  <li class="file"><a href="/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/">Linux Mint从18.3升级到19</a></li>  <li class="file"><a href="/2018/07/29/Linux-fcitx-input-method-cannot-use/">Linux Mint某些程序无法使用fcitx的输入法</a></li>  <li class="file"><a href="/2022/11/29/ubuntu-mount-windows-share-drive-with-credential-file/">Ubuntu系统挂载Windows共享文件夹通过credential文件认证</a></li>  <li class="file"><a href="/2023/01/11/linux-swap%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA/">Linux Swap交换分区</a></li>  <li class="file"><a href="/2023/02/04/Ubuntu%2020.04%E5%AE%89%E8%A3%85VNC%E6%9C%8D%E5%8A%A1%EF%BC%88Xfce4%EF%BC%89/">Ubuntu 20.04安装VNC服务（Xfce4）</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Programming
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            C++
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2024/07/01/Cpp1##stdafx/">【C++知识库】关于stdafx.h</a></li>  <li class="file"><a href="/2024/07/01/cpp##_stdfunction/">【C++知识库】关于std::function的开销</a></li>  <li class="file"><a href="/2024/07/04/cpp##function_ptr_to_member_function/">【C++知识库】定义指向成员函数的函数指针</a></li>  <li class="file"><a href="/2024/12/07/Win11_build_boost/">Windows 11编译Boost (v1.86.0)库并加入系统路径</a></li>  <li class="file"><a href="/2024/12/07/Windows%2011%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85pkg-config/">Windows 11编译安装pkg-config</a></li>  <li class="file"><a href="/2025/05/02/vcpkg%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0/">vcpkg配置笔记</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            CTP
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2024/01/21/CTP%E8%B8%A9%E5%9D%91%E8%AE%B0/">CTP踩坑记</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Cuda
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/02/cuda-9-1-installation-on-linux-mint-with-cuDNN-and-NICC/">Linux Mint安装Cuda 9.1以及cuDNN、NICC</a></li>  <li class="file"><a href="/2018/07/14/cuda-9-2-installation-on-Linux-mint-19/">Linux Mint 19安装Cuda 9.2以及cuDNN、NCCL</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Git
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/Git-ticks/">Git tricks</a></li>  <li class="file"><a href="/2022/11/14/git-forked-repository%E5%BC%BA%E5%88%B6%E4%B8%8E%E4%B8%8A%E6%B8%B8%E5%90%8C%E6%AD%A5/">Git Forked Repository强制与Fork源同步</a></li>  <li class="file"><a href="/2022/11/22/gitignore%E6%96%87%E4%BB%B6%E7%9A%84%E9%A1%BA%E5%BA%8F/">gitignore文件的顺序</a></li>  <li class="file"><a href="/2024/09/26/github_detach_fork/">Github：解除Fork关系</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            MongoDB
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/09/26/2022-09-26-ubuntu-22-04_install_mongodb-4-2/">Ubuntu 22.04安装MongoDB 4.2</a></li>  <li class="file"><a href="/2022/10/15/%E4%BF%AE%E5%A4%8Dmongodb%E8%AE%BE%E7%BD%AE%E5%AF%BC%E8%87%B4mongod%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/">修复MongoDB设置导致mongod无法启动</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Python
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/pandas-tricks/">【Python知识库】pandas tricks</a></li>  <li class="file"><a href="/2022/10/01/2022-10-01-%E6%B6%88%E9%99%A4-frozen-importlib-bootstrap-228-runtimewarning-scipy-lib-messagestream-messagestream-size-changed-may-indicate-binary-incompatibility/">消除&lt;frozen importlib._bootstrap&gt;:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility.</a></li>  <li class="file"><a href="/2023/04/30/error%20Could%20not%20find%20the%20Qt%20platform%20plugin%20xcb%20in/">解决报错: qt.qpa.plugin Could not find the Qt platform plugin "xcb" in ""</a></li>  <li class="file"><a href="/2024/01/21/publish_python_package_pypi/">发布Python包到PyPi上</a></li>  <li class="file"><a href="/2024/03/16/Python%E4%B8%AD%E7%9A%84PriorityQueue%E6%B5%8B%E8%AF%95/">【Python知识库】Python中的PriorityQueue测试</a></li>  <li class="file"><a href="/2024/09/16/properly_terminate_qthread_in_pyqt/">properly_terminate_qthread_in_pyqt</a></li>  <li class="file"><a href="/2024/10/26/Windows%E6%9C%AC%E5%9C%B0%E7%BC%96%E8%AF%91pandas%E6%BA%90%E7%A0%81/">Windows本地编译pandas源码</a></li>  <li class="file"><a href="/2024/11/09/%E5%B5%8C%E5%85%A5%E7%9A%84Qt%E5%AF%B9%E8%AF%9D%E6%A1%86%E8%BE%93%E5%85%A5%E4%B8%80%E4%BA%9B%E4%B8%9C%E8%A5%BF%E7%9B%B8%E5%85%B3/">嵌入的Qt对话框输入一些东西相关(.exec/.show etc)</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Qt
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2025/02/13/Qt6%E5%85%8D%E7%BB%A7%E6%89%BF%E5%AE%9E%E7%8E%B0QTableWidget%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/">Qt6免继承实现QTableWidget右键菜单</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Visual Studio
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/02/Rename-Visual-Studio-Project-name-checklist/">重命名Visual Studio项目</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            jupyter
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/08/19/jupyterlab/">jupyterlab升级后的数个插件问题</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2022/10/15/%E7%BC%96%E8%AF%91Google%20protobuf/">Windows下编译Google protobuf</a></li>  <li class="file"><a href="/2024/11/02/Windows%E9%85%8D%E7%BD%AEnvm%EF%BC%8Cnodejs/">Windows配置nvm，nodejs</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            nginx
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/08/Nginx-setup-second-server/">Nginx建立多个server</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            交易策略开发
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            数据
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2024/01/21/%E6%95%B0%E6%8D%AE%E6%BA%90%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6/">数据源问题集锦</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            其他
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/26/build-etherminer/">build etherminer</a></li>  <li class="file"><a href="/2018/06/26/About-GongFu-Wall/">关于减轻功夫墙（GFW）造成的不便的一些探讨</a></li>  <li class="file"><a href="/2018/06/30/New-personal-tax/">个税改革分析，减税还是加税？</a></li>  <li class="file"><a href="/2022/11/22/wakeonlan/">设置局域网和广域网远程开机（Wake on Lan）</a></li>  <li class="file"><a href="/2023/04/06/509%E5%8A%A0%E5%AF%86%E8%BF%9E%E6%8E%A5/">TigerVNC：使用X.509加密连接</a></li>  <li class="file"><a href="/2024/06/30/sh%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6%E7%9A%84%E4%B8%80%E7%82%B9%E7%BB%8F%E9%AA%8C/">acme.sh申请SSL证书的一点经验</a></li>  <li class="file"><a href="/2024/10/20/Windows%E7%AB%AF%E5%8F%A3%E6%88%90%E4%B8%BA%E7%B3%BB%E7%BB%9F%E4%BF%9D%E7%95%99%E7%AB%AF%E5%8F%A3%E7%9A%84%E9%97%AE%E9%A2%98/">Windows端口成为系统保留端口的问题</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            应用软件
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Airflow
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/07/15/ApacheAirflow1/">在Anaconda环境下安装Apache Airflow以进行定时任务管理：安装篇</a></li>  <li class="file"><a href="/2023/07/15/ApacheAirflow3/">单个非root用户Anaconda下安装Apache Airflow用于定时任务：使用Postgresql</a></li>  <li class="file"><a href="/2023/11/23/ApacheAirflow2/">在Anaconda环境下安装Apache Airflow以进行定时任务管理：设置为系统服务</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            ffmpeg
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/02/21/ffmpeg_unsafe_file_name/">ffmpeg合并文件报错“Unsafe file name”</a></li>  <li class="file"><a href="/2023/04/08/ffmpeg_filter_complex/">ffmpeg中的-filter_complex</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            数据库
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            KDB+
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2024/04/11/KDB+%E6%95%88%E8%83%BD%E7%8E%A9%E7%A5%A8%E6%B5%8B%E8%AF%95/">KDB+效能玩票测试</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Postgresql
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2023/12/24/Ubuntu%E5%AE%89%E8%A3%85Postgresql%E5%B9%B6%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE/">Ubuntu安装Postgresql并设置自己的数据文件位置</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            视频压制
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/10/02/avs-merge-wmv/">AVS合并视频文件</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/06/26/MFC/">MFC</a></li>  <li class="file"><a href="/2024/12/05/windows_build_glib/">windows_build_glib</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-airflow_upgrade_1" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Linux/">Linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Linux/%E8%BD%AF%E4%BB%B6/">软件</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2026/05/03/airflow_upgrade_1/">
+            <time datetime="2026-05-03T03:20:44.000Z" itemprop="datePublished">2026-05-03</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/airflow_upgrade_1.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/airflow_upgrade_1.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/airflow_upgrade_1.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Airflow 升级与配置问题处理记录
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>具体升级流程客参见<a target="_blank" rel="noopener" href="https://airflow.apache.org/docs/apache-airflow/3.1.8/installation/upgrading_to_airflow3.html">Apache-Airflow的官方文档</a></p>
+<h2 id="以下是过程中遇到的问题"><a class="header-anchor" href="#以下是过程中遇到的问题">¶</a>以下是过程中遇到的问题</h2>
+<ol>
+<li><a href="#q1">Q1. 升级 Airflow 建议先清理数据库 <code>airflow db clean</code>，参数如何设置？</a></li>
+<li><a href="#q2">Q2. airflow.cfg中<code>logging/log_filename_template</code>是做什么的？为何在 Airflow 3 中被移除？</a></li>
+<li><a href="#q3">Q3. airflow db migrate 报错 <code>No module named 'airflow.auth'</code></a></li>
+<li><a href="#q4">Q4. FAB Provider 安装选择：哪个兼容旧版用户密码</a></li>
+<li><a href="#q5">Q5. webserver_config.py 不适配 Airflow 3.1.8，如何修改？</a></li>
+<li><a href="#q6">Q6. jwt_secret 必须设置的错误修复</a></li>
+<li><a href="#q7">Q7. 使用 systemctl 查看完整日志的方法</a></li>
+<li><a href="#q8">Q8. 升级后运行发现很多 DeprecationWarning 如何将自动处理未覆盖的选项升级到3.1.18兼容版本？</a></li>
+<li><a href="#q9">Q9. 使用<code>systemctl</code>将 <code>airflow</code> 注册为服务，运行服务后发现未正常启动，如何用 journalctl 精简并查看日志？</a></li>
+<li><a href="#q10">Q10. 升级 Airflow 3 后出现 msgspec.DecodeError</a></li>
+<li><a href="#q11">Q11. Airflow 3 任务卡在 queued 状态</a></li>
+<li><a href="#q12">Q12. Airflow 3 中 scheduler 与 dag-processor 的关系</a></li>
+</ol>
+<p><a id="q1"></a></p>
+<h2 id="Q1-升级-Airflow-建议先清理数据库-airflow-db-clean，参数如何设置？"><a class="header-anchor" href="#Q1-升级-Airflow-建议先清理数据库-airflow-db-clean，参数如何设置？">¶</a>Q1. 升级 Airflow 建议先清理数据库 <code>airflow db clean</code>，参数如何设置？</h2>
+<p>升级前使用 <code>airflow db clean</code> 可减小数据库体积、提升架构变更效率。</p>
+<h3 id="常用参数说明"><a class="header-anchor" href="#常用参数说明">¶</a>常用参数说明</h3>
+<ul>
+<li><code>--clean-before-timestamp</code>：必需，清除该时间点之前的数据（如 <code>&quot;2025-01-25 00:00:00+08:00&quot;</code>）。</li>
+<li><code>--dry-run</code>：建议先执行，仅列出 SQL 不实际删除。</li>
+<li><code>--skip-archive</code>：推荐，直接永久删除，不归档。</li>
+<li><code>--yes</code> / <code>-y</code>：自动确认，用于自动化。</li>
+<li><code>--tables</code>：指定要清理的表，逗号分隔。</li>
+<li><code>--dag-ids</code> / <code>--exclude-dag-ids</code>：按 DAG ID 精准清理或排除。</li>
+<li><code>--batch-size</code>：控制每批次删除行数，防止锁死。</li>
+<li><code>--verbose</code> / <code>-v</code>：详细日志。</li>
+</ul>
+<h3 id="推荐操作步骤"><a class="header-anchor" href="#推荐操作步骤">¶</a>推荐操作步骤</h3>
+<ol>
+<li>
+<p><strong>停机并备份</strong>：完全停止 Airflow 服务，完整备份数据库。</p>
+</li>
+<li>
+<p><strong>先预览</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">airflow db clean --clean-before-timestamp <span class="string">&quot;2025-12-25 00:00:00+00:00&quot;</span> --dry-run</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>执行清理</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">airflow db clean --clean-before-timestamp <span class="string">&quot;2025-12-25 00:00:00+00:00&quot;</span> --skip-archive --<span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>超大表分批清理</strong>：可设置 <code>--batch-size 10000</code> 重复执行。</p>
+</li>
+</ol>
+<h3 id="常见问题与避坑"><a class="header-anchor" href="#常见问题与避坑">¶</a>常见问题与避坑</h3>
+<ul>
+<li>任务超时：改为 cron 作业或延长超时时间。</li>
+<li>未知归档表：未使用 <code>--skip-archive</code> 时会产生，可运行 <code>airflow db drop-archived</code> 清理。</li>
+<li>数据库无法连接：检查环境变量 <code>AIRFLOW__DATABASE__SQL_ALCHEMY_CONN</code>。</li>
+</ul>
+<hr>
+<p><a id="q2"></a></p>
+<h2 id="Q2-airflow-cfg中logging-log-filename-template是做什么的？为何在-Airflow-3-中被移除？"><a class="header-anchor" href="#Q2-airflow-cfg中logging-log-filename-template是做什么的？为何在-Airflow-3-中被移除？">¶</a>Q2. airflow.cfg中<code>logging/log_filename_template</code>是做什么的？为何在 Airflow 3 中被移除？</h2>
+<p><code>log_filename_template</code> 曾用于自定义任务日志的文件名和路径模板，如：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[logging]</span></span><br><span class="line"><span class="attr">log_filename_template</span> = &#123;&#123; ti.dag_id &#125;&#125;/&#123;&#123; ti.task_id &#125;&#125;/&#123;&#123; ts &#125;&#125;/&#123;&#123; try_number &#125;&#125;.log</span><br></pre></td></tr></table></figure>
+<h3 id="移除原因"><a class="header-anchor" href="#移除原因">¶</a>移除原因</h3>
+<ul>
+<li><strong>动态文件名需求</strong>：需包含 <code>run_id</code>、<code>map_index</code> 等动态字段，旧模板机制维护成本高。</li>
+<li><strong>清理历史遗留设计</strong>：统一内部架构，降低复杂性。</li>
+<li><strong>简化配置</strong>：Airflow 3 目标，减少用户自定义负担。</li>
+</ul>
+<h3 id="迁移指南"><a class="header-anchor" href="#迁移指南">¶</a>迁移指南</h3>
+<ul>
+<li>调整本地日志目录：在 <code>[logging]</code> 下使用 <code>base_log_folder</code>。</li>
+<li>远程日志存储（S3/GCS）：路径由各自的 Handler 管理，不受影响。</li>
+<li>自定义 Handler：升级或寻找替代处理器，或通过 <code>airflow_local_settings.py</code> 覆盖（不推荐）。</li>
+</ul>
+<hr>
+<p><a id="q3"></a></p>
+<h2 id="Q3-airflow-db-migrate-报错-No-module-named-airflow-auth"><a class="header-anchor" href="#Q3-airflow-db-migrate-报错-No-module-named-airflow-auth">¶</a>Q3. airflow db migrate 报错 <code>No module named 'airflow.auth'</code></h2>
+<p><strong>错误信息</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ModuleNotFoundError: No module named &#x27;airflow.auth&#x27;</span><br><span class="line">...</span><br><span class="line">airflow.exceptions.AirflowConfigException: The object could not be loaded. </span><br><span class="line">Please check &quot;auth_manager&quot; key in &quot;core&quot; section. </span><br><span class="line">Current value: &quot;airflow.auth.managers.fab.fab_auth_manager.FabAuthManager&quot;.</span><br></pre></td></tr></table></figure>
+<p><strong>原因</strong>：<code>airflow.cfg</code> 中的 <code>auth_manager</code> 配置指向 Airflow 2 的旧路径，Airflow 3 已移除该模块。</p>
+<h3 id="解决方案"><a class="header-anchor" href="#解决方案">¶</a>解决方案</h3>
+<h4 id="方法一：保留-FAB-认证管理器（生产环境推荐）"><a class="header-anchor" href="#方法一：保留-FAB-认证管理器（生产环境推荐）">¶</a>方法一：保留 FAB 认证管理器（生产环境推荐）</h4>
+<ol>
+<li>
+<p><strong>安装 FAB provider</strong>：</p>
+<ul>
+<li>基础安装：<code>pip install apache-airflow-providers-fab</code></li>
+<li>如需 LDAP：<code>pip install &quot;apache-airflow-providers-fab[ldap]&quot;</code></li>
+<li>如需 OAuth2：<code>pip install &quot;apache-airflow-providers-fab[oauth]&quot;</code></li>
+</ul>
+</li>
+<li>
+<p><strong>更新配置文件</strong> <code>airflow.cfg</code>：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[core]</span></span><br><span class="line"><span class="attr">auth_manager</span> = airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>重新运行迁移</strong>：<code>airflow db migrate</code></p>
+</li>
+</ol>
+<h4 id="方法二：切换到-SimpleAuthManager（测试环境）"><a class="header-anchor" href="#方法二：切换到-SimpleAuthManager（测试环境）">¶</a>方法二：切换到 SimpleAuthManager（测试环境）</h4>
+<p>修改 <code>[core]</code> 部分为：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">auth_manager</span> = airflow.providers.fab.auth_manager.fab_auth_manager.SimpleAuthManager</span><br></pre></td></tr></table></figure>
+<h3 id="验证与后续"><a class="header-anchor" href="#验证与后续">¶</a>验证与后续</h3>
+<ul>
+<li>运行 <code>airflow config get-value core auth_manager</code> 确认新路径。</li>
+<li>重启 Webserver，检查日志。</li>
+<li>运行 <code>airflow config list --deprecated</code> 清理其他弃用配置。</li>
+</ul>
+<hr>
+<p><a id="q4"></a></p>
+<h2 id="Q4-FAB-Provider-安装选择：哪个兼容旧版用户密码"><a class="header-anchor" href="#Q4-FAB-Provider-安装选择：哪个兼容旧版用户密码">¶</a>Q4. FAB Provider 安装选择：哪个兼容旧版用户密码</h2>
+<p><strong>问题</strong>：基础安装、LDAP 安装、OAuth2 安装，哪个能沿用 Airflow 2 原有的用户和密码？</p>
+<p><strong>回答摘要</strong>：<br>
+<strong>基础安装</strong>（<code>pip install apache-airflow-providers-fab</code>）即可完全兼容原有用户密码，因为用户数据仍保存在同一个数据库中，FAB Auth Manager 只是被分离成独立 Provider，表结构不变。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">安装命令</th>
+<th style="text-align:left">用途</th>
+<th style="text-align:left">兼容旧用户密码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>pip install apache-airflow-providers-fab</code></td>
+<td style="text-align:left">核心认证功能</td>
+<td style="text-align:left"><strong>是，完全兼容</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>pip install &quot;apache-airflow-providers-fab[ldap]&quot;</code></td>
+<td style="text-align:left">增加 LDAP 集成</td>
+<td style="text-align:left">是，用于外部账号</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>pip install &quot;apache-airflow-providers-fab[oauth]&quot;</code></td>
+<td style="text-align:left">增加 OAuth2 集成</td>
+<td style="text-align:left">是，用于外部账号</td>
+</tr>
+</tbody>
+</table>
+<p><strong>后续步骤</strong>：安装后重启 Webserver，并运行 <code>airflow fab-db migrate</code> 确保 FAB 表结构最新。</p>
+<hr>
+<p><a id="q5"></a></p>
+<h2 id="Q5-webserver-config-py-不适配-Airflow-3-1-8，如何修改？"><a class="header-anchor" href="#Q5-webserver-config-py-不适配-Airflow-3-1-8，如何修改？">¶</a>Q5. webserver_config.py 不适配 Airflow 3.1.8，如何修改？</h2>
+<h3 id="推荐配置方式"><a class="header-anchor" href="#推荐配置方式">¶</a>推荐配置方式</h3>
+<ul>
+<li>
+<p><strong><code>airflow.cfg</code></strong> 中指定认证管理器：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[core]</span></span><br><span class="line"><span class="attr">auth_manager</span> = airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong><code>webserver_config.py</code></strong> 精简为仅微调行为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> annotations</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> flask_appbuilder.const <span class="keyword">import</span> AUTH_OAUTH</span><br><span class="line"></span><br><span class="line">basedir = os.path.abspath(os.path.dirname(__file__))</span><br><span class="line">AUTH_TYPE = AUTH_OAUTH</span><br><span class="line"><span class="comment"># 其他微调项如 AUTH_USER_REGISTRATION = True 可继续保留</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p><a id="q6"></a></p>
+<h2 id="Q6-jwt-secret-必须设置的错误修复"><a class="header-anchor" href="#Q6-jwt-secret-必须设置的错误修复">¶</a>Q6. jwt_secret 必须设置的错误修复</h2>
+<p><strong>错误信息</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ValueError: The value api_auth/jwt_secret must be set!</span><br></pre></td></tr></table></figure>
+<p><strong>原因</strong>：Airflow 3.x 强制要求为 API 认证设置 JWT 密钥，用于签名和验证令牌。</p>
+<h3 id="解决方案-v2"><a class="header-anchor" href="#解决方案-v2">¶</a>解决方案</h3>
+<h4 id="方案一：环境变量（推荐）"><a class="header-anchor" href="#方案一：环境变量（推荐）">¶</a>方案一：环境变量（推荐）</h4>
+<ol>
+<li>
+<p>生成强随机密钥：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl rand -<span class="built_in">base64</span> 48</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>设置环境变量：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> AIRFLOW__API_AUTH__JWT_SECRET=<span class="string">&#x27;&lt;生成的密钥&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="方案二：修改-airflow-cfg"><a class="header-anchor" href="#方案二：修改-airflow-cfg">¶</a>方案二：修改 airflow.cfg</h4>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[api_auth]</span></span><br><span class="line"><span class="attr">jwt_secret</span> = z1Sd+ZC3cK9vW8xH/<span class="number">3</span>mYpA2rF5tG7uJwN0qX4bV6yE=</span><br></pre></td></tr></table></figure>
+<h4 id="方案三：Docker-环境"><a class="header-anchor" href="#方案三：Docker-环境">¶</a>方案三：Docker 环境</h4>
+<p>通过 <code>-e AIRFLOW__API_AUTH__JWT_SECRET=...</code> 传递。</p>
+<h3 id="注意事项"><a class="header-anchor" href="#注意事项">¶</a>注意事项</h3>
+<ul>
+<li>所有需要 JWT 的组件（Scheduler、Worker、Triggerer）必须使用<strong>相同</strong>的密钥。</li>
+<li>不要将密钥提交到版本控制，建议使用密钥管理服务。</li>
+<li>密钥轮换会立即使现有令牌失效，需妥善规划。</li>
+<li>若仍有 JWT 错误，可尝试升级 <code>apache-airflow-providers-fab</code>。</li>
+</ul>
+<hr>
+<p><a id="q7"></a></p>
+<h2 id="Q7-使用-systemctl-查看完整日志的方法"><a class="header-anchor" href="#Q7-使用-systemctl-查看完整日志的方法">¶</a>Q7. 使用 systemctl 查看完整日志的方法</h2>
+<p><strong>问题</strong>：如何用 <code>systemctl</code> 查看服务完整日志？</p>
+<p><strong>回答摘要</strong>：<br>
+使用 <code>journalctl</code> 命令查看 systemd 服务的完整日志。</p>
+<h3 id="基本命令"><a class="header-anchor" href="#基本命令">¶</a>基本命令</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">journalctl -u 服务名.service</span><br></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">journalctl -u airflow-webserver.service</span><br></pre></td></tr></table></figure>
+<h3 id="常用选项组合"><a class="header-anchor" href="#常用选项组合">¶</a>常用选项组合</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">选项</th>
+<th style="text-align:left">作用</th>
+<th style="text-align:left">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>-e</code></td>
+<td style="text-align:left">跳转到日志末尾</td>
+<td style="text-align:left"><code>journalctl -u airflow-webserver.service -e</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-f</code></td>
+<td style="text-align:left">实时跟踪（类似 <code>tail -f</code>）</td>
+<td style="text-align:left"><code>journalctl -u airflow-webserver.service -f</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-b</code></td>
+<td style="text-align:left">仅显示本次启动后的日志</td>
+<td style="text-align:left"><code>journalctl -u airflow-webserver.service -b</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>--no-pager</code></td>
+<td style="text-align:left">禁用分页，一次性输出</td>
+<td style="text-align:left"><code>journalctl -u airflow-webserver.service --no-pager</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>--since</code> / <code>--until</code></td>
+<td style="text-align:left">按时间范围过滤</td>
+<td style="text-align:left"><code>--since &quot;2026-05-03 13:39:00&quot;</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-o cat</code></td>
+<td style="text-align:left">简洁输出，无元信息</td>
+<td style="text-align:left"><code>journalctl -u airflow-webserver.service -o cat</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="查找服务名"><a class="header-anchor" href="#查找服务名">¶</a>查找服务名</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl list-unit-files | grep airflow</span><br></pre></td></tr></table></figure>
+<h3 id="应用示例（结合-JWT-错误排查）"><a class="header-anchor" href="#应用示例（结合-JWT-错误排查）">¶</a>应用示例（结合 JWT 错误排查）</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart airflow-webserver</span><br><span class="line">journalctl -u airflow-webserver.service -f -e --since <span class="string">&quot;2026-05-03 13:39:00&quot;</span></span><br></pre></td></tr></table></figure>
+<p><a id="q8"></a></p>
+<h2 id="Q8-升级后运行发现很多-DeprecationWarning-如何将自动处理未覆盖的选项升级到3-1-18兼容版本？"><a class="header-anchor" href="#Q8-升级后运行发现很多-DeprecationWarning-如何将自动处理未覆盖的选项升级到3-1-18兼容版本？">¶</a>Q8. 升级后运行发现很多 DeprecationWarning 如何将自动处理未覆盖的选项升级到3.1.18兼容版本？</h2>
+<p>从日志中提取所有 <code>DeprecationWarning</code>，去重后共 <strong>10 项</strong>，归纳为<strong>配置项迁移</strong>和<strong>常量弃用</strong>两类。</p>
+<h3 id="对应关系表"><a class="header-anchor" href="#对应关系表">¶</a>对应关系表</h3>
+<table>
+<thead>
+<tr>
+<th>旧配置/常量</th>
+<th>新配置/常量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[webserver] grid_view_sorting_order</code></td>
+<td><code>[api] grid_view_sorting_order</code></td>
+</tr>
+<tr>
+<td><code>[scheduler] dag_dir_list_interval</code></td>
+<td><code>[dag_processor] refresh_interval</code></td>
+</tr>
+<tr>
+<td><code>[webserver] secret_key</code></td>
+<td><code>[api] secret_key</code></td>
+</tr>
+<tr>
+<td><code>[webserver] base_url</code></td>
+<td><code>[api] base_url</code></td>
+</tr>
+<tr>
+<td><code>[webserver] web_server_port</code></td>
+<td><code>[api] port</code></td>
+</tr>
+<tr>
+<td><code>[webserver] workers</code></td>
+<td><code>[api] workers</code></td>
+</tr>
+<tr>
+<td><code>[webserver] web_server_host</code></td>
+<td><code>[api] host</code></td>
+</tr>
+<tr>
+<td><code>[webserver] expose_hostname</code></td>
+<td><code>[fab] expose_hostname</code></td>
+</tr>
+<tr>
+<td><code>[webserver] page_size</code></td>
+<td><code>[api] page_size</code></td>
+</tr>
+<tr>
+<td><code>HTTP_422_UNPROCESSABLE_ENTITY</code></td>
+<td><code>HTTP_422_UNPROCESSABLE_CONTENT</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="变更说明"><a class="header-anchor" href="#变更说明">¶</a>变更说明</h3>
+<ul>
+<li><code>[scheduler] dag_dir_list_interval</code> → <code>[dag_processor] refresh_interval</code></li>
+<li><code>[webserver]</code> 下多个选项迁移至 <code>[api]</code>，部分键重命名：
+<ul>
+<li><code>web_server_port</code> → <code>port</code></li>
+<li><code>web_server_host</code> → <code>host</code></li>
+</ul>
+</li>
+<li><code>[webserver] expose_hostname</code> → <code>[fab] expose_hostname</code></li>
+<li><code>[core] dag_file_processor_timeout</code> 建议迁移至 <code>[dag_processor]</code></li>
+<li><code>HTTP_422_UNPROCESSABLE_ENTITY</code> 需在 Python 代码中手动替换为 <code>HTTP_422_UNPROCESSABLE_CONTENT</code></li>
+</ul>
+<h3 id="从-webserver-迁移至-api-的完整列表"><a class="header-anchor" href="#从-webserver-迁移至-api-的完整列表">¶</a>从 [webserver] 迁移至 [api] 的完整列表</h3>
+<table>
+<thead>
+<tr>
+<th>新配置项 (API)</th>
+<th>说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>base_url</code></td>
+<td>API 基础 URL</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>default_wrap</code></td>
+<td>文本换行默认开关</td>
+<td><code>False</code></td>
+</tr>
+<tr>
+<td><code>enable_swagger_ui</code></td>
+<td>运行 Swagger UI</td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>expose_config</code></td>
+<td>暴露配置信息</td>
+<td><code>False</code></td>
+</tr>
+<tr>
+<td><code>expose_stacktrace</code></td>
+<td>暴露堆栈信息</td>
+<td><code>False</code></td>
+</tr>
+<tr>
+<td><code>grid_view_sorting_order</code></td>
+<td>网格视图排序规则</td>
+<td><code>topological</code></td>
+</tr>
+<tr>
+<td><code>hide_paused_dags_by_default</code></td>
+<td>默认隐藏暂停的 DAG</td>
+<td><code>False</code></td>
+</tr>
+<tr>
+<td><code>host</code> (原 <code>web_server_host</code>)</td>
+<td>监听地址</td>
+<td><code>0.0.0.0</code></td>
+</tr>
+<tr>
+<td><code>log_fetch_timeout_sec</code></td>
+<td>日志获取超时</td>
+<td><code>5</code></td>
+</tr>
+<tr>
+<td><code>page_size</code></td>
+<td>API 页面大小</td>
+<td><code>50</code></td>
+</tr>
+<tr>
+<td><code>port</code> (原 <code>web_server_port</code>)</td>
+<td>监听端口</td>
+<td><code>8080</code></td>
+</tr>
+<tr>
+<td><code>secret_key</code></td>
+<td>签名密钥</td>
+<td><code>&#123;SECRET_KEY&#125;</code></td>
+</tr>
+<tr>
+<td><code>ssl_cert</code> / <code>ssl_key</code></td>
+<td>SSL 证书/密钥路径</td>
+<td>空</td>
+</tr>
+<tr>
+<td><code>worker_timeout</code> (原 <code>web_server_worker_timeout</code>)</td>
+<td>Worker 超时</td>
+<td><code>120</code></td>
+</tr>
+<tr>
+<td><code>workers</code></td>
+<td>Worker 进程数</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><code>access_logfile</code></td>
+<td>已弃用，迁移至 <code>[logging]</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>auto_refresh_interval</code></td>
+<td>自动刷新间隔</td>
+<td><code>3</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><a id="q9"></a></p>
+<h2 id="Q9-使用systemctl将-airflow-注册为服务，运行服务后发现未正常启动，如何用-journalctl-精简并查看日志？"><a class="header-anchor" href="#Q9-使用systemctl将-airflow-注册为服务，运行服务后发现未正常启动，如何用-journalctl-精简并查看日志？">¶</a>Q9. 使用<code>systemctl</code>将 <code>airflow</code> 注册为服务，运行服务后发现未正常启动，如何用 journalctl 精简并查看日志？</h2>
+<h3 id="清理前检查"><a class="header-anchor" href="#清理前检查">¶</a>清理前检查</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">journalctl --disk-usage</span><br></pre></td></tr></table></figure>
+<h3 id="清理方法"><a class="header-anchor" href="#清理方法">¶</a>清理方法</h3>
+<table>
+<thead>
+<tr>
+<th>策略</th>
+<th>命令示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>按时间清理</td>
+<td><code>sudo journalctl --vacuum-time=2weeks</code></td>
+<td>删除指定时间之前的日志</td>
+</tr>
+<tr>
+<td>按大小清理</td>
+<td><code>sudo journalctl --vacuum-size=500M</code></td>
+<td>保留日志直到总大小低于指定值</td>
+</tr>
+<tr>
+<td>按文件数清理</td>
+<td><code>sudo journalctl --vacuum-files=20</code></td>
+<td>只保留指定数量的日志文件</td>
+</tr>
+</tbody>
+</table>
+<h3 id="删除特定服务的日志"><a class="header-anchor" href="#删除特定服务的日志">¶</a>删除特定服务的日志</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo journalctl -u &lt;服务名&gt; --rotate</span><br><span class="line">sudo journalctl -u &lt;服务名&gt; --vacuum-time=2weeks</span><br></pre></td></tr></table></figure>
+<hr>
+<p><a id="q10"></a></p>
+<h2 id="Q10-升级-Airflow-3-后出现-msgspec-DecodeError"><a class="header-anchor" href="#Q10-升级-Airflow-3-后出现-msgspec-DecodeError">¶</a>Q10. 升级 Airflow 3 后出现 msgspec.DecodeError</h2>
+<h3 id="错误信息"><a class="header-anchor" href="#错误信息">¶</a>错误信息</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msgspec.DecodeError: MessagePack data is malformed: trailing characters (byte 1)</span><br></pre></td></tr></table></figure>
+<h3 id="原因"><a class="header-anchor" href="#原因">¶</a>原因</h3>
+<p>Airflow 3 将 Flask session 序列化改为 MessagePack，数据库中残留旧格式 session 数据。</p>
+<h3 id="解决方法"><a class="header-anchor" href="#解决方法">¶</a>解决方法</h3>
+<p>清空 session 表：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> session;</span><br><span class="line"><span class="comment">-- 或 TRUNCATE TABLE session;</span></span><br></pre></td></tr></table></figure>
+<p>重启 Airflow Webserver 即可。</p>
+<hr>
+<p><a id="q11"></a></p>
+<h2 id="Q11-Airflow-3-任务卡在-queued-状态"><a class="header-anchor" href="#Q11-Airflow-3-任务卡在-queued-状态">¶</a>Q11. Airflow 3 任务卡在 queued 状态</h2>
+<h3 id="原因分析"><a class="header-anchor" href="#原因分析">¶</a>原因分析</h3>
+<ul>
+<li>升级后 <code>dag_file_processor_timeout</code> 可能需迁移至 <code>[dag_processor]</code></li>
+<li>调度器与 DAG 处理器协同异常</li>
+<li>资源池槽位满、执行器配置错误、僵尸任务等</li>
+</ul>
+<h3 id="解决方案（按优先级排序）"><a class="header-anchor" href="#解决方案（按优先级排序）">¶</a>解决方案（按优先级排序）</h3>
+<ol>
+<li><strong>清理状态</strong>：<code>airflow tasks clear &lt;dag_id&gt; --dag-run-state running --task-state running --upstream --downstream</code></li>
+<li><strong>重启调度器</strong>：<code>pkill -f &quot;airflow scheduler&quot; &amp;&amp; airflow scheduler -D</code></li>
+<li><strong>检查资源池</strong>：UI 中 <code>Admin -&gt; Pools</code>，必要时增加槽位</li>
+<li><strong>检查 CeleryExecutor</strong>（若使用）：确认 worker 在线、broker 和 backend 连接正常</li>
+<li><strong>调整并发/心跳参数</strong>：增大 <code>parallelism</code>、<code>parsing_processes</code>、心跳时间等</li>
+<li><strong>手动标记失败</strong>：UI 中将 queued 实例标记为 failed</li>
+</ol>
+<hr>
+<p><a id="q12"></a></p>
+<h2 id="Q12-Airflow-3-中-scheduler-与-dag-processor-的关系"><a class="header-anchor" href="#Q12-Airflow-3-中-scheduler-与-dag-processor-的关系">¶</a>Q12. Airflow 3 中 scheduler 与 dag-processor 的关系</h2>
+<h3 id="核心概念"><a class="header-anchor" href="#核心概念">¶</a>核心概念</h3>
+<ul>
+<li><strong>Scheduler</strong>：决定何时运行哪些任务，不直接解析 DAG 文件</li>
+<li><strong>DAG Processor</strong>：解析 Python DAG 文件并写入数据库</li>
+</ul>
+<h3 id="部署模式"><a class="header-anchor" href="#部署模式">¶</a>部署模式</h3>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>配置</th>
+<th>启动方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>进程内运行（默认）</td>
+<td><code>standalone_dag_processor = False</code></td>
+<td>只需 <code>airflow scheduler</code></td>
+</tr>
+<tr>
+<td>分开部署</td>
+<td><code>standalone_dag_processor = True</code></td>
+<td>需分别启动 <code>airflow dag-processor</code> 和 <code>airflow scheduler</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="建议"><a class="header-anchor" href="#建议">¶</a>建议</h3>
+<p>开发/测试推荐默认进程内模式；生产环境推荐分开部署以确保安全隔离。</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+    
+        <a href="/2025/05/02/vcpkg%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Más viejo</strong>
+            <div class="article-nav-title">vcpkg配置笔记</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            BookSword &copy; 2026 
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>
