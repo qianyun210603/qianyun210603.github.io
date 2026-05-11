@@ -3,17 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Categoria: 软件 | 书剑阁</title>
+    <title>Linux下postgresql.service和postgresql@.service的一点观察 | 书剑阁</title>
     
     
-        <meta name="keywords" content="书剑阁" />
+        <meta name="keywords" content="Linux下postgresql.service和postgresql@.service的一点观察" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="书剑阁">
-<meta property="og:url" content="https://booksword.top/categories/Linux/%E8%BD%AF%E4%BB%B6/index.html">
+    <meta name="description" content="在Ubuntu下用apt安装postgresql后，一般会生成两个systemctl服务(通常位于&#x2F;lib&#x2F;system&#x2F;systemd)，一个是postgresql.service，另一个是带参数的postgresql@.service，其中参数是Postgresql的大版本号。后者可以通过systemctl start postgresql@18-main.service启动，其中18是版本号">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux下postgresql.service和postgresql@.service的一点观察">
+<meta property="og:url" content="https://booksword.top/2026/05/11/service%E7%9A%84%E4%B8%80%E7%82%B9%E8%A7%82%E5%AF%9F/index.html">
 <meta property="og:site_name" content="书剑阁">
+<meta property="og:description" content="在Ubuntu下用apt安装postgresql后，一般会生成两个systemctl服务(通常位于&#x2F;lib&#x2F;system&#x2F;systemd)，一个是postgresql.service，另一个是带参数的postgresql@.service，其中参数是Postgresql的大版本号。后者可以通过systemctl start postgresql@18-main.service启动，其中18是版本号">
 <meta property="og:locale">
+<meta property="article:published_time" content="2026-05-11T04:58:35.000Z">
+<meta property="article:modified_time" content="2026-05-11T13:34:31.016Z">
 <meta property="article:author" content="BookSword">
 <meta name="twitter:card" content="summary">
     
@@ -91,7 +95,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -110,10 +114,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -146,7 +150,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
     </div>
 
                 </td>
@@ -163,7 +167,7 @@
         
     <div class="widget-wrap" id='categories'>
         <h3 class="widget-title">
-            <span>Categorias</span>
+            <span>categories</span>
             &nbsp;
             <a id='allExpand' href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -209,9 +213,9 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/03/Build-Hexo-blog/">Hexo静态博客系列之一——在VPS上搭建</a></li>  <li class="file"><a href="/2023/03/23/Hexo_missing_custom_domain/">Hexo部署到GitHub Pages后设置的自定义域名丢失</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             Linux
                         </a>
@@ -225,22 +229,13 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/10/Linux-multi-graphic-card-overclock/">Linux系统下多Nvidia显卡超频</a></li>  <li class="file"><a href="/2022/11/03/ubuntucuda/">Ubuntu 22.04安装Cuda Toolkit</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             应用软件
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/09/Transmission-UDP-Failed-to-set-receive-buffer/">Linux下Transmission的“UDP Failed to set receive buffer”错误</a></li>  </ul> 
-                    </li> 
-                    
-                    <li class="directory">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
-                            &nbsp;
-                            软件
-                        </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2026/05/03/airflow_upgrade_1/">Airflow 升级与配置问题处理记录</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/07/09/Transmission-UDP-Failed-to-set-receive-buffer/">Linux下Transmission的“UDP Failed to set receive buffer”错误</a></li>  <li class="file"><a href="/2026/05/03/airflow_upgrade_1/">Airflow 升级与配置问题处理记录</a></li>  <li class="file active"><a href="/2026/05/11/service%E7%9A%84%E4%B8%80%E7%82%B9%E8%A7%82%E5%AF%9F/">Linux下postgresql.service和postgresql@.service的一点观察</a></li>  </ul> 
                     </li> 
                      <li class="file"><a href="/2018/06/26/Linux-Mint-Cleanup/">Linux Mint Cleanup</a></li>  <li class="file"><a href="/2018/06/26/Install-HP-print-driver-on-Linux-mint/">Install HP print driver on Linux mint</a></li>  <li class="file"><a href="/2018/07/01/Move-linux-to-new-disk/">无损迁移Linux系统到新磁盘</a></li>  <li class="file"><a href="/2018/07/02/apt-key-expired/">apt提示key expired问题</a></li>  <li class="file"><a href="/2018/07/12/Upgrade-to-linux-mint-19-from-18-3/">Linux Mint从18.3升级到19</a></li>  <li class="file"><a href="/2018/07/29/Linux-fcitx-input-method-cannot-use/">Linux Mint某些程序无法使用fcitx的输入法</a></li>  <li class="file"><a href="/2022/11/29/ubuntu-mount-windows-share-drive-with-credential-file/">Ubuntu系统挂载Windows共享文件夹通过credential文件认证</a></li>  <li class="file"><a href="/2023/01/11/linux-swap%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA/">Linux Swap交换分区</a></li>  <li class="file"><a href="/2023/02/04/Ubuntu%2020.04%E5%AE%89%E8%A3%85VNC%E6%9C%8D%E5%8A%A1%EF%BC%88Xfce4%EF%BC%89/">Ubuntu 20.04安装VNC服务（Xfce4）</a></li>  </ul> 
                     </li> 
@@ -504,45 +499,122 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-folder"></i></span>
-        <h1 class="title">软件</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-service的一点观察" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2026/05/03/airflow_upgrade_1/">Airflow 升级与配置问题处理记录</a>
-        </h1>
-    
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Linux/">Linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Linux/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/">应用软件</a>
+    </div>
 
-                <div class="article-meta">
-                    
+                        
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2026/05/03/airflow_upgrade_1/">
-            <time datetime="2026-05-03T03:20:44.000Z" itemprop="datePublished">2026-05-03</time>
+        <a href="/2026/05/11/service%E7%9A%84%E4%B8%80%E7%82%B9%E8%A7%82%E5%AF%9F/">
+            <time datetime="2026-05-11T04:58:35.000Z" itemprop="datePublished">2026-05-11</time>
         </a>
     </div>
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Linux/">Linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Linux/%E8%BD%AF%E4%BB%B6/">软件</a>
-    </div>
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/raw/writing/source/_posts/service的一点观察.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/edit/writing/source/_posts/service的一点观察.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/qianyun210603/Wiki-site/commits/writing/source/_posts/service的一点观察.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Linux下postgresql.service和postgresql@.service的一点观察
+        </h1>
+    
 
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">Catalogue</strong>
                     
                 </div>
+            
+        
+        
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在Ubuntu下用apt安装postgresql后，一般会生成两个systemctl服务(通常位于<code>/lib/system/systemd</code>)，一个是<code>postgresql.service</code>，另一个是带参数的<code>postgresql@.service</code>，其中参数是Postgresql的大版本号。后者可以通过<code>systemctl start postgresql@18-main.service</code>启动，其中18是版本号，可以换成其他安装的版本。</p>
+<p>笔者遇到的问题是，笔者将Postgresql版本从16升级到了18（用的同样的配置同样的端口号），但想保留16一段时间以防万一。于是在升级时简单用<code>systemctl stop postgresql@16-main.service</code>，<code>systemctl stop postgresql@18-main.service</code>简单地切换了下。但笔者的机器断电了一次，重启后一些依赖数据库的其他服务都挂了。于是进行了研究，发现开机自动重启的是16版本。</p>
+<p>经过仔细研究，笔者发现</p>
+<ul>
+<li>Ubuntu安装Postgresql后，注册的开机启动服务其实是<code>postgresql.service</code>，并不是具体指向版本的<code>postgresql@16-main.service</code>或者<code>postgresql@18-main.service</code>;
+<ul>
+<li>查看开机启动状态<code>systemctl is-enabled postgresql.service</code>返回<code>enabled</code>, <code>systemctl is-enabled postgresql@16-main.service</code>和<code>systemctl is-enabled postgresql@18-main.service</code>返回<code>enabled-runtime</code></li>
+<li><a target="_blank" rel="noopener" href="https://www.jinbuguo.com/systemd/systemctl.html">这篇翻译官方文档的博客</a>给出<code>enabled-runtime</code>是“已经通过 /run/systemd/system/ 目录下的 Alias= 别名、 .wants/ 或 .requires/ 软连接被临时启用”；</li>
+<li>实际可以发现<code>postgresql@16-main.service</code>和<code>postgresql@18-main.service</code>均存在于<code>/run/systemd/generator/postgresql.service.wants</code>；</li>
+</ul>
+</li>
+<li>直接运行<code>systemctl stop postgresql.service</code>会尝试启动所有存在的Postgresql版本；并在<code>/run/systemd/generator/postgresql.service.wants</code>创建对应所有版本的<code>postgresql@&lt;版本号&gt;-main.service</code>。
+<ul>
+<li>这样因为端口冲突，16启动后18就启动失败了。</li>
+</ul>
+</li>
+</ul>
+<p>于是问题转化为如何让<code>postgresql.service</code>只启动18而不启动16。上网搜索和询问AI均建议删除原<code>postgresql.service</code>并将<code>postgresql@18-main.service</code>直接软连接到<code>postgresql.service</code>上面，但这显然违背了官方的服务管理的框架。</p>
+<p>于是笔者在<code>/lib/systemd</code>下查找了下所有postgres开头的文件，果然有所发现，在<code>/lib/systemd/system-generators</code>下还有一个<code>postgresql-generator</code>文件，打开后内容如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># This systemd generator creates dependency symlinks that make all PostgreSQL</span></span><br><span class="line"><span class="comment"># clusters with &quot;auto&quot; in their start.conf file be started/stopped/reloaded</span></span><br><span class="line"><span class="comment"># when postgresql.service is started/stopped/reloaded.</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> -eu</span><br><span class="line"></span><br><span class="line">gendir=<span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line">wantdir=<span class="string">&quot;<span class="variable">$1</span>/postgresql.service.wants&quot;</span></span><br><span class="line">bindir=<span class="string">&quot;/usr/lib/postgresql/&quot;</span></span><br><span class="line"><span class="comment">#redhat# bindir=&quot;/usr/pgsql-&quot;</span></span><br><span class="line">pgservice=<span class="string">&quot;/lib/systemd/system/postgresql@.service&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$wantdir</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> conf <span class="keyword">in</span> /etc/postgresql/*/*/postgresql.conf; <span class="keyword">do</span></span><br><span class="line">        <span class="comment"># abort loop if glob was not expanded (but accept dead symlinks)</span></span><br><span class="line">        <span class="keyword">if</span> ! <span class="built_in">test</span> -e <span class="string">&quot;<span class="variable">$conf</span>&quot;</span> &amp;&amp; ! <span class="built_in">test</span> -L <span class="string">&quot;<span class="variable">$conf</span>&quot;</span>; <span class="keyword">then</span> <span class="built_in">continue</span>; <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">        <span class="built_in">dir</span>=<span class="string">&quot;<span class="variable">$&#123;conf%/*&#125;</span>&quot;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># evaluate start.conf</span></span><br><span class="line">        <span class="keyword">if</span> [ -e <span class="string">&quot;<span class="variable">$dir</span>/start.conf&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">                start=$(sed <span class="string">&#x27;s/#.*$//; /^[[:space:]]*$/d; s/^\s*//; s/\s*$//&#x27;</span> <span class="string">&quot;<span class="variable">$dir</span>/start.conf&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">                start=auto</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        [ <span class="string">&quot;<span class="variable">$start</span>&quot;</span> = <span class="string">&quot;auto&quot;</span> ] || <span class="built_in">continue</span></span><br><span class="line"></span><br><span class="line">        verdir=<span class="string">&quot;<span class="variable">$&#123;dir%/*&#125;</span>&quot;</span></span><br><span class="line">        version=<span class="string">&quot;<span class="variable">$&#123;verdir##*/&#125;</span>&quot;</span></span><br><span class="line">        <span class="built_in">test</span> -x <span class="string">&quot;$bindir<span class="variable">$version</span>/bin/postgres&quot;</span> || <span class="built_in">continue</span> <span class="comment"># package got removed</span></span><br><span class="line">        cluster=<span class="string">&quot;<span class="variable">$&#123;dir##*/&#125;</span>&quot;</span></span><br><span class="line">        <span class="built_in">ln</span> -s <span class="string">&quot;<span class="variable">$pgservice</span>&quot;</span> <span class="string">&quot;<span class="variable">$wantdir</span>/postgresql@<span class="variable">$version</span>-<span class="variable">$cluster</span>.service&quot;</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
+<p>可见在<code>/run/systemd/generator/postgresql.service.wants</code>生成启动服务是根据Postgresql配置文件里面的<code>start.conf</code>决定的。于是官方的解决方法应该是把16版本配置文件目录<code>/etc/postgresql/16/main</code>里面的<code>start.conf</code>里面的内容从<code>auto</code>改为<code>manual</code>(注释中有给出内容的选项和含义)。</p>
+
             </div>
-        </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
     
-</div>
+<nav id="article-nav">
+    
+    
+        <a href="/2026/05/03/airflow_upgrade_1/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Airflow 升级与配置问题处理记录</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
 </section>
         </div>
         <footer id="footer">
